@@ -1,35 +1,44 @@
-"use client"
+"use client";
 
-import * as React from 'react'
-import { useState } from 'react'
-import Link from 'next/link'
-import Image from 'next/image'
-import { motion, useScroll, useMotionValueEvent } from 'framer-motion'
-import { Button } from '@/components/ui/button'
-import { ThemeSwitcher } from '@/components/theme-switcher'
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select'
-import { Mail, Phone, Search, ArrowRight } from 'lucide-react'
+import * as React from "react";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { Button } from "@/components/ui/button";
+import { ThemeSwitcher } from "@/components/theme-switcher";
+import { Mail, Phone, Menu, X, ChevronDown, ArrowRight, Search } from "lucide-react";
 
 export function Header() {
-  const [isScrolled, setIsScrolled] = useState(false)
-  const { scrollY } = useScroll()
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSubMenu, setActiveSubMenu] = useState<string | null>(null);
 
-  useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50)
-  })
+  const toggleSubMenu = (item: string) => {
+    setActiveSubMenu((prev) => (prev === item ? null : item));
+  };
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+  }, [isMobileMenuOpen]);
 
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled 
-          ? 'bg-background/90 backdrop-blur-sm' 
-          : 'bg-transparent'
+        isScrolled ? "bg-background/90 backdrop-blur-sm" : "bg-transparent"
       }`}
     >
       {/* Top bar - only shown when not scrolled */}
@@ -37,67 +46,106 @@ export function Header() {
         <div className="hidden border-b border-white/10 md:block">
           <div className="mx-auto flex h-10 max-w-[1800px] items-center justify-between px-10">
             <div className="flex items-center gap-6 text-sm">
-              <Link 
-                href="tel:+31882013101" 
+              <Link
+                href="tel:+31882013101"
                 className="flex items-center gap-2 text-white hover:text-primary"
               >
                 <Phone className="h-4 w-4" />
                 +31 882 013 101
               </Link>
-              <Link 
-                href="mailto:business@multichoiceagency.com" 
+              <Link
+                href="mailto:business@multichoiceagency.com"
                 className="flex items-center gap-2 text-white hover:text-primary"
               >
                 <Mail className="h-4 w-4" />
                 business@multichoiceagency.com
               </Link>
             </div>
-            <div className="flex items-center gap-4">
-              <Link 
-                href="/rfp" 
-                className="text-sm text-white hover:text-primary"
-              >
-                RFP/RFI Insturen
-              </Link>
-              <Select defaultValue="nl">
-                <SelectTrigger className="h-8 w-[70px] border-0 bg-transparent text-white">
-                  <SelectValue />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="nl">NL</SelectItem>
-                  <SelectItem value="en">EN</SelectItem>
-                  <SelectItem value="de">DE</SelectItem>
-                </SelectContent>
-              </Select>
-            </div>
           </div>
         </div>
       )}
 
       {/* Main navigation */}
-      <div className={`border-b transition-all ${isScrolled ? 'border-border' : 'border-white/10'}`}>
+      <div
+        className={`border-b transition-all ${
+          isScrolled ? "border-border" : "border-white/10"
+        }`}
+      >
         <div className="mx-auto flex h-20 max-w-[1800px] items-center justify-between px-10">
-          <Link 
-            href="/" 
+          <Link
+            href="/"
             className={`text-2xl font-bold transition-colors ${
-              isScrolled ? 'text-foreground' : 'text-white'
+              isScrolled ? "text-foreground" : "text-white"
             }`}
           >
             Multichoiceagency
           </Link>
 
-          <div className={`flex items-center gap-8 ${isScrolled ? 'ml-auto mr-8' : ''}`}>
-            <NavigationMenu isScrolled={isScrolled} />
+          {/* Desktop Menu */}
+          <div
+            className={`hidden md:flex items-center gap-8 ${
+              isScrolled ? "ml-auto mr-8" : ""
+            }`}
+          >
+            <div className="group relative">
+              <Link
+                href="/wat-we-doen"
+                className={`flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition-colors ${
+                  isScrolled
+                    ? "text-foreground hover:text-primary"
+                    : "text-white hover:text-white/80"
+                }`}
+              >
+                Wat we doen
+              </Link>
+            </div>
+
+            <Link
+              href="/cases"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors ${
+                isScrolled ? "text-foreground hover:text-primary" : "text-white"
+              }`}
+            >
+              Cases
+            </Link>
+
+            <Link
+              href="/carriere"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors ${
+                isScrolled ? "text-foreground hover:text-primary" : "text-white"
+              }`}
+            >
+              Carrière
+            </Link>
+
+            <Link
+              href="/insights"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors ${
+                isScrolled ? "text-foreground hover:text-primary" : "text-white"
+              }`}
+            >
+              Insights
+            </Link>
+
+            <Link
+              href="/over-ons"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors ${
+                isScrolled ? "text-foreground hover:text-primary" : "text-white"
+              }`}
+            >
+              Over ons
+            </Link>
           </div>
 
-          <div className="flex items-center gap-4">
-            <Button 
-              variant="ghost" 
-              size="icon" 
+          {/* Desktop Buttons: Search, Theme Switcher, Contact */}
+          <div className="hidden md:flex items-center gap-4">
+            <Button
+              variant="ghost"
+              size="icon"
               className={`transition-colors ${
-                isScrolled 
-                  ? 'text-foreground hover:bg-foreground/10' 
-                  : 'text-white hover:bg-white/10'
+                isScrolled
+                  ? "text-foreground hover:bg-foreground/10"
+                  : "text-white hover:bg-white/10"
               }`}
             >
               <Search className="h-5 w-5" />
@@ -108,102 +156,125 @@ export function Header() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
           </div>
-        </div>
-      </div>
-    </motion.header>
-  )
-}
 
-function NavigationMenu({ isScrolled }: { isScrolled: boolean }) {
-  return (
-    <>
-      <div className="group relative">
-        <Link 
-          href="/wat-we-doen"
-          className={`flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition-colors ${
-            isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-white/80'
-          }`}
-        >
-          Wat we doen
-          <ArrowRight className="h-4 w-4 rotate-90 transition-transform group-hover:rotate-0" />
-        </Link>
-        <div className="invisible absolute left-0 top-full w-[800px] translate-y-2 opacity-0 transition-all group-hover:visible group-hover:translate-y-0 group-hover:opacity-100">
-          <div className="rounded-lg bg-background p-6 shadow-lg">
-            <div className="flex gap-6">
-              <div className="w-2/3 space-y-1">
-                <NavigationLink href="/wat-we-doen/diensten/brand-business-experience-design" text="Brand, Business & Experience Design" />
-                <NavigationLink href="/wat-we-doen/diensten/digital-platforms" text="Digital Platforms" />
-                <NavigationLink href="/wat-we-doen/diensten/marketing-programs-campaigns" text="Marketing Programs & Campaigns" />
-                <NavigationLink href="/wat-we-doen/diensten/creation-content-production" text="Creation & Content Production" />
-                <NavigationLink href="/wat-we-doen/diensten/cloud-data-integration" text="Cloud, Data & Integration" />
-                <NavigationLink href="/wat-we-doen/diensten/transformation-consulting" text="Transformation & Consulting" />
-              </div>
-              <div className="w-1/3">
-                <div className="relative aspect-[4/3] overflow-hidden rounded-lg">
-                  <Image
-                    src="https://images.unsplash.com/photo-1553877522-43269d4ea984?w=800&auto=format&fit=crop&q=60"
-                    alt="Digital Services"
-                    fill
-                    className="object-cover transition-transform group-hover:scale-105"
-                  />
-                </div>
-                <div className="mt-4">
-                  <h4 className="font-medium">Digital Excellence</h4>
-                  <p className="mt-1 text-sm text-muted-foreground">Transform je business met onze complete digitale oplossingen</p>
-                </div>
-              </div>
-            </div>
+          {/* Mobile Menu Button */}
+          <div className="md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsMobileMenuOpen(true)}
+              className={`${
+                isScrolled
+                  ? "text-foreground hover:text-primary"
+                  : "text-white hover:text-gray-400"
+              }`}
+            >
+              <Menu className="h-6 w-6" />
+            </Button>
           </div>
         </div>
       </div>
 
-      <Link 
-        href="/cases" 
-        className={`text-sm font-medium uppercase tracking-wide transition-colors ${
-          isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-white/80'
-        }`}
-      >
-        Cases
-      </Link>
+      {/* Mobile Fullscreen Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: "-100%" }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="fixed inset-0 z-50 bg-background dark:bg-background-dark flex flex-col"
+          >
+            {/* Mobile Menu Header */}
+            <div className="flex justify-between items-center p-4 border-b border-border">
+              {/* Logo */}
+              <Link
+                href="/"
+                className="text-2xl font-bold text-foreground"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Multichoiceagency
+              </Link>
+              {/* Close and Theme Switcher */}
+              <div className="flex items-center gap-4">
+                <ThemeSwitcher isScrolled={true} />
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  <X className="h-6 w-6" />
+                </Button>
+              </div>
+            </div>
 
-      <Link 
-        href="/carriere" 
-        className={`text-sm font-medium uppercase tracking-wide transition-colors ${
-          isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-white/80'
-        }`}
-      >
-        Carrière
-      </Link>
+            {/* Mobile Navigation Links with Book Folding Animation */}
+            <motion.nav
+              className="flex flex-col flex-grow items-center justify-center p-8"
+              initial="hidden"
+              animate="visible"
+              exit="hidden"
+              variants={{
+                hidden: { opacity: 0, y: "-100%" },
+                visible: {
+                  opacity: 1,
+                  y: 0,
+                  transition: {
+                    staggerChildren: 0.1,
+                  },
+                },
+              }}
+            >
+              <ul className="space-y-6 text-left w-full">
+                {["wat-we-doen", "cases", "carriere", "insights", "over-ons"].map(
+                  (item, index) => (
+                    <motion.li
+                      key={index}
+                      initial={{ opacity: 0, y: -50 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      exit={{ opacity: 0, y: -50 }}
+                      transition={{ delay: index * 0.1, type: "spring", stiffness: 70 }}
+                    >
+                      <Link
+                        href={`/${item}`}
+                        className="text-lg font-medium w-full"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                      >
+                        {item.replace("-", " ")}
+                      </Link>
+                    </motion.li>
+                  )
+                )}
+              </ul>
+            </motion.nav>
 
-      <Link 
-        href="/insights" 
-        className={`text-sm font-medium uppercase tracking-wide transition-colors ${
-          isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-white/80'
-        }`}
-      >
-        Insights
-      </Link>
-
-      <Link 
-        href="/over-ons" 
-        className={`text-sm font-medium uppercase tracking-wide transition-colors ${
-          isScrolled ? 'text-foreground hover:text-primary' : 'text-white hover:text-white/80'
-        }`}
-      >
-        Over ons
-      </Link>
-    </>
-  )
-}
-
-function NavigationLink({ href, text }: { href: string; text: string }) {
-  return (
-    <Link 
-      href={href} 
-      className="group flex items-center justify-between rounded-lg p-3 text-foreground transition-colors hover:bg-muted"
-    >
-      {text}
-      <ArrowRight className="h-4 w-4 opacity-0 transition-opacity group-hover:opacity-100" />
-    </Link>
-  )
+            {/* Footer with Contact Info */}
+            <div className="mt-auto p-8 border-t border-border">
+              <div className="space-y-4">
+                <div className="flex flex-col text-sm space-y-2">
+                  <Link
+                    href="tel:+31882013101"
+                    className="flex items-center gap-2 hover:text-primary"
+                  >
+                    <Phone className="h-4 w-4" />
+                    +31 882 013 101
+                  </Link>
+                  <Link
+                    href="mailto:business@multichoiceagency.com"
+                    className="flex items-center gap-2 hover:text-primary"
+                  >
+                    <Mail className="h-4 w-4" />
+                    business@multichoiceagency.com
+                  </Link>
+                </div>
+                <Button className="w-full mt-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
+                  Vraag een offerte aan
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </motion.header>
+  );
 }

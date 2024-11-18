@@ -1,6 +1,7 @@
 import { Hero } from "@/components/hero"
 import { Experience } from "@/components/experience"
 import { Solutions } from "@/components/solutions"
+import RelatedCasesSlider from "@/components/RelatedCasesSlider"
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <Experience />
       <Solutions />
+      <RelatedCasesSlider />
     </main>
   )
 }
