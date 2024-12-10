@@ -20,7 +20,7 @@ const slides: Slide[] = [
   {
     video: "https://cdn.pixabay.com/video/2022/10/24/136268-764387688_tiny.mp4",
     title: "Creëer uitzonderlijke gebruikerservaringen die groei stimuleren",
-    button: "Lees meer",
+    button: "Lees mer",
   },
   {
     video: "https://cdn.pixabay.com/video/2016/11/15/6378-191636243_tiny.mp4",
