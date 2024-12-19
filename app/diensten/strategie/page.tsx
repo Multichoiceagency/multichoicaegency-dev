@@ -4,7 +4,6 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { ExpertiseGrid } from "@/components/expertise-grid"
 import { ContactFormulier } from "@/components/contact-formulier"
 
 export default function StrategiePage() {
@@ -49,7 +48,6 @@ export default function StrategiePage() {
       </section>
 
       {/* Content Sections */}
-      <ExpertiseGrid />
       <ContactFormulier />
     </main>
   )
