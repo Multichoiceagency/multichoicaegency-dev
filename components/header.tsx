@@ -89,14 +89,14 @@ export function Header() {
           >
             <div className="group relative">
               <Link
-                href="/wat-we-doen"
+                href="/webdevelopment"
                 className={`flex items-center gap-2 text-sm font-medium uppercase tracking-wide transition-colors ${
                   isScrolled
                     ? "text-foreground hover:text-primary"
                     : "text-white hover:text-white/80"
                 }`}
               >
-                Wat we doen
+                WEBSITES
               </Link>
             </div>
 
@@ -106,7 +106,7 @@ export function Header() {
                 isScrolled ? "text-foreground hover:text-primary" : "text-white"
               }`}
             >
-              Cases
+              E-COMMERCE
             </Link>
 
             <Link
@@ -115,25 +115,40 @@ export function Header() {
                 isScrolled ? "text-foreground hover:text-primary" : "text-white"
               }`}
             >
-              Carrière
+              DEVELOPMENT
             </Link>
 
             <Link
-              href="/insights"
+              href="/development"
               className={`text-sm font-medium uppercase tracking-wide transition-colors ${
                 isScrolled ? "text-foreground hover:text-primary" : "text-white"
               }`}
             >
-              Insights
+              CASES
             </Link>
-
+            <Link
+              href="/industrien"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors ${
+                isScrolled ? "text-foreground hover:text-primary" : "text-white"
+              }`}
+            >
+              INDUSTRIEEN
+            </Link>
             <Link
               href="/over-ons"
               className={`text-sm font-medium uppercase tracking-wide transition-colors ${
                 isScrolled ? "text-foreground hover:text-primary" : "text-white"
               }`}
             >
-              Over ons
+              OVER ONS
+            </Link>
+            <Link
+              href="/contact"
+              className={`text-sm font-medium uppercase tracking-wide transition-colors ${
+                isScrolled ? "text-foreground hover:text-primary" : "text-white"
+              }`}
+            >
+              CONTACT
             </Link>
           </div>
 
@@ -257,14 +272,14 @@ export function Header() {
                     className="flex items-center gap-2 hover:text-primary"
                   >
                     <Phone className="h-4 w-4" />
-                    +31 882 013 101
+                    010 322 04 10
                   </Link>
                   <Link
                     href="mailto:business@multichoiceagency.com"
                     className="flex items-center gap-2 hover:text-primary"
                   >
                     <Mail className="h-4 w-4" />
-                    business@multichoiceagency.com
+                    info@multichoiceagency.com
                   </Link>
                 </div>
                 <Button className="w-full mt-4 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">

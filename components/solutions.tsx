@@ -6,40 +6,76 @@ import Link from "next/link";
 
 const diensten = [
   {
-    title: "Brand, Business & Experience Design",
+    title: "UI/UX Design",
     description:
-      "We brengen je merk tot leven door elke gebruikerservaring vorm te geven en te verbinden met je merk en bedrijf.",
-    href: "/wat-we-doen/diensten/brand-business-experience-design",
+      "Creëer prototypes en wireframes voor interactieve en gebruiksvriendelijke ontwerpen die aansluiten bij je merk.",
+    href: "/diensten/webdesign/ui-ux-design",
   },
   {
-    title: "Digital Platforms",
+    title: "Responsief Webdesign",
     description:
-      "We zorgen voor de bouw van technologische teams, architectuur en platforms. Van eenvoudig tot complex, om diensten te digitaliseren en klantloyaliteit te bevorderen.",
-    href: "/wat-we-doen/diensten/digital-platforms",
+      "Zorg voor een naadloze gebruikerservaring op desktop, tablet en mobiel met modern responsief design.",
+    href: "/diensten/webdesign/responsief-webdesign",
   },
   {
-    title: "Marketing Programs & Campaigns",
+    title: "Custom Webdesign",
     description:
-      "We bereiken je doelgroepen op de juiste kanalen met de juiste tone of voice en versnellen de groei van je merk door full-funnel marketing.",
-    href: "/wat-we-doen/diensten/marketing-programs-campaigns",
+      "Ontwikkel maatwerkoplossingen die perfect passen bij jouw huisstijl en bedrijfsdoelen.",
+    href: "/diensten/webdesign/custom-webdesign",
   },
   {
-    title: "Creation & Content Production",
+    title: "Frontend Development",
     description:
-      "We creëren content die je merkbeleving vormgeeft en gebruikers aantrekt. Onze experts adviseren, plannen en produceren foto-, audio-, tekst- en videomateriaal.",
-    href: "/wat-we-doen/diensten/creation-content-production",
+      "Bouw snelle en aantrekkelijke interfaces met technologieën zoals React, Next.js en Tailwind CSS.",
+    href: "/diensten/webdevelopment/frontend-development",
   },
   {
-    title: "Cloud, Data & Integration",
+    title: "Backend Development",
     description:
-      "We maken je IT-, data- en marketing-infrastructuur schaalbaar. Geïntegreerd met de juiste cloud-partnerships en data setups.",
-    href: "/wat-we-doen/diensten/cloud-data-integration",
+      "Implementeer robuuste server-side oplossingen met Node.js, Django of Laravel.",
+    href: "/diensten/webdevelopment/backend-development",
   },
   {
-    title: "Transformation & Consulting",
+    title: "E-commerce Platformontwikkeling",
     description:
-      "We ondersteunen je transformatie, realiseren CX-impact door service design en ontwikkelen digitale kennis binnen je teams.",
-    href: "/wat-we-doen/diensten/transformation-consulting",
+      "Ontwikkel krachtige webshops met WooCommerce, Shopify of Magento, volledig aangepast aan jouw behoeften.",
+    href: "/diensten/ecommerce/ecommerce-platformontwikkeling",
+  },
+  {
+    title: "Headless E-commerce",
+    description:
+      "Combineer flexibiliteit en snelheid met headless oplossingen zoals Next.js of Gatsby.",
+    href: "/diensten/ecommerce/headless-ecommerce",
+  },
+  {
+    title: "Logo Ontwerp & Visuele Identiteit",
+    description:
+      "Ontwerp een onderscheidend logo en een visuele identiteit die je merk versterkt.",
+    href: "/diensten/branding/logo-visuele-identiteit",
+  },
+  {
+    title: "Merkstrategie en Storytelling",
+    description:
+      "Definieer een sterke merkstrategie en vertel jouw verhaal op een manier die impact maakt.",
+    href: "/diensten/branding/merkstrategie-storytelling",
+  },
+  {
+    title: "Technische SEO",
+    description:
+      "Optimaliseer je website voor zoekmachines en verbeter je zichtbaarheid met technische SEO.",
+    href: "/diensten/seo/technische-seo",
+  },
+  {
+    title: "Digitale Marketingcampagnes",
+    description:
+      "Bereik je doelgroep met effectieve Google Ads, Facebook Ads en meer.",
+    href: "/diensten/digitale-marketing/campagnes",
+  },
+  {
+    title: "Hosting en Domeinbeheer",
+    description:
+      "Zorg voor betrouwbare hosting en professioneel domeinbeheer om je website altijd operationeel te houden.",
+    href: "/diensten/technische-ondersteuning/hosting-domeinbeheer",
   },
 ];
 
@@ -66,13 +102,13 @@ export function Solutions() {
               className="mb-8"
             >
               <h2 className="mb-4 text-4xl font-medium leading-tight md:text-5xl lg:text-6xl">
-                Blenden van expertise voor{" "}
+                Kies voor{" "}
                 <span className="italic text-muted-foreground">
-                  optimale ervaringen
+                  expertise op maat
                 </span>
               </h2>
               <p className="mb-8 text-lg text-muted-foreground">
-                Op zoek naar een specifieke expertise? Ontdek al onze diensten.
+                Ontdek hoe onze diensten jouw groei kunnen versnellen.
               </p>
             </motion.div>
           </div>

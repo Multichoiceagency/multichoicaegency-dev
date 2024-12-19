@@ -1,30 +1,34 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { ArrowRight, ArrowLeft, Maximize2, Minimize2 } from "lucide-react";
+import { ArrowRight, ArrowLeft, Maximize2, Minimize2 } from 'lucide-react';
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 
 interface Slide {
   video: string;
   title: string;
+  description: string;
   button: string;
 }
 
 const slides: Slide[] = [
   {
     video: "https://cdn.pixabay.com/video/2018/12/24/20218-308135835_large.mp4",
-    title: "Transformeer uw digitale aanwezigheid met innovatieve oplossingen",
+    title: "Transformeer uw digitale aanwezigheid",
+    description: "Creëer uitzonderlijke gebruikerservaringen met onze expertise in frontend development. Bouw interactieve interfaces die uw doelgroep boeien.",
     button: "Bekijk casestudy",
   },
   {
     video: "https://cdn.pixabay.com/video/2022/10/24/136268-764387688_tiny.mp4",
-    title: "Creëer uitzonderlijke gebruikerservaringen die groei stimuleren",
-    button: "Lees mer",
+    title: "Bouw robuuste backend systemen",
+    description: "Ontwikkel schaalbare en betrouwbare applicaties met onze backend expertise. Optimaliseer uw bedrijfsprocessen met efficiënte dataverwerking.",
+    button: "Lees meer",
   },
   {
     video: "https://cdn.pixabay.com/video/2016/11/15/6378-191636243_tiny.mp4",
-    title: "Bouw krachtige digitale platformen voor het moderne web",
+    title: "Naadloze API-integraties",
+    description: "Verbind uw systemen effectief met onze API-integraties. Stroomlijn data-uitwisseling en ontsluit nieuwe functionaliteiten voor uw applicaties.",
     button: "Begin nu",
   },
 ];
@@ -53,18 +57,14 @@ export function Hero() {
     changeSlide((currentSlide - 1 + slides.length) % slides.length);
   }, [currentSlide, changeSlide]);
 
-  // Handle swipe gestures for both mobile and desktop
   const handleDragEnd = (e: any, info: any) => {
     if (info.offset.x < -100) {
-      // Swiped left
       nextSlide();
     } else if (info.offset.x > 100) {
-      // Swiped right
       previousSlide();
     }
   };
 
-  // Keyboard Navigation
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === "ArrowRight") nextSlide();
@@ -75,13 +75,11 @@ export function Hero() {
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, [nextSlide, previousSlide]);
 
-  // Auto-Slide Timer
   useEffect(() => {
     const timer = setInterval(nextSlide, 5000);
     return () => clearInterval(timer);
   }, [nextSlide]);
 
-  // Fullscreen Toggle
   const toggleFullscreen = async () => {
     if (!document.fullscreenElement) {
       try {
@@ -101,7 +99,7 @@ export function Hero() {
   };
 
   return (
-    <div className="relative h-screen w-full overflow-hidden">
+    <div className="relative h-[80vh] sm:h-screen w-full overflow-hidden">
       <AnimatePresence initial={false}>
         <motion.div
           key={currentSlide}
@@ -109,7 +107,7 @@ export function Hero() {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.5 }}
-          className="absolute inset-0"
+          className="absolute inset-0 flex flex-col"
         >
           <motion.video
             drag="x"
@@ -123,22 +121,27 @@ export function Hero() {
           >
             <source src={slides[currentSlide].video} type="video/mp4" />
           </motion.video>
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-black/60" />
 
-          <div className="relative h-full">
-            <div className="mx-auto h-full max-w-[1800px] px-6 sm:px-10">
-              <div className="flex h-full flex-col justify-between py-8">
+          <div className="relative flex-grow flex items-center">
+            <div className="mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8 w-full">
+              <div className="flex flex-col h-full py-6 sm:py-12">
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="max-w-3xl pt-32 md:pt-48 text-left"
+                  className="max-w-2xl space-y-6"
                 >
-                  <h1 className="text-4xl font-medium leading-tight text-white mt-32 md:text-5xl lg:text-6xl">
-                    {slides[currentSlide].title}
-                  </h1>
-                  <div className="mt-8 flex items-center gap-4">
-                    <button className="group flex items-center space-x-2 rounded-full border border-white px-6 py-3 text-white transition-colors hover:bg-white hover:text-black">
+                  <div className="space-y-3">
+                    <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-white">
+                      {slides[currentSlide].title}
+                    </h1>
+                    <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+                      {slides[currentSlide].description}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <button className="group flex items-center space-x-2 rounded-full border border-white px-4 sm:px-6 py-2 sm:py-3 text-sm sm:text-base text-white transition-colors hover:bg-white hover:text-black">
                       <span>{slides[currentSlide].button}</span>
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>
@@ -156,40 +159,44 @@ export function Hero() {
                     </Button>
                   </div>
                 </motion.div>
-
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  className="flex items-center justify-between pb-8"
-                >
-                  <div className="flex space-x-4">
-                    {slides.map((_, idx) => (
-                      <button
-                        key={idx}
-                        onClick={() => changeSlide(idx)}
-                        className={`h-2 w-2 rounded-full transition-all ${
-                          currentSlide === idx ? "bg-white w-8" : "bg-white/50"
-                        }`}
-                      />
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-4">
-                    <button
-                      onClick={previousSlide}
-                      className="rounded-full border border-white p-4 text-white transition-colors hover:bg-white hover:text-black"
-                    >
-                      <ArrowLeft className="h-6 w-6" />
-                    </button>
-                    <button
-                      onClick={nextSlide}
-                      className="rounded-full border border-white p-4 text-white transition-colors hover:bg-white hover:text-black"
-                      disabled={isTransitioning}
-                    >
-                      <ArrowRight className="h-6 w-6" />
-                    </button>
-                  </div>
-                </motion.div>
               </div>
+            </div>
+          </div>
+
+          <div className="relative py-4 sm:py-6">
+            <div className="mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                className="flex items-center justify-between w-full"
+              >
+                <div className="flex space-x-3">
+                  {slides.map((_, idx) => (
+                    <button
+                      key={idx}
+                      onClick={() => changeSlide(idx)}
+                      className={`h-1.5 rounded-full transition-all ${
+                        currentSlide === idx ? "bg-white w-6" : "bg-white/50 w-1.5"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={previousSlide}
+                    className="rounded-full border border-white p-2 sm:p-3 text-white transition-colors hover:bg-white hover:text-black"
+                  >
+                    <ArrowLeft className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </button>
+                  <button
+                    onClick={nextSlide}
+                    className="rounded-full border border-white p-2 sm:p-3 text-white transition-colors hover:bg-white hover:text-black"
+                    disabled={isTransitioning}
+                  >
+                    <ArrowRight className="h-4 w-4 sm:h-5 sm:w-5" />
+                  </button>
+                </div>
+              </motion.div>
             </div>
           </div>
         </motion.div>
@@ -197,3 +204,4 @@ export function Hero() {
     </div>
   );
 }
+

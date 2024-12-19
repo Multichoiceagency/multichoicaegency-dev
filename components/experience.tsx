@@ -1,12 +1,14 @@
-"use client";
+"use client"
 
-import { useEffect, useRef } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { useEffect, useRef } from "react"
+import { motion } from "framer-motion"
+import { ArrowDown } from 'lucide-react'
+import { cn } from "@/lib/utils"
 
 const services = [
   {
     title: "Strategie",
-    description: "Digitale transformatieplannen die succes stimuleren",
+    description: "Digitale transformatiestrategieën die succes stimuleren",
   },
   {
     title: "Technologie",
@@ -14,149 +16,119 @@ const services = [
   },
   {
     title: "Marketing",
-    description: "Data-gedreven campagnes die resultaten leveren",
+    description: "Datagestuurde campagnes die resultaat leveren",
   },
   {
     title: "Design",
-    description: "Creatieve ervaringen die inspireren en betrekken",
+    description: "Creatieve ervaringen die inspireren en boeien",
   },
-];
+]
 
-export function Experience() {
-  const ref = useRef(null);
-  const inView = useInView(ref, { once: true });
-  const controls = useAnimation();
-
-  useEffect(() => {
-    if (inView) {
-      controls.start("visible");
-    }
-  }, [inView, controls]);
-
-  const tileVariants = {
-    hidden: { opacity: 0, scale: 0.8 }, // Tiles start small and transparent
-    visible: (index: number) => ({
-      opacity: 1,
-      scale: 1, // Tiles grow to their full size
-      transition: {
-        type: "spring",
-        stiffness: 200,
-        damping: 15,
-        delay: index * 0.1, // Staggered animation based on index
-      },
-    }),
-  };
+export function Experience(): JSX.Element {
+  const words: string[] = [
+    "Maak elke klantinteractie",
+    "krachtig.",
+  ]
 
   return (
-    <section className="relative min-h-screen bg-black dark:bg-white">
-      {/* Animated Tile Grid */}
+    <section className="relative py-5 min-h-screen bg-white dark:bg-gray-900 transition-colors duration-300">
+      {/* Geanimeerde rasterlijnen */}
       <div className="absolute inset-0 overflow-hidden">
-        <div
-          ref={ref}
-          className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 lg:grid-cols-10 grid-rows-4 sm:grid-rows-6 md:grid-rows-8 lg:grid-rows-10 h-full w-full"
-        >
-          {Array.from({ length: 100 }).map((_, index) => (
-            <motion.div
-              key={index}
-              className="bg-dark-700 dark:bg-gray-300 border border-gray-600/30 dark:border-black/20 aspect-square"
-              variants={tileVariants}
-              initial="hidden"
-              animate={controls}
-              custom={index}
-            />
-          ))}
-        </div>
+        {Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={`horizontal-${i}`}
+            className="absolute left-0 right-0 h-px bg-black/10 dark:bg-white/10"
+            style={{ top: `${(i + 1) * 5}%` }}
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: i * 0.1 }}
+          />
+        ))}
+        {Array.from({ length: 20 }).map((_, i) => (
+          <motion.div
+            key={`vertical-${i}`}
+            className="absolute bottom-0 top-0 w-px bg-black/10 dark:bg-white/10"
+            style={{ left: `${(i + 1) * 5}%` }}
+            initial={{ scaleY: 0, opacity: 0 }}
+            animate={{ scaleY: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: i * 0.1 }}
+          />
+        ))}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 pt-16 pb-16">
+      {/* Inhoud */}
+      <div className="relative z-10">
         <div className="mx-auto max-w-[1800px] px-10">
-          <div className="flex min-h-screen flex-col items-start justify-center text-white dark:text-black">
-            {/* Service Boxes */}
+          <div className="flex min-h-screen flex-col items-start justify-center">
+            {/* Dienstvakken */}
             <div className="mb-24 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
               {services.map((service, index) => (
                 <motion.div
                   key={service.title}
-                  initial={{ opacity: 0, y: 50 }}
+                  initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.8,
-                    delay: index * 0.2,
-                    type: "spring",
-                  }}
-                  className="rounded-2xl bg-gradient-to-br from-[#1e7932]/20 to-[#1e7932]/10 p-8 backdrop-blur-sm dark:bg-gradient-to-br dark:from-[#d1fae5]/40 dark:to-[#d1fae5]/20"
+                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="rounded-2xl bg-gradient-to-br from-[#1e7932]/20 to-[#1e7932]/10 dark:from-[#1e7932]/30 dark:to-[#1e7932]/20 p-8 backdrop-blur-sm"
                 >
-                  <h3 className="mb-2 text-2xl font-medium">{service.title}</h3>
-                  <p className="text-opacity-80">{service.description}</p>
+                  <h3 className="mb-2 text-2xl font-medium text-gray-800 dark:text-white">{service.title}</h3>
+                  <p className="text-gray-600 dark:text-white/80">{service.description}</p>
                 </motion.div>
               ))}
             </div>
 
-            {/* Main Text */}
+            {/* Hoofdtekst */}
             <div className="mb-12">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
-                className="mb-4 text-xl italic"
+                className="mb-4 text-xl italic text-gray-600 dark:text-white/80"
               >
-                Ervaring is alles
+                Ervaring maakt het verschil
               </motion.p>
 
               <div className="overflow-hidden">
-                <motion.h2
-                  initial={{ y: 100 }}
-                  animate={{ y: 0 }}
-                  transition={{ duration: 0.8 }}
-                  className="text-5xl font-medium leading-tight md:text-7xl"
-                >
-                  Maak elke klantinteractie{" "}
-                  <span className="text-[#1e7932] dark:text-[#10b981]">
-                    krachtig.
-                  </span>
-                </motion.h2>
+                {words.map((word, index) => (
+                  <motion.h2
+                    key={word}
+                    initial={{ y: 100 }}
+                    animate={{ y: 0 }}
+                    transition={{ duration: 0.8, delay: index * 0.2 }}
+                    className={cn(
+                      "text-5xl font-medium leading-tight md:text-7xl pb-4",
+                      index === words.length - 1 ? "text-[#1e7932]" : "text-gray-800 dark:text-white"
+                    )}
+                  >
+                    {word}
+                  </motion.h2>
+                ))}
               </div>
             </div>
 
-            {/* Description */}
+            {/* Beschrijving */}
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.6 }}
-              className="mb-12 max-w-3xl text-lg text-opacity-60"
+              className="mb-12 max-w-3xl text-lg text-gray-600 dark:text-white/60"
             >
-              Transformeer uw merk en bedrijf met uitzonderlijke digitale
-              ervaringen die groei en innovatie stimuleren. Ons team van
-              experts levert baanbrekende oplossingen die u een voorsprong geven
-              op de concurrentie.
+              Transformeer je merk en bedrijf met uitzonderlijke digitale ervaringen die groei en innovatie stimuleren. Ons team van experts levert geavanceerde oplossingen die je een voorsprong geven op de concurrentie.
             </motion.p>
 
-            {/* Button */}
+            {/* Knop */}
             <motion.button
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.8 }}
-              className="group flex items-center gap-2 rounded-full bg-[#1e7932] px-6 py-3 text-white transition-all hover:bg-[#1e7932]/90 dark:bg-[#10b981] dark:hover:bg-[#10b981]/90"
+              className="group flex items-center gap-2 rounded-full bg-[#1e7932] px-6 py-3 text-white transition-all hover:bg-[#1e7932]/90 dark:bg-[#2a9d47] dark:hover:bg-[#2a9d47]/90"
             >
               <span>Ontdek onze oplossingen</span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-4 w-4 transition-transform group-hover:translate-y-1"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 9l-7 7-7-7"
-                />
-              </svg>
+              <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-1" />
             </motion.button>
           </div>
         </div>
       </div>
     </section>
-  );
+  )
 }
+

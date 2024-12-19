@@ -1,138 +1,137 @@
-"use client";
+import Link from 'next/link'
+import Image from 'next/image'
+import { motion } from 'framer-motion'
 
-import { useEffect, useState } from "react";
-import { ApolloProvider, gql, useQuery } from "@apollo/client";
-import client from "../../lib/apollo-client";
-import { Button } from "@/components/ui/button";
-import Link from "next/link";
-import Image from "next/image";
-import { ChevronRight } from "lucide-react";
-import RelatedCasesSlider from "@/components/RelatedCasesSlider";
-
-const GET_PORTFOLIO_CASES = gql`
-  query GetPortfolioCases {
-    posts {
-      nodes {
-        title
-        excerpt
-        featuredImage {
-          node {
-            sourceUrl
-          }
-        }
-        slug
-      }
-    }
+// Mock data voor casestudies
+const caseStudies = [
+  {
+    id: 1,
+    slug: 'e-commerce-platform-herontwerp',
+    title: 'E-commerce Platform Herontwerp',
+    client: 'TechGear',
+    image: 'https://picsum.photos/seed/case1/800/600',
+    summary: 'Vernieuwde de gebruikersinterface en verbeterde de conversiepercentages met 25%.'
+  },
+  {
+    id: 2,
+    slug: 'mobiele-app-ontwikkeling',
+    title: 'Mobiele App Ontwikkeling',
+    client: 'HealthTrack',
+    image: 'https://picsum.photos/seed/case2/800/600',
+    summary: 'Ontwikkelde een cross-platform mobiele app die de gebruikersbetrokkenheid met 40% verhoogde.'
+  },
+  {
+    id: 3,
+    slug: 'cloud-migratie-project',
+    title: 'Cloud Migratie Project',
+    client: 'DataCorp',
+    image: 'https://picsum.photos/seed/case3/800/600',
+    summary: 'Migreerde legacy systemen succesvol naar de cloud, waardoor operationele kosten met 30% werden verlaagd.'
+  },
+  {
+    id: 4,
+    slug: 'ai-gestuurde-klantenservice',
+    title: 'AI-gestuurde Klantenservice',
+    client: 'SupportAI',
+    image: 'https://picsum.photos/seed/case4/800/600',
+    summary: 'Implementeerde een AI-chatbot die 70% van de klantvragen zonder menselijke tussenkomst oploste.'
+  },
+  {
+    id: 5,
+    slug: 'blockchain-supply-chain',
+    title: 'Blockchain Supply Chain Oplossing',
+    client: 'LogiChain',
+    image: 'https://picsum.photos/seed/case5/800/600',
+    summary: 'Ontwikkelde een op blockchain gebaseerd supply chain tracking systeem, waardoor de transparantie met 90% toenam.'
+  },
+  {
+    id: 6,
+    slug: 'virtual-reality-training',
+    title: 'Virtual Reality Trainingsplatform',
+    client: 'EduVR',
+    image: 'https://picsum.photos/seed/case6/800/600',
+    summary: 'Creëerde een VR-gebaseerd trainingsplatform dat de trainingstijd met 50% verminderde en de retentie verbeterde.'
+  },
+  {
+    id: 7,
+    slug: 'iot-slimme-stad',
+    title: 'IoT Slimme Stad Infrastructuur',
+    client: 'MetroPolis',
+    image: 'https://picsum.photos/seed/case7/800/600',
+    summary: 'Implementeerde IoT-sensoren en analyses, waardoor de verkeersstroom werd geoptimaliseerd en congestie met 35% werd verminderd.'
+  },
+  {
+    id: 8,
+    slug: 'cybersecurity-vernieuwing',
+    title: 'Ondernemingsbrede Cybersecurity Vernieuwing',
+    client: 'SecureBank',
+    image: 'https://picsum.photos/seed/case8/800/600',
+    summary: 'Versterkte de beveiligingsinfrastructuur, waardoor succesvolle cyberaanvallen met 95% werden verminderd.'
+  },
+  {
+    id: 9,
+    slug: 'data-analyse-platform',
+    title: 'Big Data Analyse Platform',
+    client: 'InsightCo',
+    image: 'https://picsum.photos/seed/case9/800/600',
+    summary: 'Bouwde een schaalbaar data-analyseplatform dat dagelijks 10TB aan gegevens verwerkte en realtime inzichten bood.'
+  },
+  {
+    id: 10,
+    slug: 'duurzaam-energiebeheer',
+    title: 'Duurzaam Energiebeheersysteem',
+    client: 'GreenEnergy',
+    image: 'https://picsum.photos/seed/case10/800/600',
+    summary: 'Ontwikkelde een AI-gestuurd energiebeheersysteem dat de CO2-uitstoot met 40% verminderde.'
   }
-`;
+];
 
-const CasesPage = () => {
-  const { loading, error, data } = useQuery(GET_PORTFOLIO_CASES);
-  const [cases, setCases] = useState([]);
+const fadeInUp = {
+  initial: { opacity: 0, y: 20 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.5 }
+}
 
-  useEffect(() => {
-    if (data && data.posts && data.posts.nodes) {
-      setCases(data.posts.nodes);
-    }
-  }, [data]);
-
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
-
+export default function CasesPage() {
   return (
-    <section className="py-20 px-8 md:px-16 lg:px-32">
-      {/* Header Section */}
-      <div className="relative w-full h-[500px] mb-16">
-        <Image
-          src="/images/hero-image.jpg" // Replace with actual hero image URL
-          alt="Hero Image"
-          layout="fill"
-          objectFit="cover"
-          className="rounded-lg"
-        />
-        <div className="absolute inset-0 bg-black/50 flex flex-col items-center justify-center text-white text-center">
-          <h1 className="text-5xl font-bold mb-4">
-            Cases: Hoe leer je kinderen over de gevaren van sociale media, met AI?
-          </h1>
-          <Button variant="primary">Lees het verhaal</Button>
-        </div>
-      </div>
-
-      {/* Portfolio Cases */}
+    <div className="space-y-8">
+      <motion.h1 
+        className="text-4xl font-bold text-gray-900"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        Onze Casestudies
+      </motion.h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {cases.length > 0 ? (
-          cases.map((portfolioCase) => (
-            <div key={portfolioCase.slug} className="group relative border rounded-lg overflow-hidden shadow-md">
-              {portfolioCase.featuredImage?.node?.sourceUrl && (
+        {caseStudies.map((caseStudy) => (
+          <motion.div 
+            key={caseStudy.id}
+            variants={fadeInUp}
+            initial="initial"
+            animate="animate"
+            whileHover={{ scale: 1.05 }}
+            className="bg-white rounded-lg shadow-md overflow-hidden"
+          >
+            <Link href={`/cases/${caseStudy.slug}`} className="block">
+              <div className="relative h-48">
                 <Image
-                  src={portfolioCase.featuredImage.node.sourceUrl}
-                  alt={portfolioCase.title}
-                  width={400}
-                  height={300}
-                  className="w-full h-full object-cover"
+                  src={caseStudy.image}
+                  alt={caseStudy.title}
+                  layout="fill"
+                  objectFit="cover"
                 />
-              )}
-              <div className="absolute inset-0 bg-black/30 flex items-center justify-center transition-opacity opacity-0 group-hover:opacity-100">
-                <Link href={`/cases/${portfolioCase.slug}`} passHref>
-                  <span className="text-white text-2xl font-bold hover:underline">
-                    {portfolioCase.title}
-                  </span>
-                </Link>
               </div>
               <div className="p-4">
-                <p className="text-sm text-muted-foreground">{portfolioCase.excerpt}</p>
-                <Link href={`/cases/${portfolioCase.slug}`} passHref>
-                  <Button variant="link" className="mt-4">Lees meer</Button>
-                </Link>
+                <h2 className="text-xl font-semibold text-gray-900 mb-2">{caseStudy.title}</h2>
+                <p className="text-sm text-gray-600 mb-2">Klant: {caseStudy.client}</p>
+                <p className="text-gray-700">{caseStudy.summary}</p>
               </div>
-            </div>
-          ))
-        ) : (
-          <p>No cases available.</p>
-        )}
+            </Link>
+          </motion.div>
+        ))}
       </div>
+    </div>
+  )
+}
 
-      {/* Pagination Section */}
-      <div className="flex justify-center items-center mt-16">
-        <Button variant="ghost">
-          <ChevronRight className="w-6 h-6" />
-        </Button>
-        <p className="text-lg">1/5</p>
-        <Button variant="ghost">
-          <ChevronRight className="w-6 h-6 rotate-180" />
-        </Button>
-      </div>
-
-      {/* Related Cases Slider Section */}
-      <div className="mt-20">
-        <h2 className="text-3xl font-bold mb-8 text-center">Gerelateerde cases</h2>
-        {cases.length > 0 && <RelatedCasesSlider cases={cases} />}
-      </div>
-
-      {/* Footer Section */}
-      <div className="mt-20 border-t pt-10 text-center">
-        <p className="text-lg font-semibold mb-4">
-          Behoren ook tot onze klantenportefeuille
-        </p>
-        {/* Logos (replace with real logo images) */}
-        <div className="flex flex-wrap justify-center gap-6">
-          <div>
-            <Image src="/images/logo1.png" alt="Client Logo 1" width={100} height={50} />
-          </div>
-          <div>
-            <Image src="/images/logo2.png" alt="Client Logo 2" width={100} height={50} />
-          </div>
-          {/* Add more logos as needed */}
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const ApolloCasesPage = () => (
-  <ApolloProvider client={client}>
-    <CasesPage />
-  </ApolloProvider>
-);
-
-export default ApolloCasesPage;

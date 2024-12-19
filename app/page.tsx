@@ -1,7 +1,9 @@
 import { Hero } from "@/components/hero"
 import { Experience } from "@/components/experience"
 import { Solutions } from "@/components/solutions"
-import RelatedCasesSlider from "@/components/RelatedCasesSlider"
+import { MissionSection } from "@/components/MissionSection"
+import { PortfolioSection } from "@/components/PortfolioSection"
+import { TestimonialsSection } from "@/components/testimonials"
 
 export default function Home() {
   return (
@@ -9,7 +11,9 @@ export default function Home() {
       <Hero />
       <Experience />
       <Solutions />
-      <RelatedCasesSlider />
+      <MissionSection />
+      <PortfolioSection />
+      <TestimonialsSection />
     </main>
   )
 }
