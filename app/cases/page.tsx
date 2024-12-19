@@ -15,7 +15,7 @@ const caseStudies = [
   {
     id: 2,
     slug: 'mobiele-app-ontwikkeling',
-    title: 'Mobiele App Ontwikkeling',
+    title: 'Mobiele App Ontwkkeling',
     client: 'HealthTrack',
     image: 'https://picsum.photos/seed/case2/800/600',
     summary: 'Ontwikkelde een cross-platform mobiele app die de gebruikersbetrokkenheid met 40% verhoogde.'
