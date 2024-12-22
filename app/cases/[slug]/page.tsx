@@ -94,7 +94,8 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
         </div>
       </div>
 
-      <RelatedCases currentSlug={params.slug} caseStudies={allCaseStudies} />
+    <RelatedCases currentSlug={''} />
+
     </div>
   );
 }
