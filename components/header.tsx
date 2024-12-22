@@ -119,7 +119,7 @@ export function Header() {
             </Link>
 
             <Link
-              href="/development"
+              href="/cases"
               className={`text-sm font-medium uppercase tracking-wide transition-colors ${
                 isScrolled ? "text-foreground hover:text-primary" : "text-white"
               }`}
