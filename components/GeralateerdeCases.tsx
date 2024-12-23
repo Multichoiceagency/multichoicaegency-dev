@@ -3,7 +3,6 @@
 import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import Head from "next/head";
 import { motion, useInView } from "framer-motion";
 
 interface PortfolioItem {
@@ -48,7 +47,7 @@ async function getPortfolioItems(): Promise<PortfolioItem[]> {
   }));
 }
 
-export function PortfolioSection() {
+export function GeralateerdeCases() {
   const [portfolioItems, setPortfolioItems] = useState<PortfolioItem[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -77,25 +76,14 @@ export function PortfolioSection() {
 
   return  (
     <>
-      <Head>
-        <title>Ons Portfolio - Multichoice Agency</title>
-        <meta
-          name="description"
-          content="Ontdek ons diverse portfolio van succesvolle projecten. Bekijk hoe wij de visies van klanten tot leven brengen."
-        />
-        <meta
-          name="reviews"
-          content="Lees wat onze klanten zeggen: 'Uitstekende samenwerking', 'Snelle levering', 'Fantastisch resultaat'."
-        />
-      </Head>
-      <section className="bg-[#0A0A0B] py-24">
+      <section className="bg-white py-24">
         <div className="mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8">
           <div className="space-y-4 mb-12">
-            <h2 className="text-green-400 text-lg font-medium tracking-wide uppercase">
-              KLANTPROJECTEN
+            <h2 className="text-green-700 text-lg font-medium tracking-wide uppercase">
+              Geralateerde Projecten
             </h2>
-            <h3 className="text-4xl sm:text-5xl lg:text-4xl font-bold text-white">
-              Onze cases
+            <h3 className="text-4xl sm:text-5xl lg:text-4xl font-bold text-black">
+              Bekijk onze cases
             </h3>
           </div>
 
@@ -128,9 +116,9 @@ function PortfolioCard({ item, index }: { item: PortfolioItem; index: number }) 
         initial={{ opacity: 0, y: 20 }}
         animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
         transition={{ duration: 0.5, delay: index * 0.1 }}
-        className="group relative rounded-3xl bg-[#141417] p-4 transition-all duration-300 hover:bg-[#1A1A1D] cursor-pointer"
+        className="group relative rounded-3xl bg-green-950 p-4 transition-all duration-300 cursor-pointer"
       >
-        <div className="aspect-[4/3] overflow-hidden rounded-2xl relative">
+        <div className="aspect-[4/3] overflow-hidden rounded-xl relative">
           {item.media.type === "video" ? (
             <video
               ref={videoRef}
@@ -146,7 +134,7 @@ function PortfolioCard({ item, index }: { item: PortfolioItem; index: number }) 
               alt={item.title}
               width={800}
               height={600}
-              className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className="w-full h-full object-contain transition-transform duration-300 group-hover:scale-105"
             />
           )}
         </div>
@@ -173,7 +161,7 @@ function PortfolioCard({ item, index }: { item: PortfolioItem; index: number }) 
                 {item.title}
               </h4>
             </Link>
-            <p className="text-gray-400">{item.subtitle}</p>
+            <p className="text-white">{item.subtitle}</p>
           </div>
         </div>
 
@@ -181,8 +169,8 @@ function PortfolioCard({ item, index }: { item: PortfolioItem; index: number }) 
           {item.tags.map((tag) => (
             <span
               key={tag}
-              className="rounded-full bg-white/5 px-3 py-1 text-sm text-gray-300"
-            >
+              className="rounded-full bg-green-500 px-3 py-1 text-sm text-white hover:scale-105 hover:text-black transition duration-300"
+              >
               {tag}
             </span>
           ))}

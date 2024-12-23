@@ -1,137 +1,168 @@
-import Link from 'next/link'
-import Image from 'next/image'
-import { motion } from 'framer-motion'
+'use client';
 
-// Mock data voor casestudies
-const caseStudies = [
-  {
-    id: 1,
-    slug: 'e-commerce-platform-herontwerp',
-    title: 'E-commerce Platform Herontwerp',
-    client: 'TechGear',
-    image: 'https://picsum.photos/seed/case1/800/600',
-    summary: 'Vernieuwde de gebruikersinterface en verbeterde de conversiepercentages met 25%.'
-  },
-  {
-    id: 2,
-    slug: 'mobiele-app-ontwikkeling',
-    title: 'Mobiele App Ontwkkeling',
-    client: 'HealthTrack',
-    image: 'https://picsum.photos/seed/case2/800/600',
-    summary: 'Ontwikkelde een cross-platform mobiele app die de gebruikersbetrokkenheid met 40% verhoogde.'
-  },
-  {
-    id: 3,
-    slug: 'cloud-migratie-project',
-    title: 'Cloud Migratie Project',
-    client: 'DataCorp',
-    image: 'https://picsum.photos/seed/case3/800/600',
-    summary: 'Migreerde legacy systemen succesvol naar de cloud, waardoor operationele kosten met 30% werden verlaagd.'
-  },
-  {
-    id: 4,
-    slug: 'ai-gestuurde-klantenservice',
-    title: 'AI-gestuurde Klantenservice',
-    client: 'SupportAI',
-    image: 'https://picsum.photos/seed/case4/800/600',
-    summary: 'Implementeerde een AI-chatbot die 70% van de klantvragen zonder menselijke tussenkomst oploste.'
-  },
-  {
-    id: 5,
-    slug: 'blockchain-supply-chain',
-    title: 'Blockchain Supply Chain Oplossing',
-    client: 'LogiChain',
-    image: 'https://picsum.photos/seed/case5/800/600',
-    summary: 'Ontwikkelde een op blockchain gebaseerd supply chain tracking systeem, waardoor de transparantie met 90% toenam.'
-  },
-  {
-    id: 6,
-    slug: 'virtual-reality-training',
-    title: 'Virtual Reality Trainingsplatform',
-    client: 'EduVR',
-    image: 'https://picsum.photos/seed/case6/800/600',
-    summary: 'Creëerde een VR-gebaseerd trainingsplatform dat de trainingstijd met 50% verminderde en de retentie verbeterde.'
-  },
-  {
-    id: 7,
-    slug: 'iot-slimme-stad',
-    title: 'IoT Slimme Stad Infrastructuur',
-    client: 'MetroPolis',
-    image: 'https://picsum.photos/seed/case7/800/600',
-    summary: 'Implementeerde IoT-sensoren en analyses, waardoor de verkeersstroom werd geoptimaliseerd en congestie met 35% werd verminderd.'
-  },
-  {
-    id: 8,
-    slug: 'cybersecurity-vernieuwing',
-    title: 'Ondernemingsbrede Cybersecurity Vernieuwing',
-    client: 'SecureBank',
-    image: 'https://picsum.photos/seed/case8/800/600',
-    summary: 'Versterkte de beveiligingsinfrastructuur, waardoor succesvolle cyberaanvallen met 95% werden verminderd.'
-  },
-  {
-    id: 9,
-    slug: 'data-analyse-platform',
-    title: 'Big Data Analyse Platform',
-    client: 'InsightCo',
-    image: 'https://picsum.photos/seed/case9/800/600',
-    summary: 'Bouwde een schaalbaar data-analyseplatform dat dagelijks 10TB aan gegevens verwerkte en realtime inzichten bood.'
-  },
-  {
-    id: 10,
-    slug: 'duurzaam-energiebeheer',
-    title: 'Duurzaam Energiebeheersysteem',
-    client: 'GreenEnergy',
-    image: 'https://picsum.photos/seed/case10/800/600',
-    summary: 'Ontwikkelde een AI-gestuurd energiebeheersysteem dat de CO2-uitstoot met 40% verminderde.'
-  }
-];
+import { useEffect, useState } from 'react';
+import Link from 'next/link';
+import Image from 'next/image';
 
-const fadeInUp = {
-  initial: { opacity: 0, y: 20 },
-  animate: { opacity: 1, y: 0 },
-  transition: { duration: 0.5 }
+interface Case {
+  id: number;
+  title: string;
+  subtitle: string;
+  media: {
+    type: "video" | "image";
+    src: string;
+  };
+  image: string;
+  logonew: string;
+  tags: string[];
+  slug: string;
+  category: string;
+}
+
+interface Category {
+  id: number;
+  name: string;
 }
 
 export default function CasesPage() {
+  const [cases, setCases] = useState<Case[]>([]);
+  const [categories, setCategories] = useState<Category[]>([]);
+  const [filteredCases, setFilteredCases] = useState<Case[]>([]);
+  const [activeCategory, setActiveCategory] = useState<string>('all');
+
+  useEffect(() => {
+    // Fetch all cases from WordPress
+    const fetchCases = async () => {
+      const res = await fetch('https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases?_embed');
+      const data = await res.json();
+
+      const formattedCases = data.map((item: any) => ({
+        id: item.id,
+        title: item.title.rendered,
+        subtitle: item.acf?.subtitle || "",
+        media: {
+          type: item.acf?.media_type || "image",
+          src:
+            item.acf?.media_type === "video"
+              ? item.acf?.video_url
+              : item._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg',
+        },
+        image: item._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg',
+        logonew: item.acf?.logonew || "",
+        tags: item.acf?.tags ? item.acf.tags.split(",").map((tag: string) => tag.trim()) : [],
+        slug: item.slug,
+        category: item.acf?.category || 'Uncategorized',
+      }));
+
+      setCases(formattedCases);
+      setFilteredCases(formattedCases);
+    };
+
+    // Fetch categories from WordPress
+    const fetchCategories = async () => {
+      const res = await fetch('https://cloud.multichoiceagency.nl/wp-json/wp/v2/categories');
+      const data = await res.json();
+
+      const formattedCategories = data.map((item: any) => ({
+        id: item.id,
+        name: item.name,
+      }));
+
+      setCategories([{ id: 0, name: 'All' }, ...formattedCategories]);
+    };
+
+    fetchCases();
+    fetchCategories();
+  }, []);
+
+  const handleFilter = (category: string) => {
+    setActiveCategory(category);
+    if (category === 'all') {
+      setFilteredCases(cases);
+    } else {
+      setFilteredCases(cases.filter((c) => c.category.toLowerCase() === category.toLowerCase()));
+    }
+  };
+
   return (
-    <div className="space-y-8">
-      <motion.h1 
-        className="text-4xl font-bold text-gray-900"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        Onze Casestudies
-      </motion.h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {caseStudies.map((caseStudy) => (
-          <motion.div 
-            key={caseStudy.id}
-            variants={fadeInUp}
-            initial="initial"
-            animate="animate"
-            whileHover={{ scale: 1.05 }}
-            className="bg-white rounded-lg shadow-md overflow-hidden"
-          >
-            <Link href={`/cases/${caseStudy.slug}`} className="block">
-              <div className="relative h-48">
-                <Image
-                  src={caseStudy.image}
-                  alt={caseStudy.title}
-                  layout="fill"
-                  objectFit="cover"
-                />
-              </div>
-              <div className="p-4">
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">{caseStudy.title}</h2>
-                <p className="text-sm text-gray-600 mb-2">Klant: {caseStudy.client}</p>
-                <p className="text-gray-700">{caseStudy.summary}</p>
-              </div>
-            </Link>
-          </motion.div>
-        ))}
+    <div className="bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      {/* Hero Section */}
+      <section className="relative bg-[#0A0A0B] text-white py-48">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-5xl font-bold mb-4">Onze Cases</h1>
+          <p className="text-lg text-gray-300">
+            Bekijk onze succesvolle projecten en ontdek hoe wij waarde creëren.
+          </p>
+        </div>
+      </section>
+
+      {/* Content Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        {/* Categories */}
+        <div className="flex space-x-4 mb-8 overflow-x-auto">
+          {categories.map((category) => (
+            <button
+              key={category.id}
+              onClick={() => handleFilter(category.name)}
+              className={`px-4 py-2 rounded-full font-medium transition-all ${
+                activeCategory === category.name
+                  ? 'bg-green-500 text-white'
+                  : 'bg-gray-200 text-gray-700 dark:bg-gray-800 dark:text-gray-400'
+              }`}
+            >
+              {category.name}
+            </button>
+          ))}
+        </div>
+
+        {/* Cases */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+          {filteredCases.map((caseItem) => (
+            <div
+              key={caseItem.id}
+              className="border rounded-lg shadow-md hover:shadow-lg transition-shadow"
+            >
+              <Link href={`/cases/${caseItem.slug}`}>
+                <div className="relative aspect-w-16 aspect-h-9">
+                  {caseItem.media.type === "video" ? (
+                    <video
+                      src={caseItem.media.src}
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover rounded-t-lg"
+                    />
+                  ) : (
+                    <Image
+                      src={caseItem.media.src}
+                      alt={caseItem.title}
+                      fill
+                      className="object-cover rounded-t-lg"
+                      onError={(e: any) => {
+                        e.target.src = '/placeholder.jpg';
+                      }}
+                    />
+                  )}
+                </div>
+                <div className="p-4">
+                  <h3 className="text-lg font-bold mb-2">{caseItem.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{caseItem.subtitle}</p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {caseItem.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="rounded-full bg-green-500 px-3 py-1 text-sm text-white hover:bg-green-700 transition-all"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Link>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
-  )
+  );
 }
-

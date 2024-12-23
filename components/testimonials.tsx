@@ -99,12 +99,12 @@ export function TestimonialsSection() {
     <section className="bg-white dark:bg-[#0A0A0B] py-24 transition-colors duration-300">
       <div className="mx-auto max-w-[1800px] px-4 sm:px-6 lg:px-8">
         <div className="space-y-4 mb-12">
-          <h2 className="flex items-center gap-2 text-purple-600 dark:text-purple-400 text-lg font-medium tracking-wide uppercase">
-            WE <Heart className="fill-current w-4 h-4" /> OUR CLIENTS
+          <h2 className="flex items-center gap-2 text-green-600 dark:text-purple-400 text-lg font-medium tracking-wide uppercase">
+            BEKIJK <Heart className="fill-current w-4 h-4" /> 
           </h2>
-          <h3 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 dark:text-white">
-            Client Stories
-          </h3>
+          <h3 className="text-2xl sm:text-2xl lg:text-2xl font-bold text-gray-900 dark:text-white">
+          ONZE KLANTVERHALEN
+                    </h3>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

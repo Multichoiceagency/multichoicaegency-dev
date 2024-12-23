@@ -119,18 +119,17 @@ export function Footer() {
             {/* Umbraco Partner Badge */}
             <div className="flex items-center space-x-4">
               <Image
-                src="/placeholder.svg"
+                src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
                 alt="Umbraco Partner"
-                width={48}
-                height={48}
-                className="rounded-full"
+                width={300}
+                height={150}
+                className="min-w-5"
               />
-              <div className="bg-gray-300 px-4 py-2 rounded">SILVER</div>
             </div>
 
             {/* Profit by Design Logo */}
             <div className="text-2xl font-bold text-gray-900">
-              Profit by Design<sup>®</sup>
+              Custom to Design<sup>®</sup>
             </div>
 
             {/* Social Links */}
@@ -174,7 +173,7 @@ export function Footer() {
             {/* Google Rating */}
             <div className="flex items-center space-x-2">
               <Image
-                src="/placeholder.svg"
+                src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
                 alt="Google"
                 width={20}
                 height={20}
