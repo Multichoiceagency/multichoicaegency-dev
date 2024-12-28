@@ -105,15 +105,32 @@ export function Experience(): JSX.Element {
               </div>
             </div>
 
-            {/* Beschrijving */}
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.6 }}
-              className="mb-12 max-w-3xl text-lg text-gray-600 dark:text-white/60"
-            >
-              Transformeer je merk en bedrijf met uitzonderlijke digitale ervaringen die groei en innovatie stimuleren. Ons team van experts levert geavanceerde oplossingen die je een voorsprong geven op de concurrentie.
-            </motion.p>
+            {/* Beschrijving en Afbeelding */}
+            <div className="mb-12 flex flex-col-reverse md:flex-row items-center gap-8">
+              {/* Beschrijving */}
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="md:w-1/2 text-lg text-gray-600 dark:text-white/60"
+              >
+                Transformeer je merk en bedrijf met uitzonderlijke digitale ervaringen die groei en innovatie stimuleren. Ons team van experts levert geavanceerde oplossingen die je een voorsprong geven op de concurrentie.
+              </motion.p>
+
+              {/* Afbeelding */}
+              <motion.div
+                initial={{ opacity: 0, x: 20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.6 }}
+                className="md:w-1/2"
+              >
+                <img
+                  src="https://via.placeholder.com/1024x300"
+                  alt="Stock afbeelding beschrijving"
+                  className="rounded-lg shadow-lg"
+                />
+              </motion.div>
+            </div>
 
             {/* Knop */}
             <motion.button
@@ -131,4 +148,3 @@ export function Experience(): JSX.Element {
     </section>
   )
 }
-
