@@ -26,7 +26,7 @@ export default function ProjectGallery({ images }: ProjectGalleryProps) {
   }
 
   return (
-    <section className="mb-12">
+    <section className="w-full mx-auto">
       <h2 className={`text-3xl font-semibold ${theme === 'dark' ? 'text-white' : 'text-gray-900'} mb-6`}>
         Projectgalerij
       </h2>

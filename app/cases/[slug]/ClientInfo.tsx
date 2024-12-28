@@ -15,7 +15,7 @@ export default function ClientInfo({ clientName, industry, projectDate, logonew 
   const { theme } = useTheme();
 
   return (
-    <div className={`${theme === 'dark' ? 'bg-gray-800' : 'bg-gray-100'} p-6 rounded-lg shadow-md transition-colors duration-200`}>
+    <div className={`${theme === 'dark' ? 'bg-white' : 'bg-gray-100'} p-6 rounded-lg shadow-md transition-colors duration-200`}>
       {/* Client Information */}
       {logonew && (
         <div className="flex justify-left mb-6">
@@ -28,15 +28,15 @@ export default function ClientInfo({ clientName, industry, projectDate, logonew 
           />
         </div>
       )}
-      <h3 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-white' : 'text-gray-900'}`}>Client Informatie</h3>
+      <h3 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-black' : 'text-gray-900'}`}>Client Informatie</h3>
       <ul className="space-y-2">
-        <li className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+        <li className={`${theme === 'dark' ? 'text-black' : 'text-gray-700'}`}>
           <span className="font-semibold">Naam:</span> {clientName}
         </li>
-        <li className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+        <li className={`${theme === 'dark' ? 'text-black' : 'text-gray-700'}`}>
           <span className="font-semibold">Industrie:</span> {industry}
         </li>
-        <li className={`${theme === 'dark' ? 'text-gray-300' : 'text-gray-700'}`}>
+        <li className={`${theme === 'dark' ? 'text-black' : 'text-gray-700'}`}>
           <span className="font-semibold">Projectdatum:</span>{' '}
           {(() => {
             const date = parseISO(projectDate);

@@ -1,55 +1,102 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { submitToZapier } from '@/app/actions/contact'
 
-export function ContactFormulier() {
-  return (
-    <div className="rounded-3xl bg-[#0000ff] p-12 text-white">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="mx-auto max-w-2xl"
-      >
-        <h2 className="mb-2 text-2xl font-medium">Samen je impact vergroten?</h2>
-        <p className="mb-8 text-white/80">
-          Neem contact met ons op. We horen graag hoe we jou kunnen helpen.
+interface ContactFormProps {
+  className?: string
+}
+
+export function ContactForm({ className }: ContactFormProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setIsSubmitting(true)
+
+    const formData = new FormData(event.currentTarget)
+    const data = {
+      companyname: formData.get('companyname') as string,
+      name: formData.get('name') as string,
+      phone: formData.get('phone') as string,
+      email: formData.get('email') as string,
+      description: formData.get('description') as string,
+    }
+
+    try {
+      await submitToZapier(data)
+      setSubmitted(true)
+      event.currentTarget.reset()
+    } catch (error) {
+      console.error('Error submitting form:', error)
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (submitted) {
+    return (
+      <div className="p-6 bg-primary/10 rounded-lg text-center">
+        <h3 className="text-xl font-semibold mb-2">Bedankt voor je bericht!</h3>
+        <p className="text-gray-600 dark:text-gray-300">
+          We nemen zo spoedig mogelijk contact met je op.
         </p>
+      </div>
+    )
+  }
 
-        <form className="space-y-6">
-          <div className="grid gap-6 md:grid-cols-2">
-            <Input
-              placeholder="Voornaam*"
-              className="border-white/20 bg-transparent text-white placeholder:text-white/60"
-            />
-            <Input
-              placeholder="Achternaam*"
-              className="border-white/20 bg-transparent text-white placeholder:text-white/60"
-            />
-          </div>
+  return (
+    <form onSubmit={handleSubmit} className={className}>
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Input
+            type="text"
+            name="companyname"
+            placeholder="Bedrijf"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+          />
+          <Input
+            type="text"
+            name="name"
+            placeholder="Naam"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+          />
+          <Input
+            type="tel"
+            name="phone"
+            placeholder="Telefoon"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+          />
           <Input
             type="email"
-            placeholder="Zakelijk e-mailadres*"
-            className="border-white/20 bg-transparent text-white placeholder:text-white/60"
+            name="email"
+            placeholder="E-mailadres"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
           />
-          <Input
-            placeholder="Bedrijf*"
-            className="border-white/20 bg-transparent text-white placeholder:text-white/60"
-          />
-          <Textarea
-            placeholder="Je vraag of opmerking*"
-            className="min-h-[120px] border-white/20 bg-transparent text-white placeholder:text-white/60"
-          />
-          <Button className="w-full gap-2 rounded-full bg-white px-8 text-[#0000ff] hover:bg-white/90">
-            Verstuur bericht
-            <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-          </Button>
-        </form>
-      </motion.div>
-    </div>
+        </div>
+        <Textarea
+          name="description"
+          placeholder="Waar zou je het met ons over willen hebben?"
+          required
+          className="bg-[#2A2744] border-0 min-h-[160px] text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+        />
+        <Button 
+          type="submit"
+          disabled={isSubmitting}
+          className="h-14 px-8 bg-primary hover:bg-primary/90 text-white w-full md:w-auto"
+        >
+          {isSubmitting ? 'Verzenden...' : 'Verzenden'}
+        </Button>
+      </div>
+    </form>
   )
 }
+

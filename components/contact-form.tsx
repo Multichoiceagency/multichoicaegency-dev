@@ -1,72 +1,116 @@
-"use client"
+'use client'
 
-import { motion } from "framer-motion"
-import { Button } from "@/components/ui/button"
+import { useState } from 'react'
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
+import { Button } from "@/components/ui/button"
 
-export function ContactForm() {
-  return (
-    <section className="bg-[#0000ff] py-24 text-white">
-      <div className="mx-auto max-w-[1800px] px-48">
-        <div className="grid gap-12 lg:grid-cols-2">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-          >
-            <h2 className="mb-6 text-3xl font-medium md:text-4xl">
-              Samen je impact vergroten?
-            </h2>
-            <div className="space-y-4">
-              <p className="text-white/80">
-                Neem contact met ons op. We horen graag hoe we jou kunnen helpen.
-              </p>
-              <div className="flex items-center gap-4">
-                <a href="tel:+31882013101" className="text-white/80 hover:text-white">
-                  +31 882 013 101
-                </a>
-                <a href="mailto:business@multichoiceagency.com" className="text-white/80 hover:text-white">
-                  business@multichoiceagency.com
-                </a>
-              </div>
-            </div>
-          </motion.div>
+interface ContactFormProps {
+  className?: string
+}
 
-          <motion.form
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <div className="grid gap-6 md:grid-cols-2">
-              <Input
-                placeholder="Voornaam*"
-                className="border-white/20 bg-transparent text-white placeholder:text-white/60"
-              />
-              <Input
-                placeholder="Achternaam*"
-                className="border-white/20 bg-transparent text-white placeholder:text-white/60"
-              />
-            </div>
-            <Input
-              placeholder="Zakelijk e-mailadres*"
-              className="border-white/20 bg-transparent text-white placeholder:text-white/60"
-            />
-            <Input
-              placeholder="Bedrijf*"
-              className="border-white/20 bg-transparent text-white placeholder:text-white/60"
-            />
-            <Textarea
-              placeholder="Je vraag of opmerking*"
-              className="min-h-[120px] border-white/20 bg-transparent text-white placeholder:text-white/60"
-            />
-            <Button className="rounded-full bg-white px-8 text-blue-600 hover:bg-white/90">
-              Verstuur bericht
-            </Button>
-          </motion.form>
-        </div>
+export function ContactForm({ className }: ContactFormProps) {
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault()
+    setIsSubmitting(true)
+    setError(null)
+
+    const formData = new FormData(event.currentTarget)
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        body: JSON.stringify({
+          companyname: formData.get('companyname'),
+          name: formData.get('name'),
+          phone: formData.get('phone'),
+          email: formData.get('email'),
+          description: formData.get('description'),
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      })
+
+      if (!response.ok) {
+        throw new Error('Er is iets misgegaan. Probeer het later opnieuw.')
+      }
+
+      setSubmitted(true)
+      event.currentTarget.reset()
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Er is iets misgegaan')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (submitted) {
+    return (
+      <div className="p-6 bg-primary/10 rounded-lg text-center">
+        <h3 className="text-xl font-semibold mb-2 text-white">Bedankt voor je bericht!</h3>
+        <p className="text-gray-400">
+          We nemen zo spoedig mogelijk contact met je op.
+        </p>
       </div>
-    </section>
+    )
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className={className}>
+      <div className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <Input
+            type="text"
+            name="companyname"
+            placeholder="Bedrijf"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+          />
+          <Input
+            type="text"
+            name="name"
+            placeholder="Naam"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+          />
+          <Input
+            type="tel"
+            name="phone"
+            placeholder="Telefoon"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+          />
+          <Input
+            type="email"
+            name="email"
+            placeholder="E-mailadres"
+            required
+            className="bg-[#2A2744] border-0 h-14 text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+          />
+        </div>
+        <Textarea
+          name="description"
+          placeholder="Waar zou je het met ons over willen hebben?"
+          required
+          className="bg-[#2A2744] border-0 min-h-[160px] text-white placeholder:text-gray-400 focus-visible:ring-primary/50"
+        />
+        <Button 
+          type="submit"
+          disabled={isSubmitting}
+          className="h-14 px-8 bg-primary hover:bg-primary/90 text-white w-full md:w-auto"
+        >
+          {isSubmitting ? 'Verzenden...' : 'Verzenden'}
+        </Button>
+        {error && (
+          <p className="text-red-500 text-sm mt-2">{error}</p>
+        )}
+      </div>
+    </form>
   )
 }
+

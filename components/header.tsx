@@ -6,7 +6,7 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { Mail, Phone, Menu, X, ChevronDown, ArrowRight, Search } from "lucide-react";
+import { Mail, Phone, Menu, X, ChevronDown, ArrowRight, Search } from 'lucide-react';
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -61,7 +61,7 @@ export function Header() {
   return (
     <motion.header
       className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-background/90 backdrop-blur-sm border-b border-border" : "bg-transparent"
+        isScrolled ? "bg-background border-b border-border" : "bg-transparent"
       }`}
     >
       {/* Top bar - only shown when not scrolled */}
@@ -97,13 +97,17 @@ export function Header() {
         <div className="mx-auto flex h-20 max-w-[1800px] items-center justify-between px-10">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image
-              src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
-              alt="Multichoiceagency Logo"
-              width={150}
-              height={40}
-              className="object-contain"
-            />
+            <div className={`transition-all duration-300 ${isScrolled ? "scale-95" : "scale-110"}`}>
+              <Image
+                src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
+                alt="Multichoiceagency Logo"
+                width={isScrolled ? 140 : 180}
+                height={isScrolled ? 37 : 48}
+                className={`object-contain transition-all duration-300 ${
+                  isScrolled ? "" : "brightness-0 invert"
+                }`}
+              />
+            </div>
           </Link>
 
           {/* Desktop Menu */}
@@ -209,6 +213,65 @@ export function Header() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Mobile Menu */}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, x: "100%" }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: "100%" }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="fixed inset-y-0 right-0 w-full max-w-sm bg-background shadow-xl z-50 overflow-y-auto"
+          >
+            <div className="p-6">
+              <div className="flex justify-end">
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="text-foreground hover:text-primary"
+                >
+                  <X className="h-6 w-6" />
+                </Button>
+              </div>
+              <nav className="mt-8 space-y-6">
+                {[
+                  "WEBSITES",
+                  "E-COMMERCE",
+                  "DEVELOPMENT",
+                  "CASES",
+                  "INDUSTRIEEN",
+                  "OVER ONS",
+                  "CONTACT",
+                ].map((item, index) => (
+                  <Link
+                    key={index}
+                    href={`/${item.toLowerCase().replace(" ", "-")}`}
+                    className="block text-lg font-medium uppercase tracking-wide text-foreground hover:text-primary"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </nav>
+              <div className="mt-8 space-y-4">
+                <Button
+                  className="w-full justify-center gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  Contact
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
+                <div className="flex justify-center">
+                  <ThemeSwitcher />
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </motion.header>
   );
 }
+
