@@ -11,6 +11,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faWordpress, faShopify, faLaravel, faReact, faVuejs, faNodeJs } from '@fortawesome/free-brands-svg-icons'
 import { CaseStudies } from '@/components/case-studies'
+import { PricingTable } from '@/components/pricing-table'
 
 export default function WebsitesPage() {
   const features = [
@@ -369,6 +370,9 @@ export default function WebsitesPage() {
           </div>
         </div>
       </section>
+
+      {/* Pricing Table Section */}
+      <PricingTable />
 
       {/* Advanced Modules Section */}
       <section className="py-20 bg-primary dark:bg-primary-light text-white dark:text-gray-900">

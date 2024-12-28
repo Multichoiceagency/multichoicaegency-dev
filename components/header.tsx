@@ -6,14 +6,25 @@ import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ThemeSwitcher } from "@/components/theme-switcher";
-import { Mail, Phone, Menu, X, ChevronDown, ArrowRight, Search } from 'lucide-react';
+import { AnnouncementBanner } from "./announcement-banner";
+import { MegaMenu } from "./mega-menu";
+import { Menu, X, ChevronDown } from 'lucide-react';
+
+<style jsx global>{`
+  .logo-dark-mode {
+    filter: brightness(0) invert(1);
+  }
+  @media (prefers-color-scheme: light) {
+    .logo-dark-mode {
+      filter: none;
+    }
+  }
+`}</style>
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [isSearchOpen, setIsSearchOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
+  const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,253 +36,138 @@ export function Header() {
     };
   }, []);
 
-  useEffect(() => {
-    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
-  }, [isMobileMenuOpen]);
-
-  const handleSearch = async () => {
-    if (searchQuery.trim() === "") {
-      setSearchResults([]);
-      return;
-    }
-
-    try {
-      const res = await fetch(
-        `https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases?search=${encodeURIComponent(
-          searchQuery
-        )}`
-      );
-      if (!res.ok) {
-        throw new Error("Failed to fetch search results.");
-      }
-      const data = await res.json();
-      setSearchResults(data);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleSearchRedirect = () => {
-    if (searchQuery.trim() !== "") {
-      window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
-      setIsSearchOpen(false);
-    }
-  };
-
   return (
-    <motion.header
-      className={`fixed top-0 z-50 w-full transition-all duration-300 ${
-        isScrolled ? "bg-background border-b border-border" : "bg-transparent"
-      }`}
-    >
-      {/* Top bar - only shown when not scrolled */}
-      {!isScrolled && (
-        <div className="hidden border-b border-white/10 md:block">
-          <div className="mx-auto flex h-10 max-w-[1800px] items-center justify-between px-10">
-            <div className="flex items-center gap-6 text-sm">
-              <Link
-                href="tel:+31882013101"
-                className="flex items-center gap-2 text-white hover:text-primary"
-              >
-                <Phone className="h-4 w-4" />
-                +31 882 013 101
-              </Link>
-              <Link
-                href="mailto:business@multichoiceagency.com"
-                className="flex items-center gap-2 text-white hover:text-primary"
-              >
-                <Mail className="h-4 w-4" />
-                business@multichoiceagency.com
-              </Link>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Main navigation */}
-      <div
-        className={`border-b transition-all ${
-          isScrolled ? "border-border" : "border-white/10"
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <AnimatePresence>
+        {!isScrolled && <AnnouncementBanner isVisible={!isScrolled} />}
+      </AnimatePresence>
+      <motion.header
+        className={`w-full transition-all duration-300 ${
+          isScrolled ? "bg-background border-b border-border" : "bg-white dark:bg-background"
         }`}
       >
-        <div className="mx-auto flex h-20 max-w-[1800px] items-center justify-between px-10">
+        <div className="mx-auto flex h-16 max-w-[1800px] items-center justify-between px-4 lg:px-10">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <div className={`transition-all duration-300 ${isScrolled ? "scale-95" : "scale-110"}`}>
-              <Image
-                src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
-                alt="Multichoiceagency Logo"
-                width={isScrolled ? 140 : 180}
-                height={isScrolled ? 37 : 48}
-                className={`object-contain transition-all duration-300 ${
-                  isScrolled ? "" : "brightness-0 invert"
-                }`}
-              />
-            </div>
+            <Image
+              src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
+              alt="Multichoiceagency Logo"
+              width={140}
+              height={37}
+              className="object-contain transition-colors logo-dark-mode"
+            />
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
-            {[
-              "WEBSITES",
-              "E-COMMERCE",
-              "DEVELOPMENT",
-              "CASES",
-              "INDUSTRIEEN",
-              "OVER ONS",
-              "CONTACT",
-            ].map((item, index) => (
-              <Link
-                key={index}
-                href={`/${item.toLowerCase().replace(" ", "-")}`}
-                className={`text-sm font-medium uppercase tracking-wide transition-colors ${
-                  isScrolled ? "text-foreground hover:text-primary" : "text-white"
-                }`}
-              >
-                {item}
-              </Link>
+          <div className="hidden lg:flex items-center gap-8">
+            {["Wat wij doen", "Cases", "Development", "Portalen", "Contact", "Over Ons"].map((item, index) => (
+              <div key={index} className="relative">
+                <button
+                  onClick={() => setActiveMegaMenu(activeMegaMenu === item ? null : item)}
+                  className="text-sm font-medium text-foreground hover:text-primary flex items-center gap-1"
+                >
+                  {item}
+                  <ChevronDown 
+                    className={`h-4 w-4 transition-transform duration-200 ${
+                      activeMegaMenu === item ? "rotate-180" : ""
+                    }`}
+                  />
+                </button>
+              </div>
             ))}
           </div>
 
-          {/* Desktop Buttons: Search, Theme Switcher, Contact */}
-          <div className="hidden md:flex items-center gap-4">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsSearchOpen(!isSearchOpen)}
-              className={`transition-colors ${
-                isScrolled
-                  ? "text-foreground hover:bg-foreground/10"
-                  : "text-white hover:bg-white/10"
-              }`}
-            >
-              <Search className="h-5 w-5" />
-            </Button>
+          {/* Desktop Buttons */}
+          <div className="hidden lg:flex items-center gap-4">
             <ThemeSwitcher isScrolled={isScrolled} />
-            <Button className="group gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90">
-              Contact
-              <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+            <Button variant="ghost" className="text-foreground hover:text-primary">
+              Log In
+            </Button>
+            <Button className="bg-[#4842E3] text-white hover:bg-[#4842E3]/90">
+              Get Started
             </Button>
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <Button
               variant="ghost"
               size="icon"
               onClick={() => setIsMobileMenuOpen(true)}
-              className={`${
-                isScrolled
-                  ? "text-foreground hover:text-primary"
-                  : "text-white hover:text-gray-400"
-              }`}
+              className="text-foreground hover:text-primary"
             >
               <Menu className="h-6 w-6" />
             </Button>
           </div>
         </div>
-      </div>
 
-      {/* Search Box */}
-      <AnimatePresence>
-        {isSearchOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: "-100%" }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: "-100%" }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="absolute top-0 left-0 w-full bg-background p-4 flex flex-col items-center shadow-md z-50"
-          >
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                handleSearchRedirect();
-              }}
-              className="flex items-center gap-4 w-full max-w-[600px]"
+        {/* Mega Menu */}
+        <AnimatePresence>
+          {activeMegaMenu && (
+            <MegaMenu
+              isOpen={!!activeMegaMenu}
+              onClose={() => setActiveMegaMenu(null)}
+            />
+          )}
+        </AnimatePresence>
+
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {isMobileMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: "100vh" }}
+              exit={{ opacity: 0, height: 0 }}
+              transition={{ type: "tween", duration: 0.3 }}
+              className="fixed inset-x-0 top-0 bg-background shadow-xl z-50 overflow-y-auto lg:hidden"
             >
-              <input
-                type="text"
-                placeholder="Typ om te zoeken"
-                className="flex-1 border rounded-full px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-primary"
-                value={searchQuery}
-                onChange={(e) => setSearchQuery(e.target.value)}
-              />
-              <Button
-                type="submit"
-                className="bg-green-500 text-white px-4 py-2 rounded-full hover:bg-green-600"
-              >
-                Zoeken
-              </Button>
-              <Button
-                type="button"
-                onClick={() => setIsSearchOpen(false)}
-                className="text-gray-400 hover:text-gray-600"
-              >
-                <X className="w-5 h-5" />
-              </Button>
-            </form>
-          </motion.div>
-        )}
-      </AnimatePresence>
-
-      {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, x: "100%" }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: "100%" }}
-            transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed inset-y-0 right-0 w-full max-w-sm bg-background shadow-xl z-50 overflow-y-auto"
-          >
-            <div className="p-6">
-              <div className="flex justify-end">
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="text-foreground hover:text-primary"
-                >
-                  <X className="h-6 w-6" />
-                </Button>
-              </div>
-              <nav className="mt-8 space-y-6">
-                {[
-                  "WEBSITES",
-                  "E-COMMERCE",
-                  "DEVELOPMENT",
-                  "CASES",
-                  "INDUSTRIEEN",
-                  "OVER ONS",
-                  "CONTACT",
-                ].map((item, index) => (
-                  <Link
-                    key={index}
-                    href={`/${item.toLowerCase().replace(" ", "-")}`}
-                    className="block text-lg font-medium uppercase tracking-wide text-foreground hover:text-primary"
+              <div className="p-6">
+                <div className="flex justify-between items-center mb-8">
+                  <Image
+                    src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
+                    alt="Multichoiceagency Logo"
+                    width={140}
+                    height={37}
+                    className="object-contain transition-colors logo-dark-mode"
+                  />
+                  <Button
+                    variant="ghost"
+                    size="icon"
                     onClick={() => setIsMobileMenuOpen(false)}
+                    className="text-foreground hover:text-primary"
                   >
-                    {item}
-                  </Link>
-                ))}
-              </nav>
-              <div className="mt-8 space-y-4">
-                <Button
-                  className="w-full justify-center gap-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Contact
-                  <ArrowRight className="h-4 w-4" />
-                </Button>
-                <div className="flex justify-center">
-                  <ThemeSwitcher />
+                    <X className="h-6 w-6" />
+                  </Button>
+                </div>
+                <nav className="space-y-6">
+                  {["Wat wij doen", "Use Cases", "Prices", "Customers", "About"].map((item, index) => (
+                    <Link
+                      key={index}
+                      href="#"
+                      className="block text-lg font-medium text-foreground hover:text-primary"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item}
+                    </Link>
+                  ))}
+                </nav>
+                <div className="mt-8 space-y-4">
+                  <Button className="w-full" variant="outline">
+                    Log In
+                  </Button>
+                  <Button className="w-full bg-[#4842E3] text-white hover:bg-[#4842E3]/90">
+                    Get Started
+                  </Button>
+                  <div className="flex justify-center">
+                    <ThemeSwitcher />
+                  </div>
                 </div>
               </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </motion.header>
+    </div>
   );
 }
 
