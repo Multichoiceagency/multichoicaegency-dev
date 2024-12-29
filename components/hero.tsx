@@ -136,7 +136,7 @@ export function Hero() {
                     <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium leading-tight text-white">
                       {slides[currentSlide].title}
                     </h1>
-                    <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed">
+                    <p className="text-base sm:text-lg md:text-xl text-white/90 leading-relaxed py-10">
                       {slides[currentSlide].description}
                     </p>
                   </div>
@@ -145,18 +145,6 @@ export function Hero() {
                       <span>{slides[currentSlide].button}</span>
                       <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                     </button>
-                    <Button
-                      variant="ghost"
-                      size="icon"
-                      onClick={toggleFullscreen}
-                      className="rounded-full border border-white text-white transition-colors hover:bg-white hover:text-black"
-                    >
-                      {isFullscreen ? (
-                        <Minimize2 className="h-4 w-4" />
-                      ) : (
-                        <Maximize2 className="h-4 w-4" />
-                      )}
-                    </Button>
                   </div>
                 </motion.div>
               </div>

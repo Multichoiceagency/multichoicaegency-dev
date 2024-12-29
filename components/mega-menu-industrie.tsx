@@ -2,101 +2,115 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronRight } from 'lucide-react';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faHospital,
+  faBuilding,
+  faGraduationCap,
+  faLeaf,
+  faUtensils,
+  faTools,
+  faChartLine,
+  faGlobe,
+  faLightbulb,
+  faEdit,
+} from "@fortawesome/free-solid-svg-icons";
+import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Palette, Smartphone, Globe, Code, Server, ShoppingCart, Headphones, FileText, PenTool, Briefcase, Search, TrendingUp, HardDrive } from 'lucide-react';
 
 interface Direction {
-  icon: React.ReactNode;
+  icon: JSX.Element;
   title: string;
   description: string;
 }
 
 interface Solution {
-  icon: React.ReactNode;
+  icon: JSX.Element;
   title: string;
   isNew?: boolean;
 }
 
 const directions: Direction[] = [
   {
-    icon: <Palette className="h-6 w-6" />,
-    title: "UI/UX Design",
-    description: "Creëer prototypes en wireframes voor interactieve en gebruiksvriendelijke ontwerpen.",
+    icon: <FontAwesomeIcon icon={faHospital} className="h-6 w-6 text-primary" />,
+    title: "Website laten maken voor Gezondheidszorg",
+    description: "Wij bouwen veilige en gebruiksvriendelijke websites die zorginstellingen verbinden met hun patiënten.",
   },
   {
-    icon: <Smartphone className="h-6 w-6" />,
-    title: "Responsief Webdesign",
-    description: "Zorg voor een naadloze gebruikerservaring op desktop, tablet en mobiel.",
+    icon: <FontAwesomeIcon icon={faBuilding} className="h-6 w-6 text-primary" />,
+    title: "Website laten maken voor Bouw",
+    description: "Onze oplossingen tonen uw projecten en maken het gemakkelijk voor klanten om offertes aan te vragen.",
   },
   {
-    icon: <Globe className="h-6 w-6" />,
-    title: "Custom Webdesign",
-    description: "Ontwikkel maatwerkoplossingen die perfect passen bij jouw huisstijl.",
+    icon: <FontAwesomeIcon icon={faGraduationCap} className="h-6 w-6 text-primary" />,
+    title: "Website laten maken voor Onderwijs",
+    description: "Wij creëren interactieve platforms die leren en communiceren eenvoudiger maken voor scholen en universiteiten.",
   },
   {
-    icon: <Code className="h-6 w-6" />,
-    title: "Frontend Development",
-    description: "Bouw snelle en aantrekkelijke interfaces met moderne technologieën.",
+    icon: <FontAwesomeIcon icon={faLeaf} className="h-6 w-6 text-primary" />,
+    title: "Website laten maken voor Duurzaamheid",
+    description: "Met onze expertise laten we uw groene initiatieven stralen via een inspirerende online aanwezigheid.",
   },
+  {
+    icon: <FontAwesomeIcon icon={faUtensils} className="h-6 w-6 text-primary" />,
+    title: "Website laten maken voor Horeca",
+    description: "Wij ontwikkelen stijlvolle websites met online reserveringssystemen en menu-integraties.",
+  },
+  
 ];
 
 const solutions: Solution[][] = [
   [
     {
-      icon: <Server className="h-5 w-5" />,
-      title: "Backend Development",
+      icon: <FontAwesomeIcon icon={faTools} className="h-5 w-5 text-muted-foreground" />,
+      title: "Digitale oplossingen voor Zorg",
     },
     {
-      icon: <ShoppingCart className="h-5 w-5" />,
-      title: "E-commerce Platformontwikkeling",
+      icon: <FontAwesomeIcon icon={faGlobe} className="h-5 w-5 text-muted-foreground" />,
+      title: "Online platforms voor Bouwprojecten",
     },
     {
-      icon: <Headphones className="h-5 w-5" />,
-      title: "Headless E-commerce",
-    },
-    {
-      icon: <Headphones className="h-5 w-5" />,
-      title: "Beveiliging",
+      icon: <FontAwesomeIcon icon={faGraduationCap} className="h-5 w-5 text-muted-foreground" />,
+      title: "E-learning voor Onderwijs",
     },
   ],
   [
     {
-      icon: <PenTool className="h-5 w-5" />,
-      title: "Logo Ontwerp & Visuele Identiteit",
+      icon: <FontAwesomeIcon icon={faEdit} className="h-5 w-5 text-muted-foreground" />,
+      title: "Branding voor Duurzaamheidsinitiatieven",
     },
     {
-      icon: <Briefcase className="h-5 w-5" />,
-      title: "Merkstrategie en Storytelling",
+      icon: <FontAwesomeIcon icon={faUtensils} className="h-5 w-5 text-muted-foreground" />,
+      title: "Strategieën voor Horeca",
     },
     {
-      icon: <Search className="h-5 w-5" />,
-      title: "Technische SEO",
+      icon: <FontAwesomeIcon icon={faChartLine} className="h-5 w-5 text-muted-foreground" />,
+      title: "SEO voor Lokale Bedrijven",
     },
   ],
   [
     {
-      icon: <TrendingUp className="h-5 w-5" />,
-      title: "Digitale Marketingcampagnes",
+      icon: <FontAwesomeIcon icon={faLightbulb} className="h-5 w-5 text-muted-foreground" />,
+      title: "Marketing voor Industrieën",
     },
     {
-      icon: <HardDrive className="h-5 w-5" />,
-      title: "Hosting en Domeinbeheer",
+      icon: <FontAwesomeIcon icon={faGlobe} className="h-5 w-5 text-muted-foreground" />,
+      title: "Webhosting en Domeinbeheer",
     },
     {
-      icon: <FileText className="h-5 w-5" />,
+      icon: <FontAwesomeIcon icon={faEdit} className="h-5 w-5 text-muted-foreground" />,
       title: "Content Creatie",
       isNew: true,
     },
   ],
 ];
 
-interface MegaMenuProps {
+interface MegaMenuIndustrieProps {
   isOpen: boolean;
   onClose: () => void;
 }
 
-export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
+export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
   if (!isOpen) return null;
 
   return (
@@ -106,14 +120,14 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.2 }}
       className="absolute left-0 right-0 bg-white dark:bg-background border-b border-border shadow-lg"
-      style={{ top: '100%' }}
+      style={{ top: "100%" }}
     >
       <div className="container mx-auto max-w-[1800px] py-8 px-10">
         <div className="grid grid-cols-[2fr,3fr,2fr] gap-16">
           {/* Left Column - Directions */}
           <div>
             <h3 className="text-xs font-semibold text-muted-foreground mb-6 uppercase tracking-wider">
-              DIENSTEN
+              INDUSTRIËN
             </h3>
             <div className="space-y-6">
               {directions.map((direction, index) => (
@@ -176,15 +190,17 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             <div className="mt-8 pt-6 border-t">
               <div className="flex items-center justify-between">
                 <div>
-                  <h4 className="font-medium">Andere oplossingen nodig?</h4>
+                  <h4 className="font-medium">Heb je andere vragen ?</h4>
                   <p className="text-sm text-muted-foreground">
-                    Voor teams van 300+ met geavanceerde beveiliging, controle en ondersteuning
+                    Wij helpen je graag met maatwerk voor jouw unieke behoeften.
                   </p>
                 </div>
+                <Link href="/industrien">
                 <Button variant="outline" className="gap-2">
-                  Praat met sales
+                  Bekijk alle industrien
                   <ChevronRight className="h-4 w-4" />
                 </Button>
+                </Link>
               </div>
             </div>
           </div>
@@ -205,15 +221,15 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 pointer-events-none">
-                <h3 className="text-white text-xl font-semibold mb-2">Leer meer over onze diensten</h3>
-                <p className="text-white/80 text-sm mb-4">Ontdek hoe ons platform uw organisatie kan helpen groeien.</p>
+                <h3 className="text-white text-xl font-semibold mb-2">Meer over onze industrie-oplossingen</h3>
+                <p className="text-white/80 text-sm mb-4">Ontdek hoe wij jouw branche ondersteunen met maatwerk.</p>
               </div>
             </div>
             <div className="mt-6">
               <h4 className="font-medium mb-2">Uitgelichte Case Study</h4>
-              <p className="text-sm text-muted-foreground mb-4">Zie hoe XYZ Organisatie hun online aanwezigheid verbeterde met ons platform.</p>
+              <p className="text-sm text-muted-foreground mb-4">Lees hoe wij bedrijven helpen groeien met onze expertise.</p>
               <Button variant="link" className="p-0 h-auto text-sm text-primary">
-                Lees case study
+                Bekijk case study
                 <ChevronRight className="h-4 w-4 ml-1" />
               </Button>
             </div>
@@ -223,4 +239,3 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
     </motion.div>
   );
 }
-
