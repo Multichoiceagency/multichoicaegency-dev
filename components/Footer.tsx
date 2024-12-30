@@ -4,6 +4,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle, faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope, faInbox, faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { Button } from "./ui/button";
 
 export function Footer() {
   return (
@@ -15,7 +17,7 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="max-w-[1800px] mx-auto px-4 py-16">
+        <div className="max-w-[1800px] mx-auto px-4">
           {/* Main Footer Links */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-5">
             {/* Web Development */}
@@ -77,22 +79,18 @@ export function Footer() {
               <p className="font-semibold text-white mb-2">Multichoiceagency B.V.</p>
               <p>Edisonstraat 5c</p>
               <p className="mb-4">Rotterdam</p>
-              <p className="italic mb-2">Wij bedienen onze klanten ook in:</p>
-              <p>
-                <Link href="#" className="underline hover:text-green-950 hover:font-bold">Zwolle</Link>,{" "}
-                <Link href="#" className="underline hover:text-green-950 hover:font-bold">Amsterdam</Link> en{" "}
-                <Link href="#" className="underline hover:text-green-950 hover:font-bold">Apeldoorn</Link>
-              </p>
+              <p className="italic mb-2">Wij bedienen onze klanten door heel Nederland</p>
               <p className="mt-4">
-                <Link href="mailto:info@multichoiceagency.nl" className="hover:text-green-950 hover:font-bold">
-                  info@multichoiceagency.nl
+                <Link href="mailto:sales@multichoiceagency.nl" className="hover:text-green-950 hover:font-bold">
+                <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" /> sales@multichoiceagency.nl
                 </Link>
               </p>
               <p>
                 <Link href="tel:0103220410" className="hover:text-green-950 hover:font-bold">
-                  0103220410
+                <FontAwesomeIcon icon={faPhone} className="w-5 h-5" /> 0103220410
                 </Link>
               </p>
+
             </div>
 
             {/* Service & Support */}
@@ -136,8 +134,15 @@ export function Footer() {
               </div>
 
               {/* Tagline */}
-              <div className="text-2xl font-bold">
+              <div className="text-2xl pb-2 font-bold">
                 Maatwerk Specialisten<sup>®</sup>
+              </div>
+              <div>
+              <Link href={"/offerte-aanvragen"}>
+              <button className="group flex items-center pt-5 rounded-full border-green-400 hover:translate-x-105 font-bold bg-white text-black sm:px-6 py-8 sm:py-3 text-sm sm:text-base transition-colors hover:bg-black hover:text-white">
+                <span>Gratis advies aanvragen</span>
+              </button>
+              </Link>
               </div>
 
               {/* Social Links */}
