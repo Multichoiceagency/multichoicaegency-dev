@@ -125,7 +125,7 @@ export function Experience(): JSX.Element {
                 className="md:w-1/2"
               >
                 <img
-                  src="https://via.placeholder.com/1024x300"
+                  src="https://images.pexels.com/photos/1170412/pexels-photo-1170412.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
                   alt="Stock afbeelding beschrijving"
                   className="rounded-lg shadow-lg"
                 />
