@@ -111,7 +111,7 @@ export function Header() {
 
           {/* Desktop Menu */}
           <div className="hidden lg:flex items-center gap-12">
-            {["Wat wij doen", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over Ons"].map((item, index) => (
+            {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over Ons"].map((item, index) => (
               <div key={index} className="relative">
                 {item === "Contact" || item === "Over Ons" ? (
                   <Link
@@ -163,9 +163,9 @@ export function Header() {
 
         {/* Mega Menu */}
         <AnimatePresence>
-        {activeMegaMenu === "Wat wij doen" ? (
+        {activeMegaMenu === "Wat doen wij" ? (
             <MegaMenu
-              isOpen={activeMegaMenu === "Wat wij doen"}
+              isOpen={activeMegaMenu === "Wat doen wij"}
               onClose={() => setActiveMegaMenu(null)}
             />
           ) : activeMegaMenu === "Cases" ? (

@@ -1,27 +1,26 @@
-import './globals.css'
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import { Header } from '@/components/header'
-import { ThemeProvider } from '@/components/theme-provider'
-import { Footer } from '@/components/Footer'
+import './globals.css';
+import type { Metadata } from 'next';
+import { Hanken_Grotesk } from 'next/font/google'; // Correctly import Hanken Grotesk
+import { Header } from '@/components/header';
+import { ThemeProvider } from '@/components/theme-provider';
+import { Footer } from '@/components/Footer';
 
-const inter = Inter({ subsets: ['latin'] })
+// Initialize Hanken Grotesk
+const hankenGrotesk = Hanken_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Multichoiceagency',
   description: 'Transform your digital presence with cutting-edge solutions',
-}
+};
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
-
     <html lang="en">
-
-      <body className={inter.className}>
+      <body className={hankenGrotesk.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="auto"
@@ -32,8 +31,7 @@ export default function RootLayout({
           {children}
           <Footer />
         </ThemeProvider>
-
       </body>
     </html>
-  )
+  );
 }

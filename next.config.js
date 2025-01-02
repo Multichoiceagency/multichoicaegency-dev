@@ -22,6 +22,11 @@ const nextConfig = {
         hostname: 'cdn.pixabay.com', // Additional image domain
         pathname: '/**', // Allow all paths under atahome.nl
       },
+      {
+        protocol: 'https',
+        hostname: 'source.unsplash.com', // WordPress image domain
+        pathname: '/**', // Allow all images under WordPress uploads
+      },
     ],
   },
 };

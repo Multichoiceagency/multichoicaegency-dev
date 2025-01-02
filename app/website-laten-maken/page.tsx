@@ -71,7 +71,7 @@ const Page = () => {
               <tbody>
                 <tr>
                   <td className="border border-gray-200 p-4">Ideaal voor</td>
-                  <td className="border border-gray-200 p-4 text-center">Kleinere bedrijven en ZZP'ers</td>
+                  <td className="border border-gray-200 p-4 text-center">Kleinere bedrijven en ZZP&apos;ers</td>
                   <td className="border border-gray-200 p-4 text-center">Ambitieuze organisaties</td>
                   <td className="border border-gray-200 p-4 text-center">Organisaties met ambitieuze online doelstellingen</td>
                 </tr>
@@ -82,7 +82,7 @@ const Page = () => {
                   <td className="border border-gray-200 p-4 text-center">Volledig geoptimaliseerd</td>
                 </tr>
                 <tr>
-                  <td className="border border-gray-200 p-4">Pagina's</td>
+                  <td className="border border-gray-200 p-4">Pagina&apos;s</td>
                   <td className="border border-gray-200 p-4 text-center">3-7</td>
                   <td className="border border-gray-200 p-4 text-center">8-13</td>
                   <td className="border border-gray-200 p-4 text-center">15+</td>

@@ -10,14 +10,10 @@ import { Button } from "./ui/button";
 export function Footer() {
   return (
     <footer className="bg-white">
-      <div className="bg-[#1E7933] text-white rounded-xl">
+      <div className="bg-[#232323] text-white rounded-xl">
         {/* Newsletter Section */}
-        <div className="border-b border-green-700">
-          <div className="max-w-[1800px] mx-auto py-12">
-          </div>
-        </div>
 
-        <div className="max-w-[1800px] mx-auto px-4">
+        <div className="max-w-[1800px] mx-auto px-4 py-16 inset-7">
           {/* Main Footer Links */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-5">
             {/* Web Development */}
@@ -25,12 +21,12 @@ export function Footer() {
               <h3 className="text-lg font-semibold mb-4">Web development</h3>
               <ul className="space-y-2 text-gray-100">
                 <li><Link href="#" className="hover:text-green-950 hover:font-bold">UI/UX Design</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Websites</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Webshops</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Development</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Umbraco CMS</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Umbraco koppeling</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Umbraco API</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Repsonsief webdesign</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Maatwerk websites</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Frontend Development</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Backend Development</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">E-commerce website</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Headless e-commerce</Link></li>
               </ul>
             </div>
 
@@ -38,11 +34,11 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Online marketing</h3>
               <ul className="space-y-2 text-gray-100">
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Drop of Orange</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Internetbureau Groningen</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Google Ads Search</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Google Ads Display</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Google Shopping</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ess Online Marketing</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ess Media</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ess Drukwerk</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Internetbureau Rotterdam</Link></li>
+                <li><Link href="#" className="hover:text-green-950 hover:font-bold">ADS</Link></li>
                 <li><Link href="#" className="hover:text-green-950 hover:font-bold">SEO</Link></li>
               </ul>
             </div>
@@ -120,7 +116,6 @@ export function Footer() {
           </div>
 
           {/* Bottom Section */}
-          <div className="border-t border-green-700 pt-8">
             <div className="flex flex-col items-center space-y-6">
               {/* Logo */}
               <div className="flex items-center space-x-4">
@@ -195,7 +190,6 @@ export function Footer() {
             </div>
           </div>
         </div>
-      </div>
     </footer>
   );
 }

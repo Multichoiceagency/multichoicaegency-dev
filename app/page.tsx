@@ -1,5 +1,7 @@
+import { BentoGridDemo } from "@/components/BentoGridDemo"
 import { Hero } from "@/components/hero"
-import { Experience } from "@/components/experience"
+import { HeroParallaxDemo } from "@/components/heroParallax"
+import { HeroSection } from "@/components/HeroSection"
 import { Solutions } from "@/components/solutions"
 import { Testimonials } from "@/components/testimonials"
 
@@ -7,8 +9,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Experience />
+      <HeroParallaxDemo />
       <Solutions />
+      <BentoGridDemo />
+      <HeroSection />
       <Testimonials />
     </main>
   )
