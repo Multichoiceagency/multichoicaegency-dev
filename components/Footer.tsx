@@ -10,7 +10,7 @@ import { Button } from "./ui/button";
 export function Footer() {
   return (
     <footer className="bg-white">
-      <div className="bg-[#232323] text-white rounded-xl">
+      <div className="bg-[#232323] text-white">
         {/* Newsletter Section */}
 
         <div className="max-w-[1800px] mx-auto px-4 py-16 inset-7">
@@ -134,7 +134,7 @@ export function Footer() {
               </div>
               <div>
               <Link href={"/offerte-aanvragen"}>
-              <button className="group flex items-center pt-5 rounded-full border-green-400 hover:translate-x-105 font-bold bg-white text-black sm:px-6 py-8 sm:py-3 text-sm sm:text-base transition-colors hover:bg-black hover:text-white">
+              <button className="group flex items-center pt-5 rounded-md border-green-400 hover:translate-x-105 font-bold bg-white text-black sm:px-6 py-8 sm:py-3 text-sm sm:text-base transition-colors hover:bg-black hover:text-white">
                 <span>Gratis advies aanvragen</span>
               </button>
               </Link>

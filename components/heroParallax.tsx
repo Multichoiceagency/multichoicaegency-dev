@@ -3,8 +3,13 @@ import React from "react";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 
 export function HeroParallaxDemo() {
-  return <HeroParallax products={products} />;
+  return (
+    <div className="w-full overflow-visible">
+      <HeroParallax products={products} />
+    </div>
+  );
 }
+
 export const products = [
   {
     title: "Ata Home Design E-Commerce Webshop",
@@ -24,7 +29,6 @@ export const products = [
     thumbnail:
       "https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102170654.png",
   },
-
   {
     title: "Prime Ledger",
     link: "https://primledger.nl",
@@ -43,7 +47,6 @@ export const products = [
     thumbnail:
       "https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102171051.png",
   },
-
   {
     title: "Auto Elektronica Rotterdam",
     link: "https://autoelektronicarotterdam.nl/",
@@ -93,15 +96,10 @@ export const products = [
       "https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102180633.png",
   },
   {
-    title: "Lovka Drinks",
+    title: "Maaz Clean Revolution",
     link: "https://maazcleanrevolution.com",
     thumbnail:
       "https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102180709.png",
   },
-  {
-    title: "Lovka Drinks",
-    link: "https://lovkadrinks.com",
-    thumbnail:
-      "https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102172309.png",
-  },
 ];
+

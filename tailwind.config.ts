@@ -9,6 +9,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
+            screens: {
+        xl: '1600px', // Large screens
+        lg: '1400px', // Medium screens
+        md: '1024px', // Tablet screens
+        sm: '768px',  // Phone screens
+        xs: '480px',  // Small phone screens
+      },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -82,6 +89,16 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        scroll:
+          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
+          
+      },
+    },
+    keyframes: {
+      scroll: {
+        to: {
+          transform: "translate(calc(-50% - 0.5rem))",
+        },
       },
     },
   },

@@ -47,7 +47,27 @@
     --input: 0 0% 14.9%;
     --ring: 142 59% 50%;
   }
+
+/* Hides horizontal scrollbar and disables horizontal scrolling */
+body {
+  overflow-x: hidden; /* Prevents horizontal scrolling entirely */
 }
+
+/* Optional: Keeps vertical scrollbar visible in all browsers */
+::-webkit-scrollbar:horizontal {
+  display: none; /* Hides horizontal scrollbar for WebKit browsers */
+}
+
+/* For IE and Edge */
+body {
+  -ms-overflow-style: scrollbar; /* Keeps the vertical scrollbar visible */
+}
+
+/* For Firefox */
+body {
+  scrollbar-width: auto; /* Keeps the vertical scrollbar visible */
+}
+
 
 @layer base {
   * {
@@ -56,4 +76,5 @@
   body {
     @apply bg-background text-foreground;
   }
+}
 }

@@ -1,17 +1,9 @@
 "use client";
-import React, { useState, useEffect, useRef } from "react";
-import {
-  motion,
-  useScroll,
-  useTransform,
-  useSpring,
-  useAnimationFrame,
-  useMotionValue,
-  useVelocity,
-  useAnimationControls,
-} from "framer-motion";
+import React, { useCallback, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import useEmblaCarousel from 'embla-carousel-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface Product {
   title: string;
@@ -23,117 +15,87 @@ export const HeroParallax = ({ products }: { products: Product[] }) => {
   const firstRow = products.slice(0, 5);
   const secondRow = products.slice(5, 10);
   const thirdRow = products.slice(10, 15);
-  const ref = useRef(null);
-  const [animationComplete, setAnimationComplete] = useState(false);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start start", "end start"],
-  });
-
-  const springConfig = { stiffness: 300, damping: 30, bounce: 100 };
-
-  const translateX = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, 1000]),
-    springConfig
-  );
-  const translateXReverse = useSpring(
-    useTransform(scrollYProgress, [0, 1], [0, -1000]),
-    springConfig
-  );
-  const rotateX = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [15, 0]),
-    springConfig
-  );
-  const opacity = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [0.2, 1]),
-    springConfig
-  );
-  const rotateZ = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [20, 0]),
-    springConfig
-  );
-  const translateY = useSpring(
-    useTransform(scrollYProgress, [0, 0.2], [-700, 200]),
-    springConfig
-  );
-
-  useEffect(() => {
-    const unsubscribe = scrollYProgress.onChange((latest) => {
-      if (latest >= 0.2 && !animationComplete) {
-        setAnimationComplete(true);
-      }
-    });
-
-    return () => unsubscribe();
-  }, [scrollYProgress, animationComplete]);
 
   return (
-    <div
-      ref={ref}
-      className="w-full h-300vh pb-48 antialiased relative flex flex-col self-auto [perspective:1000px] [transform-style:preserve-3d]"
-    >
+    <div className="w-full pb-48 antialiased relative flex flex-col self-auto">
       <Header />
-      <motion.div
-        style={{
-          rotateX,
-          rotateZ,
-          translateY,
-          opacity,
-        }}
-        className="flex-grow flex flex-col justify-between px-4 sm:px-0"
-      >
-        <ProductRow products={firstRow} direction="rtl" animationComplete={animationComplete} />
-        <ProductRow products={secondRow} direction="ltr" animationComplete={animationComplete} />
-        <ProductRow products={thirdRow} direction="rtl" animationComplete={animationComplete} />
-      </motion.div>
+      <div className="flex-grow flex flex-col justify-between px-4 sm:px-0 space-y-8">
+        <ProductRow products={firstRow} direction="rtl" speed={5000} />
+        <ProductRow products={secondRow} direction="ltr" speed={7000} />
+        <ProductRow products={thirdRow} direction="rtl" speed={6000} />
+      </div>
     </div>
   );
 };
 
 const ProductRow = ({ 
   products, 
-  direction, 
-  animationComplete
+  direction,
+  speed
 }: { 
   products: Product[], 
-  direction: "ltr" | "rtl", 
-  animationComplete: boolean
+  direction: "ltr" | "rtl",
+  speed: number
 }) => {
-  const rowRef = useRef<HTMLDivElement>(null);
-  const [rowWidth, setRowWidth] = useState(0);
-  const baseVelocity = 10;
-  const xPos = useMotionValue(0);
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, direction: direction });
+  const [prevBtnEnabled, setPrevBtnEnabled] = useState(false);
+  const [nextBtnEnabled, setNextBtnEnabled] = useState(false);
+
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
+
+  const onSelect = useCallback(() => {
+    if (!emblaApi) return;
+    setPrevBtnEnabled(emblaApi.canScrollPrev());
+    setNextBtnEnabled(emblaApi.canScrollNext());
+  }, [emblaApi]);
 
   useEffect(() => {
-    if (rowRef.current) {
-      setRowWidth(rowRef.current.offsetWidth);
+    if (!emblaApi) return;
+    onSelect();
+    emblaApi.on('select', onSelect);
+    emblaApi.on('reInit', onSelect);
+  }, [emblaApi, onSelect]);
+
+  useEffect(() => {
+    if (emblaApi) {
+      const autoplay = setInterval(() => {
+        if (direction === 'rtl') {
+          emblaApi.scrollPrev();
+        } else {
+          emblaApi.scrollNext();
+        }
+      }, speed);
+
+      return () => clearInterval(autoplay);
     }
-  }, []);
-
-  useAnimationFrame((t, delta) => {
-    if (!animationComplete || !rowRef.current) return;
-
-    let moveBy = direction === "rtl" ? baseVelocity : -baseVelocity;
-    moveBy = (moveBy * delta) / 1000;
-
-    xPos.set((xPos.get() + moveBy) % rowWidth);
-  });
+  }, [emblaApi, direction, speed]);
 
   return (
-    <div className="relative overflow-hidden py-4">
-      <motion.div 
-        ref={rowRef}
-        className="flex space-x-4 sm:space-x-10"
-        style={{ x: xPos }}
+    <div className="relative">
+      <div className="overflow-hidden" ref={emblaRef}>
+        <div className="flex">
+          {products.map((product, index) => (
+            <div key={`${product.title}-${index}`} className="flex-[0_0_100%] min-w-0 pl-4">
+              <ProductCard product={product} />
+            </div>
+          ))}
+        </div>
+      </div>
+      <button
+        className="absolute left-0 top-1/2 transform -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md"
+        onClick={scrollPrev}
+        disabled={!prevBtnEnabled}
       >
-        {[...products, ...products, ...products].map((product, index) => (
-          <ProductCard
-            product={product}
-            key={`${product.title}-${index}`}
-          />
-        ))}
-      </motion.div>
+        <ChevronLeft className="w-6 h-6" />
+      </button>
+      <button
+        className="absolute right-0 top-1/2 transform -translate-y-1/2 bg-white/80 rounded-full p-2 shadow-md"
+        onClick={scrollNext}
+        disabled={!nextBtnEnabled}
+      >
+        <ChevronRight className="w-6 h-6" />
+      </button>
     </div>
   );
 };
@@ -152,6 +114,9 @@ const Header = () => {
         <br /><br />
         Om dit proces succesvol te begeleiden, werken we met een team van strategen, creatieven, developers en architecten, afgestemd op de behoeften van jouw project. Door telkens het juiste team samen te stellen, bieden we een full-service aanpak gecombineerd met specialistische expertise.
       </p>
+      <Link href="/diensten" className="inline-block mt-8 px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors">
+        Alle diensten
+      </Link>
     </div>
   );
 };
@@ -165,7 +130,6 @@ const ProductCard = ({
     <div
       className="group/product overflow-hidden h-60 sm:h-96 w-72 sm:w-[30rem] relative flex-shrink-0"
     >
-      
       <Link
         href={product.link}
         className="block group-hover/product:shadow-2xl h-full"

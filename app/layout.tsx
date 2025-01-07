@@ -1,6 +1,6 @@
 import './globals.css';
 import type { Metadata } from 'next';
-import { Hanken_Grotesk } from 'next/font/google'; // Correctly import Hanken Grotesk
+import { Hanken_Grotesk } from 'next/font/google';
 import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Footer } from '@/components/Footer';
@@ -10,7 +10,7 @@ const hankenGrotesk = Hanken_Grotesk({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
   title: 'Multichoiceagency',
-  description: 'Transform your digital presence with cutting-edge solutions',
+  description: 'Jouw online maatwerk en website specialisten',
 };
 
 export default function RootLayout({
@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={hankenGrotesk.className}>
+      <body className={hankenGrotesk.className} suppressHydrationWarning>
         <ThemeProvider
           attribute="class"
           defaultTheme="auto"

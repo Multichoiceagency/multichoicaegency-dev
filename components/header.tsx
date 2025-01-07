@@ -8,9 +8,9 @@ import { Button } from "@/components/ui/button";
 import { AnnouncementBanner } from "./announcement-banner";
 import { MegaMenu } from "./mega-menu";
 import { MegaMenuCases } from "./mega-menu-cases";
-import { MegaMenuDevelopment } from "./mega-menu-development"; // Import your Development Mega Menu
+import { MegaMenuDevelopment } from "./mega-menu-development";
 import { MobileMenu } from "./mobile-menu";
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { Menu, ChevronDown } from 'lucide-react';
 import { useTheme } from "next-themes";
 import { AppleStyleThemeSwitcher } from "./apple-style-theme-switcher";
 import { MegaMenuIndustrie } from "./mega-menu-industrie";
@@ -93,7 +93,7 @@ export function Header() {
           isScrolled ? "bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800" : "bg-white dark:bg-gray-900"
         }`}
       >
-        <div className="mx-auto flex h-16 lg:h-20 max-w-[1800px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 md:h-20 max-w-[1800px] items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -110,20 +110,20 @@ export function Header() {
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden lg:flex items-center gap-12">
+          <div className="hidden md:flex items-center gap-8 lg:gap-12">
             {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over Ons"].map((item, index) => (
               <div key={index} className="relative">
                 {item === "Contact" || item === "Over Ons" ? (
                   <Link
                     href={`/${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
+                    className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
                   >
                     {item}
                   </Link>
                 ) : (
                   <button
                     onClick={() => setActiveMegaMenu(activeMegaMenu === item ? null : item)}
-                    className="text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 flex items-center gap-1"
+                    className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 flex items-center gap-1"
                   >
                     {item}
                     <ChevronDown 
@@ -138,7 +138,7 @@ export function Header() {
           </div>
 
           {/* Desktop Buttons */}
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-4">
             <AppleStyleThemeSwitcher />
             <Button variant="ghost" className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400">
               Log In
@@ -149,7 +149,7 @@ export function Header() {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <Button
               variant="ghost"
               size="icon"
@@ -204,3 +204,4 @@ export function Header() {
     </motion.div>
   );
 }
+

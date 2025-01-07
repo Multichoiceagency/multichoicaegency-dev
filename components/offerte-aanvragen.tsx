@@ -46,7 +46,7 @@ export function ContactForm() {
     formDataToSend.append('form_id', '123'); // Replace with your actual Metform form ID
 
     try {
-      const response = await fetch('https://your-wordpress-site.com/wp-json/metform/v1/entries/submit', {
+      const response = await fetch('https://cloud.multichoiceagency.nl/wp-json/metform/v1/entries/submit', {
         method: 'POST',
         body: formDataToSend
       });

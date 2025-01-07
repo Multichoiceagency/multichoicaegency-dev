@@ -103,7 +103,7 @@ export function Solutions() {
             >
               <h2 className="mb-4 text-4xl font-medium leading-tight md:text-5xl lg:text-6xl">
                 Kies voor{" "}
-                <span className="italic text-muted-foreground">
+                <span className="italic text-green-600 hover:text-green-900 animate-in-5s">
                   expertise op maat
                 </span>
               </h2>
