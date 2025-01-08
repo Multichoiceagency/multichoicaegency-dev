@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <section className="bg-orange-50">
         
-        <div className="relative pt-36">
+        <div className="relative py-36">
             <Image className="hidden md:block absolute top-0 left-0 mt-28 w-32 lg:w-64 xl:w-auto" src="/flow-assets/headers/header-4-left-top.png" alt="" width={300} height={300} />
             <Image className="hidden md:block absolute top-0 right-0 mt-20 w-32 lg:w-64 xl:w-auto" src="/flow-assets/headers/header-4-right-top.png" alt="" width={300} height={300} />
             <div className="container mx-auto px-4 relative">
