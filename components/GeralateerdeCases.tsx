@@ -4,6 +4,7 @@ import { useRef, useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, useInView } from "framer-motion";
+import { decodeHtml } from "@/utils/decodeHtml";
 
 interface PortfolioItem {
   title: string;
@@ -150,15 +151,15 @@ function PortfolioCard({ item, index }: { item: PortfolioItem; index: number }) 
                 className="object-contain w-full h-full"
               />
             ) : (
-              <div className="w-full h-full bg-gray-300 flex items-center justify-center text-gray-600 text-xs font-bold">
-                {item.title.charAt(0).toUpperCase()}
+              <div className="w-full h-full bg-green-300 flex items-center justify-center text-gray-600 text-xs font-bold">
+                {item.logonew.charAt(0).toUpperCase()}
               </div>
             )}
           </div>
           <div>
             <Link href={`/cases/${item.slug}`} className="inline-block">
               <h4 className="text-xl font-semibold text-white transition-colors duration-200 group-hover:text-green-400 hover:underline">
-                {item.title}
+              {decodeHtml(item.title)}
               </h4>
             </Link>
             <p className="text-white">{item.subtitle}</p>

@@ -51,7 +51,9 @@ export default async function CaseStudyPage({ params }: { params: { slug: string
     allCaseStudies
   };
 
-  return <CaseStudyContent {...props} />;
+  return <CaseStudyContent params={{
+    slug: ''
+  }} {...props} />;
 }
 
 export const dynamic = 'force-static';

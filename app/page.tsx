@@ -1,25 +1,25 @@
 import { BentoGridDemo } from "@/components/BentoGridDemo"
-import { Hero } from "@/components/hero"
-import { HeroParallaxDemo } from "@/components/heroParallax"
 import { HeroSection } from "@/components/HeroSection"
 import Oplossingen from "@/components/oplossingen"
 import OverOns from "@/components/OverOns"
 import { Solutions } from "@/components/solutions"
-import Navbar from "@/components/test"
+import HeroNieuw from "@/components/test"
 import { Testimonials } from "@/components/testimonials"
+import Portfolio from "@/components/cases-display"
+import WebDesignStats from "@/components/web-design-stats"
 
 
 export default function Home() {
   return (
     <main>
-      <Hero />
-      <Navbar />
+      <HeroNieuw />
       <Oplossingen />
       <OverOns />
-      <HeroParallaxDemo />
+      <Portfolio />
       <Solutions />
       <BentoGridDemo />
       <HeroSection />
+      <WebDesignStats />
       <Testimonials />
     </main>
   )

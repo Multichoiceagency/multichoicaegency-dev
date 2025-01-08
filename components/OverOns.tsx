@@ -10,8 +10,10 @@ const OverOns: React.FC = () => {
     loop: true, 
     dragFree: true,
     breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
+      '(min-width: 768px)': { slidesToScroll: 1 },
       '(min-width: 1024px)': { slidesToScroll: 3 },
+      '(max-width: 1400px)': { slidesToScroll: 4 },
+
     }
   });
 
@@ -24,11 +26,11 @@ const OverOns: React.FC = () => {
   }, [emblaApi]);
 
   const images = [
-    { desktop: '/flow-assets/about/about-image1.png', mobile: '/flow-assets/about/about-image1.png' },
-    { desktop: '/flow-assets/about/about-image2.png', mobile: '/flow-assets/about/about-image2.png' },
-    { desktop: '/flow-assets/about/about-image3.png', mobile: '/flow-assets/about/about-image3.png' },
-    { desktop: '/flow-assets/about/about-image4.png', mobile: '/flow-assets/about/about-image4.png' },
-    { desktop: '/flow-assets/about/about-image5.png', mobile: '/flow-assets/about/about-image5.png' },
+    { desktop: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102170409.png', mobile: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102170409.png', link: '/image1' },
+    { desktop: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102170552.png', mobile: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102170552.png', link: '/image2' },
+    { desktop: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102170812.png', mobile: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102170812.png', link: '/image3' },
+    { desktop: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102171348.png', mobile: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102171348.png', link: '/image4' },
+    { desktop: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102172031.png', mobile: 'https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/ScreenShot-Tool-20250102172031.png', link: '/image5' },
   ];
 
   return (
@@ -53,21 +55,32 @@ const OverOns: React.FC = () => {
         </div>
       </div>
       <div className="relative">
-        <div className="embla overflow-hidden" ref={emblaRef}>
+        <div className="embla overflow-hidden -mx-4 sm:mx-0" ref={emblaRef}>
           <div className="embla__container flex">
             {images.map((image, index) => (
-              <div key={index} className="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 pl-4">
-                <picture>
-                  <source media="(min-width: 640px)" srcSet={image.desktop} />
-                  <Image
-                    className="block w-full h-[800px] object-cover rounded-3xl"
-                    src={image.mobile}
-                    alt={`About image ${index + 1}`}
-                    width={280}
-                    height={356}
-                    sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
-                  />
-                </picture>
+              <div 
+                key={index} 
+                className="embla__slide flex-[0_0_100%] sm:flex-[0_0_50%] lg:flex-[0_0_33.33%] min-w-0 px-4 sm:pl-4 sm:pr-0"
+              >
+                <Link href={image.link} className="block w-full aspect-[3/4] sm:aspect-auto sm:h-[800px] relative">
+                  <picture className="block w-full h-full">
+                    <source 
+                      media="(min-width: 640px)" 
+                      srcSet={image.desktop}
+                    />
+                    <Image
+                      className="w-full h-full object-cover sm:object-contain rounded-3xl mx-auto"
+                      src={image.mobile}
+                      alt={`About image ${index + 1}`}
+                      fill
+                      sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
+                      style={{
+                        maxWidth: 'calc(100% - 2rem)', 
+                        maxHeight: '100%',
+                      }}
+                    />
+                  </picture>
+                </Link>
               </div>
             ))}
           </div>
