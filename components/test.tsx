@@ -18,8 +18,8 @@ export default function HeroNieuw() {
                         </svg>
                         <span className="ml-2 text-sm font-medium">Powering Tomorrow</span>
                     </div>
-                    <h1 className="font-heading text-5xl xs:text-7xl xl:text-8xl tracking-tight mb-8">The Future of Green Energy</h1>
-                    <p className="text-lg text-gray-700 mb-10">Our commitment to green energy is paving the way for a cleaner, healthier planet. Join us on a journey towards a future where clean, renewable energy sources transform the way we power our lives.</p>
+                    <h1 className="font-heading text-5xl xs:text-7xl xl:text-8xl tracking-tight mb-8">Jouw unieke website, onze missie.</h1>
+                    <p className="text-lg text-gray-700 mb-10">Geef jouw merk de online uitstraling die het verdient. Laten we samen jouw visie omzetten in een prachtige, resultaatgerichte website.</p>
                     <div className="flex flex-col sm:flex-row justify-center">
                         <Link href="#" className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition duration-200">See our solutions</Link>
                         <Link href="#" className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-black hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200">Get in touch</Link>

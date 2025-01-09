@@ -1,120 +1,139 @@
-'use client'
+'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowLeft } from 'lucide-react';
-import ProjectResults from './ProjectResults';
-import ProjectGallery from './ProjectGallery';
+import AuthorInfo from '@/components/AuthorInfo';
+import SocialShare from '@/components/SocialShare';
+import NewsletterSignup from '@/components/NewsLetterSignup';
+import AuthorBio from '@/components/AuthorBio';
+import { formatDate } from '@/utils/formatDate';
 import ClientInfo from './ClientInfo';
-import { GeralateerdeCases } from '@/components/GeralateerdeCases';
-import { Button } from "@/components/ui/button";
-import { decodeHtml } from '@/utils/decodeHtml';
 
-// Define the shape of your case study object
-interface CaseStudy {
+export interface CaseStudyContent {
+  slug: any;
   title: { rendered: string };
   content: { rendered: string };
+  date: string;
   acf?: {
-    project_summary?: string;
-    results?: any[];
-    project_gallery?: any[];
-    client_name?: string;
-    industry?: string;
-    project_date?: string;
     logonew?: string;
+    client_name?: string;
+    project_date?: string;
+    author_image?: string;
+    author_bio?: string;
+    clientName?: string;
+    industry?: string;
   };
   _embedded?: {
     'wp:featuredmedia'?: Array<{ source_url: string }>;
   };
 }
 
-// Define the props interface and export it
+
 export interface CaseStudyContentProps {
-  caseStudy: CaseStudy;
-  allCaseStudies: CaseStudy[];
+  content: CaseStudyContent;
+  allCaseStudies: Array<CaseStudyContent>; // Adjust types based on your API data structure
 }
 
-export default function CaseStudyContent({ caseStudy, allCaseStudies }: CaseStudyContentProps) {
-  const projectSummary = caseStudy.acf?.project_summary || 'Samenvatting niet beschikbaar.';
+
+export default function CaseStudyContent({ content, allCaseStudies }: CaseStudyContentProps) {
+  const featuredImage =
+    content._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.svg?height=400&width=800';
 
   return (
-    <div className="bg-white dark:bg-gray-900 dark:text-gray-100">
+    <section className=" pt-5 pb-12 md:pb-24">
       {/* Hero Section */}
-      <section className="relative h-[80vh] bg-[#0A0A0B] overflow-hidden">
+      <div className="relative pt-5 pb-80">
         <Image
-          src={caseStudy._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg'}
-          alt={caseStudy.title.rendered}
-          layout="fill"
-          objectFit="cover"
-          className="opacity-50"
+          className="absolute top-0 left-0 w-full h-full"
+          src="/flow-assets/content/bg-teal-waves.png"
+          alt="Background"
+          width={1440}
+          height={823}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-[#0A0A0B]"></div>
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-2xl md:text-3xl font-bold text-white mb-4">{caseStudy.title.rendered}</h1>
-            <p className="text-xl md:text-xl text-gray-300 max-w-3xl mx-auto mb-6">{projectSummary}</p>
-            <Link href="/cases" passHref>
-              <Button variant="outline" className="text-white bg-green-700 hover:bg-green-700 hover:text-gray-900">
-                Offerte aanvragen
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <Link
-          href="/cases"
-          className="inline-flex items-center text-green-600 dark:text-green-400 font-bold hover:text-green-800 dark:hover:text-green-600 mb-8"
-        >
-          <ArrowLeft className="w-5 h-5 mr-2" />
-          Terug naar Casestudies
-        </Link>
-
-        {/* Main Content Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-          {/* Left Column: Project Details */}
-          <div className="lg:col-span-2">
-            <section className="mb-12">
-              <h2 className="text-3xl font-semibold text-gray-900 dark:text-gray-100 mb-6">Projectoverzicht</h2>
-              <div
-                className="prose prose-lg max-w-none dark:prose-invert"
-                dangerouslySetInnerHTML={{ __html: caseStudy.content.rendered }}
-              />
-            </section>
-
-            <ProjectResults results={caseStudy.acf?.results || []} />
-
-            <ProjectGallery images={caseStudy.acf?.project_gallery || []} />
-          </div>
-
-          {/* Right Column: Client Info and Project Summary */}
-          <div className="lg:col-span-1">
-            <div className="sticky top-8 space-y-8">
-              <ClientInfo
-                clientName={caseStudy.acf?.client_name || 'Onbekend'}
-                industry={caseStudy.acf?.industry || 'Onbekend'}
-                projectDate={caseStudy.acf?.project_date || 'Onbekend'}
-                logonew={caseStudy.acf?.logonew || ''}
-              />
-
-              <div className="bg-gray-100 dark:bg-gray-800 p-6 rounded-lg shadow-md">
-                <h3 className="text-xl font-semibold mb-4">Project Samenvatting</h3>
-                <p className="text-gray-700 dark:text-gray-300">{projectSummary}</p>
-              </div>
+          <div className="max-w-3xl mx-auto text-center">
+            <h2 className="font-heading text-4xl xs:text-5xl md:text-6xl tracking-xs text-white mb-6">
+              {content.title.rendered}
+            </h2>
+            <div className="flex items-center justify-center">
+              <span className="mx-3">
+                <svg
+                  width="5"
+                  height="4"
+                  viewBox="0 0 5 4"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <circle cx="2.5" cy="2" r="2" fill="#929C9A"></circle>
+                </svg>
+              </span>
+              <span className="text-sm font-medium text-white">
+                Geplaatst op {formatDate(content.date)}
+              </span>
             </div>
           </div>
         </div>
-        <div className="w-full">
-          <div className="bg-white rounded-lg">
-            <div className="max-w-[1800px] mx-auto px-4 sm:px-6 lg:px-8 my-12 ">
-              <GeralateerdeCases />
+
+      {/* Main Content Section */}
+      <div className="container mx-auto -mt-64 px-4 relative">
+        <div className="flex flex-wrap -mx-4 mb-18">
+          {/* Left Column */}
+          <div className="w-full md:w-1/6 px-4 mb-6 md:mb-0 ">
+            <AuthorInfo
+              name={content.acf?.client_name ?? 'Unknown Author'}
+              image={content.acf?.author_image ?? '/placeholder.svg?height=100&width=100'}
+              logo={content.acf?.logonew ?? '/placeholder.svg?height=50&width=50'}
+            />
+          </div>
+
+
+
+          {/* Center Column */}
+          <div className="w-full md:w-4/6 px-4 mb-6 md:mb-0 rounded-md">
+            <Image
+              src={featuredImage}
+              alt={content.title.rendered}
+              width={800}
+              height={600}
+              layout="responsive"
+              className="block w-full max-w-3xl mx-auto"
+            />
+          </div>
+
+          {/* Right Column */}
+          <div className="w-full md:w-auto px-4">
+            <div className="flex flex-row md:flex-col items-center justify-end gap-4">
+              <span className="block lg:mb-2 text-sm font-medium text-gray-700 md:text-white md:opacity-80">
+              </span>
+              <SocialShare />
             </div>
           </div>
+        </div>
+
+        {/* Content and Additional Info */}
+        <div className="max-w-lg lg:max-w-2xl mx-auto `${theme === 'dark' ? 'bg-white' : 'bg-gray-400'} p-6 rounded-lg shadow-md transition-colors duration-200`}">
+          <div className='max-w-lg lg:max-w-2xl mx-auto pt-5 pb-10'>
+          <ClientInfo 
+          clientName={content.acf?.client_name ?? 'Unknown Author'}
+           industry={content.acf?.industry ?? 'Unknown Author'}
+           projectDate={content.acf?.project_date ?? 'projectdatum'} 
+           logonew={''} />
+          </div>
+          <div
+            className="prose prose-lg max-w-none dark:prose-invert mb-16"
+            dangerouslySetInnerHTML={{ __html: content.content.rendered }}
+          />
+          <NewsletterSignup />
+          <AuthorBio
+            name="Multichoiceagency"
+            role="Online maatwerk specialisten"
+            image="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/favicon.jpg"
+            bio="Multichoice Agency staat al ruim 8 jaar bekend als dé expert in webdesign, webdevelopment en online marketing. Met een klantgerichte aanpak creëren we op maat gemaakte websites die niet alleen visueel aantrekkelijk zijn, maar ook converteren. Onze marketingstrategieën zijn gericht op meetbare resultaten, waardoor jouw bedrijf kan groeien en bloeien in de digitale wereld. Kies voor kwaliteit, innovatie en betrouwbaarheid. Kies voor Multichoice Agency."
+          />
+          
         </div>
       </div>
-    </div>
+    </section>
+
   );
 }
-

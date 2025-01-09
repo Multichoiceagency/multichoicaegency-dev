@@ -29,7 +29,7 @@ export default function ClientInfo({ clientName, industry, projectDate, logonew 
           />
         </div>
       )}
-      <h3 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-black' : 'text-gray-900'}`}>Client Informatie</h3>
+      <h3 className={`text-xl font-semibold mb-4 ${theme === 'dark' ? 'text-black' : 'text-gray-900'}`}>Klantinformatie</h3>
       <ul className="space-y-2">
         <li className={`${theme === 'dark' ? 'text-black' : 'text-gray-700'}`}>
           <span className="font-semibold">Naam:</span> {clientName}
