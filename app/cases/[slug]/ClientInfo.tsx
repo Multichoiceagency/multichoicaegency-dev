@@ -3,6 +3,7 @@
 import { useTheme } from 'next-themes';
 import { parseISO, isValid } from 'date-fns';
 import Image from 'next/image';
+import { decodeHtml } from '@/utils/decodeHtml';
 
 interface ClientInfoProps {
   clientName: string;

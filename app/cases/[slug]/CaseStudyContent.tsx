@@ -9,6 +9,7 @@ import ProjectGallery from './ProjectGallery';
 import ClientInfo from './ClientInfo';
 import { GeralateerdeCases } from '@/components/GeralateerdeCases';
 import { Button } from "@/components/ui/button";
+import { decodeHtml } from '@/utils/decodeHtml';
 
 // Define the shape of your case study object
 interface CaseStudy {
