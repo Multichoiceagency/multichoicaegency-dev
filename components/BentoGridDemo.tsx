@@ -1,7 +1,9 @@
-"use client";
-import { cn } from "@/lib/utils";
-import Image from "next/image";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import { cn } from '@/lib/utils';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useTheme } from 'next-themes'; // Import useTheme
 import {
   IconArrowWaveRightUp,
   IconBoxAlignRightFilled,
@@ -11,19 +13,39 @@ import {
   IconSignature,
   IconTableColumn,
   IconArrowRight,
-} from "@tabler/icons-react";
+} from '@tabler/icons-react';
 
 // HeaderSection Component
 const HeaderSection = () => {
+  const { theme } = useTheme(); // Use theme to apply dynamic styles
+
   return (
     <div className="text-center mb-16">
-      <h2 className="text-4xl font-bold mb-4 text-white">
+      <h2
+        className={cn(
+          'text-4xl font-bold mb-4',
+          theme === 'dark' ? 'text-white' : 'text-black'
+        )}
+      >
         Onze Specialisaties
       </h2>
-      <p className="text-xl mb-8 max-w-2xl mx-auto text-neutral-300">
-        Discover our comprehensive range of digital solutions designed to drive your business forward in the digital age.
+      <p
+        className={cn(
+          'text-xl mb-8 max-w-2xl mx-auto',
+          theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700'
+        )}
+      >
+        Discover our comprehensive range of digital solutions designed to drive
+        your business forward in the digital age.
       </p>
-      <button className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-green-600 transition duration-300">
+      <button
+        className={cn(
+          'px-6 py-3 rounded-lg font-semibold transition duration-300',
+          theme === 'dark'
+            ? 'bg-white text-black hover:bg-green-500'
+            : 'bg-black text-white hover:bg-green-600'
+        )}
+      >
         Bekijk al onze diensten
       </button>
     </div>
@@ -41,7 +63,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[18rem] max-w-7xl mx-auto px-4 md:px-8",
+        'grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 auto-rows-[18rem] max-w-7xl mx-auto px-4 md:px-8',
         className
       )}
     >
@@ -68,10 +90,13 @@ export const BentoGridItem = ({
   video?: string;
   link?: string;
 }) => {
+  const { theme } = useTheme(); // Use theme to apply dynamic styles
+
   const Content = (
     <div
       className={cn(
-        "relative flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02] group bg-[#232323] border-none cursor-pointer h-full",
+        'relative flex flex-col overflow-hidden rounded-xl transition-transform duration-300 hover:scale-[1.02] group border-none cursor-pointer h-full',
+        theme === 'dark' ? 'bg-[#1f1f1f]' : 'bg-[#f9f9f9]',
         className
       )}
     >
@@ -91,7 +116,7 @@ export const BentoGridItem = ({
           <div className="relative h-full w-full overflow-hidden">
             <Image
               src={image}
-              alt={title ? title.toString() : "Bento Grid Item"}
+              alt={title ? title.toString() : 'Bento Grid Item'}
               layout="fill"
               objectFit="cover"
             />
@@ -102,27 +127,52 @@ export const BentoGridItem = ({
       {/* Content Container */}
       <div className="relative flex-grow">
         {/* Content Section */}
-        <div className="absolute inset-0 flex items-start space-x-4 p-4 bg-[#232323] transition-opacity duration-300 group-hover:opacity-0">
+        <div
+          className={cn(
+            'absolute inset-0 flex items-start space-x-4 p-4 transition-opacity duration-300 group-hover:opacity-0',
+            theme === 'dark' ? 'bg-gray-800' : 'bg-teal-900'
+          )}
+        >
           {icon && (
-            <div className="text-neutral-400 mt-1 flex-shrink-0">
+            <div
+              className={cn(
+                'mt-1 flex-shrink-0',
+                theme === 'dark' ? 'text-neutral-400' : 'text-neutral-100'
+              )}
+            >
               {icon}
             </div>
           )}
           <div>
             {title && (
-              <h3 className="text-lg font-bold text-white">
+              <h3
+                className={cn(
+                  'text-lg font-bold',
+                  theme === 'dark' ? 'text-white' : 'text-white'
+                )}
+              >
                 {title}
               </h3>
             )}
             {description && (
-              <p className="mt-1 text-sm text-neutral-300">
+              <p
+                className={cn(
+                  'mt-1 text-sm',
+                  theme === 'dark' ? 'text-white' : 'text-white'
+                )}
+              >
                 {description}
               </p>
             )}
           </div>
         </div>
         {/* Direct Bekijken - Same Position */}
-        <div className="absolute inset-0 flex items-center justify-between px-6 bg-green-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div
+          className={cn(
+            'absolute inset-0 flex items-center justify-between px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300',
+            theme === 'dark' ? 'bg-green-600' : 'bg-green-700'
+          )}
+        >
           <span className="text-white font-medium">Direct bekijken</span>
           <IconArrowRight className="w-6 h-6 text-white" />
         </div>
@@ -143,61 +193,74 @@ export const BentoGridItem = ({
 export function BentoGridDemo() {
   const items = [
     {
-      title: "Websites & E-commerce",
+      title: 'Websites & E-commerce',
       description:
-        "Een website is jouw digitale visitekaartje en zorgt voor een professionele uitstraling online.",
+        'Op zoek naar een website, eCommerce platform, Is jouw technologie, design en gebruiksvriendelijkheid aan vernieuwing toe? ',
       icon: <IconClipboardCopy className="h-6 w-4" />,
-      video: "https://videos.pexels.com/video-files/3114574/3114574-uhd_2560_1440_25fps.mp4",
-      link: "https://ess.nl",
+      video:
+        'https://videos.pexels.com/video-files/3114574/3114574-uhd_2560_1440_25fps.mp4',
+      link: 'https://ess.nl',
     },
     {
-      title: "Technologie en AI",
+      title: 'Technologie en AI',
       description:
-        "Wij bieden slimme AI-oplossingen voor een efficiënte en duurzame digitale transformatie.",
+        'Wij bieden slimme AI-oplossingen voor een efficiënte en duurzame digitale transformatie.',
       icon: <IconFileBroken className="h-8 w-4" />,
-      video: "https://filmora.wondershare.com/2023video/ai-page/04-AI-Text-To-Video_transcode_100800.mp4",
-      link: "https://ess.nl",
+      video:
+        'https://filmora.wondershare.com/2023video/ai-page/04-AI-Text-To-Video_transcode_100800.mp4',
+      link: 'https://ess.nl',
     },
     {
-      title: "UX / UI Design",
+      title: 'UX / UI Design',
       description:
-        "Een goed UX/UI design is essentieel voor gebruiksvriendelijke en aantrekkelijke digitale producten.",
+        'Een goed UX/UI design is essentieel voor gebruiksvriendelijke en aantrekkelijke digitale producten.',
       icon: <IconSignature className="h-8 w-4" />,
-      image: "https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      image:
+        'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
-      title: "Marketing",
+      title: 'Marketing',
       description:
-        "Met meer dan 8 jaar ervaring optimaliseren wij jouw online marketingstrategie. Wij zorgen voor meetbare resultaten en duurzame groei.",
+        'Met meer dan 8 jaar ervaring optimaliseren wij jouw online marketingstrategie. Wij zorgen voor meetbare resultaten en duurzame groei.',
       icon: <IconTableColumn className="h-8 w-4" />,
-      video: "https://videos.pexels.com/video-files/4549682/4549682-hd_1920_1080_30fps.mp4 ",
+      video:
+        'https://videos.pexels.com/video-files/4549682/4549682-hd_1920_1080_30fps.mp4 ',
     },
     {
-      title: "IT- infrastructuur & hosting",
+      title: 'IT- infrastructuur & hosting',
       description:
-        "Een schaalbare en veilige IT-strategie stelt jouw organisatie in staat om te groeien en toekomstbestendig te blijven.",
+        'Een schaalbare en veilige IT-strategie stelt jouw organisatie in staat om te groeien en toekomstbestendig te blijven.',
       icon: <IconArrowWaveRightUp className="h-8 w-4" />,
-      image: "https://images.pexels.com/photos/1624895/pexels-photo-1624895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-      link: "https://ess.nl",
+      image:
+        'https://images.pexels.com/photos/1624895/pexels-photo-1624895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+      link: 'https://ess.nl',
     },
     {
-      title: "Onderhoud en beheer",
+      title: 'Onderhoud en beheer',
       description:
-        "Wij onderhouden software applicaties en nemen bestaande applicaties in beheer.",
+        'Wij onderhouden software applicaties en nemen bestaande applicaties in beheer.',
       icon: <IconBoxAlignTopLeft className="h-8 w-4" />,
-      video: "https://videos.pexels.com/video-files/3209829/3209829-uhd_2560_1440_25fps.mp4",
+      video:
+        'https://videos.pexels.com/video-files/3209829/3209829-uhd_2560_1440_25fps.mp4',
     },
     {
-      title: "Platforms & partners",
+      title: 'Platforms & partners',
       description:
-        "Wij versnellen je digitale transformatie door gebruik te maken van bewezen technologie.",
+        'Wij versnellen je digitale transformatie door gebruik te maken van bewezen technologie.',
       icon: <IconBoxAlignRightFilled className="h-8 w-4" />,
-      image: "https://images.pexels.com/photos/39559/ipad-mockup-apple-business-39559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+      image:
+        'https://images.pexels.com/photos/39559/ipad-mockup-apple-business-39559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
   ];
 
   return (
-    <div className="py-16 bg-[#111111]">
+    <div
+      className={cn(
+        'py-16',
+        'transition-colors duration-300',
+        useTheme().theme === 'dark' ? 'bg-gray-900' : 'bg-white'
+      )}
+    >
       <HeaderSection />
       <BentoGrid className="max-w-[1440px] mx-auto">
         {items.map((item, i) => (
@@ -209,7 +272,7 @@ export function BentoGridDemo() {
             image={item.image}
             video={item.video}
             link={item.link}
-            className={i === 3 || i === 6 ? "md:col-span-2" : ""}
+            className={i === 3 || i === 6 ? 'md:col-span-2' : ''}
           />
         ))}
       </BentoGrid>
