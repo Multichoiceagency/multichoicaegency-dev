@@ -4,6 +4,7 @@ import React, { useCallback } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import useEmblaCarousel from 'embla-carousel-react';
+import { motion } from 'framer-motion';
 
 const OverOns: React.FC = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ 
@@ -13,7 +14,6 @@ const OverOns: React.FC = () => {
       '(min-width: 768px)': { slidesToScroll: 1 },
       '(min-width: 1024px)': { slidesToScroll: 3 },
       '(max-width: 1400px)': { slidesToScroll: 4 },
-
     }
   });
 
@@ -34,26 +34,41 @@ const OverOns: React.FC = () => {
   ];
 
   return (
-    <section className="py-12 lg:py-24">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-wrap -mx-4 mb-24">
-          <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
-            <div>
-              <h1 className="font-heading text-6xl">Over ons</h1>
-            </div>
-          </div>
-          <div className="w-full md:w-1/2 px-4">
-            <div className="lg:max-w-lg md:ml-auto">
-              <p className="text-xl font-medium mb-10">
-                At Flow, we&apos;re committed to a sustainable future. As a pioneering force in the green energy sector, we've been at the forefront of the transition to clean, renewable power sources. Our mission is simple yet profound: to create a world where energy is not only abundant but also environmentally responsible. We believe that by harnessing the power of nature, we can power the world and protect it simultaneously.
-              </p>
-              <Link href="#" className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 hover:text-lime-500 border border-lime-500 hover:border-teal-900 bg-lime-500 hover:bg-teal-900 rounded-full transition duration-300">
-                Read more
-              </Link>
-            </div>
+    <section className="py-34 lg:py-32">
+      <div className="container mx-auto px-4 flex flex-wrap items-center">
+        {/* Left Side - Sticky Title */}
+        <div className="w-full md:w-1/2 mb-8 md:mb-0 sticky top-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <h2 className="text-4xl italic text-green-900 font-medium leading-tight md:text-5xl lg:text-6xl">
+              Over{" "}
+              <span className="italic text-green-600 hover:text-green-900 animate-in-5s">
+                ons
+              </span>
+            </h2>
+          </motion.div>
+        </div>
+
+        {/* Right Side - Text Content */}
+        <div className="w-full md:w-1/2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+          >
+            <p className="text-lg text-muted-foreground mb-8">
+            Welkom bij Multichoiceagency! Wij zijn een creatief team van experts in design, ontwikkeling en marketing. We zetten onze diverse vaardigheden in om op maat gemaakte digitale oplossingen te creëren. Onze focus ligt op samenwerking, innovatie en het leveren van resultaten die uw verwachtingen overtreffen. Samen streven we ernaar om uw digitale visie werkelijkheid te maken.
+            </p>
+          </motion.div>
+          <div>
+          <Link href="/over-ons" className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition duration-200">Over ons</Link>
           </div>
         </div>
       </div>
+
       <div className="relative">
         <div className="embla overflow-hidden -mx-4 sm:mx-0" ref={emblaRef}>
           <div className="embla__container flex">
@@ -107,4 +122,3 @@ const OverOns: React.FC = () => {
 };
 
 export default OverOns;
-
