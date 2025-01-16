@@ -34,7 +34,7 @@ const OverOns: React.FC = () => {
   ];
 
   return (
-    <section className="py-34 lg:py-32">
+    <section className="py-34 lg:py-32 sm:py-16">
       <div className="container mx-auto px-4 flex flex-wrap items-center">
         {/* Left Side - Sticky Title */}
         <div className="w-full md:w-1/2 mb-8 md:mb-0 sticky top-10">
