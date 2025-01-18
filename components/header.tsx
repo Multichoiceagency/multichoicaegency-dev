@@ -141,10 +141,10 @@ export function Header() {
           <div className="hidden md:flex items-center gap-4">
             <AppleStyleThemeSwitcher />
             <Button variant="ghost" className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400">
-              Log In
+              Inloggen
             </Button>
             <Button className="bg-green-500 text-white hover:bg-green-600">
-              Get Started
+              Offerte aanvragen
             </Button>
           </div>
 

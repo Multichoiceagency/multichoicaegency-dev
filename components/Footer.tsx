@@ -4,13 +4,12 @@ import Link from "next/link";
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faGoogle, faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faInbox, faMailBulk, faPhone } from "@fortawesome/free-solid-svg-icons";
-import { Button } from "./ui/button";
+import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export function Footer() {
   return (
     <footer className="bg-white">
-      <div className="bg-[#232323] text-white">
+      <div className="bg-gradient-to-b from-[#232323] to-teal-700 text-white">
         {/* Newsletter Section */}
 
         <div className="max-w-[1800px] mx-auto px-4 py-16 inset-7">
@@ -20,13 +19,13 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Web development</h3>
               <ul className="space-y-2 text-gray-100">
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">UI/UX Design</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Repsonsief webdesign</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Maatwerk websites</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Frontend Development</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Backend Development</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">E-commerce website</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Headless e-commerce</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">UI/UX Design</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Repsonsief webdesign</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Maatwerk websites</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Frontend Development</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Backend Development</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">E-commerce website</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Headless e-commerce</Link></li>
               </ul>
             </div>
 
@@ -34,12 +33,12 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Online marketing</h3>
               <ul className="space-y-2 text-gray-100">
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ess Online Marketing</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ess Media</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ess Drukwerk</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Internetbureau Rotterdam</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">ADS</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">SEO</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Ess Online Marketing</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Ess Media</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Ess Drukwerk</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Internetbureau Rotterdam</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">ADS</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">SEO</Link></li>
               </ul>
             </div>
 
@@ -47,10 +46,10 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Over ons</h3>
               <ul className="space-y-2 text-gray-100">
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ons verhaal</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Onze werkwijze</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Ons team</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Vacatures</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Ons verhaal</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Onze werkwijze</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Ons team</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Vacatures</Link></li>
               </ul>
             </div>
 
@@ -58,11 +57,11 @@ export function Footer() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Kenniscentrum</h3>
               <ul className="space-y-2 text-gray-100">
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Helpdesk</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Veelgestelde vragen</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Kennisbank</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Downloads</Link></li>
-                <li><Link href="#" className="hover:text-green-950 hover:font-bold">Powerpoint</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Helpdesk</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Veelgestelde vragen</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Kennisbank</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Downloads</Link></li>
+                <li><Link href="#" className="hover:text-teal-500 hover:font-bold">Powerpoint</Link></li>
               </ul>
             </div>
           </div>
@@ -77,12 +76,12 @@ export function Footer() {
               <p className="mb-4">Rotterdam</p>
               <p className="italic mb-2">Wij bedienen onze klanten door heel Nederland</p>
               <p className="mt-4">
-                <Link href="mailto:sales@multichoiceagency.nl" className="hover:text-green-950 hover:font-bold">
+                <Link href="mailto:sales@multichoiceagency.nl" className="hover:text-teal-500 hover:font-bold">
                 <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" /> sales@multichoiceagency.nl
                 </Link>
               </p>
               <p>
-                <Link href="tel:0103220410" className="hover:text-green-950 hover:font-bold">
+                <Link href="tel:0103220410" className="hover:text-teal-500 hover:font-bold">
                 <FontAwesomeIcon icon={faPhone} className="w-5 h-5" /> 0103220410
                 </Link>
               </p>
@@ -95,12 +94,12 @@ export function Footer() {
               <p>ma-do 09:00 tot 17:00</p>
               <p className="mb-4">vrij: 09:00 - 13:00</p>
               <p>
-                <Link href="mailto:service@multichoiceagency.nl" className="hover:text-green-950 hover:font-bold">
+                <Link href="mailto:service@multichoiceagency.nl" className="hover:text-teal-500 hover:font-bold">
                   service@multichoiceagency.nl
                 </Link>
               </p>
               <p>
-                <Link href="tel:0103220410" className="hover:text-green-950 hover:font-bold">
+                <Link href="tel:0103220410" className="hover:text-teal-500 hover:font-bold">
                   0103220410
                 </Link>
               </p>
@@ -116,81 +115,80 @@ export function Footer() {
           </div>
 
           {/* Bottom Section */}
-            <div className="flex flex-col items-center space-y-6">
-              {/* Logo */}
-              <div className="flex items-center space-x-4">
-                <Image
-                  src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
-                  alt="Multichoiceagency"
-                  width={300}
-                  height={150}
-                  className="min-w-5 brightness-0 invert"
-                />
-              </div>
+          <div className="flex flex-col items-center space-y-6">
+            {/* Logo */}
+            <div className="flex items-center space-x-4">
+              <Image
+                src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
+                alt="Multichoiceagency"
+                width={300}
+                height={150}
+                className="min-w-5 brightness-0 invert"
+              />
+            </div>
 
-              {/* Tagline */}
-              <div className="text-2xl pb-2 font-bold">
-                Maatwerk Specialisten<sup>®</sup>
-              </div>
-              <div>
-              <Link href={"/offerte-aanvragen"}>
-              <button className="group flex items-center pt-5 rounded-md border-green-400 hover:translate-x-105 font-bold bg-white text-black sm:px-6 py-8 sm:py-3 text-sm sm:text-base transition-colors hover:bg-black hover:text-white">
-                <span>Gratis advies aanvragen</span>
-              </button>
+            {/* Tagline */}
+            <div className="text-2xl pb-2 font-bold">
+              Maatwerk Specialisten<sup>®</sup>
+            </div>
+            <div>
+            <Link href={"/offerte-aanvragen"}>
+            <button className="group flex items-center pt-5 rounded-md border-green-400 hover:translate-x-105 font-bold bg-white text-black sm:px-6 py-8 sm:py-3 text-sm sm:text-base transition-colors hover:bg-black hover:text-white">
+              <span>Gratis advies aanvragen</span>
+            </button>
+            </Link>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex space-x-6 font-bold hover:text-teal-500 text-gray-100">Volg ons op social media</div>
+            <div className="flex space-x-6 text-gray-100">
+              <Link href="#" className="hover:text-teal-500 hover:font-bold">
+                <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" /> LinkedIn 
               </Link>
-              </div>
+              <span>|</span>
+              <Link href="#" className="hover:text-teal-500 hover:font-bold">
+                <FontAwesomeIcon icon={faFacebook} className="w-5 h-5" /> Facebook
+              </Link>
+              <span>|</span>
+              <Link href="#" className="hover:text-teal-500 hover:font-bold">
+                <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" /> Instagram
+              </Link>
+            </div>
 
-              {/* Social Links */}
-              <div className="flex space-x-6 font-bold hover:text-green-950 text-gray-100">Volg ons op social media</div>
-              <div className="flex space-x-6 text-gray-100">
-                <Link href="#" className="hover:text-green-950 hover:font-bold">
-                  <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" /> LinkedIn 
-                </Link>
-                <span>|</span>
-                <Link href="#" className="hover:text-green-950 hover:font-bold">
-                  <FontAwesomeIcon icon={faFacebook} className="w-5 h-5" /> Facebook
-                </Link>
-                <span>|</span>
-                <Link href="#" className="hover:text-green-950 hover:font-bold">
-                  <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" /> Instagram
-                </Link>
-              </div>
+            {/* Footer Links */}
+            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-gray-100">
+              <Link href="/website-laten-maken" className="hover:text-teal-500 hover:font-bold">
+                Website laten maken
+              </Link>
+              <span>|</span>
+              <Link href="/privacy-beleid" className="hover:text-teal-500 hover:font-bold">
+                Privacy & Avg
+              </Link>
+              <span>|</span>
+              <Link href="/vacatures" className="hover:text-teal-500 hover:font-bold">
+                Vacatures
+              </Link>
+              <span>|</span>
+              <Link href="/contact" className="hover:text-teal-500 hover:font-bold">
+                Contact
+              </Link>
+              <span>|</span>
+              <Link href="/request-for-proposal" className="hover:text-teal-500 hover:font-bold">
+              Request for Proposal
+              </Link>
+            </div>
 
-              {/* Footer Links */}
-              <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-gray-100">
-                <Link href="/website-laten-maken" className="hover:text-green-950 hover:font-bold">
-                  Website laten maken
-                </Link>
-                <span>|</span>
-                <Link href="/privacy-beleid" className="hover:text-green-950 hover:font-bold">
-                  Privacy & Avg
-                </Link>
-                <span>|</span>
-                <Link href="/vacatures" className="hover:text-green-950 hover:font-bold">
-                  Vacatures
-                </Link>
-                <span>|</span>
-                <Link href="/contact" className="hover:text-green-950 hover:font-bold">
-                  Contact
-                </Link>
-                <span>|</span>
-                <Link href="/request-for-proposal" className="hover:text-green-950 hover:font-bold">
-                Request for Proposal
-                </Link>
-              </div>
-
-              {/* Google Rating */}
-              <div className="flex items-center space-x-2 text-gray-100">
-                <FontAwesomeIcon icon={faGoogle} className="w-5 h-5" />
-                <span className="font-semibold">Wij worden gewaardeerd met een </span>
-                <div className="flex text-yellow-400">
-                  4.9 ★★★★
-                </div>
+            {/* Google Rating */}
+            <div className="flex items-center space-x-2 text-gray-100">
+              <FontAwesomeIcon icon={faGoogle} className="w-5 h-5" />
+              <span className="font-semibold">Wij worden gewaardeerd met een </span>
+              <div className="flex text-yellow-400">
+                4.9 ★★★★
               </div>
             </div>
           </div>
         </div>
+      </div>
     </footer>
   );
 }
-

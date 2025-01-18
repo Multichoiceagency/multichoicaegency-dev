@@ -1,70 +1,11 @@
 "use client";
 
-import { useState } from "react";
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import { Textarea } from "@/components/ui/textarea";
-import {
-  Accordion,
-  AccordionContent,
-  AccordionItem,
-  AccordionTrigger,
-} from "@/components/ui/accordion";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Mail, Phone, MapPin } from 'lucide-react';
-import Image from 'next/image';
+import { Mail, Phone, MapPin } from "lucide-react";
+import Image from "next/image";
 
 export default function ContactPage() {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    phone: "",
-    subject: "",
-    message: "",
-  });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitMessage, setSubmitMessage] = useState("");
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setSubmitMessage("");
-
-    try {
-      const response = await fetch('/api/submit-contact-form', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
-      
-      const data = await response.json();
-
-      if (response.ok) {
-        setSubmitMessage('Uw bericht is succesvol verzonden!');
-        setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-      } else {
-        setSubmitMessage(data.message || 'Er is een fout opgetreden bij het verzenden van uw bericht. Probeer het later opnieuw.');
-      }
-    } catch (error) {
-      console.error('Error:', error);
-      setSubmitMessage('Er is een fout opgetreden bij het verzenden van uw bericht. Probeer het later opnieuw.');
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section with Image */}
@@ -85,198 +26,164 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Contact Form Section */}
+      {/* Contact Options Section */}
       <section className="bg-gray-100 py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-            <div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Neem contact op</h2>
-              <p className="text-base text-gray-600 mb-8">
-                E-mail, bel of vul het formulier in om te ontdekken hoe Multichoice Agency uw digitale uitdagingen kan oplossen.
-              </p>
-              <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-gray-900 mb-8">Contactopties</h2>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Administratie */}
+            <Card className="rounded-lg shadow-md">
+              <CardHeader>
+                <CardTitle>Administratie</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p>Heb je een vraag over een betaling of factuur? Neem dan contact op via onderstaande gegevens:</p>
                 <div className="flex items-center space-x-3 text-gray-600">
                   <Mail className="h-5 w-5" />
-                  <span>info@multichoiceagency.nl</span>
+                  <a
+                    href="mailto:administratie@multichoiceagency.nl"
+                    className="hover:text-blue-600 font-semibold"
+                  >
+                    administratie@multichoiceagency.nl
+                  </a>
                 </div>
                 <div className="flex items-center space-x-3 text-gray-600">
                   <Phone className="h-5 w-5" />
-                  <span>010 322 0410</span>
+                  <a
+                    href="tel:0103220410"
+                    className="hover:text-blue-600 font-semibold"
+                  >
+                    010 - 3220410
+                  </a>
                 </div>
-              </div>
-              <Button className="mt-8">Klantenservice</Button>
-            </div>
-            <div>
-              <Card>
-                <CardHeader>
-                  <CardTitle>Neem Contact Op</CardTitle>
-                  <p className="text-sm text-gray-500">We reageren zo snel mogelijk</p>
-                </CardHeader>
-                <CardContent>
-                  <form onSubmit={handleSubmit} className="space-y-4">
-                    <div className="space-y-2">
-                      <Label htmlFor="name">Naam</Label>
-                      <Input
-                        id="name"
-                        name="name"
-                        value={formData.name}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="email">E-mail</Label>
-                      <Input
-                        id="email"
-                        name="email"
-                        type="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="phone">Telefoonnummer</Label>
-                      <Input
-                        id="phone"
-                        name="phone"
-                        type="tel"
-                        value={formData.phone}
-                        onChange={handleChange}
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="subject">Onderwerp</Label>
-                      <Input
-                        id="subject"
-                        name="subject"
-                        value={formData.subject}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <div className="space-y-2">
-                      <Label htmlFor="message">Bericht</Label>
-                      <Textarea
-                        id="message"
-                        name="message"
-                        value={formData.message}
-                        onChange={handleChange}
-                        required
-                      />
-                    </div>
-                    <Button type="submit" className="w-full" disabled={isSubmitting}>
-                      {isSubmitting ? 'Verzenden...' : 'Verstuur'}
-                    </Button>
-                  </form>
-                  {submitMessage && (
-                    <p className={`mt-4 text-center ${submitMessage.includes('succesvol') ? 'text-green-600' : 'text-red-600'}`}>
-                      {submitMessage}
-                    </p>
-                  )}
-                  <p className="text-xs text-center text-gray-500 mt-4">
-                    Door dit formulier te verzenden gaat u akkoord met onze{" "}
-                    <a href="/voorwaarden" className="text-blue-600 hover:underline">Voorwaarden</a>
-                    {" "}en{" "}
-                    <a href="/privacy" className="text-blue-600 hover:underline">Privacybeleid</a>
-                  </p>
-                </CardContent>
-              </Card>
-            </div>
+                <p className="text-sm text-gray-500">
+                  <strong>Openingstijden:</strong> ma-vr: 09:00 - 17:00
+                  <br />
+                  (vrijdag tel. bereikbaar tot 12:30)
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Support */}
+            <Card className="rounded-lg shadow-md">
+              <CardHeader>
+                <CardTitle>Support</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p>Ben je al klant en heb je een vraag over onze service of support nodig?</p>
+                <div className="flex items-center space-x-3 text-gray-600">
+                  <Mail className="h-5 w-5" />
+                  <a
+                    href="mailto:service@multichoiceagency.nl"
+                    className="hover:text-blue-600 font-semibold"
+                  >
+                    service@multichoiceagency.nl
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3 text-gray-600">
+                  <Phone className="h-5 w-5" />
+                  <a
+                    href="tel:0103220410"
+                    className="hover:text-blue-600 font-semibold"
+                  >
+                    010 - 3220410
+                  </a>
+                </div>
+                <p className="text-sm text-gray-500">
+                  <strong>Openingstijden:</strong> ma-vr: 09:00 - 17:00
+                  <br />
+                  (vrijdag tel. bereikbaar tot 12:30)
+                </p>
+              </CardContent>
+            </Card>
+
+            {/* Advies */}
+            <Card className="rounded-lg shadow-md">
+              <CardHeader>
+                <CardTitle>Advies</CardTitle>
+              </CardHeader>
+              <CardContent className="space-y-4">
+                <p>Ben je nog geen klant, maar wil je meer weten over onze diensten? Neem contact op:</p>
+                <div className="flex items-center space-x-3 text-gray-600">
+                  <Mail className="h-5 w-5" />
+                  <a
+                    href="mailto:sales@multichoiceagency.nl"
+                    className="hover:text-blue-600 font-semibold"
+                  >
+                    sales@multichoiceagency.nl
+                  </a>
+                </div>
+                <div className="flex items-center space-x-3 text-gray-600">
+                  <Phone className="h-5 w-5" />
+                  <a
+                    href="tel:0103220410"
+                    className="hover:text-blue-600 font-semibold"
+                  >
+                    010 - 3220410
+                  </a>
+                </div>
+                <p className="text-sm text-gray-500">
+                  <strong>Openingstijden:</strong> ma-vr: 09:00 - 17:00
+                  <br />
+                  (vrijdag tel. bereikbaar tot 12:30)
+                </p>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <div className="max-w-7xl mx-auto px-4 py-16 sm:px-6 lg:px-8">
-        {/* Support Options Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Klantenservice</h3>
-            <p className="text-sm text-gray-600">
-              Ons support team staat 24/7 klaar om al uw vragen te beantwoorden.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Feedback en Suggesties</h3>
-            <p className="text-sm text-gray-600">
-              We waarderen uw feedback over onze diensten. Uw input is cruciaal voor onze verbetering.
-            </p>
-          </div>
-          <div>
-            <h3 className="font-semibold text-gray-900 mb-2">Media Aanvragen</h3>
-            <p className="text-sm text-gray-600">
-              Voor media-gerelateerde vragen of interviewverzoeken, neem contact op via media@multichoiceagency.nl
-            </p>
+      {/* Contact Form Section */}
+      <section className="bg-gray-100 py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-2xl font-bold text-teal-900 mb-6">Waar kunnen we je mee helpen?</h2>
+          <p className="text-base text-gray-600 mb-8">
+            Laat ons weten wat je precies zoekt en we nemen z.s.m. contact met je op om de mogelijkheden te bespreken.
+          </p>
+          <div className="w-full h-[500px]">
+            <iframe
+              src="https://projecten.mlt.multichoiceagency.nl/forms/wtl/ec8311d43001d7a98bd1127884843c9c"
+              frameBorder="0"
+              sandbox="allow-top-navigation allow-forms allow-scripts allow-same-origin allow-popups"
+              allowFullScreen
+              className="rounded-lg shadow-md w-full h-full"
+            ></iframe>
           </div>
         </div>
+      </section>
 
-        {/* Map Section */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
-          <div className="relative h-[400px] rounded-lg overflow-hidden">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2460.5925927453604!2d4.4669393!3d51.9177113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDU1JzAzLjgiTiA0wrAyOCcwMS4wIkU!5e0!3m2!1sen!2snl!4v1635000000000!5m2!1sen!2snl"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
-          </div>
-          <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-6">Ons Kantoor</h2>
-            <div className="space-y-4">
-              <h3 className="font-semibold text-gray-900">Hoofdkantoor</h3>
-              <div className="flex items-start space-x-3 text-gray-600">
-                <MapPin className="h-5 w-5 mt-1" />
-                <div>
-                  <p className="font-medium">Multichoice Agency</p>
-                  <p>Rotterdam, Nederland</p>
-                  <p>Adres: [Vul hier het exacte adres in]</p>
+      {/* Map Section */}
+      <section className="py-16">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+            <div className="relative h-[400px] rounded-lg overflow-hidden">
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2460.5925927453604!2d4.4669393!3d51.9177113!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTHCsDU1JzAzLjgiTiA0wrAyOCcwMS4wIkU!5e0!3m2!1sen!2snl!4v1635000000000!5m2!1sen!2snl"
+                width="100%"
+                height="100%"
+                style={{ border: 0 }}
+                allowFullScreen
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+            <div>
+              <h2 className="text-3xl font-bold text-gray-900 mb-6">Ons Kantoor</h2>
+              <div className="space-y-4">
+                <h3 className="font-semibold text-gray-900">Hoofdkantoor</h3>
+                <div className="flex items-start space-x-3 text-gray-600">
+                  <MapPin className="h-5 w-5 mt-1" />
+                  <div>
+                    <p className="font-medium">Multichoice Agency</p>
+                    <p>Rotterdam, Nederland</p>
+                    <p>Adres: [Vul hier het exacte adres in]</p>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-
-        {/* FAQ Section */}
-        <div className="max-w-3xl mx-auto">
-          <h2 className="text-3xl font-bold text-gray-900 mb-8">Veelgestelde vragen</h2>
-          <Accordion type="single" collapsible className="mb-8">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Hoe kan ik een project met jullie starten?</AccordionTrigger>
-              <AccordionContent>
-                U kunt contact met ons opnemen via het contactformulier of direct via sales@multichoiceagency.nl. We plannen dan een gesprek in om uw wensen te bespreken.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Wat zijn jullie specialisaties?</AccordionTrigger>
-              <AccordionContent>
-                We zijn gespecialiseerd in digitale transformatie, webontwikkeling, en online marketing strategieën.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger>Hoe lang duurt een gemiddeld project?</AccordionTrigger>
-              <AccordionContent>
-                De doorlooptijd varieert per project. We bespreken dit uitgebreid tijdens het eerste gesprek en maken duidelijke afspraken over de planning.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger>Bieden jullie ook onderhoud en support?</AccordionTrigger>
-              <AccordionContent>
-                Ja, we bieden verschillende onderhouds- en supportpakketten aan om uw digitale oplossingen optimaal te laten functioneren.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-
-          {/* Newsletter Signup */}
-          <div className="flex flex-col sm:flex-row gap-4 items-center">
-            <Input type="email" placeholder="Uw e-mailadres" className="max-w-sm w-full" />
-            <Button>Aanmelden voor updates</Button>
-          </div>
-        </div>
-      </div>
+      </section>
     </div>
   );
 }
