@@ -85,7 +85,7 @@ export function Solutions() {
       <div className="mx-auto max-w-[1800px] px-10">
         <div className="grid gap-12 lg:grid-cols-2">
           {/* Left Column - Sticky on large screens only */}
-          <div className="h-fit lg:sticky lg:top-32">
+          <div className="h-fit lg:sticky xl:sticky lg:top-32">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
