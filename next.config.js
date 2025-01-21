@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
+  output: 'export', // For static export
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true, // Ignore ESLint warnings during build
   },
   images: {
     unoptimized: true, // Required for static export mode
@@ -10,22 +10,27 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'cloud.multichoiceagency.nl', // WordPress image domain
-        pathname: '/wp-content/uploads/**', // Allow all images under WordPress uploads
+        pathname: '/**', // Allow all images under this domain
       },
       {
         protocol: 'https',
         hostname: 'atahome.nl', // Additional image domain
-        pathname: '/**', // Allow all paths under atahome.nl
+        pathname: '/**', // Allow all paths under this domain
       },
       {
         protocol: 'https',
-        hostname: 'cdn.pixabay.com', // Additional image domain
-        pathname: '/**', // Allow all paths under atahome.nl
+        hostname: 'cdn.pixabay.com', // Pixabay domain
+        pathname: '/**', // Allow all paths under this domain
       },
       {
         protocol: 'https',
-        hostname: 'source.unsplash.com', // WordPress image domain
-        pathname: '/**', // Allow all images under WordPress uploads
+        hostname: 'source.unsplash.com', // Unsplash domain
+        pathname: '/**', // Allow all paths under this domain
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.pexels.com', // Pexels domain
+        pathname: '/**', // Allow all paths under this domain
       },
     ],
   },
