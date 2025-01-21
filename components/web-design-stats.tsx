@@ -10,9 +10,9 @@ export default function WebDesignStats() {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           <StatItem number={8} text="Jaar ervaring" />
-          <StatItem number={150} text="Projecten afgerond" />
+          <StatItem number={1900} text="Projecten afgerond" />
           <StatItem number={24} text="Uur klantenondersteuning" />
-          <StatItem number={100} text="% Klanttevredenheid" />
+          <StatItem number={100} text="Klanttevredenheid" />
         </div>
       </div>
     </section>
@@ -52,7 +52,7 @@ function StatItem({ number, text }: StatItemProps) {
     >
       <div className="text-center">
         <motion.h5
-          className="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl mb-4"
+          className="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl font-bold hover:text-green-700 hover:animate-in-out-10s mb-4"
           aria-label={`${number}+ ${text}`}
           variants={variants}
         >
