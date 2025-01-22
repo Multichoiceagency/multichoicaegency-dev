@@ -67,7 +67,21 @@ body {
 body {
   scrollbar-width: auto; /* Keeps the vertical scrollbar visible */
 }
+@keyframes gradientAnimation {
+  0% {
+    background: #22553B;
+  }
+  50% {
+    background: #22553B; /* Gebruik dezelfde kleur om het midden constant te houden */
+  }
+  100% {
+    background: #123D2C; /* Donkere kleur voor het einde */
+  }
+}
 
+.animated-background {
+  animation: gradientAnimation 5s infinite alternate;
+}
 
 @layer base {
   * {

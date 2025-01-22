@@ -83,6 +83,7 @@ export function CaseStudies() {
             ))
           ) : (
             cases.slice(0, 4).map((project) => (
+              // eslint-disable-next-line react/jsx-key
               <Link href={`/cases/${project.slug}`} className="block group relative perspective-1000">
                 <div className="space-y-4 transform-gpu transition-all duration-500 group-hover:scale-[1.02]">
                   <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{project.title}</h3>
