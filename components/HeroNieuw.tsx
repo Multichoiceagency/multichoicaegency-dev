@@ -3,7 +3,21 @@ import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { useTheme } from 'next-themes';
 
-const HeroSection: React.FC = () => {
+interface HeroSectionProps {
+  title: string;
+  description: string;
+  buttonText: string;
+  buttonLink: string;
+  videoSrc: string;
+}
+
+const HeroSection: React.FC<HeroSectionProps> = ({
+  title,
+  description,
+  buttonText,
+  buttonLink,
+  videoSrc,
+}) => {
   const { theme } = useTheme();
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -40,7 +54,7 @@ const HeroSection: React.FC = () => {
           <video
             ref={videoRef}
             className="w-full h-full object-cover aspect-video sm:aspect-auto"
-            src="https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/UI-UX-Design-SHOWREEL-2023-｜-Musemind.mp4"
+            src={videoSrc}
             autoPlay
             loop
             muted
@@ -55,18 +69,16 @@ const HeroSection: React.FC = () => {
         <div className="relative z-10 container mx-auto px-4">
           <div className="flex flex-col items-center text-center text-white">
             <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl xl:text-8xl tracking-tight mb-6 sm:mb-8">
-              Bouw Samen Met Ons Aan Jouw Digitale Toekomst
+              {title}
             </h1>
             <p className="max-w-sm sm:max-w-md xl:max-w-3xl text-base sm:text-lg md:text-xl text-gray-200 mb-8 sm:mb-10">
-              Ontdek innovatieve oplossingen die jouw bedrijf naar nieuwe
-              hoogten brengen. Wij creëren digitale ervaringen op maat,
-              volledig afgestemd op jouw visie.
+              {description}
             </p>
             <Link
-              href="#"
+              href={buttonLink}
               className="inline-flex py-3 px-5 sm:py-4 sm:px-6 items-center justify-center text-base sm:text-lg font-medium text-white bg-teal-900 hover:bg-lime-600 rounded-full transition duration-200"
             >
-              Ontdek Onze Oplossingen
+              {buttonText}
             </Link>
           </div>
         </div>

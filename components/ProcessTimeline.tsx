@@ -67,8 +67,8 @@ const ProcessTimeline: React.FC = () => {
   }, [controls])
 
   return (
-    <div ref={ref} className="overflow-x-auto scrollbar-hide">
-      <div className="flex space-x-8 py-8 px-4 min-w-max">
+    <div ref={ref} className="w-screen scrollbar-hide">
+      <div className="w-full flex space-x-8 py-8 px-4 min-w-max">
         {timelineItems.map((item, index) => (
           <motion.div
             key={index}

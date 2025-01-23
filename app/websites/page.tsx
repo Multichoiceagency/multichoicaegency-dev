@@ -4,6 +4,8 @@ import { useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import ProcessTimeline from "@/components/ProcessTimeline"
+import HeroNieuw from "@/components/HeroNieuw"
+import CasesPage from "../cases/page"
 
 export default function Website() {
   const [showContent, setShowContent] = useState(false)
@@ -63,9 +65,15 @@ export default function Website() {
   ]
 
   return (
-    <div className="antialiased bg-body text-body font-body">
-      {/* Hero Section */}
-      <section className="relative ">
+    <div>
+      <HeroNieuw 
+      title={"Website laten maken"} 
+      description={"Een professionele website laten maken? Bij ons kunt u rekenen op optimaal rendement. Zoekt u een ontwerp op maat, diepgaand gebruikersonderzoek, sterke merkpositionering en techniek op het hoogste niveau? Kies voor een website laten maken bij ons! "} 
+      buttonText={"Offerte aanvragen"} 
+      buttonLink={"/offerte-aanvragen"} 
+      videoSrc={"https://cdn.dribbble.com/userupload/17109055/file/large-f2338953e500cc7f85b1aad24da20a33.mp4"} />
+      {/* Websites Section */}
+      <section className="py-12 lg:py-24 relative">
         <div className="container mx-auto px-4 ">
           <div className="max-w-lg xl:max-w-xl mx-auto lg:mx-0 pt-12 pb-28 lg:py-24">
             <div className="flex mb-6 items-center">
@@ -73,13 +81,11 @@ export default function Website() {
                 <rect width="12" height="12" rx="2" fill="#022C22"></rect>
                 <circle cx="6" cy="6" r="4" fill="#BEF264"></circle>
               </svg>
-              <span className="ml-2 text-sm font-medium">Website laten maken</span>
+              <span className="ml-2 text-sm font-medium">Websites</span>
             </div>
-            <h1 className="font-heading text-5xl xs:text-7xl xl:text-8xl tracking-tight mb-8">Website laten maken</h1>
+            <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">Wat levert een maatwerk website jouw bedrijf op?</h1>
             <p className="max-w-md xl:max-w-none text-lg text-gray-700 mb-10">
-              Een professionele website laten maken? Bij ons kunt u rekenen op optimaal rendement. Zoekt u een ontwerp
-              op maat, diepgaand gebruikersonderzoek, sterke merkpositionering en techniek op het hoogste niveau? Kies
-              voor een website laten maken bij ons!
+            Een maatwerk website is een krachtig instrument dat jouw bedrijf naar een hoger niveau tilt. Het is vaak de eerste plek waar potentiële klanten jouw merk leren kennen. In een concurrerende digitale wereld kan een gedateerde of slecht functionerende website klanten kosten. Door te kiezen voor een op maat geprogrammeerde website, investeer je in snelheid, gebruiksvriendelijkheid en schaalbaarheid, waardoor je een sterke basis legt voor blijvend succes.
             </p>
             <div className="flex flex-col sm:flex-row">
               <Link
@@ -92,9 +98,9 @@ export default function Website() {
           </div>
         </div>
         <div className="hidden lg:block absolute top-0 right-0 h-full w-2/5">
-          <video className="w-full h-full object-cover" autoPlay loop muted playsInline>
+          <video className="w-1/8 h-full object-cover rounded-md" autoPlay loop muted playsInline>
             <source
-              src="https://videos.pexels.com/video-files/4974708/4974708-hd_1920_1080_25fps.mp4"
+              src="https://cdn.dribbble.com/userupload/17826232/file/large-caca22f6996733841e15a1eb583ca96b.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -103,7 +109,7 @@ export default function Website() {
         <div className="lg:hidden">
           <video className="w-full h-64 object-cover" autoPlay loop muted playsInline>
             <source
-              src="https://videos.pexels.com/video-files/4974708/4974708-hd_1920_1080_25fps.mp4"
+              src="https://cdn.dribbble.com/userupload/17826232/file/large-caca22f6996733841e15a1eb583ca96b.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -111,41 +117,41 @@ export default function Website() {
         </div>
       </section>
 
-      {/* About Section */}
-      <section className="py-12 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap -mx-4">
-            <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
-              <div>
-                <h2 className="font-heading text-4xl md:text-6xl">Wat levert een website laten maken uw bedrijf op?</h2>
+      <section className="py-12 lg:py-24 relative">
+              <div className="container mx-auto px-4">
+                <div className="flex flex-wrap -mx-4">
+                  <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
+                    <div className="lg:sticky lg:top-8 bg-green-700/10 px-10 py-10 rounded-xl">
+                    <h2 className="font-heading text-7xl md:text-7xl bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.green.700),theme(colors.gray.500),theme(colors.teal.400),theme(colors.black),theme(colors.green.300),theme(colors.green.700))] bg-[length:200%_auto] animate-gradient">
+                    Wat levert een maatwerk website jouw bedrijf op?
+                      </h2>
+                    </div>
+                  </div>
+                  <div className="w-full md:w-1/2 px-4">
+                    <div className="lg:max-w-lg md:ml-auto">
+                      <p className="text-xl font-medium mb-10">
+                        Bij MultichoiceAgency begrijpen we dat een website meer is dan een digitaal visitekaartje. Het is een strategisch hulpmiddel om je bedrijfsdoelen te bereiken. Wij creëren op maat geprogrammeerde websites die zijn ontwikkeld in de meest geschikte technologie voor jouw behoeften, waaronder Next.js, React, Storyblok, en WordPress.
+                      </p>
+                      <ul className="list-disc pl-5 mb-10">
+                        <h4 className="font-bold">Onze aanpak is gebaseerd op:</h4>
+                        <li className="hover:text-green-700 hover:font-bold">Geloofwaardigheid en vertrouwen</li>
+                        <li className="hover:text-green-700 hover:font-bold">Altijd en overal bereikbaar</li>
+                        <li className="hover:text-green-700 hover:font-bold">Meer actie van bezoekers</li>
+                        <li className="hover:text-green-700 hover:font-bold">Sterke merkidentiteit</li>
+                        <li className="hover:text-green-700 hover:font-bold">Centraal punt voor al uw marketing</li>
+                        <li className="hover:text-green-700 hover:font-bold">Schaalbaarheid voor de toekomst</li>
+                      </ul>
+                      <Link
+                        href="#"
+                        className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200"
+                      >
+                        Lees meer
+                      </Link>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-            <div className="w-full md:w-1/2 px-4">
-              <div className="lg:max-w-lg md:ml-auto">
-                <p className="text-xl font-medium mb-10">
-                  Een professionele website laten maken is een ontzettend belangrijk onderdeel van uw bedrijfsstrategie.
-                  Het is vaak de eerste plek waar klanten in contact komen met uw merk. In een tijd waarin de
-                  concurrentie maar een paar klikken verwijderd is, kan een goed ontworpen website het verschil maken.
-                </p>
-                <ul className="list-disc pl-5 mb-10">
-                  <li>Geloofwaardigheid en vertrouwen</li>
-                  <li>Altijd en overal bereikbaar</li>
-                  <li>Meer actie van bezoekers</li>
-                  <li>Sterke merkidentiteit</li>
-                  <li>Centraal punt voor al uw marketing</li>
-                  <li>Schaalbaarheid voor de toekomst</li>
-                </ul>
-                <Link
-                  href="#"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200"
-                >
-                  Lees meer
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+            </section>
 
       {/* Services Section */}
       <section className="p-4 bg-white">
@@ -163,7 +169,7 @@ export default function Website() {
                 {[
                   {
                     title: "100% maatwerk",
-                    description: "Elk detail van uw nieuwe website draagt bij aan het succes van uw bedrijf.",
+                    description: "Jouw website wordt gebouwd met technologie die aansluit bij je specifieke doelen.",
                   },
                   {
                     title: "Mobiel vriendelijk",
@@ -214,7 +220,7 @@ export default function Website() {
                     <h3 className="text-2xl font-bold mb-4">{project}</h3>
                     <p className="text-gray-600 mb-4">Webontwikkeling | UI/UX Design | SEO</p>
                     <Image
-                      src={`https://images.pexels.com/photos/${index === 0 ? "265087" : "1779487"}/pexels-photo-${index === 0 ? "265087" : "1779487"}.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2`}
+                      src={`https://cdn.dribbble.com/userupload/17430926/file/large-c12260bef86093952928f316ecc9f9b6.mp4`}
                       alt={project}
                       width={800}
                       height={600}
@@ -236,15 +242,6 @@ export default function Website() {
         </div>
       </section>
 
-      {/* Process Section */}
-      <section className="py-24 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <h2 className="tracking-tight font-heading text-4xl md:text-6xl font-medium mb-16 text-center">Ons proces</h2>
-          <p className="text-xl mb-12 text-center">Zo werkt een website laten maken bij ons</p>
-          <ProcessTimeline />
-        </div>
-      </section>
-
       {/* About Section */}
       <section className="py-12 lg:py-24">
         <div className="container mx-auto px-4">
@@ -252,22 +249,19 @@ export default function Website() {
             <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="4" cy="4" r="4" fill="#022C22"></circle>
             </svg>
-            <span className="inline-block ml-2 text-sm font-medium text-teal-900">Over ons</span>
+            <span className="inline-block ml-2 text-sm font-medium text-teal-900">Maatwerk specialisten</span>
           </div>
           <div className="border-t pt-16">
             <div className="max-w-lg mx-auto lg:max-w-none">
-              <div className="flex flex-wrap -mx-4">
+              <div className="flex flex-wrap lg:items-center -mx-4">
+                {/* Tekstgedeelte */}
                 <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
                   <div className="max-w-xl">
                     <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">
-                      Toegewijd aan uw online succes
+                      Waarom kiezen voor maatwerk van MultichoiceAgency?
                     </h1>
                     <p className="text-lg text-gray-700 mb-10">
-                      Als pioniers in webontwikkeling staan we voorop in de transitie naar effectieve online
-                      aanwezigheid. Onze missie is eenvoudig maar krachtig: een wereld creëren waarin uw bedrijf online
-                      niet alleen zichtbaar is, maar ook succesvol. We geloven dat door de kracht van innovatieve
-                      webtechnologie te benutten, we uw bedrijf kunnen laten groeien en tegelijkertijd kunnen
-                      beschermen.
+                      Bij MultichoiceAgency geloven we in het leveren van maatwerkoplossingen die perfect aansluiten op jouw doelen en merk. Jij hebt volledige controle over hoe jouw website eruitziet en werkt. Van ontwerp tot functionaliteiten, alles wordt afgestemd op jouw specifieke wensen, zodat je een platform krijgt dat jouw visie weerspiegelt. Daarnaast bieden we technologische flexibiliteit door te werken met geavanceerde frameworks zoals Next.js, React en Storyblok. Dit stelt ons in staat om niet alleen innovatieve, maar ook schaalbare en toekomstbestendige websites te ontwikkelen. Ons team zorgt voor een uniek design dat jouw merk onderscheidt en een blijvende indruk achterlaat bij bezoekers. Bovendien optimaliseren we elke website voor razendsnelle prestaties en bieden we een veilige infrastructuur met geavanceerde beveiliging en betrouwbaarheid. Jouw website wordt een investering in de toekomst van jouw bedrijf, met langetermijnvoordelen en de mogelijkheid om mee te groeien met jouw ambities. Kies voor MultichoiceAgency en ervaar hoe maatwerk jouw merk naar een hoger niveau tilt!
                     </p>
                     <ul>
                       {["Maatwerk websites", "Responsief ontwerp", "SEO-optimalisatie", "Gebruiksvriendelijk CMS"].map(
@@ -296,15 +290,16 @@ export default function Website() {
                     </ul>
                   </div>
                 </div>
+                {/* Afbeeldingsgedeelte */}
                 <div className="w-full lg:w-1/2 px-4">
-                  <div className="lg:max-w-md lg:ml-auto">
-                    <Image
-                      className="block w-full h-full"
-                      src="https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
-                      alt="Ons team"
-                      width={800}
-                      height={600}
-                    />
+                <div className="visible">
+                    <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                      <source
+                        src="https://cdn.dribbble.com/userupload/17826232/file/large-caca22f6996733841e15a1eb583ca96b.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
                   </div>
                 </div>
               </div>
@@ -312,6 +307,7 @@ export default function Website() {
           </div>
         </div>
       </section>
+
 
       {/* FAQ Section */}
       <section className="py-12 lg:py-24 bg-orange-50">

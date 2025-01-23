@@ -16,6 +16,7 @@ const config: Config = {
         sm: '768px',  // Phone screens
         xs: '480px',  // Small phone screens
       },
+      
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -25,6 +26,12 @@ const config: Config = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
+      },
+      scrollbar: {
+        hide: {
+          '&::-webkit-scrollbar': { display: 'none' }, // Chrome, Safari
+          '&': { '-ms-overflow-style': 'none', 'scrollbar-width': 'none' }, // IE, Firefox
+        },
       },
       colors: {
         background: 'hsl(var(--background))',
@@ -69,6 +76,14 @@ const config: Config = {
         },
       },
       keyframes: {
+        zoomIn: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+          '100%': { transform: 'scale(1)' },
+        },
+        'gradient': {
+          to: { 'background-position': '200% center' },
+        },
         'accordion-down': {
           from: {
             height: '0',
@@ -89,6 +104,8 @@ const config: Config = {
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
+        'gradient': 'gradient 8s linear infinite',
+        'zoom-in': 'zoomIn 0.6s ease-in-out infinite',
         scroll:
           "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
           
