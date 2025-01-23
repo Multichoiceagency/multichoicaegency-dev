@@ -8,7 +8,7 @@ import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
 
 export function Footer() {
   return (
-    <footer className="w-screen bg-green-900 ">
+    <footer className="w-screen h-screen animated-background bg-gradient-to-b from-black to-green-700 text-white ">
 <div className="mx-auto">
 {/* Newsletter Section */}
         <div className="max-w-[1800px] mx-auto px-4 py-16 inset-7">
@@ -16,7 +16,7 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-5">
             {/* Web Development */}
             <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-            <h3 className="text-xl font-semibold mb-4">Web development</h3>
+            <h3 className="text-lg font-semibold mb-4">Web development</h3>
               <ul className="space-y-2">
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold">UI/UX Design</Link></li>
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Responsief webdesign</Link></li>
@@ -30,7 +30,7 @@ export function Footer() {
 
             {/* Online Marketing */}
             <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4">Online marketing</h3>
+              <h3 className="text-lg font-semibold mb-4">Online marketing</h3>
               <ul className="space-y-2 ">
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ess Online Marketing</Link></li>
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ess Media</Link></li>
@@ -43,7 +43,7 @@ export function Footer() {
 
             {/* Over ons */}
             <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4">Over ons</h3>
+              <h3 className="text-lg font-semibold mb-4">Over ons</h3>
               <ul className="space-y-2">
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ons verhaal</Link></li>
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Onze werkwijze</Link></li>
@@ -54,7 +54,7 @@ export function Footer() {
 
             {/* Kenniscentrum */}
             <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4">Kenniscentrum</h3>
+              <h3 className="text-lg font-semibold mb-4">Kenniscentrum</h3>
               <ul className="space-y-2 rounded-md w-3/4">
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold ">Helpdesk</Link></li>
                 <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Veelgestelde vragen</Link></li>
@@ -69,7 +69,7 @@ export function Footer() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-gray-100">
             {/* Contact */}
             <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4 ">Contact</h3>
+              <h3 className="text-lg font-semibold mb-4 ">Contact</h3>
               <p className="font-semibold mb-2">Multichoiceagency B.V.</p>
               <p>Edisonstraat 5c</p>
               <p className="mb-4">Rotterdam</p>
@@ -89,7 +89,7 @@ export function Footer() {
 
             {/* Service & Support */}
             <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4">Service & Support</h3>
+              <h3 className="text-lg font-semibold mb-4">Service & Support</h3>
               <p>ma-do 09:00 tot 17:00</p>
               <p className="mb-4">vrij: 09:00 - 13:00</p>
               <p>
@@ -105,7 +105,7 @@ export function Footer() {
             </div>
             {/* Additional Information */}
             <div className="text-white px-4 py-6 font-bold bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-xl font-semibold mb-4">Overige gegevens</h3>
+              <h3 className="text-lg font-semibold mb-4">Overige gegevens</h3>
               <p>KVK: 77481445</p>
               <p>BTW: NL.861020741.B01</p>
               <p>IBAN: NL50.INGB.0005.655.287</p>
@@ -115,7 +115,7 @@ export function Footer() {
           {/* Bottom Section */}
           <div className="flex flex-col items-center space-y-6 ">
             {/* Logo */}
-            <div className="group flex items-center space-x-4 hover:skew-y-3 hover:bg-white hover:scale-110 transition-all duration-300 bg-white/25 backdrop-blur-md rounded-md py-4 px-4">
+            <div className="group flex items-center space-x-4 hover:skew-y-3 hover:b hover:scale-110 transition-all duration-300 bg-white/25 backdrop-blur-md rounded-md py-4 px-4">
             <Image
               src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
               alt="Multichoiceagency"

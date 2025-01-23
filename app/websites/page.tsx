@@ -25,7 +25,7 @@ export default function Website() {
     {
       question: "Kan ik mijn website zelf beheren na de lancering?",
       answer:
-        "Absoluut! We bouwen onze websites op gebruiksvriendelijke platforms zoals WordPress, waardoor u gemakkelijk zelf content kunt toevoegen of wijzigen. Na de lancering bieden we een uitgebreide handleiding en ondersteuning om u vertrouwd te maken met het content management systeem.",
+        "Absoluut! We bouwen onze websites op gebruiksvriendelijke platforms zoals NextJS of React of een andere keuze cms, waardoor u gemakkelijk zelf content kunt toevoegen of wijzigen. Na de lancering bieden we een uitgebreide handleiding en ondersteuning om u vertrouwd te maken met het content management systeem.",
     },
     {
       question: "Bieden jullie ook hosting en onderhoud aan?",
@@ -71,7 +71,7 @@ export default function Website() {
       description={"Een professionele website laten maken? Bij ons kunt u rekenen op optimaal rendement. Zoekt u een ontwerp op maat, diepgaand gebruikersonderzoek, sterke merkpositionering en techniek op het hoogste niveau? Kies voor een website laten maken bij ons! "} 
       buttonText={"Offerte aanvragen"} 
       buttonLink={"/offerte-aanvragen"} 
-      videoSrc={"https://cdn.dribbble.com/userupload/17109055/file/large-f2338953e500cc7f85b1aad24da20a33.mp4"} />
+      videoSrc={"https://cdn.dribbble.com/userupload/17855128/file/large-45aef91c794d3dfe747127edc550fd15.mp4"} />
       {/* Websites Section */}
       <section className="py-12 lg:py-24 relative">
         <div className="container mx-auto px-4 ">
@@ -81,11 +81,11 @@ export default function Website() {
                 <rect width="12" height="12" rx="2" fill="#022C22"></rect>
                 <circle cx="6" cy="6" r="4" fill="#BEF264"></circle>
               </svg>
-              <span className="ml-2 text-sm font-medium">Websites</span>
+              <span className="ml-2 text-sm font-medium">Transformeer jouw online aanwezigheid met een maatwerk website</span>
             </div>
             <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">Wat levert een maatwerk website jouw bedrijf op?</h1>
             <p className="max-w-md xl:max-w-none text-lg text-gray-700 mb-10">
-            Een maatwerk website is een krachtig instrument dat jouw bedrijf naar een hoger niveau tilt. Het is vaak de eerste plek waar potentiële klanten jouw merk leren kennen. In een concurrerende digitale wereld kan een gedateerde of slecht functionerende website klanten kosten. Door te kiezen voor een op maat geprogrammeerde website, investeer je in snelheid, gebruiksvriendelijkheid en schaalbaarheid, waardoor je een sterke basis legt voor blijvend succes.
+            Laat jouw merk opvallen met een professioneel ontwerp, geavanceerde functionaliteiten, en strategische oplossingen die resultaat opleveren.
             </p>
             <div className="flex flex-col sm:flex-row">
               <Link
@@ -123,29 +123,28 @@ export default function Website() {
                   <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
                     <div className="lg:sticky lg:top-8 bg-green-700/10 px-10 py-10 rounded-xl">
                     <h2 className="font-heading text-7xl md:text-7xl bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.green.700),theme(colors.gray.500),theme(colors.teal.400),theme(colors.black),theme(colors.green.300),theme(colors.green.700))] bg-[length:200%_auto] animate-gradient">
-                    Wat levert een maatwerk website jouw bedrijf op?
+                    Waarom is een maatwerk website essentieel?
                       </h2>
                     </div>
                   </div>
                   <div className="w-full md:w-1/2 px-4">
                     <div className="lg:max-w-lg md:ml-auto">
                       <p className="text-xl font-medium mb-10">
-                        Bij MultichoiceAgency begrijpen we dat een website meer is dan een digitaal visitekaartje. Het is een strategisch hulpmiddel om je bedrijfsdoelen te bereiken. Wij creëren op maat geprogrammeerde websites die zijn ontwikkeld in de meest geschikte technologie voor jouw behoeften, waaronder Next.js, React, Storyblok, en WordPress.
-                      </p>
+                      Een maatwerk website biedt voordelen die standaardoplossingen simpelweg niet kunnen evenaren. Waar veel websites beperkt zijn door vooraf ontworpen templates, biedt een maatwerk website de vrijheid om volledig afgestemd te worden op jouw unieke merkidentiteit en bedrijfsdoelen. Of je nu een e-commerceplatform nodig hebt, een informatieve bedrijfswebsite of een interactieve applicatie, een maatwerk website opent de deur naar eindeloze mogelijkheden.</p>
                       <ul className="list-disc pl-5 mb-10">
-                        <h4 className="font-bold">Onze aanpak is gebaseerd op:</h4>
-                        <li className="hover:text-green-700 hover:font-bold">Geloofwaardigheid en vertrouwen</li>
-                        <li className="hover:text-green-700 hover:font-bold">Altijd en overal bereikbaar</li>
-                        <li className="hover:text-green-700 hover:font-bold">Meer actie van bezoekers</li>
-                        <li className="hover:text-green-700 hover:font-bold">Sterke merkidentiteit</li>
-                        <li className="hover:text-green-700 hover:font-bold">Centraal punt voor al uw marketing</li>
-                        <li className="hover:text-green-700 hover:font-bold">Schaalbaarheid voor de toekomst</li>
+                        <h4 className="font-bold">Hier zijn enkele redenen waarom een maatwerk website essentieel is voor jouw bedrijf:</h4>
+                        <li className="hover:text-green-700 hover:font-bold">✅ Uniek maatwerk dat perfect aansluit op jouw merk.</li>
+                        <li className="hover:text-green-700 hover:font-bold">✅ Razendsnelle laadtijden voor een optimale gebruikerservaring.</li>
+                        <li className="hover:text-green-700 hover:font-bold">✅ Volledig responsief ontwerp, geschikt voor elk apparaat.</li>
+                        <li className="hover:text-green-700 hover:font-bold">✅ Technische perfectie, van Next.js tot NextJS of React of een andere keuze cms.</li>
+                        <li className="hover:text-green-700 hover:font-bold">✅ Centraal punt voor al uw marketing</li>
+                        <li className="hover:text-green-700 hover:font-bold">✅ Schaalbaarheid voor de toekomst</li>
                       </ul>
                       <Link
                         href="#"
-                        className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200"
+                        className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-green-700 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200"
                       >
-                        Lees meer
+                        Start jouw digitale succes vandaag!
                       </Link>
                     </div>
                   </div>
@@ -182,17 +181,17 @@ export default function Website() {
                       "We helpen u niet alleen aan een mooie website, maar denken mee over het versterken van uw merk.",
                   },
                   {
-                    title: "Krachtige techniek",
-                    description: "Een website die voldoet aan de strengste technische eisen voor topprestaties online.",
+                    title: "Unieke uitstraling",
+                    description: "Jouw merk verdient een website die onderscheidend is en een blijvende indruk achterlaat.",
                   },
                   {
-                    title: "Data gedreven",
-                    description: "Keuzes niet vanuit gevoel, maar vanuit verzamelde data over uw branche en doelgroep.",
+                    title: "Flexibiliteit en schaalbaarheid",
+                    description: "Een maatwerk website groeit met jouw bedrijf mee en kan eenvoudig worden uitgebreid met nieuwe functionaliteiten.",
                   },
                   {
-                    title: "Makkelijk te beheren",
+                    title: "Optimale prestaties",
                     description:
-                      "Een gebruiksvriendelijk content management systeem zodat u zelf uw website kunt bijwerken.",
+                      "Websites op maat worden gebouwd met schone code, wat resulteert in snellere laadtijden en betere zoekmachineposities.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -208,105 +207,178 @@ export default function Website() {
         </div>
       </section>
 
-      {/* Portfolio Section */}
-      <section className="py-12 lg:py-24 bg-teal-900">
-        <div className="container mx-auto px-4">
-          <div className="max-w-lg mx-auto lg:max-w-none">
-            <h2 className="text-4xl font-bold text-white mb-12">Ons portfolio</h2>
-            <div className="flex flex-wrap -mx-4">
-              {["Webshop", "Bedrijfswebsite"].map((project, index) => (
-                <div key={index} className="w-full md:w-1/2 px-4 mb-8">
-                  <div className="bg-white rounded-lg p-6">
-                    <h3 className="text-2xl font-bold mb-4">{project}</h3>
-                    <p className="text-gray-600 mb-4">Webontwikkeling | UI/UX Design | SEO</p>
-                    <Image
-                      src={`https://cdn.dribbble.com/userupload/17430926/file/large-c12260bef86093952928f316ecc9f9b6.mp4`}
-                      alt={project}
-                      width={800}
-                      height={600}
-                      className="w-full h-48 object-cover rounded-lg"
-                    />
-                  </div>
-                </div>
-              ))}
+{/* About Section */}
+<section className="py-12 lg:py-24">
+  <div className="container mx-auto px-4">
+    <div className="flex mb-4 items-center">
+      <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="4" r="4" fill="#022C22"></circle>
+      </svg>
+      <span className="inline-block ml-2 text-sm font-medium text-teal-900">Maatwerk specialisten</span>
+    </div>
+    <div className="border-t pt-16">
+      <div className="max-w-lg mx-auto lg:max-w-none">
+        <div className="flex flex-wrap lg:items-center -mx-4">
+          {/* Afbeeldingsgedeelte */}
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                <source
+                  src="https://cdn.dribbble.com/userupload/17938568/file/large-8ad20ebfa52322c8242d8c90f565dc45.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <div className="text-center mt-12">
-              <Link
-                href="#"
-                className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 hover:text-white bg-white hover:bg-lime-500 rounded-full transition duration-200"
-              >
-                Bekijk alles
-              </Link>
+          </div>
+          {/* Tekstgedeelte */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-xl">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">
+                Wat kun je van ons verwachten?
+              </h1>
+              <p className="text-lg text-gray-700 mb-10">
+                Bij het ontwikkelen van een maatwerk website staat kwaliteit voorop. Onze aanpak is gericht op het leveren van websites die niet alleen aan jouw verwachtingen voldoen, maar deze overtreffen. Hier is wat je van ons kunt verwachten:
+              </p>
+              <ul>
+                {["Maatwerk websites", "Responsief ontwerp", "SEO-optimalisatie", "Gebruiksvriendelijk CMS"].map(
+                  (item, index) => (
+                    <li key={index} className="flex items-center mb-4">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                        <path
+                          d="M14.8 6.40002L8.19995 13L5.19995 10"
+                          stroke="#1D1F1E"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        ></path>
+                      </svg>
+                      <span className="ml-3 text-lg">{item}</span>
+                    </li>
+                  ),
+                )}
+              </ul>
             </div>
           </div>
         </div>
-      </section>
 
-      {/* About Section */}
-      <section className="py-12 lg:py-24">
-        <div className="container mx-auto px-4">
-          <div className="flex mb-4 items-center">
-            <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="4" cy="4" r="4" fill="#022C22"></circle>
-            </svg>
-            <span className="inline-block ml-2 text-sm font-medium text-teal-900">Maatwerk specialisten</span>
-          </div>
-          <div className="border-t pt-16">
-            <div className="max-w-lg mx-auto lg:max-w-none">
-              <div className="flex flex-wrap lg:items-center -mx-4">
-                {/* Tekstgedeelte */}
-                <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-                  <div className="max-w-xl">
-                    <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">
-                      Waarom kiezen voor maatwerk van MultichoiceAgency?
-                    </h1>
-                    <p className="text-lg text-gray-700 mb-10">
-                      Bij MultichoiceAgency geloven we in het leveren van maatwerkoplossingen die perfect aansluiten op jouw doelen en merk. Jij hebt volledige controle over hoe jouw website eruitziet en werkt. Van ontwerp tot functionaliteiten, alles wordt afgestemd op jouw specifieke wensen, zodat je een platform krijgt dat jouw visie weerspiegelt. Daarnaast bieden we technologische flexibiliteit door te werken met geavanceerde frameworks zoals Next.js, React en Storyblok. Dit stelt ons in staat om niet alleen innovatieve, maar ook schaalbare en toekomstbestendige websites te ontwikkelen. Ons team zorgt voor een uniek design dat jouw merk onderscheidt en een blijvende indruk achterlaat bij bezoekers. Bovendien optimaliseren we elke website voor razendsnelle prestaties en bieden we een veilige infrastructuur met geavanceerde beveiliging en betrouwbaarheid. Jouw website wordt een investering in de toekomst van jouw bedrijf, met langetermijnvoordelen en de mogelijkheid om mee te groeien met jouw ambities. Kies voor MultichoiceAgency en ervaar hoe maatwerk jouw merk naar een hoger niveau tilt!
-                    </p>
-                    <ul>
-                      {["Maatwerk websites", "Responsief ontwerp", "SEO-optimalisatie", "Gebruiksvriendelijk CMS"].map(
-                        (item, index) => (
-                          <li key={index} className="flex items-center mb-4">
-                            <svg
-                              width="20"
-                              height="20"
-                              viewBox="0 0 20 20"
-                              fill="none"
-                              xmlns="http://www.w3.org/2000/svg"
-                            >
-                              <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
-                              <path
-                                d="M14.8 6.40002L8.19995 13L5.19995 10"
-                                stroke="#1D1F1E"
-                                strokeWidth="1.5"
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                              ></path>
-                            </svg>
-                            <span className="ml-3 text-lg">{item}</span>
-                          </li>
-                        ),
-                      )}
-                    </ul>
-                  </div>
-                </div>
-                {/* Afbeeldingsgedeelte */}
-                <div className="w-full lg:w-1/2 px-4">
-                <div className="visible">
-                    <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
-                      <source
-                        src="https://cdn.dribbble.com/userupload/17826232/file/large-caca22f6996733841e15a1eb583ca96b.mp4"
-                        type="video/mp4"
-                      />
-                      Your browser does not support the video tag.
-                    </video>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+        {/* Nieuwe Sectie: Waarom kiezen voor Multichoiceagency? */}
+        <div className="mt-16">
+          <h2 className="font-heading text-3xl sm:text-4xl md:text-5xl mb-6 text-teal-900">
+            Waarom kiezen voor Multichoiceagency?
+          </h2>
+          <p className="text-lg text-gray-700 mb-6">
+            Met zoveel webdesignbureaus om uit te kiezen, waarom zou je kiezen voor Multichoiceagency? Het antwoord is simpel: wij leveren meer dan alleen websites. We leveren resultaten.
+          </p>
+          <ul className="space-y-4">
+            <li>
+              <h3 className="text-xl font-bold">1. Ervaring en expertise</h3>
+              <p className="text-lg text-gray-700">
+                Ons team bestaat uit ervaren professionals die gespecialiseerd zijn in design, ontwikkeling en strategie.
+              </p>
+            </li>
+            <li>
+              <h3 className="text-xl font-bold">2. Innovatieve technologie</h3>
+              <p className="text-lg text-gray-700">
+                We maken gebruik van de nieuwste technologieën, zoals Next.js, React en Storyblok, om websites te bouwen die zowel mooi als functioneel zijn.
+              </p>
+            </li>
+            <li>
+              <h3 className="text-xl font-bold">3. Focus op resultaat</h3>
+              <p className="text-lg text-gray-700">
+                Jouw succes is ons succes. Daarom richten we ons op het leveren van websites die meetbare resultaten opleveren, zoals hogere conversieratio's, meer verkeer en betere vindbaarheid.
+              </p>
+            </li>
+            <li>
+              <h3 className="text-xl font-bold">4. Persoonlijke service</h3>
+              <p className="text-lg text-gray-700">
+                Wij geloven in een persoonlijke aanpak. We luisteren naar jouw wensen, denken met je mee en zorgen ervoor dat jouw website perfect aansluit op jouw doelen.
+              </p>
+            </li>
+          </ul>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+{/* About Section */}
+<section className="py-12 lg:py-24">
+  <div className="container mx-auto px-4">
+    {/* Header: Titel en Afbeelding */}
+    <div className="flex flex-wrap items-center -mx-4 mb-12">
+      {/* Titel */}
+      <div className="lg:sticky lg:top-8 w-full lg:w-1/2 px-4">
+        <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-teal-900">
+          Wat kan je van ons verwachten?
+        </h1>
+      </div>
+      {/* Afbeelding */}
+      <div className="w-full lg:w-1/2 px-4">
+        <div className="rounded-md overflow-hidden">
+          <video className="w-full h-full object-contain" autoPlay loop muted playsInline>
+            <source
+              src="https://cdn.dribbble.com/userupload/17576064/file/large-66aa8390bb133c8789bfc8bf6b663d9f.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+
+    {/* Horizontale Puntenlijst */}
+    <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4  top-6">1. Een unieke website die jouw merk weerspiegelt</h2>
+        <p className="text-lg text-gray-700">
+          Elke website die we bouwen is uniek. Geen templates, maar een ontwerp dat volledig is afgestemd op jouw merkidentiteit.
+        </p>
+      </div>
+      <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4">2. Volledig responsief ontwerp</h2>
+        <p className="text-lg text-gray-700">
+          Jouw website functioneert perfect op elk apparaat, of het nu een smartphone, tablet of desktop is.
+        </p>
+      </div>
+      <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4">3. Razendsnelle laadtijden</h2>
+        <p className="text-lg text-gray-700">
+          Bezoekers zijn ongeduldig. We zorgen voor websites die snel laden en de gebruikerservaring verbeteren.
+        </p>
+      </div>
+      <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4">4. Gebruiksvriendelijkheid</h2>
+        <p className="text-lg text-gray-700">
+          Intuïtieve interfaces die jouw bezoekers moeiteloos door jouw site leiden.
+        </p>
+      </div>
+      <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4">5. Zoekmachineoptimalisatie (SEO)</h2>
+        <p className="text-lg text-gray-700">
+          We zorgen ervoor dat jouw website goed scoort in zoekmachines met de nieuwste SEO-technieken.
+        </p>
+      </div>
+      <div className="p-6 bg-gray-100 rounded-lg shadow-md">
+        <h2 className="text-xl font-bold mb-4">6. Schaalbaarheid voor de toekomst</h2>
+        <p className="text-lg text-gray-700">
+          Onze websites groeien mee met jouw bedrijf en zijn flexibel en schaalbaar.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 
 
       {/* FAQ Section */}
