@@ -2,190 +2,184 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faGoogle, faLinkedin, faInstagram, faFacebook } from '@fortawesome/free-brands-svg-icons'
-import { faEnvelope, faPhone } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faFacebook, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faPhone, IconDefinition } from "@fortawesome/free-solid-svg-icons";
+
+// TypeScript type voor navigatie-items
+type NavItem = {
+  title: string;
+  links: { name: string; href: string }[];
+};
+
+// TypeScript type voor social media links
+type SocialItem = {
+  icon: IconDefinition;
+  text: string;
+  href: string;
+};
+
+// TypeScript type voor contactinformatie
+type ContactItem = {
+  title: string;
+  info: string[];
+  links?: { icon?: IconDefinition; text: string; href: string }[];
+};
+
+// Navigatie-secties
+const navSections: NavItem[] = [
+  {
+    title: "Web Development",
+    links: [
+      { name: "UI/UX Design", href: "/ui-ux-design" },
+      { name: "Maatwerk Websites", href: "/maatwerk-websites" },
+      { name: "E-commerce", href: "/e-commerce" },
+      { name: "Frontend Development", href: "/frontend-development" },
+      { name: "Backend Development", href: "/backend-development" },
+    ],
+  },
+  {
+    title: "Online Marketing",
+    links: [
+      { name: "SEO", href: "/seo" },
+      { name: "Google Ads", href: "/google-ads" },
+      { name: "Social Media", href: "/social-media" },
+      { name: "Content Marketing", href: "/content-marketing" },
+    ],
+  },
+  {
+    title: "Over Ons",
+    links: [
+      { name: "Ons Verhaal", href: "/ons-verhaal" },
+      { name: "Onze Werkwijze", href: "/onze-werkwijze" },
+      { name: "Ons Team", href: "/ons-team" },
+      { name: "Vacatures", href: "/vacatures" },
+      { name: "Contact", href: "/contact" },
+    ],
+  },
+  {
+    title: "Kenniscentrum",
+    links: [
+      { name: "Helpdesk", href: "/helpdesk" },
+      { name: "Veelgestelde Vragen", href: "/veelgestelde-vragen" },
+      { name: "Kennisbank", href: "/kennisbank" },
+      { name: "Downloads", href: "/downloads" },
+    ],
+  },
+];
+
+// Social media links
+const socialLinks: SocialItem[] = [
+  { icon: faFacebook, text: "Volg ons op Facebook", href: "https://facebook.com/multichoiceagency" },
+  { icon: faInstagram, text: "Volg ons op Instagram", href: "https://instagram.com/multichoiceagency" },
+  { icon: faLinkedin, text: "Volg ons op LinkedIn", href: "https://linkedin.com/company/multichoiceagency" },
+];
+
+// Contactgegevens inclusief e-mail en telefoon
+const contactSections: ContactItem[] = [
+  {
+    title: "Contact",
+    info: ["Multichoiceagency B.V.", "Edisonstraat 5c, Rotterdam", "Wij bedienen heel Nederland"],
+    links: [
+      { icon: faEnvelope, text: "sales@multichoiceagency.nl", href: "mailto:sales@multichoiceagency.nl" },
+      { icon: faPhone, text: "0103220410", href: "tel:0103220410" },
+    ],
+  },
+  {
+    title: "Service & Support",
+    info: ["Ma - Do: 09:00 - 17:00", "Vrij: 09:00 - 13:00"],
+    links: [
+      { icon: faEnvelope, text: "service@multichoiceagency.nl", href: "mailto:service@multichoiceagency.nl" },
+      { icon: faPhone, text: "0103220410", href: "tel:0103220410" },
+    ],
+  },
+  {
+    title: "Overige Gegevens",
+    info: ["KVK: 77481445", "BTW: NL.861020741.B01", "IBAN: NL50.INGB.0005.655.287"],
+  },
+];
 
 export function Footer() {
   return (
-    <footer className="w-screen h-screen animated-background bg-gradient-to-b from-black to-green-700 text-white ">
-<div className="mx-auto">
-{/* Newsletter Section */}
-        <div className="max-w-[1800px] mx-auto px-4 py-16 inset-7">
-          {/* Main Footer Links */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-5">
-            {/* Web Development */}
-            <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-            <h3 className="text-lg font-semibold mb-4">Web development</h3>
-              <ul className="space-y-2">
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">UI/UX Design</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Responsief webdesign</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Maatwerk websites</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Frontend Development</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Backend Development</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">E-commerce website</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Headless e-commerce</Link></li>
-              </ul>
-            </div>
+    <section className="p-4">
+      <div className="relative py-16 px-4 sm:px-8 bg-orange-50 rounded-3xl overflow-hidden">
+        {/* Achtergrondafbeelding */}
+        <Image
+          className="absolute bottom-0 left-0 h-full"
+          src="/flow-assets/footer/waves-lines-bg.png"
+          alt=""
+          width={500}
+          height={500}
+        />
 
-            {/* Online Marketing */}
-            <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-lg font-semibold mb-4">Online marketing</h3>
-              <ul className="space-y-2 ">
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ess Online Marketing</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ess Media</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ess Drukwerk</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Internetbureau Rotterdam</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">ADS</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">SEO</Link></li>
-              </ul>
-            </div>
-
-            {/* Over ons */}
-            <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-lg font-semibold mb-4">Over ons</h3>
-              <ul className="space-y-2">
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ons verhaal</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Onze werkwijze</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Ons team</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Vacatures</Link></li>
-              </ul>
-            </div>
-
-            {/* Kenniscentrum */}
-            <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-lg font-semibold mb-4">Kenniscentrum</h3>
-              <ul className="space-y-2 rounded-md w-3/4">
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold ">Helpdesk</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Veelgestelde vragen</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Kennisbank</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Downloads</Link></li>
-                <li><Link href="#" className="hover:text-teal-900 hover:font-bold">Powerpoint</Link></li>
-              </ul>
-            </div>
-          </div>
-          <div className="pt-8">
-          {/* Contact Information */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-gray-100">
-            {/* Contact */}
-            <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-lg font-semibold mb-4 ">Contact</h3>
-              <p className="font-semibold mb-2">Multichoiceagency B.V.</p>
-              <p>Edisonstraat 5c</p>
-              <p className="mb-4">Rotterdam</p>
-              <p className="italic mb-2">Wij bedienen onze klanten door heel Nederland</p>
-              <p className="mt-4">
-                <Link href="mailto:sales@multichoiceagency.nl" className="hover:text-teal-900 hover:font-bold ">
-                <FontAwesomeIcon icon={faEnvelope} className="w-5 h-5" /> sales@multichoiceagency.nl
-                </Link>
-              </p>
-              <p>
-                <Link href="tel:0103220410" className="hover:text-teal-900 hover:font-bold">
-                <FontAwesomeIcon icon={faPhone} className="w-5 h-5" /> 0103220410
-                </Link>
-              </p>
-
-            </div>
-
-            {/* Service & Support */}
-            <div className="text-white px-4 py-6 bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-lg font-semibold mb-4">Service & Support</h3>
-              <p>ma-do 09:00 tot 17:00</p>
-              <p className="mb-4">vrij: 09:00 - 13:00</p>
-              <p>
-                <Link href="mailto:service@multichoiceagency.nl" className="hover:text-teal-900 hover:font-bold">
-                  service@multichoiceagency.nl
-                </Link>
-              </p>
-              <p>
-                <Link href="tel:0103220410" className="hover:text-teal-900 hover:font-bold">
-                  0103220410
-                </Link>
-              </p>
-            </div>
-            {/* Additional Information */}
-            <div className="text-white px-4 py-6 font-bold bg-white/25 backdrop-blur-md rounded-md w-3/4 shadow-lg transform origin-center hover:skew-y-3 hover:scale-110 transition-all duration-300">
-              <h3 className="text-lg font-semibold mb-4">Overige gegevens</h3>
-              <p>KVK: 77481445</p>
-              <p>BTW: NL.861020741.B01</p>
-              <p>IBAN: NL50.INGB.0005.655.287</p>
-            </div>
-          </div>
-          </div>
-          {/* Bottom Section */}
-          <div className="flex flex-col items-center space-y-6 ">
+        <div className="container px-4 mx-auto relative">
+          <div className="flex flex-wrap mb-12 md:mb-24 xl:mb-40 -mx-4">
             {/* Logo */}
-            <div className="group flex items-center space-x-4 hover:skew-y-3 hover:b hover:scale-110 transition-all duration-300 bg-white/25 backdrop-blur-md rounded-md py-4 px-4">
-            <Image
-              src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
-              alt="Multichoiceagency"
-              width={300}
-              height={150}
-              className="min-w-5 brightness-0 invert transition-all duration-300 group-hover:brightness-100 group-hover:invert-0"
-            />
-          </div>
-            {/* Tagline */}
-            <div className="text-2xl pb-2 font-bold">
-              Maatwerk Specialisten<sup>®</sup>
-            </div>
-            <div>
-            <Link href={"/offerte-aanvragen"}>
-            <button className="group flex items-center pt-5 rounded-md border-green-400 hover:translate-x-105 font-bold bg-white text-black sm:px-6 py-8 sm:py-3 text-sm sm:text-base transition-colors hover:bg-black hover:text-white">
-              <span>Gratis advies aanvragen</span>
-            </button>
-            </Link>
-            </div>
-
-            {/* Social Links */}
-            <div className="flex space-x-6 font-bold hover:text-teal-900 text-gray-100">Volg ons op social media</div>
-            <div className="flex space-x-6 text-gray-100">
-              <Link href="#" className="hover:text-teal-900 hover:font-bold">
-                <FontAwesomeIcon icon={faLinkedin} className="w-5 h-5" /> LinkedIn 
-              </Link>
-              <span>|</span>
-              <Link href="#" className="hover:text-teal-900 hover:font-bold">
-                <FontAwesomeIcon icon={faFacebook} className="w-5 h-5" /> Facebook
-              </Link>
-              <span>|</span>
-              <Link href="#" className="hover:text-teal-900 hover:font-bold">
-                <FontAwesomeIcon icon={faInstagram} className="w-5 h-5" /> Instagram
+            <div className="w-full lg:w-2/12 xl:w-3/12 px-4 mb-16 lg:mb-0">
+              <Link href="/" className="inline-block mb-4">
+                <Image
+                  src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
+                  alt="Multichoiceagency"
+                  width={200}
+                  height={50}
+                />
               </Link>
             </div>
 
-            {/* Footer Links */}
-            <div className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-gray-100">
-              <Link href="/website-laten-maken" className="hover:text-teal-900 hover:font-bold">
-                Website laten maken
-              </Link>
-              <span>|</span>
-              <Link href="/privacy-beleid" className="hover:text-teal-900 hover:font-bold">
-                Privacy & Avg
-              </Link>
-              <span>|</span>
-              <Link href="/vacatures" className="hover:text-teal-900 hover:font-bold">
-                Vacatures
-              </Link>
-              <span>|</span>
-              <Link href="/contact" className="hover:text-teal-900 hover:font-bold">
-                Contact
-              </Link>
-              <span>|</span>
-              <Link href="/request-for-proposal" className="hover:text-teal-900 hover:font-bold">
-              Request for Proposal
-              </Link>
-            </div>
-
-            {/* Google Rating */}
-            <div className="flex items-center space-x-2 text-gray-100">
-              <FontAwesomeIcon icon={faGoogle} className="w-5 h-5" />
-              <span className="font-semibold">Wij worden gewaardeerd met een </span>
-              <div className="flex text-yellow-400">
-                4.9 ★★★★
+            {/* Navigatie */}
+            <div className="w-full md:w-7/12 lg:w-7/12 xl:w-6/12 px-4 mb-16 lg:mb-0">
+              <div className="flex flex-wrap -mx-4">
+                {navSections.map((section, index) => (
+                  <div key={index} className="w-1/2 xs:w-1/3 px-4 mb-8 xs:mb-0">
+                    <h3 className="mb-6 font-bold">{section.title}</h3>
+                    <ul>
+                      {section.links.map((link, idx) => (
+                        <li key={idx} className="mb-4">
+                          <Link href={link.href} className="inline-block text-black hover:text-lime-600 font-medium">
+                            {link.name}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                ))}
               </div>
             </div>
+
+            {/* Social Media */}
+            <div className="w-full md:w-5/12 lg:w-3/12 xl:w-3/12 px-4">
+              {socialLinks.map((social, idx) => (
+                <Link key={idx} href={social.href} className="group flex p-1 max-w-xs mb-4 items-center rounded-full bg-white">
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 text-teal-900 group-hover:text-lime-500 bg-lime-500 group-hover:bg-black rounded-full transition duration-200">
+                    <FontAwesomeIcon icon={social.icon} className="w-6 h-6" />
+                  </div>
+                  <span className="ml-4 font-medium">{social.text}</span>
+                </Link>
+              ))}
+            </div>
+          </div>
+
+          {/* Contact & Bedrijfsinformatie */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-gray-700">
+            {contactSections.map((block, idx) => (
+              <div key={idx} className="text-black px-4 py-6 bg-white rounded-md shadow-lg">
+                <h3 className="text-lg font-semibold mb-4">{block.title}</h3>
+                {block.info.map((text, index) => (
+                  <p key={index} className="mb-2">{text}</p>
+                ))}
+                {block.links?.map((link, index) => (
+                  <p key={index} className="mt-2">
+                    <Link href={link.href} className="hover:text-teal-900 font-medium flex items-center">
+                      <FontAwesomeIcon icon={link.icon} className="w-5 h-5 mr-2" />
+                      {link.text}
+                    </Link>
+                  </p>
+                ))}
+              </div>
+            ))}
           </div>
         </div>
       </div>
-    </footer>
+    </section>
   );
 }

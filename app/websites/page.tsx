@@ -121,17 +121,18 @@ export default function Website() {
               <div className="container mx-auto px-4">
                 <div className="flex flex-wrap -mx-4">
                   <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
-                    <div className="lg:sticky lg:top-8 bg-green-700/10 px-10 py-10 rounded-xl">
-                    <h2 className="font-heading text-7xl md:text-7xl bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.green.700),theme(colors.gray.500),theme(colors.teal.400),theme(colors.black),theme(colors.green.300),theme(colors.green.700))] bg-[length:200%_auto] animate-gradient">
-                    Waarom is een maatwerk website essentieel?
+                    <div className="lg:sticky lg:top-8 bg-black/10 px-10 py-10 rounded-xl">
+                    <h2 className="font-heading text-7xl md:text-7xl bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.green.700),theme(colors.gray.500),theme(colors.green.400),theme(colors.black),theme(colors.green.300),theme(colors.green.700))] bg-[length:200%_auto] animate-gradient">
+                    Wij ontwerpen al jaren maatwerk ontwerpen
                       </h2>
                     </div>
                   </div>
                   <div className="w-full md:w-1/2 px-4">
                     <div className="lg:max-w-lg md:ml-auto">
+                    <h2 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">Waarom een maatwerk website?</h2>
                       <p className="text-xl font-medium mb-10">
                       Een maatwerk website biedt voordelen die standaardoplossingen simpelweg niet kunnen evenaren. Waar veel websites beperkt zijn door vooraf ontworpen templates, biedt een maatwerk website de vrijheid om volledig afgestemd te worden op jouw unieke merkidentiteit en bedrijfsdoelen. Of je nu een e-commerceplatform nodig hebt, een informatieve bedrijfswebsite of een interactieve applicatie, een maatwerk website opent de deur naar eindeloze mogelijkheden.</p>
-                      <ul className="list-disc pl-5 mb-10">
+                      <ul className="pl-5 mb-10">
                         <h4 className="font-bold">Hier zijn enkele redenen waarom een maatwerk website essentieel is voor jouw bedrijf:</h4>
                         <li className="hover:text-green-700 hover:font-bold">✅ Uniek maatwerk dat perfect aansluit op jouw merk.</li>
                         <li className="hover:text-green-700 hover:font-bold">✅ Razendsnelle laadtijden voor een optimale gebruikerservaring.</li>
@@ -287,13 +288,13 @@ export default function Website() {
             <li>
               <h3 className="text-xl font-bold">2. Innovatieve technologie</h3>
               <p className="text-lg text-gray-700">
-                We maken gebruik van de nieuwste technologieën, zoals Next.js, React en Storyblok, om websites te bouwen die zowel mooi als functioneel zijn.
+                We maken gebruik van de nieuwste technologieën, zoals Next.js, React en Storyblok, om website&apos;s te bouwen die zowel mooi als functioneel zijn.
               </p>
             </li>
             <li>
               <h3 className="text-xl font-bold">3. Focus op resultaat</h3>
               <p className="text-lg text-gray-700">
-                Jouw succes is ons succes. Daarom richten we ons op het leveren van websites die meetbare resultaten opleveren, zoals hogere conversieratio's, meer verkeer en betere vindbaarheid.
+                Jouw succes is ons succes. Daarom richten we ons op het leveren van websites die meetbare resultaten opleveren, zoals hogere conversieratio&apos;s, meer verkeer en betere vindbaarheid.
               </p>
             </li>
             <li>
