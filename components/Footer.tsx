@@ -41,16 +41,18 @@ const navSections: NavItem[] = [
   {
     title: "Online Marketing",
     links: [
-      { name: "SEO", href: "/seo" },
-      { name: "Google Ads", href: "/google-ads" },
-      { name: "Social Media", href: "/social-media" },
-      { name: "Content Marketing", href: "/content-marketing" },
+      { name: "SEO", href: "https://www.essmarketing.nl/seo-specialist" },
+      { name: "Google Ads", href: "https://www.essmarketing.nl/google-ads-uitbesteden" },
+      { name: "Social Media", href: "https://www.essmarketing.nl/social-media-uitbesteden" },
+      { name: "Content Marketing", href: "https://www.essmarketing.nl/content-marketing-uitbesteden" },
+      { name: "Bedrijfsvideo laten maken", href: "https://www.essmedia.nl/bedrijfsvideo-laten-maken" },
+      { name: "Productvideo laten maken", href: "https://www.essmedia.nl/productvideo-laten-maken" },
     ],
   },
   {
     title: "Over Ons",
     links: [
-      { name: "Ons Verhaal", href: "/ons-verhaal" },
+      { name: "Over ons", href: "/over-ons" },
       { name: "Onze Werkwijze", href: "/onze-werkwijze" },
       { name: "Ons Team", href: "/ons-team" },
       { name: "Vacatures", href: "/vacatures" },
@@ -60,6 +62,7 @@ const navSections: NavItem[] = [
   {
     title: "Kenniscentrum",
     links: [
+      { name: "Inloggen bestaande klant", href: "https://projecten.mlt.multichoiceagency.nl" },
       { name: "Helpdesk", href: "/helpdesk" },
       { name: "Veelgestelde Vragen", href: "/veelgestelde-vragen" },
       { name: "Kennisbank", href: "/kennisbank" },
@@ -79,7 +82,7 @@ const socialLinks: SocialItem[] = [
 const contactSections: ContactItem[] = [
   {
     title: "Contact",
-    info: ["Multichoiceagency B.V.", "Edisonstraat 5c, Rotterdam", "Wij bedienen heel Nederland"],
+    info: ["Multichoiceagency B.V.", "Edisonstraat 5c, Rotterdam", "Wij werken door heel Nederland"],
     links: [
       { icon: faEnvelope, text: "sales@multichoiceagency.nl", href: "mailto:sales@multichoiceagency.nl" },
       { icon: faPhone, text: "0103220410", href: "tel:0103220410" },
@@ -102,7 +105,7 @@ const contactSections: ContactItem[] = [
 export function Footer() {
   return (
     <section className="p-4">
-      <div className="relative py-16 px-4 sm:px-8 bg-orange-50 rounded-3xl overflow-hidden">
+      <div className="relative py-12 lg:py-24 bg-teal-900 overflow-hidden rounded-xl">
         {/* Achtergrondafbeelding */}
         <Image
           className="absolute bottom-0 left-0 h-full"
@@ -118,9 +121,9 @@ export function Footer() {
             <div className="w-full lg:w-2/12 xl:w-3/12 px-4 mb-16 lg:mb-0">
               <Link href="/" className="inline-block mb-4">
                 <Image
-                  src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
+                  src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/12/Logo-wit@4x.png"
                   alt="Multichoiceagency"
-                  width={200}
+                  width={400}
                   height={50}
                 />
               </Link>
@@ -131,11 +134,11 @@ export function Footer() {
               <div className="flex flex-wrap -mx-4">
                 {navSections.map((section, index) => (
                   <div key={index} className="w-1/2 xs:w-1/3 px-4 mb-8 xs:mb-0">
-                    <h3 className="mb-6 font-bold">{section.title}</h3>
+                    <h2 className="mb-6 text-white font-bold">{section.title}</h2>
                     <ul>
                       {section.links.map((link, idx) => (
                         <li key={idx} className="mb-4">
-                          <Link href={link.href} className="inline-block text-black hover:text-lime-600 font-medium">
+                          <Link href={link.href} className="inline-block text-white hover:text-lime-600 font-medium">
                             {link.name}
                           </Link>
                         </li>

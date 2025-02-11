@@ -119,7 +119,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               {directions.map((direction, index) => (
                 <Link
                   key={index}
-                  href="#"
+                  href="ui"
                   className="flex items-start gap-4 group"
                   onClick={onClose}
                 >

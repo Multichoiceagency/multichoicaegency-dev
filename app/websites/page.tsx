@@ -97,7 +97,7 @@ export default function Website() {
             </div>
           </div>
         </div>
-        <div className="hidden lg:block absolute top-0 right-0 h-full w-2/5">
+        <div className="hidden lg:block absolute top-0 right-0 h-full w-3/5">
           <video className="w-1/8 h-full object-cover rounded-md" autoPlay loop muted playsInline>
             <source
               src="https://cdn.dribbble.com/userupload/17826232/file/large-caca22f6996733841e15a1eb583ca96b.mp4"
