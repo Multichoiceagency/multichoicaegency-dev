@@ -1,8 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
 
 const diensten = [
   {
@@ -79,42 +80,51 @@ const diensten = [
   },
 ];
 
-export function Solutions() {
-  return (
-    <section className="relative bg-background py-24">
-      <div className="mx-auto max-w-[1800px] px-10">
-        <div className="grid gap-12 lg:grid-cols-2">
-          {/* Left Column - Sticky on large screens only */}
-          <div className="h-fit lg:sticky xl:sticky lg:top-32">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-4 block text-sm font-medium uppercase tracking-wider text-[#1e7932]"
-            >
-              ONZE DIENSTEN
-            </motion.span>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="mb-8"
-            >
-              <h2 className="mb-4 text-4xl font-medium leading-tight md:text-5xl lg:text-6xl">
-                Kies voor{" "}
-                <span className="italic text-green-600 hover:text-green-900 animate-in-5s">
-                  expertise op maat
-                </span>
-              </h2>
-              <p className="mb-8 text-lg text-muted-foreground">
-                Ontdek hoe onze diensten jouw groei kunnen versnellen.
-              </p>
+export function Solutions() {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  })
+
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "100%"])
+
+  return (
+    <section ref={containerRef} className="relative bg-background py-24">
+      <div className="mx-auto max-w-[1800px] px-10">
+        <div className="lg:grid lg:grid-cols-2 lg:gap-12">
+          {/* Left Column - Sticky Content */}
+          <div className="lg:relative lg:h-[calc(100vh-8rem)]">
+            <motion.div style={{ y }} className="lg:sticky lg:top-32">
+              <motion.span
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-4 block text-sm font-medium uppercase tracking-wider text-[#1e7932]"
+              >
+                ONZE DIENSTEN
+              </motion.span>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                className="mb-8"
+              >
+                <h2 className="mb-4 text-4xl font-medium leading-tight md:text-5xl lg:text-6xl">
+                  Kies voor{" "}
+                  <span className="italic text-green-600 hover:text-green-900 animate-in-5s">expertise op maat</span>
+                </h2>
+                <p className="mb-8 text-lg text-muted-foreground">
+                  Ontdek hoe onze diensten jouw groei kunnen versnellen.
+                </p>
+              </motion.div>
             </motion.div>
           </div>
 
           {/* Right Column */}
-          <div className="grid gap-8">
+          <div className="space-y-8">
             {diensten.map((dienst, index) => (
               <motion.div
                 key={dienst.title}
@@ -124,15 +134,10 @@ export function Solutions() {
                 transition={{ delay: index * 0.1 }}
                 className="group relative border-t border-border py-8"
               >
-                <Link
-                  href={dienst.href}
-                  className="flex items-center justify-between"
-                >
+                <Link href={dienst.href} className="flex items-center justify-between">
                   <div>
                     <h3 className="text-2xl font-medium">{dienst.title}</h3>
-                    <p className="mt-2 max-w-2xl text-muted-foreground">
-                      {dienst.description}
-                    </p>
+                    <p className="mt-2 max-w-2xl text-muted-foreground">{dienst.description}</p>
                   </div>
                   <ArrowRight className="h-6 w-6 transform transition-transform group-hover:translate-x-2" />
                 </Link>

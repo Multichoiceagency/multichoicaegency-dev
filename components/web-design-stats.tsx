@@ -6,7 +6,7 @@ import { useInView } from 'react-intersection-observer'
 
 export default function WebDesignStats() {
   return (
-    <section className="py-12 lg:py-24 bg-orange-50">
+    <section className="py-12 lg:py-24">
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap -mx-4">
           <StatItem number={8} text="Jaar ervaring" />

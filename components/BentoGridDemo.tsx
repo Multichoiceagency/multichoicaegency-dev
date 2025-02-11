@@ -193,55 +193,66 @@ export const BentoGridItem = ({
 export function BentoGridDemo() {
   const items = [
     {
-      title: 'Websites & E-commerce',
+      title: 'Websites laten maken',
       description:
-        'Op zoek naar een website, eCommerce platform, Is jouw technologie, design en gebruiksvriendelijkheid aan vernieuwing toe? ',
+        'Is uw website naar vernieuweing en gebruiksvriendelijkheid toe? ',
       icon: <IconClipboardCopy className="h-6 w-4" />,
       video:
-        'https://videos.pexels.com/video-files/3114574/3114574-uhd_2560_1440_25fps.mp4',
-      link: 'https://ess.nl',
+        'https://cdn.dribbble.com/userupload/18827551/file/large-ebb8018fcdd46e6a7257b8163581a47c.mp4',
+      link: 'websites',
     },
     {
-      title: 'Technologie en AI',
+      title: 'E-commerce webshop ontwikkeling',
       description:
         'Wij bieden slimme AI-oplossingen voor een efficiënte en duurzame digitale transformatie.',
       icon: <IconFileBroken className="h-8 w-4" />,
       video:
         'https://filmora.wondershare.com/2023video/ai-page/04-AI-Text-To-Video_transcode_100800.mp4',
-      link: 'https://ess.nl',
+      link: 'ai-oplossingen',
     },
     {
       title: 'UX / UI Design',
       description:
-        'Een goed UX/UI design is essentieel voor gebruiksvriendelijke en aantrekkelijke digitale producten.',
+        'Gepersonaliseerde ontwerpen naar jouw wensen en eisen.',
       icon: <IconSignature className="h-8 w-4" />,
       image:
         'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+        link: 'wat-is-ux-ui-design',
     },
     {
       title: 'Marketing',
       description:
-        'Met meer dan 8 jaar ervaring optimaliseren wij jouw online marketingstrategie. Wij zorgen voor meetbare resultaten en duurzame groei.',
+        'Met meer dan 8 jaar ervaring optimaliseren wij jouw online marketingstrategie.',
       icon: <IconTableColumn className="h-8 w-4" />,
+      link: 'https://www.essmarketing.nl',
+
       video:
         'https://videos.pexels.com/video-files/4549682/4549682-hd_1920_1080_30fps.mp4 ',
     },
     {
-      title: 'IT- infrastructuur & hosting',
+      title: 'Bedrijfsvideos en foto en reel generatie',
       description:
         'Een schaalbare en veilige IT-strategie stelt jouw organisatie in staat om te groeien en toekomstbestendig te blijven.',
       icon: <IconArrowWaveRightUp className="h-8 w-4" />,
-      image:
-        'https://images.pexels.com/photos/1624895/pexels-photo-1624895.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
-      link: 'https://ess.nl',
+      video:
+        'https://cdn.dribbble.com/userupload/3343934/file/large-db28115f00f6cd118d0cfed16ba9c59f.mp4',
+      link: 'https://essmedia.nl',
     },
     {
       title: 'Onderhoud en beheer',
       description:
-        'Wij onderhouden software applicaties en nemen bestaande applicaties in beheer.',
+        'Wij onderhouden software applicaties en nemen bestaande applicaties in beheer. Ook verzorgen wij de hosting.',
       icon: <IconBoxAlignTopLeft className="h-8 w-4" />,
-      video:
-        'https://videos.pexels.com/video-files/3209829/3209829-uhd_2560_1440_25fps.mp4',
+      image:
+        'https://cdn.dribbble.com/userupload/9816565/file/original-e64b3e235c9618a65f18884faf48210c.png?resize=1024x768&vertical=center',
+    },
+    {
+      title: 'Platforms & partners',
+      description:
+        'Wij versnellen je digitale transformatie door gebruik te maken van bewezen technologie.',
+      icon: <IconBoxAlignRightFilled className="h-8 w-4" />,
+      image:
+        'https://images.pexels.com/photos/39559/ipad-mockup-apple-business-39559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
     },
     {
       title: 'Platforms & partners',
