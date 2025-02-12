@@ -20,7 +20,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={hankenGrotesk.className} suppressHydrationWarning>
+      <body className={hankenGrotesk.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="auto"
