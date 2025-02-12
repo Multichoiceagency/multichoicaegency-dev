@@ -83,6 +83,8 @@ body {
   animation: gradientAnimation 5s infinite alternate;
 }
 
+
+
 @layer base {
   * {
     @apply border-border;

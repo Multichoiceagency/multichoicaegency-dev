@@ -1,3 +1,4 @@
+// tailwind.config.js
 import type { Config } from 'tailwindcss';
 
 const config: Config = {
@@ -9,14 +10,13 @@ const config: Config = {
   ],
   theme: {
     extend: {
-            screens: {
+      screens: {
         xl: '1600px', // Large screens
         lg: '1400px', // Medium screens
         md: '1024px', // Tablet screens
         sm: '768px',  // Phone screens
         xs: '480px',  // Small phone screens
       },
-      
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
         'gradient-conic':
@@ -81,44 +81,43 @@ const config: Config = {
           '50%': { transform: 'scale(1.1)' },
           '100%': { transform: 'scale(1)' },
         },
-        'gradient': {
+        gradient: {
           to: { 'background-position': '200% center' },
         },
         'accordion-down': {
-          from: {
-            height: '0',
-          },
-          to: {
-            height: 'var(--radix-accordion-content-height)',
-          },
+          from: { height: '0' },
+          to: { height: 'var(--radix-accordion-content-height)' },
         },
         'accordion-up': {
-          from: {
-            height: 'var(--radix-accordion-content-height)',
-          },
-          to: {
-            height: '0',
-          },
+          from: { height: 'var(--radix-accordion-content-height)' },
+          to: { height: '0' },
+        },
+        // Custom Pulse Animation
+        pulseCustom: {
+          '0%': { transform: 'scale(1)' },
+          '50%': { transform: 'scale(1.1)' },
+          '100%': { transform: 'scale(1)' },
         },
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
         'accordion-up': 'accordion-up 0.2s ease-out',
-        'gradient': 'gradient 8s linear infinite',
+        gradient: 'gradient 8s linear infinite',
         'zoom-in': 'zoomIn 0.6s ease-in-out infinite',
-        scroll:
-          "scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite",
-          
+        scroll: 'scroll var(--animation-duration, 40s) var(--animation-direction, forwards) linear infinite',
+        // Verhoog de duur naar bijvoorbeeld 3s voor een tragere pulse
+        pulseCustom: 'pulseCustom 3s ease-in-out infinite',
       },
     },
     keyframes: {
       scroll: {
         to: {
-          transform: "translate(calc(-50% - 0.5rem))",
+          transform: 'translate(calc(-50% - 0.5rem))',
         },
       },
     },
   },
   plugins: [require('tailwindcss-animate')],
 };
+
 export default config;

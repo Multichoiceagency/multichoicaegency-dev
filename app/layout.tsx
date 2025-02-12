@@ -4,6 +4,7 @@ import { Hanken_Grotesk } from 'next/font/google';
 import { Header } from '@/components/header';
 import { ThemeProvider } from '@/components/theme-provider';
 import { Footer } from '@/components/Footer';
+import GoogleCalendarButton from '@/components/GoogleCalenderButton';
 
 // Initialize Hanken Grotesk
 const hankenGrotesk = Hanken_Grotesk({ subsets: ['latin'] });
@@ -30,6 +31,7 @@ export default function RootLayout({
           <Header />
           {children}
           <Footer />
+          <GoogleCalendarButton />
         </ThemeProvider>
       </body>
     </html>

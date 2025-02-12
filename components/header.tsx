@@ -10,7 +10,7 @@ import { MegaMenu } from "./mega-menu";
 import { MegaMenuCases } from "./mega-menu-cases";
 import { MegaMenuDevelopment } from "./mega-menu-development";
 import { MobileMenu } from "./mobile-menu";
-import { Menu, ChevronDown } from 'lucide-react';
+import { Menu, ChevronDown } from "lucide-react";
 import { useTheme } from "next-themes";
 import { AppleStyleThemeSwitcher } from "./apple-style-theme-switcher";
 import { MegaMenuIndustrie } from "./mega-menu-industrie";
@@ -36,6 +36,7 @@ export function Header() {
   const [industries, setIndustries] = useState<string[]>([]);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
+  // Scroll-handling om de header te tonen/verbergen
   useEffect(() => {
     let lastScrollTop = 0;
     const handleScroll = () => {
@@ -45,32 +46,37 @@ export function Header() {
       lastScrollTop = currentScrollTop;
     };
     window.addEventListener("scroll", handleScroll);
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Ophalen van case-categorieën en industrieën
   useEffect(() => {
     const fetchCaseCategories = async () => {
       try {
-        const res = await fetch('https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases?_embed&per_page=100');
-        const data: Case[] = await res.json();
-        const categorySet = new Set<string>(data.map((item) => item.category || 'Uncategorized'));
-        const categoriesArray = ['All', ...Array.from(categorySet)];
+        const res = await fetch("https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases?_embed&per_page=100");
+        const data = await res.json();
+        console.log("Case data:", data);
+        // Zorg dat we met een array werken
+        const casesArray = Array.isArray(data) ? data : Object.values(data);
+        const categorySet = new Set<string>(casesArray.map((item: any) => item.category || "Uncategorized"));
+        const categoriesArray = ["All", ...Array.from(categorySet)];
         setCategories(categoriesArray);
       } catch (error) {
-        console.error('Error fetching case categories:', error);
+        console.error("Error fetching case categories:", error);
       }
     };
 
     const fetchIndustries = async () => {
       try {
-        const res = await fetch('https://cloud.multichoiceagency.nl/wp-json/wp/v2/industries?_embed&per_page=100');
-        const data: { name: string }[] = await res.json();
-        const industryList = data.map((industry) => industry.name);
-        setIndustries(['All Industries', ...industryList]);
+        const res = await fetch("https://cloud.multichoiceagency.nl/wp-json/wp/v2/industries?_embed&per_page=100");
+        const data = await res.json();
+        console.log("Industries data:", data);
+        // Zorg dat we met een array werken
+        const industriesArray = Array.isArray(data) ? data : Object.values(data);
+        const industryList = industriesArray.map((industry: any) => industry.name);
+        setIndustries(["All Industries", ...industryList]);
       } catch (error) {
-        console.error('Error fetching industries:', error);
+        console.error("Error fetching industries:", error);
       }
     };
 
@@ -90,18 +96,16 @@ export function Header() {
       </AnimatePresence>
       <motion.header
         className={`w-full transition-all duration-300 ${
-          isScrolled ? "bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800" : "bg-white dark:bg-gray-900"
+          isScrolled
+            ? "bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800"
+            : "bg-white dark:bg-gray-900"
         }`}
       >
         <div className="mx-auto flex h-16 md:h-20 max-w-[1800px] items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
-              src={
-                theme === 'dark'
-                  ? "https://cloud.multichoiceagency.nl/wp-content/uploads/2024/12/Logo-wit@4x.png"
-                  : "https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/logo-multichoiceagency.png"
-              }
+              src={theme === "dark" ? "/logos/logo-wit.png" : "/logos/logo.png"}
               alt="Multichoiceagency Logo"
               width={isScrolled ? 200 : 170}
               height={isScrolled ? 80 : 80}
@@ -111,36 +115,41 @@ export function Header() {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 lg:gap-12">
-            {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over Ons"].map((item, index) => (
-              <div key={index} className="relative">
-                {item === "Contact" || item === "Over Ons" ? (
-                  <Link
-                    href={`/${item.toLowerCase().replace(/ /g, '-')}`}
-                    className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
-                  >
-                    {item}
-                  </Link>
-                ) : (
-                  <button
-                    onClick={() => setActiveMegaMenu(activeMegaMenu === item ? null : item)}
-                    className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 flex items-center gap-1"
-                  >
-                    {item}
-                    <ChevronDown 
-                      className={`h-4 w-4 transition-transform duration-200 ${
-                        activeMegaMenu === item ? "rotate-180" : ""
-                      }`}
-                    />
-                  </button>
-                )}
-              </div>
-            ))}
+            {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over Ons"].map(
+              (item, index) => (
+                <div key={index} className="relative">
+                  {item === "Contact" || item === "Over Ons" ? (
+                    <Link
+                      href={`/${item.toLowerCase().replace(/ /g, "-")}`}
+                      className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
+                    >
+                      {item}
+                    </Link>
+                  ) : (
+                    <button
+                      onClick={() => setActiveMegaMenu(activeMegaMenu === item ? null : item)}
+                      className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 flex items-center gap-1"
+                    >
+                      {item}
+                      <ChevronDown
+                        className={`h-4 w-4 transition-transform duration-200 ${
+                          activeMegaMenu === item ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+                  )}
+                </div>
+              )
+            )}
           </div>
 
           {/* Desktop Buttons */}
           <div className="hidden md:flex items-center gap-4">
             <AppleStyleThemeSwitcher />
-            <Button variant="ghost" className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400">
+            <Button
+              variant="ghost"
+              className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
+            >
               Inloggen
             </Button>
             <Button className="bg-green-500 text-white hover:bg-green-600">
@@ -163,45 +172,26 @@ export function Header() {
 
         {/* Mega Menu */}
         <AnimatePresence>
-        {activeMegaMenu === "Wat doen wij" ? (
-            <MegaMenu
-              isOpen={activeMegaMenu === "Wat doen wij"}
-              onClose={() => setActiveMegaMenu(null)}
-            />
+          {activeMegaMenu === "Wat doen wij" ? (
+            <MegaMenu isOpen={activeMegaMenu === "Wat doen wij"} onClose={() => setActiveMegaMenu(null)} />
           ) : activeMegaMenu === "Cases" ? (
-            <MegaMenuCases
-              isOpen={activeMegaMenu === "Cases"}
-              onClose={() => setActiveMegaMenu(null)}
-            />
+            <MegaMenuCases isOpen={activeMegaMenu === "Cases"} onClose={() => setActiveMegaMenu(null)} />
           ) : activeMegaMenu === "Development" ? (
-            <MegaMenuDevelopment
-              isOpen={activeMegaMenu === "Development"}
-              onClose={() => setActiveMegaMenu(null)}
-            />
+            <MegaMenuDevelopment isOpen={activeMegaMenu === "Development"} onClose={() => setActiveMegaMenu(null)} />
           ) : activeMegaMenu === "Portalen" ? (
-            <MegaMenuPortalen
-              isOpen={!!activeMegaMenu}
-              onClose={() => setActiveMegaMenu(null)}
-            />
+            <MegaMenuPortalen isOpen={!!activeMegaMenu} onClose={() => setActiveMegaMenu(null)} />
           ) : activeMegaMenu === "Industrieën" ? (
-            <MegaMenuIndustrie
-              isOpen={!!activeMegaMenu}
-              onClose={() => setActiveMegaMenu(null)}
-            />
+            <MegaMenuIndustrie isOpen={!!activeMegaMenu} onClose={() => setActiveMegaMenu(null)} />
           ) : null}
         </AnimatePresence>
 
         {/* Mobile Menu */}
         <AnimatePresence>
           {isMobileMenuOpen && (
-            <MobileMenu
-              isOpen={isMobileMenuOpen}
-              onClose={() => setIsMobileMenuOpen(false)}
-            />
+            <MobileMenu isOpen={isMobileMenuOpen} onClose={() => setIsMobileMenuOpen(false)} />
           )}
         </AnimatePresence>
       </motion.header>
     </motion.div>
   );
 }
-

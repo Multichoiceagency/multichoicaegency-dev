@@ -68,9 +68,9 @@ export default function HeadlessEcommerce() {
         description={
           "Transformeer uw online verkoop met geavanceerde headless e-commerce oplossingen. Onze expertise in headless architectuur zorgt voor flexibele, schaalbare en hoogpresterende e-commerce platforms die perfect aansluiten bij uw merk en groeistrategie. Ontdek hoe wij uw e-commerce naar het volgende niveau kunnen tillen met innovatieve headless technologie."
         }
-        buttonText={"Offerte aanvragen"}
-        buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://cdn.dribbble.com/userupload/18040000/file/large-08cb4a479a3127a29cce35157e3e740c.mp4"}
+        buttonText={"Onze diensten"}
+        buttonLink={"diensten"}
+        videoSrc={"https://cdn.dribbble.com/users/3667298/screenshots/16292773/media/d8981b37fd523a5100f9cfec8f55cd08.mp4"}
       />
       {/* Headless E-commerce Section */}
       <section className="py-12 lg:py-24 relative">
@@ -96,7 +96,7 @@ export default function HeadlessEcommerce() {
             </p>
             <div className="flex flex-col sm:flex-row">
               <Link
-                href="#"
+                href="offerte-aanvragen"
                 className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition duration-200"
               >
                 Offerte aanvragen
@@ -107,7 +107,7 @@ export default function HeadlessEcommerce() {
         <div className="hidden lg:block absolute top-0 right-0 h-full w-3/5">
           <video className="w-21/9 h-full object-contain rounded-xl" autoPlay loop muted playsInline>
             <source
-              src="https://cdn.dribbble.com/userupload/17771206/file/large-7edae593140d2a849110ecaf6eb33e18.mp4"
+              src="https://cdn.dribbble.com/users/852957/screenshots/11178938/media/3b01fb814fc0a9f310eb6adfd06a4c2b.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -116,7 +116,7 @@ export default function HeadlessEcommerce() {
         <div className="lg:hidden">
           <video className="w-full h-64 object-contain" autoPlay loop muted playsInline>
             <source
-              src="https://cdn.dribbble.com/userupload/17771206/file/large-7edae593140d2a849110ecaf6eb33e18.mp4"
+              src="https://cdn.dribbble.com/users/852957/screenshots/11178938/media/3b01fb814fc0a9f310eb6adfd06a4c2b.mp4"
               type="video/mp4"
             />
             Your browser does not support the video tag.
@@ -162,16 +162,22 @@ export default function HeadlessEcommerce() {
                   </li>
                 </ul>
                 <Link
-                  href="#"
+                  href="offerte-aanvragen"
                   className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-green-700 hover:text-white border border-teal-900 hover:bg-teal-900 rounded-full transition duration-200"
                 >
-                  Start uw headless e-commerce project vandaag!
+                  Gratis kennismakings gesprek
                 </Link>
+
               </div>
             </div>
           </div>
         </div>
       </section>
+
+
+      <section className="h-96vh">
+                <iframe src="https://calendar.google.com/calendar/appointments/schedules/AcZssZ2r-BtK2ByjLdjbUzHD56gv5PjOLFiNHnB-Oso70N81dDkz_lVzTcx3r8AaqK1G3248W7QF59lc?gv=true" className="border: 0" width="100%" height="600" frameBorder="0"></iframe>
+                </section>
 
       {/* Services Section */}
       <section className="p-4 bg-white">
@@ -250,7 +256,7 @@ export default function HeadlessEcommerce() {
                   <div className="visible">
                     <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                       <source
-                        src="https://cdn.dribbble.com/userupload/16965695/file/large-4d6a2dbcfc7119c8c501861ef25b92a3.mp4"
+                        src="https://cdn.dribbble.com/userupload/20585023/file/large-3394f84a5d0fd476b5b595c6b9942b90.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -471,7 +477,7 @@ export default function HeadlessEcommerce() {
             dat perfect aansluit bij uw merk en groeistrategie.
           </p>
           <Link
-            href="/offerte-aanvragen"
+            href="offerte-aanvragen"
             className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-teal-900 bg-white hover:bg-lime-500 rounded-full transition duration-200"
           >
             Start uw headless e-commerce project

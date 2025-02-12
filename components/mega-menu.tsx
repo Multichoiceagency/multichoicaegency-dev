@@ -2,91 +2,115 @@
 
 import Link from "next/link";
 import { motion } from "framer-motion";
-import { ChevronRight } from 'lucide-react';
+import {
+  ChevronRight,
+  Palette,
+  Smartphone,
+  Globe,
+  Code,
+  Server,
+  ShoppingCart,
+  FileText,
+  Search,
+  TrendingUp,
+  Video,
+  PlayCircle
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Palette, Smartphone, Globe, Code, Server, ShoppingCart, Headphones, FileText, PenTool, Briefcase, Search, TrendingUp, HardDrive } from 'lucide-react';
 
 interface Direction {
   icon: React.ReactNode;
   title: string;
   description: string;
+  href: string;
 }
 
 interface Solution {
   icon: React.ReactNode;
   title: string;
+  href: string;
   isNew?: boolean;
 }
 
 const directions: Direction[] = [
   {
-    icon: <Palette className="h-6 w-6" />,
-    title: "UI/UX Design",
-    description: "Creëer prototypes en wireframes voor interactieve en gebruiksvriendelijke ontwerpen.",
+    icon: <Code className="h-6 w-6" />,
+    title: "Web Development",
+    description: "Bouw dynamische en schaalbare websites.",
+    href: "/web-development",
   },
   {
-    icon: <Smartphone className="h-6 w-6" />,
-    title: "Responsief Webdesign",
-    description: "Zorg voor een naadloze gebruikerservaring op desktop, tablet en mobiel.",
+    icon: <Palette className="h-6 w-6" />,
+    title: "UI/UX Design",
+    description: "Ontwerp intuïtieve en visueel aantrekkelijke interfaces.",
+    href: "/wat-is-ux-ui-design",
   },
   {
     icon: <Globe className="h-6 w-6" />,
-    title: "Custom Webdesign",
-    description: "Ontwikkel maatwerkoplossingen die perfect passen bij jouw huisstijl.",
+    title: "Maatwerk Websites",
+    description: "Ontwikkel websites die perfect passen bij jouw merk.",
+    href: "/maatwerk-websites",
   },
   {
-    icon: <Code className="h-6 w-6" />,
+    icon: <ShoppingCart className="h-6 w-6" />,
+    title: "E-commerce",
+    description: "Creëer krachtige online winkels.",
+    href: "/webshop-laten-maken",
+  },
+  {
+    icon: <Smartphone className="h-6 w-6" />,
     title: "Frontend Development",
-    description: "Bouw snelle en aantrekkelijke interfaces met moderne technologieën.",
+    description: "Bouw responsieve en interactieve gebruikersinterfaces.",
+    href: "/frontend-development",
+  },
+  {
+    icon: <Server className="h-6 w-6" />,
+    title: "Backend Development",
+    description: "Implementeer robuuste server-side oplossingen.",
+    href: "/backend-development",
   },
 ];
 
 const solutions: Solution[][] = [
   [
     {
-      icon: <Server className="h-5 w-5" />,
-      title: "Backend Development",
-    },
-    {
-      icon: <ShoppingCart className="h-5 w-5" />,
-      title: "E-commerce Platformontwikkeling",
-    },
-    {
-      icon: <Headphones className="h-5 w-5" />,
-      title: "Headless E-commerce",
-    },
-    {
-      icon: <Headphones className="h-5 w-5" />,
-      title: "Beveiliging",
-    },
-  ],
-  [
-    {
-      icon: <PenTool className="h-5 w-5" />,
-      title: "Logo Ontwerp & Visuele Identiteit",
-    },
-    {
-      icon: <Briefcase className="h-5 w-5" />,
-      title: "Merkstrategie en Storytelling",
+      icon: <TrendingUp className="h-5 w-5" />,
+      title: "Online Marketing",
+      href: "/online-marketing",
     },
     {
       icon: <Search className="h-5 w-5" />,
-      title: "Technische SEO",
+      title: "SEO",
+      href: "/seo",
+    },
+    {
+      icon: <ShoppingCart className="h-5 w-5" />,
+      title: "Google Ads",
+      href: "/google-ads",
     },
   ],
   [
     {
-      icon: <TrendingUp className="h-5 w-5" />,
-      title: "Digitale Marketingcampagnes",
-    },
-    {
-      icon: <HardDrive className="h-5 w-5" />,
-      title: "Hosting en Domeinbeheer",
+      icon: <Smartphone className="h-5 w-5" />,
+      title: "Social Media",
+      href: "/social-media",
     },
     {
       icon: <FileText className="h-5 w-5" />,
-      title: "Content Creatie",
-      isNew: true,
+      title: "Content Marketing",
+      href: "/content-marketing",
+    },
+  ],
+  [
+    {
+      icon: <Video className="h-5 w-5" />,
+      title: "Bedrijfsvideo laten maken",
+      href: "/bedrijfsvideo",
+    },
+    {
+      icon: <PlayCircle className="h-5 w-5" />,
+      title: "Productvideo laten maken",
+      href: "/productvideo",
     },
   ],
 ];
@@ -106,11 +130,11 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.2 }}
       className="absolute left-0 right-0 bg-white dark:bg-background border-b border-border shadow-lg"
-      style={{ top: '100%' }}
+      style={{ top: "100%" }}
     >
       <div className="container mx-auto max-w-[1800px] py-8 px-10">
         <div className="grid grid-cols-[2fr,3fr,2fr] gap-16">
-          {/* Left Column - Directions */}
+          {/* Linker kolom – DIENSTEN */}
           <div>
             <h3 className="text-xs font-semibold text-muted-foreground mb-6 uppercase tracking-wider">
               DIENSTEN
@@ -119,7 +143,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
               {directions.map((direction, index) => (
                 <Link
                   key={index}
-                  href="ui"
+                  href={direction.href}
                   className="flex items-start gap-4 group"
                   onClick={onClose}
                 >
@@ -139,7 +163,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             </div>
           </div>
 
-          {/* Middle Column - Solutions */}
+          {/* Middelste kolom – OPLOSSINGEN */}
           <div>
             <h3 className="text-xs font-semibold text-muted-foreground mb-6 uppercase tracking-wider">
               OPLOSSINGEN
@@ -150,7 +174,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                   {column.map((solution, index) => (
                     <Link
                       key={index}
-                      href="#"
+                      href={solution.href}
                       className="flex items-center gap-3 group"
                       onClick={onClose}
                     >
@@ -189,7 +213,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
             </div>
           </div>
 
-          {/* Right Column - Featured Video */}
+          {/* Rechter kolom – Featured Video */}
           <div className="flex flex-col justify-between">
             <div className="relative aspect-video w-full overflow-hidden rounded-lg">
               <video
@@ -201,17 +225,28 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                 loop
                 playsInline
               >
-                <track kind="captions" src="/videos/services-overview-captions.vtt" srcLang="nl" label="Nederlands" />
+                <track
+                  kind="captions"
+                  src="/videos/services-overview-captions.vtt"
+                  srcLang="nl"
+                  label="Nederlands"
+                />
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 pointer-events-none">
-                <h3 className="text-white text-xl font-semibold mb-2">Leer meer over onze diensten</h3>
-                <p className="text-white/80 text-sm mb-4">Ontdek hoe ons platform uw organisatie kan helpen groeien.</p>
+                <h3 className="text-white text-xl font-semibold mb-2">
+                  Leer meer over onze diensten
+                </h3>
+                <p className="text-white/80 text-sm mb-4">
+                  Ontdek hoe ons platform uw organisatie kan helpen groeien.
+                </p>
               </div>
             </div>
             <div className="mt-6">
               <h4 className="font-medium mb-2">Uitgelichte Case Study</h4>
-              <p className="text-sm text-muted-foreground mb-4">Zie hoe XYZ Organisatie hun online aanwezigheid verbeterde met ons platform.</p>
+              <p className="text-sm text-muted-foreground mb-4">
+                Zie hoe XYZ Organisatie hun online aanwezigheid verbeterde met ons platform.
+              </p>
               <Button variant="link" className="p-0 h-auto text-sm text-primary">
                 Lees case study
                 <ChevronRight className="h-4 w-4 ml-1" />
@@ -223,4 +258,3 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
     </motion.div>
   );
 }
-
