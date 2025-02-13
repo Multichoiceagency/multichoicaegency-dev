@@ -35,9 +35,9 @@ interface Solution {
 const directions: Direction[] = [
   {
     icon: <Code className="h-6 w-6" />,
-    title: "Web Development",
-    description: "Bouw dynamische en schaalbare websites.",
-    href: "/web-development",
+    title: "Website laten maken",
+    description: "Wij bouwen dynamische en schaalbare websites.",
+    href: "/website-laten-maken",
   },
   {
     icon: <Palette className="h-6 w-6" />,
@@ -124,14 +124,14 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
   if (!isOpen) return null;
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: 10 }}
-      transition={{ duration: 0.2 }}
-      className="absolute left-0 right-0 bg-white dark:bg-background border-b border-border shadow-lg"
-      style={{ top: "100%" }}
-    >
+<motion.div
+  initial={{ opacity: 0, y: 10 }}
+  animate={{ opacity: 1, y: 0 }}
+  exit={{ opacity: 0, y: 10 }}
+  transition={{ duration: 0.2 }}
+  className="absolute left-0 right-0 bg-white dark:bg-background border-b border-border shadow-lg"
+  style={{ top: "100%" } as React.CSSProperties}
+>
       <div className="container mx-auto max-w-[1800px] py-8 px-10">
         <div className="grid grid-cols-[2fr,3fr,2fr] gap-16">
           {/* Linker kolom – DIENSTEN */}

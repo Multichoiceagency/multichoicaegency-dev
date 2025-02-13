@@ -1,9 +1,16 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
+// Import en cast AnimatePresence zodat het children accepteert.
+import { AnimatePresence as FramerAnimatePresence } from "framer-motion";
+import React from "react";
+import { useOutsideClick } from "@/hooks/use-outside-click"; // Pas het pad aan indien nodig
+
+const AnimatePresence = FramerAnimatePresence as unknown as React.FC<{ children?: React.ReactNode }>;
+
 import { Button } from "@/components/ui/button";
 import { AnnouncementBanner } from "./announcement-banner";
 import { MegaMenu } from "./mega-menu";
@@ -27,7 +34,7 @@ interface Case {
   category: string;
 }
 
-export function Header() {
+export function Header(): JSX.Element {
   const { theme } = useTheme();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -36,7 +43,16 @@ export function Header() {
   const [industries, setIndustries] = useState<string[]>([]);
   const [isHeaderVisible, setIsHeaderVisible] = useState(true);
 
-  // Scroll-handling om de header te tonen/verbergen
+  // Ref die we koppelen aan het header-container-element.
+  const headerRef = useRef<HTMLDivElement>(null);
+
+  // Gebruik useOutsideClick om menus te sluiten als er buiten de header wordt geklikt.
+  useOutsideClick(headerRef, () => {
+    setActiveMegaMenu(null);
+    setIsMobileMenuOpen(false);
+  });
+
+  // Scroll-handling om de header te tonen/verbergen.
   useEffect(() => {
     let lastScrollTop = 0;
     const handleScroll = () => {
@@ -56,7 +72,6 @@ export function Header() {
         const res = await fetch("https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases?_embed&per_page=100");
         const data = await res.json();
         console.log("Case data:", data);
-        // Zorg dat we met een array werken
         const casesArray = Array.isArray(data) ? data : Object.values(data);
         const categorySet = new Set<string>(casesArray.map((item: any) => item.category || "Uncategorized"));
         const categoriesArray = ["All", ...Array.from(categorySet)];
@@ -71,7 +86,6 @@ export function Header() {
         const res = await fetch("https://cloud.multichoiceagency.nl/wp-json/wp/v2/industries?_embed&per_page=100");
         const data = await res.json();
         console.log("Industries data:", data);
-        // Zorg dat we met een array werken
         const industriesArray = Array.isArray(data) ? data : Object.values(data);
         const industryList = industriesArray.map((industry: any) => industry.name);
         setIndustries(["All Industries", ...industryList]);
@@ -86,6 +100,7 @@ export function Header() {
 
   return (
     <motion.div
+      ref={headerRef}
       className="fixed top-0 left-0 right-0 z-50"
       initial={{ y: 0 }}
       animate={{ y: isHeaderVisible ? 0 : -100 }}
@@ -108,7 +123,7 @@ export function Header() {
               src={theme === "dark" ? "/logos/logo-wit.png" : "/logos/logo.png"}
               alt="Multichoiceagency Logo"
               width={isScrolled ? 200 : 170}
-              height={isScrolled ? 80 : 80}
+              height={80}
               className="object-contain transition-all duration-300"
             />
           </Link>
@@ -179,9 +194,9 @@ export function Header() {
           ) : activeMegaMenu === "Development" ? (
             <MegaMenuDevelopment isOpen={activeMegaMenu === "Development"} onClose={() => setActiveMegaMenu(null)} />
           ) : activeMegaMenu === "Portalen" ? (
-            <MegaMenuPortalen isOpen={!!activeMegaMenu} onClose={() => setActiveMegaMenu(null)} />
+            <MegaMenuPortalen isOpen={activeMegaMenu === "Portalen"} onClose={() => setActiveMegaMenu(null)} />
           ) : activeMegaMenu === "Industrieën" ? (
-            <MegaMenuIndustrie isOpen={!!activeMegaMenu} onClose={() => setActiveMegaMenu(null)} />
+            <MegaMenuIndustrie isOpen={activeMegaMenu === "Industrieën"} onClose={() => setActiveMegaMenu(null)} />
           ) : null}
         </AnimatePresence>
 
