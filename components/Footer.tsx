@@ -105,12 +105,12 @@ const contactSections: ContactItem[] = [
 export function Footer() {
   return (
     <section className="p-4">
-      <div className="relative py-12 lg:py-24 bg-teal-900 overflow-hidden rounded-xl">
+      <div className="relative py-12 lg:py-24 bg-teal-900 dark:bg-gray-900 overflow-hidden rounded-xl">
         {/* Achtergrondafbeelding */}
         <Image
           className="absolute bottom-0 left-0 h-full"
           src="/flow-assets/footer/waves-lines-bg.png"
-          alt=""
+          alt="Decoratieve achtergrond"
           width={500}
           height={500}
         />
@@ -122,7 +122,7 @@ export function Footer() {
               <Link href="/" className="inline-block mb-4">
                 <Image
                   src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/12/Logo-wit@4x.png"
-                  alt="Multichoiceagency"
+                  alt="Multichoiceagency logo"
                   width={400}
                   height={50}
                 />
@@ -134,11 +134,14 @@ export function Footer() {
               <div className="flex flex-wrap -mx-4">
                 {navSections.map((section, index) => (
                   <div key={index} className="w-1/2 xs:w-1/3 px-4 mb-8 xs:mb-0">
-                    <h2 className="mb-6 text-white font-bold">{section.title}</h2>
+                    <h2 className="mb-6 text-white dark:text-gray-200 font-bold">{section.title}</h2>
                     <ul>
                       {section.links.map((link, idx) => (
                         <li key={idx} className="mb-4">
-                          <Link href={link.href} className="inline-block text-white hover:text-lime-600 font-medium">
+                          <Link
+                            href={link.href}
+                            className="inline-block text-white dark:text-gray-300 hover:text-lime-600 dark:hover:text-lime-400 font-medium"
+                          >
                             {link.name}
                           </Link>
                         </li>
@@ -152,28 +155,44 @@ export function Footer() {
             {/* Social Media */}
             <div className="w-full md:w-5/12 lg:w-3/12 xl:w-3/12 px-4">
               {socialLinks.map((social, idx) => (
-                <Link key={idx} href={social.href} className="group flex p-1 max-w-xs mb-4 items-center rounded-full bg-white">
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 text-teal-900 group-hover:text-lime-500 bg-lime-500 group-hover:bg-black rounded-full transition duration-200">
+                <Link
+                  key={idx}
+                  href={social.href}
+                  className="group flex p-1 max-w-xs mb-4 items-center rounded-full bg-white dark:bg-gray-800"
+                >
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 text-teal-900 dark:text-teal-200 group-hover:text-lime-500 dark:group-hover:text-lime-400 bg-lime-500 dark:bg-lime-600 group-hover:bg-black rounded-full transition duration-200">
                     <FontAwesomeIcon icon={social.icon} className="w-6 h-6" />
                   </div>
-                  <span className="ml-4 font-medium">{social.text}</span>
+                  <span className="ml-4 font-medium text-gray-900 dark:text-gray-100">
+                    {social.text}
+                  </span>
                 </Link>
               ))}
             </div>
           </div>
 
           {/* Contact & Bedrijfsinformatie */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16 text-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {contactSections.map((block, idx) => (
-              <div key={idx} className="text-black px-4 py-6 bg-white rounded-md shadow-lg">
+              <div
+                key={idx}
+                className="px-4 py-6 bg-white dark:bg-gray-800 text-black dark:text-gray-200 rounded-md shadow-lg"
+              >
                 <h3 className="text-lg font-semibold mb-4">{block.title}</h3>
                 {block.info.map((text, index) => (
-                  <p key={index} className="mb-2">{text}</p>
+                  <p key={index} className="mb-2">
+                    {text}
+                  </p>
                 ))}
                 {block.links?.map((link, index) => (
                   <p key={index} className="mt-2">
-                    <Link href={link.href} className="hover:text-teal-900 font-medium flex items-center">
-                      <FontAwesomeIcon icon={link.icon} className="w-5 h-5 mr-2" />
+                    <Link
+                      href={link.href}
+                      className="hover:text-teal-900 dark:hover:text-lime-400 font-medium flex items-center"
+                    >
+                      {link.icon && (
+                        <FontAwesomeIcon icon={link.icon} className="w-5 h-5 mr-2" />
+                      )}
                       {link.text}
                     </Link>
                   </p>

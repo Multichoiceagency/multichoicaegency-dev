@@ -66,7 +66,7 @@ export default function FrontendNextjs() {
       <HeroNieuw
         title={"Frontend Development met Next.js"}
         description={
-          "Bouw snelle, schaalbare en SEO-vriendelijke web applicaties met Next.js. Onze expertise in frontend development met Next.js zorgt voor een optimale gebruikerservaring en uitstekende prestaties. Ontdek hoe wij uw online aanwezigheid kunnen versterken met moderne web technologieën."
+          "Wij bouwen snelle, schaalbare en SEO-vriendelijke web applicaties met geheel gecodeerd op maat. Onze expertise in frontend development met Next.js zorgt voor een optimale gebruikerservaring en uitstekende prestaties. Ontdek hoe wij uw online aanwezigheid kunnen versterken met moderne web technologieën."
         }
         buttonText={"Offerte aanvragen"}
         buttonLink={"/offerte-aanvragen"}

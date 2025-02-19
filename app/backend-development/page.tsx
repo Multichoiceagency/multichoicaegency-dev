@@ -3,6 +3,8 @@
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
+import Image from "next/image";
+import { PricingTable } from "@/components/pricing-table";
 
 export default function BackendDevelopment() {
   const [showContent, setShowContent] = useState(false)
@@ -62,7 +64,7 @@ export default function BackendDevelopment() {
   ]
 
   return (
-    <div className="bg-black text-white">
+    <div className="bg-white text-black">
       <HeroNieuw
         title={"Backend Development & Custom Software"}
         description={
@@ -73,104 +75,121 @@ export default function BackendDevelopment() {
         videoSrc={"https://cdn.dribbble.com/userupload/17855128/file/large-45aef91c794d3dfe747127edc550fd15.mp4"}
       />
       {/* Backend Development Section */}
-      <section className="py-12 lg:py-24 relative">
-        <div className="container mx-auto px-4 ">
-          <div className="max-w-lg xl:max-w-xl mx-auto lg:mx-0 pt-12 pb-28 lg:py-24">
-            <div className="flex mb-6 items-center">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="12" height="12" rx="2" fill="#BEF264"></rect>
-                <circle cx="6" cy="6" r="4" fill="#022C22"></circle>
-              </svg>
-              <span className="ml-2 text-sm font-medium">
-                Transformeer uw bedrijf met krachtige backend oplossingen
-              </span>
-            </div>
-            <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">
-              Wat is Backend Development?
-            </h1>
-            <p className="max-w-md xl:max-w-none text-lg text-gray-300 mb-10">
-              Backend development vormt het fundament van moderne digitale oplossingen. Het omvat alle processen die
-              achter de schermen plaatsvinden: van dataverwerking en -opslag tot beveiliging en integratie met externe
-              systemen. Een robuuste backend zorgt voor snelle, schaalbare en betrouwbare applicaties die complexe taken
-              kunnen uitvoeren en grote hoeveelheden data kunnen verwerken. Met de toenemende digitalisering is een
-              sterke backend niet langer een luxe, maar een noodzaak voor bedrijven die willen innoveren en groeien in
-              het digitale tijdperk.
-            </p>
-            <div className="flex flex-col sm:flex-row">
+      <section className="w-screen py-12 lg:py-24 relative flex flex-col lg:flex-row">
+      {/* Linker kolom (tekst) */}
+      <div className="lg:w-1/2">
+        <div className="container mx-auto px-4 pt-12 pb-28 lg:py-24">
+          <div className="flex mb-6 items-center">
+            <svg
+              width="12"
+              height="12"
+              viewBox="0 0 12 12"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <rect width="12" height="12" rx="2" fill="#BEF264"></rect>
+              <circle cx="6" cy="6" r="4" fill="#022C22"></circle>
+            </svg>
+            <span className="ml-2 text-sm font-medium">
+              Transformeer uw bedrijf met krachtige backend oplossingen
+            </span>
+          </div>
+          <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">
+            Wat is Backend Development?
+          </h1>
+          <p className="max-w-md xl:max-w-none text-lg text-gray-700 mb-10">
+            Backend development vormt het fundament van moderne digitale oplossingen...
+          </p>
+          <div className="flex flex-col sm:flex-row">
+            <Link
+              href="#"
+              className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-black hover:text-white border border-lime-500 hover:border-white bg-green-500 hover:bg-transparent rounded-full transition duration-200"
+            >
+              Offerte aanvragen
+            </Link>
+          </div>
+        </div>
+      </div>
+      </section>
+      
+      <section className="py-12 lg:py-24 bg-white dark:bg-black">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap -mx-4 lg:flex-row-reverse lg:items-center">
+          {/* LINKER KOLOM OP DESKTOP (maar in HTML als eerste, dus RECHTS op mobiel) */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-xl">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                Efficiënt beheer van jouw data
+              </h1>
+              <p className="text-lg text-gray-700 mb-1 dark:text-white">
+                Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt
+                bedrijven in staat om complexe processen te automatiseren, grote hoeveelheden data
+                te verwerken en schaalbare systemen te bouwen die kunnen groeien met uw bedrijf.
+              </p>
+              <ul className="text-black py-5">
+                {[
+                  "Krachtige verwerking van complexe processen",
+                  "Veilige opslag en beheer van data",
+                  "Schaalbaarheid voor groeiende bedrijven",
+                  "Integratie met externe systemen en API's",
+                  "Fundament voor innovatieve features",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center mb-4">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                      <path
+                        d="M14.8 6.40002L8.19995 13L5.19995 10"
+                        stroke="#022C22"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                    <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
               <Link
-                href="#"
-                className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-black hover:text-white border border-lime-500 hover:border-white bg-lime-500 hover:bg-transparent rounded-full transition duration-200"
+                href="/offerte-aanvragen"
+                className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
               >
-                Offerte aanvragen
+                Start jouw backend project vandaag nog!
               </Link>
             </div>
           </div>
-        </div>
-        <div className="hidden lg:block absolute top-0 right-0 h-full w-3/5">
-          <video className="w-full h-full object-cover rounded-md" autoPlay loop muted playsInline>
-            <source
-              src="https://cdn.dribbble.com/userupload/3370574/file/large-f8ab3e4b35d881d8bfbb5a27ca163c89.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="lg:hidden">
-          <video className="w-full h-64 object-cover" autoPlay loop muted playsInline>
-            <source
-              src="https://cdn.dribbble.com/userupload/3370574/file/large-f8ab3e4b35d881d8bfbb5a27ca163c89.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </section>
 
-      <section className="py-12 lg:py-24 relative">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap -mx-4">
-            <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
-              <div className="lg:sticky lg:top-8 bg-gray-900 px-10 py-10 rounded-xl">
-                <h2 className="font-heading text-7xl md:text-7xl bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.lime.500),theme(colors.gray.300),theme(colors.lime.300),theme(colors.white),theme(colors.lime.400),theme(colors.lime.500))] bg-[length:200%_auto] animate-gradient">
-                  Wij bouwen al jaren krachtige backend systemen
-                </h2>
-              </div>
-            </div>
-            <div className="w-full md:w-1/2 px-4">
-              <div className="lg:max-w-lg md:ml-auto">
-                <h2 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">
-                  Waarom backend development?
-                </h2>
-                <p className="text-xl font-medium mb-10 text-gray-300">
-                  Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt bedrijven in staat
-                  om complexe processen te automatiseren, grote hoeveelheden data te verwerken en schaalbare systemen te
-                  bouwen die kunnen groeien met uw bedrijf.
-                </p>
-                <ul className="pl-5 mb-10 text-gray-300">
-                  <h4 className="font-bold text-white">Waarom is Backend Development Belangrijk?</h4>
-                  <li className="hover:text-lime-500 hover:font-bold">
-                    ✅ Krachtige verwerking van complexe processen
-                  </li>
-                  <li className="hover:text-lime-500 hover:font-bold">✅ Veilige opslag en beheer van data</li>
-                  <li className="hover:text-lime-500 hover:font-bold">✅ Schaalbaarheid voor groeiende bedrijven</li>
-                  <li className="hover:text-lime-500 hover:font-bold">✅ Integratie met externe systemen en API's</li>
-                  <li className="hover:text-lime-500 hover:font-bold">✅ Optimalisatie van applicatie prestaties</li>
-                  <li className="hover:text-lime-500 hover:font-bold">✅ Fundament voor innovatieve features</li>
-                </ul>
-                <Link
-                  href="#"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-black hover:text-white border border-lime-500 hover:border-white bg-lime-500 hover:bg-transparent rounded-full transition duration-200"
-                >
-                  Start uw backend project vandaag!
-                </Link>
-              </div>
+          {/* RECHTER KOLOM OP DESKTOP (maar in HTML als tweede, dus ONDER op mobiel) */}
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video
+                className="w-full h-full object-contain rounded-md"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source
+                  src="https://cdn.dribbble.com/userupload/3370574/file/large-f8ab3e4b35d881d8bfbb5a27ca163c89.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Services Section */}
-      <section className="p-4 bg-black">
+      <section className="p-4 bg-white">
         <div className="pt-16 pb-24 px-5 xs:px-8 xl:px-12 bg-gray-900 rounded-3xl">
           <div className="container mx-auto px-4">
             <div className="flex mb-4 items-center">
@@ -222,6 +241,7 @@ export default function BackendDevelopment() {
           </div>
         </div>
       </section>
+      <PricingTable />
 
       {/* About Section */}
       <section className="py-12 lg:py-24">
@@ -237,35 +257,34 @@ export default function BackendDevelopment() {
           <div className="border-t border-gray-800 pt-16">
             <div className="max-w-lg mx-auto lg:max-w-none">
               <div className="flex flex-wrap lg:items-center -mx-4">
-                {/* Afbeeldingsgedeelte */}
                 <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
                   <div className="visible">
                     <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                       <source
-                        src="https://cdn.dribbble.com/userupload/17938568/file/large-8ad20ebfa52322c8242d8c90f565dc45.mp4"
+                        src="https://cdn.dribbble.com/users/745262/screenshots/17629963/media/718b7bf2a71129bcd8531280baa6de02.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
                     </video>
                   </div>
                 </div>
-                {/* Tekstgedeelte */}
                 <div className="w-full lg:w-1/2 px-4">
                   <div className="max-w-xl">
                     <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">
                       Wat kun je van ons verwachten?
                     </h1>
-                    <p className="text-lg text-gray-300 mb-10">
+                    <p className="text-lg text-gray-700 mb-10">
                       Bij het ontwikkelen van backend systemen en custom software staat kwaliteit voorop. Onze aanpak is
                       gericht op het leveren van oplossingen die niet alleen aan uw verwachtingen voldoen, maar deze
                       overtreffen. Hier is wat u van ons kunt verwachten:
                     </p>
-                    <ul>
+                    <ul className="text-black">
                       {[
-                        "Schaalbare en robuuste architecturen",
-                        "Hoogwaardige beveiliging en data-integriteit",
-                        "Optimale prestaties en efficiëntie",
-                        "Naadloze integratie met bestaande systemen",
+                        "Krachtige verwerking van complexe processen",
+                        "Veilige opslag en beheer van data",
+                        "Schaalbaarheid voor groeiende bedrijven",
+                        "Integratie met externe systemen en API's",
+                        "Fundament voor innovatieve features",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center mb-4">
                           <svg
@@ -284,7 +303,7 @@ export default function BackendDevelopment() {
                               strokeLinejoin="round"
                             ></path>
                           </svg>
-                          <span className="ml-3 text-lg text-gray-300">{item}</span>
+                          <span className="ml-3 text-lg text-gray-700 font-black">{item}</span>
                         </li>
                       ))}
                     </ul>
@@ -297,11 +316,11 @@ export default function BackendDevelopment() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 lg:py-24 bg-gray-900">
+      <section className="py-12 lg:py-24 dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-white">Veelgestelde vragen</h2>
-            <p className="text-gray-300">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-black dark:text-white">Veelgestelde vragen</h2>
+            <p className="text-gray-700 dark:text-white">
               Hier vindt u antwoorden op de meest gestelde vragen over backend development en custom software.
             </p>
           </div>
@@ -312,7 +331,7 @@ export default function BackendDevelopment() {
                   <button
                     key={index}
                     onClick={() => setOpenAccordion(openAccordion === index ? null : index)}
-                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-black shadow-md rounded-2xl"
+                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-green-900 dark:bg-green-900/10 shadow-md rounded-2xl"
                   >
                     <div className="pr-5">
                       <h5 className="text-lg font-medium text-white">{item.question}</h5>
@@ -321,7 +340,7 @@ export default function BackendDevelopment() {
                           openAccordion === index ? "max-h-96" : "max-h-0"
                         }`}
                       >
-                        <p className="text-gray-400 mt-4">{item.answer}</p>
+                        <p className="text-white dark:text-white mt-4">{item.answer}</p>
                       </div>
                     </div>
                     <span className="flex-shrink-0">
@@ -362,7 +381,7 @@ export default function BackendDevelopment() {
                   <button
                     key={index + 5}
                     onClick={() => setOpenAccordion(openAccordion === index + 5 ? null : index + 5)}
-                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-black shadow-md rounded-2xl"
+                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-green-900 dark:bg-green-900/10 shadow-md rounded-2xl"
                   >
                     <div className="pr-5">
                       <h5 className="text-lg font-medium text-white">{item.question}</h5>
@@ -371,7 +390,7 @@ export default function BackendDevelopment() {
                           openAccordion === index + 5 ? "max-h-96" : "max-h-0"
                         }`}
                       >
-                        <p className="text-gray-400 mt-4">{item.answer}</p>
+                        <p className="text-white dark:text-white mt-4">{item.answer}</p>
                       </div>
                     </div>
                     <span className="flex-shrink-0">
@@ -409,32 +428,15 @@ export default function BackendDevelopment() {
               </div>
             </div>
             <div className="max-w-xl mx-auto text-center">
-              <span className="inline-block mb-8">
-                <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    d="M0 8C0 3.58172 3.58172 0 8 0H40C44.4183 0 48 3.58172 48 8V40C48 44.4183 44.4183 48 40 48H8C3.58172 48 0 44.4183 0 40V8Z"
-                    fill="#BEF264"
-                  ></path>
-                  <path
-                    d="M13.676 15.5617C11.7951 17.8602 10.6666 20.7983 10.6666 24C10.6666 27.2017 11.7951 30.1398 13.6761 32.4383L18.9201 27.1943C18.3372 26.2694 18 25.174 18 24C18 22.8259 18.3372 21.7306 18.92 20.8057L13.676 15.5617Z"
-                    fill="#022C22"
-                  ></path>
-                  <path
-                    d="M15.5616 13.6761L20.8056 18.9201C21.7306 18.3372 22.8259 18 24 18C25.174 18 26.2694 18.3372 27.1943 18.9201L32.4383 13.6761C30.1398 11.7951 27.2017 10.6666 24 10.6666C20.7982 10.6666 17.8601 11.7951 15.5616 13.6761Z"
-                    fill="#022C22"
-                  ></path>
-                  <path
-                    d="M34.3239 15.5617L29.0799 20.8057C29.6628 21.7307 30 22.8259 30 24C30 25.174 29.6627 26.2693 29.0799 27.1943L34.3238 32.4383C36.2048 30.1398 37.3333 27.2017 37.3333 24C37.3333 20.7983 36.2048 17.8602 34.3239 15.5617Z"
-                    fill="#022C22"
-                  ></path>
-                  <path
-                    d="M32.4382 34.3239L27.1942 29.0799C26.2693 29.6628 25.174 30 24 30C22.8259 30 21.7307 29.6628 20.8057 29.0799L15.5617 34.3239C17.8602 36.2048 20.7983 37.3333 24 37.3333C27.2016 37.3333 30.1397 36.2048 32.4382 34.3239Z"
-                    fill="#022C22"
-                  ></path>
-                </svg>
+              <span className="inline-block mb-8 ml-10">
+                <Image src="/logos/logo.png" 
+                alt={""}
+                  height={800}
+                  width={400}>
+                </Image>
               </span>
-              <h5 className="text-xl font-medium mb-4 text-white">Nog vragen?</h5>
-              <p className="text-gray-300">
+              <h5 className="text-4xl font-medium mb-4 text-black dark:text-white">Heb je nog vragen?</h5>
+              <p className="text-gray-700">
                 <span>Voor meer informatie over backend development en custom software kunt u onze </span>
                 <Link href="#" className="inline-block text-lime-500 font-medium underline">
                   Contactpagina
@@ -442,7 +444,7 @@ export default function BackendDevelopment() {
                 <span> bezoeken of bel onze klantenservice op </span>
                 <span className="text-lime-500 font-medium">071 203 24 88</span>
                 <span>
-                  . Ons toegewijde team staat klaar om u te helpen bij het realiseren van uw perfecte backend oplossing.
+                Ons toegewijde team staat klaar om u te helpen bij het realiseren van uw perfecte backend oplossing.
                 </span>
               </p>
             </div>
@@ -460,7 +462,7 @@ export default function BackendDevelopment() {
           </p>
           <Link
             href="/offerte-aanvragen"
-            className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-black hover:text-white bg-lime-500 hover:bg-transparent border border-lime-500 hover:border-white rounded-full transition duration-200"
+            className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-black hover:text-white bg-green-500 hover:bg-transparent border border-lime-500 hover:border-white rounded-full transition duration-200"
           >
             Start uw backend project
           </Link>

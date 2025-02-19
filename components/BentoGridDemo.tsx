@@ -118,7 +118,6 @@ export const BentoGridItem = ({
               src={image}
               alt={title ? title.toString() : 'Bento Grid Item'}
               layout="fill"
-              objectFit="cover"
             />
           </div>
         ) : null}

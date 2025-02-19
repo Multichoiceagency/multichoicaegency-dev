@@ -1,11 +1,14 @@
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development', // Schakelt PWA uit tijdens development
+});
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export', // For static export
   eslint: {
     ignoreDuringBuilds: true, // Ignore ESLint warnings during build
   },
   images: {
-    unoptimized: true, // Required for static export mode
     remotePatterns: [
       {
         protocol: 'https',
@@ -15,6 +18,11 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'atahome.nl', // Additional image domain
+        pathname: '/**', // Allow all paths under this domain
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn.dribbble.com', // Additional image domain
         pathname: '/**', // Allow all paths under this domain
       },
       {
@@ -36,4 +44,4 @@ const nextConfig = {
   },
 };
 
-module.exports = nextConfig;
+module.exports = withPWA(nextConfig);
