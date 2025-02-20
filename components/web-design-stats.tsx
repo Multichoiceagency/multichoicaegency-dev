@@ -8,8 +8,8 @@ export default function WebDesignStats() {
   return (
     <section className="py-12 lg:py-24">
       <div className="container mx-auto px-4">
-        <div className="flex flex-wrap -mx-4">
-          <StatItem number={8} text="Jaar ervaring" />
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+      <StatItem number={8} text="Jaar ervaring" />
           <StatItem number={1900} text="Projecten afgerond" />
           <StatItem number={24} text="Uur klantenondersteuning" />
           <StatItem number={100} text="Klanttevredenheid" />
@@ -50,16 +50,16 @@ function StatItem({ number, text }: StatItemProps) {
       variants={variants}
       className="w-full sm:w-1/2 md:w-1/4 px-4 mb-10 md:mb-0"
     >
-      <div className="text-center">
+      <div className="justify-center text-center">
         <motion.h5
-          className="text-2xl xs:text-3xl lg:text-4xl xl:text-5xl font-bold hover:text-green-700 hover:animate-in-out-10s mb-4"
+          className="text-2xl xs:text-3xl md:text-xllg:text-4xl xl:text-5xl font-bold hover:text-green-700 hover:animate-in-out-10s mb-4"
           aria-label={`${number}+ ${text}`}
           variants={variants}
         >
           <CountUp number={number} />
         </motion.h5>
         <motion.span
-          className="text-base lg:text-lg text-gray-700"
+          className="text-base lg:text-xl text-gray-700 dark:text-white  hover:animate-in-out-10s"
           variants={variants}
         >
           {text}
