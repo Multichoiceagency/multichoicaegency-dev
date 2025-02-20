@@ -10,8 +10,8 @@ export default function WebDesignStats() {
       <div className="container mx-auto px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
       <StatItem number={8} text="Jaar ervaring" />
-          <StatItem number={1900} text="Projecten afgerond" />
-          <StatItem number={24} text="Uur klantenondersteuning" />
+          <StatItem number={500} text="Projecten afgerond" />
+          <StatItem number={2} text="Dagen " />
           <StatItem number={100} text="Klanttevredenheid" />
         </div>
       </div>
