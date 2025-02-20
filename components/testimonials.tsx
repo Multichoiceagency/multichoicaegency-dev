@@ -2,56 +2,48 @@
 
 import React from "react";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
+import Link from "next/link";
 
 const testimonials = [
   {
     quote: "Snelle service en fixt het allemaal super snel! Thanks",
     name: "Fitbyemre Fitness",
-    title: "14 weken geleden",
   },
   {
     quote: "Levert uitstekend en professioneel werk",
     name: "anthony",
-    title: "26 weken geleden",
   },
   {
     quote: "Goede samenwerking met Enes, korte lijnen en mooi website als eindresultaat!",
     name: "Autoservice Maaspoort",
-    title: "33 weken geleden",
   },
   {
     quote: "Top Service. Altijd bereikbaar en erg behulpzaam",
     name: "Derya Aydın",
-    title: "50 weken geleden",
   },
   {
     quote: "Heeft een website met een top layout gemaakt!",
     name: "Abdullah Karaca",
-    title: "51 weken geleden",
   },
   {
     quote: "Hele strakke website gemaakt erg blij mee!",
     name: "kubilay yonyul",
-    title: "15 nov 2023",
   },
   {
     quote: "Fijne samenwerking met Enes, aardige gozer en snelle contactlijntjes",
     name: "Tijl Belt",
-    title: "27 mei 2023",
   },
   {
     quote: "Geef veel aandacht aan werk. Heel behulpzaam en verricht top werk!",
     name: "Ravinder Bindra",
-    title: "15 mei 2023",
   },
 ];
 
 export function Testimonials() {
   return (
-    <section className="py-20 bg-white dark:bg-gray-900 w-full overflow-hidden">
+    <section className="pt-20 bg-white dark:bg-gray-900 w-screen overflow-visible">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-4xl font-bold text-center mb-12 text-gray-900 dark:text-white">Tevreden Klanten</h2>
-        
+        <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white">Tevreden Klanten</h2>
         <div className="h-[30vh] max-h-[30vh] rounded-md flex flex-col antialiased items-center justify-center relative overflow-hidden -mx-4 sm:-mx-6 lg:-mx-8">
           <InfiniteMovingCards
             items={testimonials}
@@ -60,7 +52,7 @@ export function Testimonials() {
           />
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="text-center pb-5">
           <div className="flex items-center justify-center gap-2">
             <div className="flex items-center justify-center w-6 h-6">
               <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
