@@ -3,9 +3,10 @@ import { HeroSection } from "@/components/HeroSection"
 import Oplossingen from "@/components/oplossingen"
 import { Testimonials } from "@/components/testimonials"
 import Portfolio from "@/components/cases-display"
-import WebDesignStats from "@/components/web-design-stats"
 import HeroNieuw from "@/components/HeroNieuw"
 import OverOns from "@/components/OverOns"
+import ContactOpnemen from "@/components/ContactOpnemen"
+import AnimatedText from "@/components/AnimatedText"
 
 
 export default function Home() {
@@ -22,8 +23,9 @@ export default function Home() {
       <BentoGridDemo />
       <HeroSection />
       <Portfolio />
-      <WebDesignStats />
+      <AnimatedText />
       <Testimonials />
+      <ContactOpnemen />
     </main>
   )
 }

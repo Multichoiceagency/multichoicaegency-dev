@@ -1,7 +1,7 @@
 "use client"
 
 import { motion } from 'framer-motion'
-import { Search, LineChart, Gauge, Layout } from 'lucide-react'
+import { Search, LineChart, Gauge, Layout, ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 const features = [

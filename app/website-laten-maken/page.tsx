@@ -1,176 +1,258 @@
-"use client";
+"use client"
 
-import { useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { useTheme } from "next-themes";
-import HeroNieuw from "@/components/HeroNieuw";
-import CaseSlider from "@/components/SliderCases";
+import { useState } from "react"
+import Link from "next/link"
+import HeroNieuw from "@/components/HeroNieuw"
+import Image from "next/image"
+import { PricingTable } from "@/components/pricing-table"
 
-export default function Website(): JSX.Element {
-  const { theme, resolvedTheme } = useTheme();
-  const [openAccordion, setOpenAccordion] = useState<number | null>(null);
+export default function BackendDevelopment() {
+  const [showContent, setShowContent] = useState(false)
+  const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Waarom is een professionele website belangrijk voor mijn bedrijf?",
+      question: "Waarom is backend development belangrijk voor mijn bedrijf?",
       answer:
-        "Een professionele website is essentieel voor uw online aanwezigheid. Het is vaak het eerste contactpunt met potentiële klanten en weerspiegelt de kwaliteit en professionaliteit van uw bedrijf. Een goed ontworpen website kan uw geloofwaardigheid vergroten, leads genereren en uw merk versterken.",
+        "Backend development is essentieel voor uw digitale oplossingen. Het zorgt voor de krachtige infrastructuur achter uw applicaties, waardoor complexe functionaliteiten, dataverwerking en beveiliging mogelijk worden. Dit verbetert de prestaties, schaalbaarheid en betrouwbaarheid van uw software.",
     },
     {
-      question: "Hoe lang duurt het om een website te laten maken?",
+      question: "Hoe lang duurt het om een custom software of app te ontwikkelen?",
       answer:
-        "De ontwikkeltijd voor een website varieert afhankelijk van de complexiteit en omvang van het project. Gemiddeld duurt het proces 6 tot 8 weken, inclusief ontwerp, ontwikkeling, testen en lancering. We houden u gedurende het hele proces op de hoogte van de voortgang.",
+        "De ontwikkeltijd voor custom software of een app varieert afhankelijk van de complexiteit en omvang van het project. Gemiddeld duurt het proces 3 tot 6 maanden, inclusief planning, ontwikkeling, testen en implementatie. We houden u gedurende het hele proces op de hoogte van de voortgang.",
     },
     {
-      question: "Kan ik mijn website zelf beheren na de lancering?",
+      question: "Kunnen jullie mijn bestaande systemen integreren met nieuwe backend oplossingen?",
       answer:
-        "Absoluut! We bouwen onze websites op gebruiksvriendelijke platforms zoals NextJS, React of andere CMS‑oplossingen, waardoor u gemakkelijk zelf content kunt toevoegen of wijzigen. Na de lancering bieden we een uitgebreide handleiding en ondersteuning.",
+        "Ja, we specialiseren ons in het integreren van bestaande systemen met nieuwe backend oplossingen. We analyseren uw huidige infrastructuur, identificeren integratiepunten en ontwikkelen aangepaste API's of middleware om naadloze communicatie tussen systemen te garanderen.",
     },
     {
-      question: "Bieden jullie ook hosting en onderhoud aan?",
+      question: "Welke technologieën gebruiken jullie voor backend development?",
       answer:
-        "Ja, we bieden hosting aan met een snelle en betrouwbare server. Dit zorgt voor optimale prestaties van uw website en betrouwbare uptime. We bieden ook onderhoudsplannen aan zodat uw website up‑to‑date en veilig blijft.",
+        "We gebruiken moderne technologieën zoals Node.js, Python (Django/Flask), Java (Spring), en .NET voor backend ontwikkeling. Voor databases werken we met SQL (PostgreSQL, MySQL) en NoSQL (MongoDB, Cassandra) oplossingen. We passen ook cloud-native ontwikkeling toe met AWS, Azure of Google Cloud Platform.",
     },
     {
-      question: "Hoe zorgen jullie ervoor dat mijn website goed scoort in zoekmachines?",
+      question: "Hoe zorgen jullie voor de beveiliging van backend systemen?",
       answer:
-        "We implementeren SEO‑best practices vanaf het begin van het ontwikkelingsproces. Dit omvat een geoptimaliseerde websitestructuur, snelle laadtijden, relevante metadata en een mobielvriendelijk ontwerp. Daarnaast adviseren we over contentstrategieën om uw zichtbaarheid te vergroten.",
+        "Beveiliging is onze topprioriteit. We implementeren best practices zoals versleuteling van data in rust en in transit, veilige authenticatie en autorisatie mechanismen, regelmatige beveiligingsaudits, en naleving van industriestandaarden zoals OWASP. We zorgen ook voor regelmatige updates en patches om uw systemen te beschermen tegen nieuwe bedreigingen.",
     },
     {
-      question: "Is de website die jullie maken mobiel‑vriendelijk?",
+      question: "Wat zijn de voordelen van custom software ten opzichte van off-the-shelf oplossingen?",
       answer:
-        "Absoluut! Alle websites die we ontwikkelen zijn volledig responsief en passen zich automatisch aan verschillende schermformaten aan, van smartphones tot desktops.",
+        "Custom software biedt verschillende voordelen: perfecte aansluiting bij uw bedrijfsprocessen, volledige controle over functionaliteiten en schaalbaarheid, betere integratie met bestaande systemen, verhoogde efficiëntie door op maat gemaakte workflows, en een concurrentievoordeel door unieke oplossingen die niet beschikbaar zijn voor uw concurrenten.",
     },
     {
-      question: "Kunnen jullie mijn bestaande website vernieuwen of herontwerpen?",
+      question: "Hoe gaan jullie om met schaalbaarheid in backend ontwikkeling?",
       answer:
-        "Zeker! We hebben ruime ervaring met het vernieuwen en herontwerpen van bestaande websites. We analyseren uw huidige site en werken samen met u om een plan op maat te ontwikkelen dat uw online aanwezigheid versterkt.",
+        "Schaalbaarheid is een kernprincipe in onze ontwikkelingsaanpak. We ontwerpen systemen met het oog op toekomstige groei, gebruikmakend van microservices architectuur, load balancing, en auto-scaling oplossingen. We implementeren ook caching strategieën en optimaliseren database queries om prestaties te garanderen bij toenemende belasting.",
     },
     {
-      question: "Welke soorten bedrijven helpen jullie met het maken van websites?",
+      question: "Kunnen jullie complexe algoritmen en data-intensieve processen implementeren?",
       answer:
-        "Wij hebben ervaring met bedrijven van elke omvang, van startups tot grote ondernemingen. Onze maatwerkoplossingen sluiten aan op de specifieke behoeften en doelstellingen van elk bedrijf.",
+        "Absoluut! We hebben ruime ervaring met het ontwikkelen van complexe algoritmen en het verwerken van grote hoeveelheden data. Of het nu gaat om machine learning modellen, real-time data processing, of complexe business logic, we zorgen voor efficiënte en schaalbare implementaties die voldoen aan uw specifieke behoeften.",
     },
     {
-      question: "Hoe ziet het proces van website laten maken eruit?",
+      question: "Hoe zorgen jullie voor onderhoud en ondersteuning na de lancering?",
       answer:
-        "Ons proces begint met een grondige analyse van uw wensen en doelen. Vervolgens werken we aan het ontwerp en de ontwikkeling van de website, testen we deze uitgebreid en lanceren we de site. We blijven ondersteuning bieden na de lancering.",
+        "We bieden uitgebreide ondersteuning na de lancering. Dit omvat 24/7 monitoring, regelmatige updates en patches, performance optimalisatie, en technische ondersteuning. We kunnen ook trainingen verzorgen voor uw team en bieden verschillende support levels aan, van basis onderhoud tot volledig beheerde diensten.",
     },
     {
-      question: "Bieden jullie ondersteuning na de lancering van de website?",
+      question: "Hoe gaan jullie om met data migratie bij het overstappen naar een nieuw systeem?",
       answer:
-        "Ja, we bieden uitgebreide ondersteuning na de lancering. Dit omvat technische ondersteuning, content updates en regelmatige controles om ervoor te zorgen dat uw website optimaal blijft presteren.",
+        "Data migratie is een cruciaal onderdeel van veel projecten. We volgen een zorgvuldig proces van data-analyse, mapping, en transformatie. We ontwikkelen aangepaste scripts voor de migratie, voeren uitgebreide tests uit, en plannen de migratie zo dat er minimale downtime is voor uw bedrijf. We zorgen ook voor back-ups en rollback-plannen voor het geval er onvoorziene problemen optreden.",
     },
-  ];
+  ]
 
   return (
-    <div>
-      {/* Hero Sectie */}
+    <div className="bg-white text-black">
       <HeroNieuw
-        title="Website laten maken"
-        description="Een professionele website laten maken? Bij ons kunt u rekenen op optimaal rendement. Zoekt u een ontwerp op maat, diepgaand gebruikersonderzoek, sterke merkpositionering en techniek op het hoogste niveau? Kies voor een website laten maken bij ons!"
-        buttonText="Offerte aanvragen"
-        buttonLink="/offerte-aanvragen"
-        videoSrc="https://cdn.dribbble.com/userupload/17855128/file/large-45aef91c794d3dfe747127edc550fd15.mp4"
+        title={"Backend Development & Custom Software"}
+        description={
+          "Versterk uw digitale infrastructuur met krachtige backend oplossingen. Onze expertise in backend development en custom software zorgt voor schaalbare, veilige en efficiënte systemen die uw bedrijf naar het volgende niveau tillen. Ontdek hoe wij uw ideeën kunnen omzetten in robuuste digitale realiteit."
+        }
+        buttonText={"Offerte aanvragen"}
+        buttonLink={"/offerte-aanvragen"}
+        videoSrc={
+          "https://cdn.dribbble.com/userupload/17855128/file/large-45aef91c794d3dfe747127edc550fd15.mp4"
+        }
       />
 
-      {/* Websites Info Sectie */}
-      <section className="py-12 lg:py-24 relative bg-white dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <div className="max-w-lg xl:max-w-xl mx-auto lg:mx-0 pt-12 pb-28 lg:py-24">
+      {/* Backend Development Section */}
+      <section className="w-screen py-12 lg:py-24 relative flex flex-col lg:flex-row">
+        {/* Linker kolom (tekst) */}
+        <div className="lg:w-1/2">
+          <div className="container mx-auto px-4 pt-12 pb-28 lg:py-24">
             <div className="flex mb-6 items-center">
-              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <rect width="12" height="12" rx="2" fill="#022C22" />
-                <circle cx="6" cy="6" r="4" fill="#BEF264" />
+              <svg
+                width="12"
+                height="12"
+                viewBox="0 0 12 12"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="12" height="12" rx="2" fill="#BEF264"></rect>
+                <circle cx="6" cy="6" r="4" fill="#022C22"></circle>
               </svg>
-              <span className="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
-                Transformeer jouw online aanwezigheid met een maatwerk website
+              <span className="ml-2 text-sm font-medium">
+                Transformeer uw bedrijf met krachtige backend oplossingen
               </span>
             </div>
-            <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8 text-gray-900 dark:text-white inline-block">
-              Wat levert een maatwerk website jouw bedrijf op?
+            <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">
+              Wat is Backend Development?
             </h1>
-            <p className="max-w-md xl:max-w-none text-lg text-gray-700 dark:text-gray-300 mb-10">
-              Laat jouw merk opvallen met een professioneel ontwerp, geavanceerde functionaliteiten en strategische oplossingen die resultaat opleveren. Een website op maat creëert vertrouwen en helpt uw bedrijf te groeien.
+            <p className="max-w-md xl:max-w-none text-lg text-gray-700 mb-10">
+              Backend development vormt het fundament van moderne digitale oplossingen...
             </p>
             <div className="flex flex-col sm:flex-row">
               <Link
                 href="#"
-                className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition duration-200"
+                className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-black hover:text-white border border-lime-500 hover:border-white bg-green-500 hover:bg-transparent rounded-full transition duration-200"
               >
                 Offerte aanvragen
               </Link>
             </div>
           </div>
         </div>
-        <div className="hidden lg:block absolute top-0 right-0 h-full w-3/5">
-          <video className="w-1/8 h-full object-cover rounded-md" autoPlay loop muted playsInline>
-            <source
-              src="https://cdn.dribbble.com/userupload/17826232/file/large-caca22f6996733841e15a1eb583ca96b.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
-        </div>
-        <div className="lg:hidden">
-          <video className="w-full h-64 object-cover" autoPlay loop muted playsInline>
-            <source
-              src="https://cdn.dribbble.com/userupload/17826232/file/large-caca22f6996733841e15a1eb583ca96b.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+      </section>
+
+      {/* Overige content */}
+      <section className="py-12 lg:py-24 bg-white dark:bg-black">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-wrap -mx-4 lg:flex-row-reverse lg:items-center">
+            {/* Linker kolom op desktop (in HTML als eerste, dus rechts op mobiel) */}
+            <div className="w-full lg:w-1/2 px-4">
+              <div className="max-w-xl">
+                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                  Efficiënt beheer van jouw data
+                </h1>
+                <p className="text-lg text-gray-700 mb-1 dark:text-white">
+                  Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt
+                  bedrijven in staat om complexe processen te automatiseren, grote hoeveelheden data
+                  te verwerken en schaalbare systemen te bouwen die kunnen groeien met uw bedrijf.
+                </p>
+                <ul className="text-black py-5">
+                  {[
+                    "Krachtige verwerking van complexe processen",
+                    "Veilige opslag en beheer van data",
+                    "Schaalbaarheid voor groeiende bedrijven",
+                    "Integratie met externe systemen en API's",
+                    "Fundament voor innovatieve features",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center mb-4">
+                      <svg
+                        width="20"
+                        height="20"
+                        viewBox="0 0 20 20"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                        <path
+                          d="M14.8 6.40002L8.19995 13L5.19995 10"
+                          stroke="#022C22"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        ></path>
+                      </svg>
+                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
+                        {item}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/offerte-aanvragen"
+                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                >
+                  Start jouw backend project vandaag nog!
+                </Link>
+              </div>
+            </div>
+
+            {/* Rechter kolom op desktop (in HTML als tweede, dus onder op mobiel) */}
+            <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+              <div className="visible">
+                <video
+                  className="w-full h-full object-contain rounded-md"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source
+                    src="https://cdn.dribbble.com/userupload/3370574/file/large-f8ab3e4b35d881d8bfbb5a27ca163c89.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Services Sectie */}
-      <section className="p-4 bg-white dark:bg-gray-900">
-        <div className="pt-16 pb-24 px-5 xs:px-8 xl:px-12 bg-teal-900 rounded-3xl">
+      {/* Services Section */}
+      <section className="p-4 bg-white">
+        <div className="pt-16 pb-24 px-5 xs:px-8 xl:px-12 bg-gray-900 rounded-3xl">
           <div className="container mx-auto px-4">
             <div className="flex mb-4 items-center">
-              <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="4" cy="4" r="4" fill="#BEF264" />
+              <svg
+                width="8"
+                height="8"
+                viewBox="0 0 8 8"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Wat kunt u van ons verwachten?
+                Hoe Werkt Backend Development?
               </span>
             </div>
-            <div className="border-t border-white border-opacity-25 pt-14">
+            <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Website laten maken door experts
+                Een robuuste backend wordt gebouwd met behulp van:
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "100% maatwerk",
-                    description: "Jouw website wordt gebouwd met technologie die aansluit bij je specifieke doelen.",
+                    title: "Schaalbare architectuur",
+                    description:
+                      "Ontwerp dat meegroeit met uw bedrijfsbehoeften en gebruikersaantallen.",
                   },
                   {
-                    title: "Mobiel vriendelijk",
-                    description: "Ontwerp en tests zorgen voor een optimale gebruikerservaring op diverse apparaten.",
+                    title: "Efficiënte databases",
+                    description:
+                      "Optimale dataopslag en -retrieval voor snelle en betrouwbare prestaties.",
                   },
                   {
-                    title: "Merkpositionering",
-                    description: "Wij denken mee over het versterken van uw merk, zodat uw website naadloos aansluit bij uw bedrijfsidentiteit.",
+                    title: "Krachtige API's",
+                    description:
+                      "Interfaces die naadloze communicatie tussen verschillende systemen mogelijk maken.",
                   },
                   {
-                    title: "Unieke uitstraling",
-                    description: "Een website die onderscheidt en een blijvende indruk achterlaat op uw bezoekers.",
+                    title: "Robuuste beveiliging",
+                    description:
+                      "Geavanceerde maatregelen om uw data en systemen te beschermen.",
                   },
                   {
-                    title: "Flexibiliteit en schaalbaarheid",
-                    description: "Een maatwerk website groeit mee met uw bedrijf en kan eenvoudig worden uitgebreid.",
+                    title: "Cloud-integratie",
+                    description:
+                      "Flexibele en schaalbare oplossingen met gebruik van cloud-technologieën.",
                   },
                   {
-                    title: "Optimale prestaties",
-                    description: "Snelle laadtijden en schone code zorgen voor betere zoekmachineposities en een optimale gebruikerservaring.",
+                    title: "Prestatie-optimalisatie",
+                    description:
+                      "Technieken om de snelheid en efficiëntie van uw systemen te maximaliseren.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
                     <div className="flex flex-col h-full">
-                      <h5 className="text-2xl font-medium text-white mt-6 mb-3">{service.title}</h5>
-                      <p className="text-white opacity-80 mb-6">{service.description}</p>
+                      <h5 className="text-2xl font-medium text-white mt-6 mb-3">
+                        {service.title}
+                      </h5>
+                      <p className="text-gray-400 mb-6">{service.description}</p>
                     </div>
                   </div>
                 ))}
@@ -180,145 +262,105 @@ export default function Website(): JSX.Element {
         </div>
       </section>
 
-      {/* About Sectie */}
+      <PricingTable />
+
+      {/* About Section */}
       <section className="py-12 lg:py-24">
         <div className="container mx-auto px-4">
-          <div className="flex flex-wrap items-center -mx-4 mb-12">
-            {/* Titel */}
-            <div className="lg:sticky lg:top-8 w-full lg:w-1/2 px-4">
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl text-teal-900 dark:text-white inline-block rounded-md">
-                Wat kan je van ons verwachten?
-              </h1>
-            </div>
-            {/* Afbeelding */}
-            <div className="w-full lg:w-1/2 px-4">
-              <div className="rounded-md overflow-hidden">
-                <video className="w-full h-full object-contain" autoPlay loop muted playsInline>
-                  <source
-                    src="https://cdn.dribbble.com/userupload/17576064/file/large-66aa8390bb133c8789bfc8bf6b663d9f.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
+          <div className="flex mb-4 items-center">
+            <svg
+              width="8"
+              height="8"
+              viewBox="0 0 9 9"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+            </svg>
+            <span className="inline-block ml-2 text-sm font-medium text-lime-500">
+              Backend development specialisten
+            </span>
+          </div>
+          <div className="border-t border-gray-800 pt-16">
+            <div className="max-w-lg mx-auto lg:max-w-none">
+              <div className="flex flex-wrap lg:items-center -mx-4">
+                <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+                  <div className="visible">
+                    <video
+                      className="w-full h-full object-contain rounded-md"
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                    >
+                      <source
+                        src="https://cdn.dribbble.com/users/745262/screenshots/17629963/media/718b7bf2a71129bcd8531280baa6de02.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+                <div className="w-full lg:w-1/2 px-4">
+                  <div className="max-w-xl">
+                    <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">
+                      Wat kun je van ons verwachten?
+                    </h1>
+                    <p className="text-lg text-gray-700 mb-10">
+                      Bij het ontwikkelen van backend systemen en custom software staat kwaliteit
+                      voorop. Onze aanpak is gericht op het leveren van oplossingen die niet alleen
+                      aan uw verwachtingen voldoen, maar deze overtreffen. Hier is wat u van ons kunt
+                      verwachten:
+                    </p>
+                    <ul className="text-black">
+                      {[
+                        "Krachtige verwerking van complexe processen",
+                        "Veilige opslag en beheer van data",
+                        "Schaalbaarheid voor groeiende bedrijven",
+                        "Integratie met externe systemen en API's",
+                        "Fundament voor innovatieve features",
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-center mb-4">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                            <path
+                              d="M14.8 6.40002L8.19995 13L5.19995 10"
+                              stroke="#022C22"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            ></path>
+                          </svg>
+                          <span className="ml-3 text-lg text-gray-700 font-black">
+                            {item}
+                          </span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {[
-              {
-                title: "1. Een unieke website die jouw merk weerspiegelt",
-                description:
-                  "Elke website die we bouwen is uniek. Geen templates, maar een ontwerp dat volledig is afgestemd op jouw merkidentiteit.",
-              },
-              {
-                title: "2. Volledig responsief ontwerp",
-                description: "Jouw website functioneert perfect op elk apparaat, of het nu een smartphone, tablet of desktop is.",
-              },
-              {
-                title: "3. Razendsnelle laadtijden",
-                description:
-                  "Bezoekers zijn ongeduldig. We zorgen voor websites die snel laden en de gebruikerservaring verbeteren.",
-              },
-              {
-                title: "4. Gebruiksvriendelijkheid",
-                description: "Intuïtieve interfaces zorgen ervoor dat jouw bezoekers moeiteloos door jouw site navigeren.",
-              },
-              {
-                title: "5. Zoekmachineoptimalisatie (SEO)",
-                description:
-                  "Wij passen de nieuwste SEO-technieken toe, zodat uw website goed gevonden wordt in zoekmachines.",
-              },
-              {
-                title: "6. Schaalbaarheid voor de toekomst",
-                description:
-                  "Onze websites groeien mee met uw bedrijf en zijn flexibel en uitbreidbaar.",
-              },
-            ].map((item, index) => (
-              <div key={index} className="p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md">
-                <h2 className="text-xl font-bold mb-4">{item.title}</h2>
-                <p className="text-lg text-gray-700 dark:text-gray-300">{item.description}</p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
 
-      {/* Onze Werkwijze Sectie */}
-      <section className="py-12 lg:py-24 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-8 text-gray-900 dark:text-white">
-            Onze Werkwijze
-          </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Wij geloven in een transparant en gestructureerd proces. Van de eerste kennismaking tot de uiteindelijke lancering van uw website, werken we nauw met u samen.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="p-6 bg-white dark:bg-gray-700 rounded-lg shadow">
-              <h3 className="text-2xl font-bold mb-3">Stap 1: Analyse & Strategie</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                We starten met een uitgebreide analyse van uw wensen, doelgroep en concurrenten. Zo kunnen we een strategie op maat ontwikkelen.
-              </p>
-            </div>
-            <div className="p-6 bg-white dark:bg-gray-700 rounded-lg shadow">
-              <h3 className="text-2xl font-bold mb-3">Stap 2: Creatief Ontwerp</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Op basis van de analyse maken onze designers een uniek concept dat perfect aansluit bij uw merkidentiteit.
-              </p>
-            </div>
-            <div className="p-6 bg-white dark:bg-gray-700 rounded-lg shadow">
-              <h3 className="text-2xl font-bold mb-3">Stap 3: Ontwikkeling</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Onze ontwikkelaars bouwen een technisch robuuste website die voldoet aan de nieuwste standaarden en optimalisaties.
-              </p>
-            </div>
-            <div className="p-6 bg-white dark:bg-gray-700 rounded-lg shadow">
-              <h3 className="text-2xl font-bold mb-3">Stap 4: Lancering & Nazorg</h3>
-              <p className="text-gray-700 dark:text-gray-300">
-                Na uitvoerig testen lanceren we uw website. Ook na de lancering blijft u op ons rekenen voor updates en optimalisaties.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Extra Teksten Sectie */}
-      <section className="py-12 lg:py-24 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-8 text-gray-900 dark:text-white">
-            Extra Informatie
-          </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Bij ons staat kwaliteit en maatwerk centraal. We zorgen ervoor dat elke website die we ontwerpen en ontwikkelen volledig is afgestemd op de wensen van onze klanten.
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Onze aanpak is uniek. We beginnen altijd met een grondige analyse van uw behoeften en gaan vervolgens over tot een creatief proces waarin we uw merkidentiteit en bedrijfsdoelstellingen verwerken.
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Of u nu een startup bent of een gevestigde onderneming, wij bieden een oplossing die perfect past bij uw situatie. Onze websites zijn niet alleen visueel aantrekkelijk, maar ook technisch geoptimaliseerd voor snelheid en zoekmachineoptimalisatie.
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300">
-            Neem contact met ons op voor meer informatie of een vrijblijvend gesprek over de mogelijkheden voor uw bedrijf. Samen brengen we uw online aanwezigheid naar een hoger niveau.
-          </p>
-        </div>
-      </section>
-
-      {/* Slider Sectie */}
-      <section className="max-w-screen mx-auto">
-        <div>
-          <CaseSlider />
-        </div>
-      </section>
-
-      {/* FAQ Sectie */}
-      <section className="py-12 lg:py-24 bg-orange-50 dark:bg-gray-900">
+      {/* FAQ Section */}
+      <section className="py-12 lg:py-24 dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-gray-900 dark:text-white inline-block">
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-black dark:text-white">
               Veelgestelde vragen
             </h2>
-            <p className="text-gray-700 dark:text-gray-300">
-              Hier vindt u antwoorden op de meest gestelde vragen over onze diensten.
+            <p className="text-gray-700 dark:text-white">
+              Hier vindt u antwoorden op de meest gestelde vragen over backend development en
+              custom software.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -328,47 +370,57 @@ export default function Website(): JSX.Element {
                   <button
                     key={index}
                     onClick={() => setOpenAccordion(openAccordion === index ? null : index)}
-                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-white dark:bg-gray-800 shadow-md rounded-2xl"
+                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-green-900 dark:bg-green-900/10 shadow-md rounded-2xl"
                   >
                     <div className="pr-5">
-                      <h5 className="text-lg font-medium text-gray-900 dark:text-white">
-                        {item.question}
-                      </h5>
+                      <h5 className="text-lg font-medium text-white">{item.question}</h5>
                       <div
                         className={`overflow-hidden transition-all duration-300 ${
                           openAccordion === index ? "max-h-96" : "max-h-0"
                         }`}
                       >
-                        <p className="text-gray-700 dark:text-gray-300 mt-4">{item.answer}</p>
+                        <p className="text-white dark:text-white mt-4">{item.answer}</p>
                       </div>
                     </div>
                     <span className="flex-shrink-0">
                       {openAccordion === index ? (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <path
                             d="M5.69995 12H18.3"
-                            stroke={theme === "dark" || resolvedTheme === "dark" ? "#fff" : "#1D1F1E"}
+                            stroke="#BEF264"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                          />
+                          ></path>
                         </svg>
                       ) : (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <path
                             d="M12 5.69995V18.3"
-                            stroke={theme === "dark" || resolvedTheme === "dark" ? "#fff" : "#1D1F1E"}
+                            stroke="#BEF264"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                          />
+                          ></path>
                           <path
                             d="M5.69995 12H18.3"
-                            stroke={theme === "dark" || resolvedTheme === "dark" ? "#fff" : "#1D1F1E"}
+                            stroke="#BEF264"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                          />
+                          ></path>
                         </svg>
                       )}
                     </span>
@@ -380,47 +432,57 @@ export default function Website(): JSX.Element {
                   <button
                     key={index + 5}
                     onClick={() => setOpenAccordion(openAccordion === index + 5 ? null : index + 5)}
-                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-white dark:bg-gray-800 shadow-md rounded-2xl"
+                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-green-900 dark:bg-green-900/10 shadow-md rounded-2xl"
                   >
                     <div className="pr-5">
-                      <h5 className="text-lg font-medium text-gray-900 dark:text-white">
-                        {item.question}
-                      </h5>
+                      <h5 className="text-lg font-medium text-white">{item.question}</h5>
                       <div
                         className={`overflow-hidden transition-all duration-300 ${
                           openAccordion === index + 5 ? "max-h-96" : "max-h-0"
                         }`}
                       >
-                        <p className="text-gray-700 dark:text-gray-300 mt-4">{item.answer}</p>
+                        <p className="text-white dark:text-white mt-4">{item.answer}</p>
                       </div>
                     </div>
                     <span className="flex-shrink-0">
                       {openAccordion === index + 5 ? (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <path
                             d="M5.69995 12H18.3"
-                            stroke={theme === "dark" || resolvedTheme === "dark" ? "#fff" : "#1D1F1E"}
+                            stroke="#BEF264"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                          />
+                          ></path>
                         </svg>
                       ) : (
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                        <svg
+                          width="24"
+                          height="24"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
                           <path
                             d="M12 5.69995V18.3"
-                            stroke={theme === "dark" || resolvedTheme === "dark" ? "#fff" : "#1D1F1E"}
+                            stroke="#BEF264"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                          />
+                          ></path>
                           <path
                             d="M5.69995 12H18.3"
-                            stroke={theme === "dark" || resolvedTheme === "dark" ? "#fff" : "#1D1F1E"}
+                            stroke="#BEF264"
                             strokeWidth="1.5"
                             strokeLinecap="round"
                             strokeLinejoin="round"
-                          />
+                          ></path>
                         </svg>
                       )}
                     </span>
@@ -429,61 +491,49 @@ export default function Website(): JSX.Element {
               </div>
             </div>
             <div className="max-w-xl mx-auto text-center">
-              <h5 className="text-4xl font-medium mb-4 text-gray-900 dark:text-white inline-block">
+              <span className="inline-block mb-8 ml-10">
+                <Image
+                  src="/logos/logo.png"
+                  alt=""
+                  height={800}
+                  width={400}
+                />
+              </span>
+              <h5 className="text-4xl font-medium mb-4 text-black dark:text-white">
                 Heb je nog vragen?
               </h5>
-              <p className="text-gray-700 dark:text-gray-300">
-                Voor meer informatie kunt u onze{" "}
-                <Link href="/contact" className="inline-block text-black dark:text-white font-medium underline">
-                  Contact
-                </Link>{" "}
-                bezoeken of bel onze klantenservice op{" "}
-                <span className="text-black underline dark:text-white font-medium"><Link href="tel:0103220410">010 322 04 10</Link></span>.
-                Ons toegewijde team staat klaar om u te helpen bij het realiseren van uw perfecte website.
+              <p className="text-gray-700">
+                <span>Voor meer informatie over backend development en custom software kunt u onze </span>
+                <Link href="#" className="inline-block text-lime-500 font-medium underline">
+                  Contactpagina
+                </Link>
+                <span> bezoeken of bel onze klantenservice op </span>
+                <span className="text-lime-500 font-medium">071 203 24 88</span>
+                <span>
+                  Ons toegewijde team staat klaar om u te helpen bij het realiseren van uw perfecte backend oplossing.
+                </span>
               </p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Extra Teksten Sectie */}
-      <section className="py-12 lg:py-24 bg-gray-50 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-8 text-gray-900 dark:text-white">
-            Extra Informatie
-          </h2>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Bij ons staat kwaliteit en maatwerk centraal. We zorgen ervoor dat elke website die we ontwerpen en ontwikkelen volledig is afgestemd op de wensen van onze klanten.
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Onze aanpak is uniek. We beginnen altijd met een grondige analyse van uw behoeften en gaan vervolgens over tot een creatief proces waarin we uw merkidentiteit en bedrijfsdoelstellingen verwerken.
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-            Of u nu een startup bent of een gevestigde onderneming, wij bieden een oplossing die perfect past bij uw situatie. Onze websites zijn niet alleen visueel aantrekkelijk, maar ook technisch geoptimaliseerd voor snelheid en zoekmachineoptimalisatie.
-          </p>
-          <p className="text-lg text-gray-700 dark:text-gray-300">
-            Neem contact met ons op voor meer informatie of een vrijblijvend gesprek over de mogelijkheden voor uw bedrijf. Samen brengen we uw online aanwezigheid naar een hoger niveau.
-          </p>
-        </div>
-      </section>
-
-      {/* Call to Action Sectie */}
-      <section className="py-12 lg:py-24 bg-teal-900 text-white">
+      {/* Call to Action */}
+      <section className="py-12 lg:py-24 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8 text-white dark:bg-teal-900 dark:text-white inline-block">
-            Klaar om uw bedrijf naar een hoger niveau te tillen?
-          </h2>
-          <p className="text-xl mb-12">
-            Meer leads, meer klanten en een sterker merk met een professionele website.
+          <h2 className="text-4xl font-bold mb-8">Klaar om uw digitale infrastructuur te versterken?</h2>
+          <p className="text-xl mb-12 text-gray-300">
+            Laat uw bedrijf groeien met krachtige, schaalbare backend oplossingen en custom software die perfect
+            aansluiten bij uw doelstellingen.
           </p>
           <Link
-            href="offerte-aanvragen"
-            className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-teal-900 bg-white hover:bg-lime-500 rounded-full transition duration-200"
+            href="/offerte-aanvragen"
+            className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-black hover:text-white bg-green-500 hover:bg-transparent border border-lime-500 hover:border-white rounded-full transition duration-200"
           >
-            Start uw project
+            Start uw backend project
           </Link>
         </div>
       </section>
     </div>
-  );
+  )
 }
