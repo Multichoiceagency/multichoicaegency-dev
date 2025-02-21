@@ -64,7 +64,7 @@ const Oplossingen: React.FC = () => {
 
   return (
     <motion.section
-      className="p-4 bg-teal-900 rounded-3xl mx-4 sm:px-12"
+      className="p-4 bg-teal-900  rounded-3xl mx-4 sm:px-12"
       initial={{ opacity: 0, y: 50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.8, ease: 'easeOut' }}

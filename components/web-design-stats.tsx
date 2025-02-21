@@ -6,12 +6,12 @@ import { useInView } from 'react-intersection-observer'
 
 export default function WebDesignStats() {
   return (
-    <section className="py-12 lg:py-24">
+    <section className="py-12 lg:py-24 dark:bg-gray-900">
       <div className="container mx-auto px-4">
       <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
       <StatItem number={8} text="Jaar ervaring" />
           <StatItem number={500} text="Projecten afgerond" />
-          <StatItem number={2} text="Dagen " />
+          <StatItem number={2} text="1 uur  " />
           <StatItem number={100} text="Klanttevredenheid" />
         </div>
       </div>

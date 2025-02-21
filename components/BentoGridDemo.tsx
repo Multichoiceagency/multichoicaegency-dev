@@ -22,10 +22,10 @@ const HeaderSection = () => {
   return (
     <div className="text-center mb-16">
       <h2 className={cn('text-4xl font-bold mb-4', theme === 'dark' ? 'text-white' : 'text-black')}>
-        Onze Specialisaties
+      Onze Oplossingen: Innovatie op Maat
       </h2>
       <p className={cn('text-xl mb-8 max-w-2xl mx-auto', theme === 'dark' ? 'text-neutral-400' : 'text-neutral-700')}>
-        Discover our comprehensive range of digital solutions designed to drive your business forward in the digital age.
+      Geen standaard templates, maar oplossingen die écht bij jouw bedrijf passen. Wij ontwikkelen digitale producten die gebruiksvriendelijk, visueel aantrekkelijk en technisch vooruitstrevend zijn.
       </p>
       <button className={cn(
         'px-6 py-3 rounded-lg font-semibold transition duration-300',
@@ -102,9 +102,9 @@ export const BentoGridItem = ({
         {/* "Direct bekijken" Hover Effect */}
         <div className={cn(
           'absolute inset-0 flex items-center justify-between px-6 opacity-0 group-hover:opacity-100 transition-opacity duration-300',
-          theme === 'dark' ? 'bg-green-600' : 'bg-green-700'
+          theme === 'dark' ? 'bg-green-600' : 'bg-green-900'
         )}>
-          <span className="text-white font-medium">Direct bekijken</span>
+          <span className="text-white font-medium">Meer informatie</span>
           <IconArrowRight className="w-6 h-6 text-white" />
         </div>
       </div>
@@ -122,7 +122,7 @@ export function BentoGridDemo() {
       title: 'Websites laten maken',
       description:
         'Is uw website naar vernieuweing en gebruiksvriendelijkheid toe? ',
-      icon: <IconClipboardCopy className="h-6 w-4" />,
+      icon: <IconClipboardCopy className="h-9 w-4" />,
       video:
         'https://cdn.dribbble.com/userupload/18827551/file/large-ebb8018fcdd46e6a7257b8163581a47c.mp4',
       link: 'website-laten-maken',
@@ -131,7 +131,7 @@ export function BentoGridDemo() {
       title: 'E-commerce webshop ontwikkeling',
       description:
         'Wij bieden slimme AI-oplossingen voor een efficiënte en duurzame digitale transformatie.',
-      icon: <IconFileBroken className="h-8 w-4" />,
+      icon: <IconFileBroken className="h-9 w-4" />,
       video:
         'https://filmora.wondershare.com/2023video/ai-page/04-AI-Text-To-Video_transcode_100800.mp4',
       link: 'webshop-laten-maken',
@@ -140,7 +140,7 @@ export function BentoGridDemo() {
       title: 'UX / UI Design',
       description:
         'Gepersonaliseerde ontwerpen naar jouw wensen en eisen.',
-      icon: <IconSignature className="h-8 w-4" />,
+      icon: <IconSignature className="h-9 w-4" />,
       image:
         'https://images.pexels.com/photos/196644/pexels-photo-196644.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         link: 'wat-is-ux-ui-design',
@@ -149,7 +149,7 @@ export function BentoGridDemo() {
       title: 'Marketing',
       description:
         'Met meer dan 8 jaar ervaring optimaliseren wij jouw online marketingstrategie.',
-      icon: <IconTableColumn className="h-8 w-4" />,
+      icon: <IconTableColumn className="h-9 w-4" />,
       link: 'https://www.essmarketing.nl',
 
       video:
@@ -159,7 +159,7 @@ export function BentoGridDemo() {
       title: 'Bedrijfsvideos en foto en reel generatie',
       description:
         'Een schaalbare en veilige IT-strategie stelt jouw organisatie in staat om te groeien en toekomstbestendig te blijven.',
-      icon: <IconArrowWaveRightUp className="h-8 w-4" />,
+      icon: <IconArrowWaveRightUp className="h-9 w-4" />,
       video:
         'https://cdn.dribbble.com/userupload/3343934/file/large-db28115f00f6cd118d0cfed16ba9c59f.mp4',
       link: 'https://essmedia.nl',
@@ -168,7 +168,7 @@ export function BentoGridDemo() {
       title: 'Onderhoud en beheer',
       description:
         'Wij onderhouden software applicaties en nemen bestaande applicaties in beheer. Ook verzorgen wij de hosting.',
-      icon: <IconBoxAlignTopLeft className="h-8 w-4" />,
+      icon: <IconBoxAlignTopLeft className="h-9 w-4" />,
       image:
         'https://cdn.dribbble.com/userupload/15412680/file/original-a65b2b4a950aa5b59c6f80c3db78447d.jpg?resize=1024x578&vertical=center',
         link: 'website-onderhoud',        
@@ -177,7 +177,7 @@ export function BentoGridDemo() {
       title: 'Portalen',
       description:
         'Wij versnellen je digitale transformatie door gebruik te maken van bewezen technologie.',
-      icon: <IconBoxAlignRightFilled className="h-8 w-4" />,
+      icon: <IconBoxAlignRightFilled className="h-9 w-4" />,
       image:
         'https://cdn.dribbble.com/users/1807794/screenshots/6342510/demo_portal_4x.png?resize=1600x1200&vertical=center',
         link: 'portalen',
@@ -186,7 +186,7 @@ export function BentoGridDemo() {
       title: 'Development',
       description:
         'Wij versnellen je digitale transformatie door gebruik te maken van bewezen technologie.',
-      icon: <IconBoxAlignRightFilled className="h-8 w-4" />,
+      icon: <IconBoxAlignRightFilled className="h-9 w-4" />,
       image:
         'https://images.pexels.com/photos/39559/ipad-mockup-apple-business-39559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         link: 'platformen',
@@ -195,7 +195,7 @@ export function BentoGridDemo() {
       title: 'Industrieën',
       description:
         'Wij versnellen je digitale transformatie door gebruik te maken van bewezen technologie.',
-      icon: <IconBoxAlignRightFilled className="h-8 w-4" />,
+      icon: <IconBoxAlignRightFilled className="h-9 w-4" />,
       image:
         'https://images.pexels.com/photos/39559/ipad-mockup-apple-business-39559.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         link: 'platformen',

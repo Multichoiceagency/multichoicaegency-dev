@@ -158,19 +158,27 @@ export function Header(): JSX.Element {
             )}
           </div>
 
-          {/* Desktop Buttons */}
-          <div className="hidden md:flex items-center gap-4">
-            <AppleStyleThemeSwitcher />
+        {/* Desktop Buttons */}
+        <div className="hidden md:flex items-center gap-4">
+          <AppleStyleThemeSwitcher />
+          
+          {/* Inloggen Button with Link */}
+          <Link href="/inloggen">
             <Button
               variant="ghost"
               className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
             >
               Inloggen
             </Button>
-            <Button className="bg-green-500 text-white hover:bg-green-600">
+          </Link>
+
+          {/* Offerte Aanvragen Button with Link */}
+          <Link href="/offerte-aanvragen">
+            <Button className="bg-green-400 uppercase font-bold text-sm text-white hover:bg-green-900 dark:hover:bg-green-900">
               Offerte aanvragen
             </Button>
-          </div>
+          </Link>
+        </div>
 
           {/* Mobile Menu Button */}
           <div className="md:hidden">

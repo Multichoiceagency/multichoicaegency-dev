@@ -47,7 +47,7 @@ export function HeroSection() {
   ];
 
   return (
-    <section className="w-full bg-white dark:bg-black py-24 overflow-hidden">
+    <section className="w-full bg-white dark:bg-gray-900 py-24 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 md:px-8">
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center">
           
