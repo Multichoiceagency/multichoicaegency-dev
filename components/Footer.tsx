@@ -160,7 +160,7 @@ export function Footer() {
                   href={social.href}
                   className="group flex p-1 max-w-xs mb-4 items-center rounded-full bg-white dark:bg-gray-800"
                 >
-                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 text-teal-900 dark:text-teal-200 group-hover:text-lime-500 dark:group-hover:text-lime-400 bg-lime-500 dark:bg-lime-600 group-hover:bg-black rounded-full transition duration-200">
+                  <div className="flex-shrink-0 flex items-center justify-center w-12 h-12 text-teal-900 dark:text-white group-hover:text-lime-500 dark:group-hover:text-lime-400 bg-lime-500 dark:bg-lime-600 group-hover:bg-black rounded-full transition duration-200">
                     <FontAwesomeIcon icon={social.icon} className="w-6 h-6" />
                   </div>
                   <span className="ml-4 font-medium text-gray-900 dark:text-gray-100">

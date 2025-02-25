@@ -174,7 +174,7 @@ export function Header(): JSX.Element {
 
           {/* Offerte Aanvragen Button with Link */}
           <Link href="/offerte-aanvragen">
-            <Button className="bg-green-400 uppercase font-bold text-sm text-white hover:bg-green-900 dark:hover:bg-green-900">
+            <Button className="bg-green-700 uppercase font-bold text-sm text-white hover:bg-green-900 dark:hover:bg-green-900">
               Offerte aanvragen
             </Button>
           </Link>

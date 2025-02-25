@@ -3,8 +3,79 @@
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
-import Image from "next/image"
 import { PricingTable } from "@/components/pricing-table"
+import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd, } from 'next-seo';
+
+const WebsiteLatenMaken = () => {
+  return (
+    <>
+      <NextSeo
+        title="Website Laten Maken | Professioneel Webdesign voor Bedrijven"
+        description="Wil je een website laten maken? Ontdek de voordelen van een professionele website en hoe je de beste webdesigner kiest voor jouw bedrijf. Vraag een offerte aan!"
+        canonical="https://www.multichoiceagency.nl/website-laten-maken"
+        openGraph={{
+          type: 'website',
+          url: 'https://www.multichoiceagency.nl/website-laten-maken',
+          title: 'Website Laten Maken | Professioneel Webdesign voor Bedrijven',
+          description:
+            'Wil je een website laten maken? Ontdek de voordelen van een professionele website en hoe je de beste webdesigner kiest voor jouw bedrijf. Vraag een offerte aan!',
+          images: [
+            {
+              url: '/partners/website-laten-maken.png',
+              width: 1200,
+              height: 630,
+              alt: 'Website laten maken',
+            },
+          ],
+        }}
+        twitter={{
+          handle: '@jouwtwitterhandle',
+          site: '@jouwtwitterhandle',
+          cardType: 'summary_large_image',
+        }}
+      />
+
+      {/* Breadcrumb Schema (voor betere navigatie-indexering) */}
+      <BreadcrumbJsonLd
+        itemListElements={[
+          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
+          { position: 2, name: 'Website Laten Maken', item: 'https://www.multichoiceagency.nl/website-laten-maken' },
+        ]}
+      />
+
+      {/* FAQ Schema (voor Google Rich Snippets) */}
+      <FAQPageJsonLd
+        mainEntity={[
+          {
+            questionName: 'Waarom is een professionele website belangrijk?',
+            acceptedAnswerText:
+              'Een professionele website vergroot de online zichtbaarheid, verbetert klantvertrouwen en verhoogt conversies. Het biedt een professionele uitstraling en helpt je beter gevonden te worden in zoekmachines.',
+          },
+          {
+            questionName: 'Hoeveel kost een website laten maken?',
+            acceptedAnswerText:
+              'De kosten variëren van €1.499 voor een eenvoudige website tot €10.000+ voor maatwerk. De prijs is afhankelijk van het design, functionaliteiten en de complexiteit van de website.',
+          },
+          {
+            questionName: 'Hoe lang duurt het om een website te laten maken?',
+            acceptedAnswerText:
+              'Een standaard website kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.',
+          },
+          {
+            questionName: 'Is een mobiele versie van de website inbegrepen?',
+            acceptedAnswerText:
+              'Ja, alle websites die wij ontwikkelen zijn 100% responsive en geoptimaliseerd voor mobiele apparaten, tablets en desktops.',
+          },
+          {
+            questionName: 'Bieden jullie onderhoud en support na de lancering?',
+            acceptedAnswerText:
+              'Ja, we bieden verschillende onderhoudspakketten, inclusief beveiligingsupdates, back-ups en technische ondersteuning.',
+          },
+        ]}
+      />      
+    </>
+  );
+};
 
 export default function BackendDevelopment() {
   const [showContent, setShowContent] = useState(false)
@@ -12,185 +83,238 @@ export default function BackendDevelopment() {
 
   const faqItems = [
     {
-      question: "Waarom is backend development belangrijk voor mijn bedrijf?",
+      question: "Waarom is een professionele website belangrijk voor mijn bedrijf?",
       answer:
-        "Backend development is essentieel voor uw digitale oplossingen. Het zorgt voor de krachtige infrastructuur achter uw applicaties, waardoor complexe functionaliteiten, dataverwerking en beveiliging mogelijk worden. Dit verbetert de prestaties, schaalbaarheid en betrouwbaarheid van uw software.",
+        "Een professionele website is het online visitekaartje van je bedrijf en een essentieel marketinginstrument. Het zorgt voor geloofwaardigheid, vergroot je bereik en helpt bij het aantrekken van klanten. Een goed ontworpen website verbetert de gebruikerservaring en draagt bij aan hogere conversies.",
     },
     {
-      question: "Hoe lang duurt het om een custom software of app te ontwikkelen?",
+      question: "Hoe lang duurt het om een website te laten maken?",
       answer:
-        "De ontwikkeltijd voor custom software of een app varieert afhankelijk van de complexiteit en omvang van het project. Gemiddeld duurt het proces 3 tot 6 maanden, inclusief planning, ontwikkeling, testen en implementatie. We houden u gedurende het hele proces op de hoogte van de voortgang.",
+        "De doorlooptijd van een website varieert afhankelijk van de complexiteit en functionaliteiten. Een eenvoudige bedrijfswebsite kan binnen 2 tot 4 weken gereed zijn, terwijl een maatwerk website of webshop 6 tot 12 weken kan duren. We zorgen ervoor dat je gedurende het hele proces op de hoogte blijft.",
     },
     {
-      question: "Kunnen jullie mijn bestaande systemen integreren met nieuwe backend oplossingen?",
+      question: "Kan ik mijn bestaande website laten vernieuwen of optimaliseren?",
       answer:
-        "Ja, we specialiseren ons in het integreren van bestaande systemen met nieuwe backend oplossingen. We analyseren uw huidige infrastructuur, identificeren integratiepunten en ontwikkelen aangepaste API's of middleware om naadloze communicatie tussen systemen te garanderen.",
+        "Ja, we kunnen je bestaande website moderniseren, zowel qua design als prestaties. Dit kan variëren van een visuele opfrissing tot een volledige technische herstructurering om de snelheid, SEO en gebruiksvriendelijkheid te verbeteren.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor backend development?",
+      question: "Welke technologieën gebruiken jullie voor webdevelopment?",
       answer:
-        "We gebruiken moderne technologieën zoals Node.js, Python (Django/Flask), Java (Spring), en .NET voor backend ontwikkeling. Voor databases werken we met SQL (PostgreSQL, MySQL) en NoSQL (MongoDB, Cassandra) oplossingen. We passen ook cloud-native ontwikkeling toe met AWS, Azure of Google Cloud Platform.",
+        "We werken met moderne technologieën zoals WordPress, Next.js, Vue.js en Shopify voor front-end en back-end ontwikkeling. Voor maatwerk oplossingen gebruiken we frameworks zoals Laravel, Django of Node.js, afhankelijk van de behoeften van je project.",
     },
     {
-      question: "Hoe zorgen jullie voor de beveiliging van backend systemen?",
+      question: "Hoe zorgen jullie ervoor dat mijn website goed vindbaar is in Google?",
       answer:
-        "Beveiliging is onze topprioriteit. We implementeren best practices zoals versleuteling van data in rust en in transit, veilige authenticatie en autorisatie mechanismen, regelmatige beveiligingsaudits, en naleving van industriestandaarden zoals OWASP. We zorgen ook voor regelmatige updates en patches om uw systemen te beschermen tegen nieuwe bedreigingen.",
+        "We passen zoekmachineoptimalisatie (SEO) toe vanaf de basis, inclusief technische SEO, snelle laadtijden, mobielvriendelijk design en geoptimaliseerde content. We zorgen ervoor dat je website goed scoort in zoekmachines en helpen bij de juiste strategie om meer verkeer aan te trekken.",
     },
     {
-      question: "Wat zijn de voordelen van custom software ten opzichte van off-the-shelf oplossingen?",
+      question: "Wat zijn de kosten voor een website laten maken?",
       answer:
-        "Custom software biedt verschillende voordelen: perfecte aansluiting bij uw bedrijfsprocessen, volledige controle over functionaliteiten en schaalbaarheid, betere integratie met bestaande systemen, verhoogde efficiëntie door op maat gemaakte workflows, en een concurrentievoordeel door unieke oplossingen die niet beschikbaar zijn voor uw concurrenten.",
+        "De kosten hangen af van de complexiteit en functies van de website. Een eenvoudige website begint vanaf €1.499,-, terwijl een uitgebreide webshop of maatwerk platform €5.000,- tot €20.000,- kan kosten. We bieden transparante prijzen en adviseren je graag over de beste optie voor jouw bedrijf.",
     },
     {
-      question: "Hoe gaan jullie om met schaalbaarheid in backend ontwikkeling?",
+      question: "Is mijn website geschikt voor mobiel en tablets?",
       answer:
-        "Schaalbaarheid is een kernprincipe in onze ontwikkelingsaanpak. We ontwerpen systemen met het oog op toekomstige groei, gebruikmakend van microservices architectuur, load balancing, en auto-scaling oplossingen. We implementeren ook caching strategieën en optimaliseren database queries om prestaties te garanderen bij toenemende belasting.",
+        "Ja, alle websites die we bouwen zijn volledig responsive, wat betekent dat ze zich automatisch aanpassen aan verschillende schermformaten. Dit zorgt voor een optimale gebruikerservaring op desktops, tablets en smartphones.",
     },
     {
-      question: "Kunnen jullie complexe algoritmen en data-intensieve processen implementeren?",
+      question: "Kan ik zelf content aanpassen op mijn website?",
       answer:
-        "Absoluut! We hebben ruime ervaring met het ontwikkelen van complexe algoritmen en het verwerken van grote hoeveelheden data. Of het nu gaat om machine learning modellen, real-time data processing, of complexe business logic, we zorgen voor efficiënte en schaalbare implementaties die voldoen aan uw specifieke behoeften.",
+        "Ja, we bouwen websites met gebruiksvriendelijke CMS-systemen zoals WordPress of een maatwerk dashboard. Hiermee kun je eenvoudig teksten, afbeeldingen en producten aanpassen zonder technische kennis.",
     },
     {
-      question: "Hoe zorgen jullie voor onderhoud en ondersteuning na de lancering?",
+      question: "Hoe zit het met onderhoud en updates na de lancering?",
       answer:
-        "We bieden uitgebreide ondersteuning na de lancering. Dit omvat 24/7 monitoring, regelmatige updates en patches, performance optimalisatie, en technische ondersteuning. We kunnen ook trainingen verzorgen voor uw team en bieden verschillende support levels aan, van basis onderhoud tot volledig beheerde diensten.",
+        "We bieden onderhoudspakketten waarmee je website veilig en up-to-date blijft. Dit omvat beveiligingsupdates, back-ups, prestatie-optimalisatie en technische ondersteuning. Zo voorkom je problemen en blijft je website optimaal functioneren.",
     },
     {
-      question: "Hoe gaan jullie om met data migratie bij het overstappen naar een nieuw systeem?",
+      question: "Kunnen jullie mijn website koppelen aan externe systemen zoals CRM of betalingsproviders?",
       answer:
-        "Data migratie is een cruciaal onderdeel van veel projecten. We volgen een zorgvuldig proces van data-analyse, mapping, en transformatie. We ontwikkelen aangepaste scripts voor de migratie, voeren uitgebreide tests uit, en plannen de migratie zo dat er minimale downtime is voor uw bedrijf. We zorgen ook voor back-ups en rollback-plannen voor het geval er onvoorziene problemen optreden.",
+        "Ja, we kunnen integraties verzorgen met verschillende systemen zoals CRM-software, betalingsproviders (zoals Mollie of Stripe), boekhoudprogramma's en marketingtools. Hierdoor wordt je website een krachtig onderdeel van je bedrijfsvoering.",
     },
-  ]
+  ];
+  
 
   return (
     <div className="bg-white text-black">
       <HeroNieuw
-        title={"Backend Development & Custom Software"}
+        title={"Website laten maken"}
         description={
-          "Versterk uw digitale infrastructuur met krachtige backend oplossingen. Onze expertise in backend development en custom software zorgt voor schaalbare, veilige en efficiënte systemen die uw bedrijf naar het volgende niveau tillen. Ontdek hoe wij uw ideeën kunnen omzetten in robuuste digitale realiteit."
+          "Website laten maken? Ontdek de voordelen van een professionele website en hoe je de beste webdesigner kiest voor jouw bedrijf."
         }
         buttonText={"Offerte aanvragen"}
         buttonLink={"/offerte-aanvragen"}
         videoSrc={
-          "https://cdn.dribbble.com/userupload/17855128/file/large-45aef91c794d3dfe747127edc550fd15.mp4"
+          "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
         }
       />
 
-      {/* Backend Development Section */}
-      <section className="w-screen py-12 lg:py-24 relative flex flex-col lg:flex-row">
-        {/* Linker kolom (tekst) */}
-        <div className="lg:w-1/2">
-          <div className="container mx-auto px-4 pt-12 pb-28 lg:py-24">
-            <div className="flex mb-6 items-center">
-              <svg
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
+  {/* About Section */}
+<section className="py-12 lg:py-24 dark:bg-gray-900">
+  <div className="container mx-auto px-4">
+    <div className="flex mb-4 items-center">
+      <svg
+        width="8"
+        height="8"
+        viewBox="0 0 9 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+      </svg>
+      <span className="inline-block ml-2 text-sm font-medium text-lime-500">
+        Website specialisten
+      </span>
+    </div>
+    <div className="border-t border-gray-800 pt-16">
+      <div className="max-w-lg mx-auto lg:max-w-none">
+        <div className="flex flex-wrap lg:items-center lg:flex-row-reverse -mx-4">
+          {/* Video Column */}
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video
+                className="w-full h-full object-contain rounded-md"
+                autoPlay
+                loop
+                muted
+                playsInline
               >
-                <rect width="12" height="12" rx="2" fill="#BEF264"></rect>
-                <circle cx="6" cy="6" r="4" fill="#022C22"></circle>
-              </svg>
-              <span className="ml-2 text-sm font-medium">
-                Transformeer uw bedrijf met krachtige backend oplossingen
-              </span>
+                <source
+                  src="https://cdn.dribbble.com/userupload/3266205/file/original-65cf49de6dc583c826a888011e6e75ff.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
             </div>
-            <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">
-              Wat is Backend Development?
-            </h1>
-            <p className="max-w-md xl:max-w-none text-lg text-gray-700 mb-10">
-              Backend development vormt het fundament van moderne digitale oplossingen...
-            </p>
-            <div className="flex flex-col sm:flex-row">
-              <Link
-                href="#"
-                className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-black hover:text-white border border-lime-500 hover:border-white bg-green-500 hover:bg-transparent rounded-full transition duration-200"
-              >
-                Offerte aanvragen
-              </Link>
+          </div>
+          {/* Text Column */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-xl">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+              Website Laten Maken: Alles Wat Je Moet Weten
+              </h1>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+              In het digitale tijdperk is een professionele website onmisbaar voor bedrijven en ondernemers. Een goed ontworpen website is niet alleen een online visitekaartje, maar ook een krachtig marketinginstrument. Het bepaalt hoe potentiële klanten jouw merk waarnemen en beïnvloedt hun aankoopbeslissingen. Daarom is een website laten maken door een professional een slimme investering.
+              </p>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+              Een website biedt zichtbaarheid, geloofwaardigheid en toegankelijkheid. Klanten zoeken tegenwoordig online naar producten en diensten, en zonder een sterke online aanwezigheid mis je kansen. Een op maat gemaakte website verhoogt de betrouwbaarheid en zorgt ervoor dat je beter vindbaar bent in zoekmachines.
+              </p>
+
+              <ul className="text-black">
+                {[
+                  "Een Uniek en Aantrekkelijk Design",
+                  "Betere Gebruikerservaring",
+                  "SEO Geoptimaliseerd voor Beter Vindbaarheid",
+                  "Schaalbaarheid en Toekomstbestendigheid",
+                  "Fundament voor innovatieve opties",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center mb-4">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                      <path
+                        d="M14.8 6.40002L8.19995 13L5.19995 10"
+                        stroke="#022C22"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                    <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
 
-      {/* Overige content */}
-      <section className="py-12 lg:py-24 bg-white dark:bg-black">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-wrap -mx-4 lg:flex-row-reverse lg:items-center">
-            {/* Linker kolom op desktop (in HTML als eerste, dus rechts op mobiel) */}
-            <div className="w-full lg:w-1/2 px-4">
-              <div className="max-w-xl">
-                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Efficiënt beheer van jouw data
-                </h1>
-                <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                  Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt
-                  bedrijven in staat om complexe processen te automatiseren, grote hoeveelheden data
-                  te verwerken en schaalbare systemen te bouwen die kunnen groeien met uw bedrijf.
-                </p>
-                <ul className="text-black py-5">
-                  {[
-                    "Krachtige verwerking van complexe processen",
-                    "Veilige opslag en beheer van data",
-                    "Schaalbaarheid voor groeiende bedrijven",
-                    "Integratie met externe systemen en API's",
-                    "Fundament voor innovatieve features",
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-center mb-4">
-                      <svg
-                        width="20"
-                        height="20"
-                        viewBox="0 0 20 20"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
-                        <path
-                          d="M14.8 6.40002L8.19995 13L5.19995 10"
-                          stroke="#022C22"
-                          strokeWidth="1.5"
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                        ></path>
-                      </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <Link
-                  href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+{/* Overige content */}
+<section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
+  <div className="container mx-auto px-4">
+    <div className="flex flex-col-reverse lg:flex-row-reverse lg:items-center -mx-4">
+      {/* Linker kolom op desktop (rechter kolom op mobiel) */}
+      <div className="w-full lg:w-1/2 px-4">
+        <div className="max-w-xl">
+          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+          Waar Moet Je Op Letten Bij Het Laten Maken van een Website?
+          </h1>
+          <p className="text-lg text-gray-700 mb-1 dark:text-white">
+            Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt
+            bedrijven in staat om complexe processen te automatiseren, grote hoeveelheden data
+            te verwerken en schaalbare systemen te bouwen die kunnen groeien met uw bedrijf.
+          </p>
+          <ul className="text-black py-5">
+            {[
+              "Portfolio en Ervaring: Bekijk eerdere projecten en beoordeel de kwaliteit van het werk.",
+              "Specialisaties: Sommige webdesigners zijn gespecialiseerd in e-commerce, terwijl anderen zich richten op corporate websites of blogs.",
+              "Prijs en Kostenstructuur: Vraag altijd een duidelijke offerte en check wat is inbegrepen.",
+              "SEO en Marketing Integratie: Een goede website is niet alleen mooi, maar ook goed vindbaar.",
+            ].map((item, index) => (
+              <li key={index} className="flex items-center mb-4">
+                <svg
+                  width="20"
+                  height="20"
+                  viewBox="0 0 20 20"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
                 >
-                  Start jouw backend project vandaag nog!
-                </Link>
-              </div>
-            </div>
-
-            {/* Rechter kolom op desktop (in HTML als tweede, dus onder op mobiel) */}
-            <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-              <div className="visible">
-                <video
-                  className="w-full h-full object-contain rounded-md"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source
-                    src="https://cdn.dribbble.com/userupload/3370574/file/large-f8ab3e4b35d881d8bfbb5a27ca163c89.mp4"
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
-          </div>
+                  <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                  <path
+                    d="M14.8 6.40002L8.19995 13L5.19995 10"
+                    stroke="#022C22"
+                    strokeWidth="1.5"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  ></path>
+                </svg>
+                <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
+                  {item}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <Link
+            href="/offerte-aanvragen"
+            className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+          >
+            Start jouw website project vandaag nog!
+          </Link>
         </div>
-      </section>
+      </div>
+
+      {/* Rechter kolom op desktop (linker kolom op mobiel) */}
+      <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+        <div className="visible">
+          <video
+            className="w-full h-full object-contain rounded-md"
+            autoPlay
+            loop
+            muted
+            playsInline
+          >
+            <source
+              src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+              type="video/mp4"
+            />
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Services Section */}
       <section className="p-4 bg-white">
@@ -212,34 +336,34 @@ export default function BackendDevelopment() {
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Een robuuste backend wordt gebouwd met behulp van:
+                Een robuuste website wordt gebouwd met behulp van:
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Schaalbare architectuur",
+                    title: "Kennismaking en Analyse",
                     description:
-                      "Ontwerp dat meegroeit met uw bedrijfsbehoeften en gebruikersaantallen.",
+                      "Tijdens een eerste gesprek worden de wensen en doelen van de website besproken. Dit helpt de webdesigner om een strategie op te stellen.",
                   },
                   {
-                    title: "Efficiënte databases",
+                    title: "Ontwerp en Conceptontwikkeling",
                     description:
-                      "Optimale dataopslag en -retrieval voor snelle en betrouwbare prestaties.",
+                      "Hier wordt een eerste ontwerp (wireframe) gemaakt. Dit geeft een visuele voorstelling van de structuur en indeling van de website.",
                   },
                   {
-                    title: "Krachtige API's",
+                    title: "Ontwikkeling en Programmeren",
                     description:
-                      "Interfaces die naadloze communicatie tussen verschillende systemen mogelijk maken.",
+                      "De daadwerkelijke bouw van de website vindt plaats. Hier worden functionaliteiten geïmplementeerd zoals formulieren, animaties en e-commerce functies.",
                   },
                   {
-                    title: "Robuuste beveiliging",
+                    title: "Testfase en Optimalisatie",
                     description:
-                      "Geavanceerde maatregelen om uw data en systemen te beschermen.",
+                      "Voordat de website live gaat, wordt deze uitgebreid getest op verschillende apparaten en browsers. Eventuele fouten en verbeterpunten worden doorgevoerd.",
                   },
                   {
-                    title: "Cloud-integratie",
+                    title: "Lancering en Onderhoud",
                     description:
-                      "Flexibele en schaalbare oplossingen met gebruik van cloud-technologieën.",
+                      "Na goedkeuring wordt de website live gezet. Onderhoud en updates zijn belangrijk om de website veilig en up-to-date te houden.",
                   },
                   {
                     title: "Prestatie-optimalisatie",
@@ -248,7 +372,7 @@ export default function BackendDevelopment() {
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
-                    <div className="flex flex-col h-full">
+                    <div className="flex flex-col h-full ">
                       <h5 className="text-2xl font-medium text-white mt-6 mb-3">
                         {service.title}
                       </h5>
@@ -264,8 +388,99 @@ export default function BackendDevelopment() {
 
       <PricingTable />
 
+       {/* About Section */}
+<section className="py-12 lg:py-24 dark:bg-gray-900">
+  <div className="container mx-auto px-4">
+    <div className="flex mb-4 items-center">
+      <svg
+        width="8"
+        height="8"
+        viewBox="0 0 9 9"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+      </svg>
+      <span className="inline-block ml-2 text-sm font-medium text-lime-500">
+        Website specialisten
+      </span>
+    </div>
+    <div className="border-t border-gray-800 pt-16">
+      <div className="max-w-lg mx-auto lg:max-w-none">
+        <div className="flex flex-wrap lg:items-center lg:flex-row-reverse -mx-4">
+          {/* Video Column */}
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video
+                className="w-full h-full object-contain rounded-md"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source
+                  src="https://cdn.dribbble.com/userupload/31676732/file/original-396e835eee2b982448adba728049e125.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          {/* Text Column */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-xl">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+              Veelgemaakte Fouten Bij Het Laten Maken van een Website
+              </h1>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+              Ondernemers maken vaak fouten bij het ontwikkelen van een website, en deze valkuilen kunnen de effectiviteit van een site sterk beïnvloeden. Een veelvoorkomende fout is het ontbreken van een duidelijk doel. Zonder een strategie mist de website focus en wordt het lastig om de juiste doelgroep te bereiken. Daarnaast zien we vaak dat er te veel nadruk ligt op het design, terwijl functionaliteit en gebruiksvriendelijkheid minstens zo belangrijk zijn. Een mooie website is waardevol, maar als bezoekers moeite hebben met navigeren of niet worden aangezet tot actie, dan mist de site zijn doel.</p>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+              Een andere grote misser is het negeren van SEO. Zonder zoekmachineoptimalisatie wordt de website nauwelijks gevonden, wat betekent dat potentiële klanten de site niet bereiken. Ook mobiele optimalisatie wordt nog te vaak over het hoofd gezien. Aangezien een groot deel van de internetgebruikers websites bezoekt via een smartphone, is een mobielvriendelijke site essentieel. Door deze valkuilen te vermijden, zorg je voor een website die niet alleen visueel aantrekkelijk is, maar ook goed functioneert en effectief is in het aantrekken van bezoekers en klanten.
+              </p>
+
+              <ul className="text-black">
+                <h3 className="text-lg py-3 font-bold dark:text-white">Wat Zijn de Belangrijkste Functionaliteiten van een Goede Website?</h3>
+                {[
+                  "Responsief Design: Geschikt voor mobiel, tablet en desktop.",
+                  "Snelle Laadtijd: Bezoekers haken af bij een trage website.",
+                  "Duidelijke Navigatie: Gebruiksvriendelijke menu’s en knoppen.",
+                  "Sterke Call-to-Action (CTA’s): Duidelijke knoppen om bezoekers te laten converteren.",
+                  "SEO-geoptimaliseerde Content: Belangrijke zoekwoorden en relevante teksten.",
+                  "Veiligheid en SSL-certificaat: Bescherming van gegevens en een betrouwbaar imago.",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center mb-4">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                      <path
+                        d="M14.8 6.40002L8.19995 13L5.19995 10"
+                        stroke="#022C22"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                    <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
       {/* About Section */}
-      <section className="py-12 lg:py-24">
+      <section className="py-12 lg:py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex mb-4 items-center">
             <svg
@@ -294,7 +509,7 @@ export default function BackendDevelopment() {
                       playsInline
                     >
                       <source
-                        src="https://cdn.dribbble.com/users/745262/screenshots/17629963/media/718b7bf2a71129bcd8531280baa6de02.mp4"
+                        src="https://cdn.dribbble.com/userupload/15831576/file/original-77e3918e88d9f08e8e79e7ad2f8154f9.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -303,46 +518,40 @@ export default function BackendDevelopment() {
                 </div>
                 <div className="w-full lg:w-1/2 px-4">
                   <div className="max-w-xl">
-                    <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6">
-                      Wat kun je van ons verwachten?
+                    <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                    Hoeveel Kost een Website Laten Maken?
                     </h1>
-                    <p className="text-lg text-gray-700 mb-10">
-                      Bij het ontwikkelen van backend systemen en custom software staat kwaliteit
-                      voorop. Onze aanpak is gericht op het leveren van oplossingen die niet alleen
-                      aan uw verwachtingen voldoen, maar deze overtreffen. Hier is wat u van ons kunt
-                      verwachten:
+                    <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                    De kosten van een website laten maken variëren sterk, afhankelijk van complexiteit, functionaliteiten en de gekozen ontwikkelaar. Gemiddeld kun je rekening houden met de volgende richtprijzen:
                     </p>
-                    <ul className="text-black">
-                      {[
-                        "Krachtige verwerking van complexe processen",
-                        "Veilige opslag en beheer van data",
-                        "Schaalbaarheid voor groeiende bedrijven",
-                        "Integratie met externe systemen en API's",
-                        "Fundament voor innovatieve features",
-                      ].map((item, index) => (
-                        <li key={index} className="flex items-center mb-4">
-                          <svg
-                            width="20"
-                            height="20"
-                            viewBox="0 0 20 20"
-                            fill="none"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
-                            <path
-                              d="M14.8 6.40002L8.19995 13L5.19995 10"
-                              stroke="#022C22"
-                              strokeWidth="1.5"
-                              strokeLinecap="round"
-                              strokeLinejoin="round"
-                            ></path>
-                          </svg>
-                          <span className="ml-3 text-lg text-gray-700 font-black">
-                            {item}
-                          </span>
-                        </li>
-                      ))}
-                    </ul>
+                    <section className="dark:bg-white">
+                    <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #ddd" }}>
+                    <thead>
+                      <tr style={{ backgroundColor: "#f4f4f4", textAlign: "left" }}>
+                        <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Type Website</th>
+                        <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Kostenindicatie</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Simpele Onepager (zzp)</td>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€249- €500</td>
+                      </tr>
+                      <tr>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard Bedrijfswebsite</td>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€1.999 - €5.000</td>
+                      </tr>
+                      <tr>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Webshop / E-commerce</td>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€2.499 - €10.000+</td>
+                      </tr>
+                      <tr>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Gecodeerde website</td>
+                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€6.995 - €20.000+</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  </section>
                   </div>
                 </div>
               </div>
@@ -352,7 +561,7 @@ export default function BackendDevelopment() {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-12 lg:py-24 dark:bg-black">
+      <section className="py-12 lg:py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-black dark:text-white">
@@ -490,50 +699,33 @@ export default function BackendDevelopment() {
                 ))}
               </div>
             </div>
-            <div className="max-w-xl mx-auto text-center">
-              <span className="inline-block mb-8 ml-10">
-                <Image
-                  src="/logos/logo.png"
-                  alt=""
-                  height={800}
-                  width={400}
-                />
-              </span>
-              <h5 className="text-4xl font-medium mb-4 text-black dark:text-white">
-                Heb je nog vragen?
-              </h5>
-              <p className="text-gray-700">
-                <span>Voor meer informatie over backend development en custom software kunt u onze </span>
-                <Link href="#" className="inline-block text-lime-500 font-medium underline">
-                  Contactpagina
-                </Link>
-                <span> bezoeken of bel onze klantenservice op </span>
-                <span className="text-lime-500 font-medium">071 203 24 88</span>
-                <span>
-                  Ons toegewijde team staat klaar om u te helpen bij het realiseren van uw perfecte backend oplossing.
-                </span>
-              </p>
-            </div>
           </div>
         </div>
       </section>
 
       {/* Call to Action */}
-      <section className="py-12 lg:py-24 bg-gray-900 text-white">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Klaar om uw digitale infrastructuur te versterken?</h2>
-          <p className="text-xl mb-12 text-gray-300">
-            Laat uw bedrijf groeien met krachtige, schaalbare backend oplossingen en custom software die perfect
-            aansluiten bij uw doelstellingen.
-          </p>
-          <Link
-            href="/offerte-aanvragen"
-            className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-black hover:text-white bg-green-500 hover:bg-transparent border border-lime-500 hover:border-white rounded-full transition duration-200"
-          >
-            Start uw backend project
-          </Link>
+            <section className="py-16 bg-gradient-to-r bg-white text-black dark:text-white dark:bg-gray-900 text-center">
+            <div className="container mx-auto px-6">
+              <h2 className="text-4xl font-bold mb-6">Klaar om een professionele website te laten maken?</h2>
+              <p className="text-lg mb-8 text-black-700 hover:text-green-700 max-w-2xl mx-auto">
+                Zet vandaag nog de stap naar een moderne, snelle en conversiegerichte website. Wij helpen je met een op maat gemaakte oplossing die jouw bedrijf online laat groeien.
+              </p>
+              <div className="flex flex-col md:flex-row justify-center gap-4">
+                <a
+                  href="/offerte-aanvragen"
+                  className="bg-green-700 text-white font-semibold py-4 px-6 rounded-full text-lg hover:bg-green-900 hover:text-white transition duration-300"
+                >
+                  Vraag een gratis offerte aan
+                </a>
+                <a
+                  href="/portfolio"
+                  className="border border-white text-black font-semibold py-4 px-6 rounded-full text-lg hover:bg-white hover:text-green-900 transition duration-300"
+                >
+                  Bekijk ons werk
+                </a>
+              </div>
+            </div>
+          </section>
         </div>
-      </section>
-    </div>
   )
 }
