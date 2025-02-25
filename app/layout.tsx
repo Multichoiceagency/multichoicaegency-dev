@@ -46,7 +46,6 @@ export default function RootLayout({
           attribute="class"
           defaultTheme="auto"
           enableSystem
-          disableTransitionOnChange
         >
           <Header />
           {children}

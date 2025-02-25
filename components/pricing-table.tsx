@@ -40,10 +40,10 @@ const features: PricingFeature[] = [
 ]
 
 const packages = [
-  { name: "Basis Pakket", description: "Custom WordPress website met essentiële functionaliteiten voor effectieve informatievoorziening", price: "Vanaf € 3.500,-", hosting: "Basis Hosting\n€ 45,-", support: "Basis Support (SLA) vanaf € 45,-", tech: "WordPress" },
-  { name: "Premium Pakket", description: "Professionele website met uitgebreide content mogelijkheden en modules", price: "Vanaf € 5.500,-", hosting: "Professional Hosting\n€ 60,-", support: "Professional Support (SLA) vanaf € 60,-", tech: "Keuze uit: Next.js, Vue.js, WordPress, of custom" },
-  { name: "Exclusive Pakket", description: "Complete website gericht op het omzetten van bezoekers naar klanten", price: "Vanaf € 7.500,-", hosting: "Professional Hosting +\nvanaf € 90,-", support: "Professional Support + vanaf € 90,-", tech: "Keuze uit: Next.js, Vue.js, WordPress, of custom" },
-  { name: "Enterprise / Zakelijk", description: "Geavanceerde oplossing op maat met uitgebreide functionaliteiten en integraties", price: "€ 10.000,- tot € 30.000,-", hosting: "Enterprise Hosting\nvanaf € 150,-", support: "Enterprise Support 24/7 vanaf € 250,-", tech: "Keuze uit: Next.js, Vue.js, WordPress, of custom" },
+  { name: "Basis Pakket", description: "Custom WordPress website met essentiële functionaliteiten voor effectieve informatievoorziening", price: "Vanaf € 1.999,-", hosting: "Basis Hosting\n met onderhoud € 45,-", support: "Basis Support (SLA) vanaf € 45,-", tech: "WordPress, Shopify, Wix en andere cms soorten" },
+  { name: "Premium Pakket", description: "Professionele website met uitgebreide content mogelijkheden en modules", price: "Vanaf € 5.500,-", hosting: "Professional Hosting\n€ 60,-", support: "Professional Support (SLA) vanaf € 60,-", tech: "Keuze uit: Next.js, Vue.js, of custom" },
+  { name: "Exclusive Pakket", description: "Complete website gericht op het omzetten van bezoekers naar klanten", price: "Vanaf € 7.500,-", hosting: "Professional Hosting +\nvanaf € 90,-", support: "Professional Support + vanaf € 90,-", tech: "Keuze uit: Next.js, React Native, of custom" },
+  { name: "Enterprise / Zakelijk", description: "Geavanceerde oplossing op maat met uitgebreide functionaliteiten en integraties", price: "€ 10.000,- tot € 30.000,-", hosting: "Enterprise Hosting\nvanaf € 150,-", support: "Enterprise Support 24/7 vanaf € 250,-", tech: "Keuze uit: Next.js, React Native" },
 ]
 
 export function PricingTable() {
@@ -61,7 +61,7 @@ export function PricingTable() {
   }
 
   return (
-    <section className="py-20 bg-background text-foreground">
+    <section className="py-20 bg-background text-foreground overflow-x-hidden">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
