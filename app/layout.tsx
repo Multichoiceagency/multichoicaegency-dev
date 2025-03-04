@@ -7,6 +7,7 @@ import GoogleCalendarButton from '@/components/GoogleCalenderButton';
 import { Header } from '@/components/header';
 import ExitIntentPopup from '@/components/ExitIntentPopup';
 import ClientWrapper from '@/components/ClientWrapper';
+import ScrollToTop from '@/components/ScrollToTop';
 
 // Initialize Hanken Grotesk
 const hankenGrotesk = Hanken_Grotesk({ subsets: ['latin'] });
@@ -41,7 +42,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Multichoiceagency App" />
         </head>
       <body className={hankenGrotesk.className}>
-
+      <ScrollToTop />
         <ThemeProvider
           attribute="class"
           defaultTheme="auto"

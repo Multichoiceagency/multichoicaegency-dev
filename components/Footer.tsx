@@ -136,7 +136,7 @@ export function Footer() {
               <div className="flex flex-wrap -mx-4">
                 {navSections.map((section, index) => (
                   <div key={index} className="w-1/2 xs:w-1/3 px-4 mb-8 xs:mb-0">
-                    <h2 className="mb-6 text-white dark:text-gray-200 font-bold">{section.title}</h2>
+                    <h2 className="text-xl mb-6 text-white dark:text-gray-200 font-bold">{section.title}</h2>
                     <ul>
                       {section.links.map((link, idx) => (
                         <li key={idx} className="mb-4">
@@ -180,7 +180,7 @@ export function Footer() {
                 key={idx}
                 className="px-4 py-6 bg-white dark:bg-gray-800 text-black dark:text-gray-200 rounded-md shadow-lg"
               >
-                <h3 className="text-lg font-semibold mb-4">{block.title}</h3>
+                <h3 className="text-2xl font-semibold mb-4">{block.title}</h3>
                 {block.info.map((text, index) => (
                   <p key={index} className="mb-2">
                     {text}

@@ -130,10 +130,10 @@ export function Header(): JSX.Element {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 lg:gap-12">
-            {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over ons", ].map(
+            {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over ons"].map(
               (item, index) => (
                 <div key={index} className="relative">
-                  {item === "Contact" || item === "Over Ons" ? (
+                  {item === "Contact" || item === "Over ons" ? (
                     <Link
                       href={`/${item.toLowerCase().replace(/ /g, "-")}`}
                       className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
@@ -158,19 +158,23 @@ export function Header(): JSX.Element {
             )}
           </div>
 
+
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <AppleStyleThemeSwitcher />
           
-          {/* Inloggen Button with Link */}
-          <Link href="/inloggen">
-            <Button
-              variant="ghost"
-              className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
-            >
-              Inloggen
-            </Button>
-          </Link>
+        <Link
+          href="https://projecten.mlt.multichoiceagency.nl/authentication/login"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Button
+            variant="ghost"
+            className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
+          >
+            Inloggen
+          </Button>
+        </Link>
 
           {/* Offerte Aanvragen Button with Link */}
           <Link href="/offerte-aanvragen">
