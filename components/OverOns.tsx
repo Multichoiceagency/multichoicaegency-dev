@@ -16,18 +16,6 @@ export default function OverOns() {
 
   return (
     <section className="bg-white text-black">
-    <HeroNieuw
-      title={"Over ons"}
-      description={
-        " Met onze expertise in maatwerk webdesign, backend development en digitale strategieën, helpen we bedrijven en ondernemers om hun online doelen te realiseren."
-      }
-      buttonText={"Offerte aanvragen"}
-      buttonLink={"/offerte-aanvragen"}
-      videoSrc={
-        "https://cdn.dribbble.com/userupload/7872434/file/original-a1397ab48ba1331e935ca52bcab129fa.mp4"
-      }
-    />
-
     <section className="max-w-[1800px] mx-auto justify-center align-center dark:bg-gray-900 py-20 px-4 md:px-16 lg:px-24">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Video Section */}
@@ -53,8 +41,8 @@ export default function OverOns() {
           <p className="text-lg md:text-xl dark:text-white text-gray-600 leading-relaxed mb-6">
           Onze missie is om innovatieve, schaalbare en gebruiksvriendelijke websites te ontwikkelen die niet alleen visueel aantrekkelijk zijn, maar ook technisch optimaal presteren. Van corporate websites tot geavanceerde webshops, wij bieden op maat gemaakte oplossingen die perfect aansluiten bij jouw wensen en bedrijfsdoelstellingen.
           </p>
-          <ul className="pb-4">
-          <li className="font-bold">Waarom kiezen voor Multichoiceagency?</li>
+          <ul className="pb-4 dark:text-white">
+          <li className="font-bold ">Waarom kiezen voor Multichoiceagency?</li>
           <li>✅ Maatwerk Webdesign – Unieke en professionele websites die jouw merk laten opvallen.</li>
           <li>✅ SEO Geoptimaliseerd – Wij zorgen ervoor dat jouw website goed vindbaar is in Google.</li>
           <li>✅ Responsive & Snel – Geoptimaliseerd voor mobiel, tablet en desktop voor een naadloze gebruikerservaring.</li>
@@ -62,27 +50,27 @@ export default function OverOns() {
           <li>✅ Persoonlijke Ondersteuning – Altijd bereikbaar voor advies, onderhoud en updates.</li>
           <p className="text-lg md:text-xl dark:text-white text-gray-600 leading-relaxed mb-6"/>Wil je een professionele website laten maken of jouw huidige website optimaliseren? Neem vrijblijvend contact met ons op en ontdek hoe wij jouw bedrijf online kunnen laten groeien.
           </ul>
-          <div className="text-left p-6 bg-gray-100 dark:bg-gray-900 rounded-lg shadow-md">
-              <p className="text-lg text-gray-800 dark:text-gray-200 mb-2">
+          <div className="text-left p-6 bg-gray-100 dark:bg-gray-700 rounded-lg shadow-md">
+              <p className="text-sm text-gray-800 dark:text-gray-200 mb-2">
                 📧 E-mail:{" "}
-                <a href="mailto:info@multichoiceagency.nl" className="text-blue-600 hover:underline">
+                <a href="mailto:info@multichoiceagency.nl" className="text-green-600 hover:underline">
                   info@multichoiceagency.nl
                 </a>
               </p>
-              <p className="text-lg text-gray-800 dark:text-gray-200 mb-2">
+              <p className="text-sm text-gray-800 dark:text-gray-200 mb-2">
                 📞 Telefoon:{" "}
-                <a href="tel:0103220410" className="text-blue-600 hover:underline">
+                <a href="tel:0103220410" className="text-green-600 hover:underline">
                   010-3220410
                 </a>
               </p>
-              <p className="text-lg text-gray-800 dark:text-gray-200 mb-4">
+              <p className="text-sm text-gray-800 dark:text-gray-200 mb-4">
                 🌍 Website:{" "}
-                <a href="https://www.multichoiceagency.nl" target="_blank" className="text-blue-600 hover:underline">
+                <a href="https://www.multichoiceagency.nl" target="_blank" className="text-green-600 hover:underline">
                   www.multichoiceagency.nl
                 </a>
               </p>
-              <h2 className="text-2xl font-bold text-gray-900 dark:text-white">
-                🚀 Multichoiceagency – Jouw Partner in Webdesign en Online Groei!
+              <h2 className="text-sm font-bold text-gray-900 dark:text-white">
+                🚀 Multichoiceagency – Al meer dan 10 jaar ervaring!
               </h2>
             </div>
             <div className="pt-4">
