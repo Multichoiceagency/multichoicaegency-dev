@@ -14,9 +14,11 @@ import {
   Search,
   TrendingUp,
   Video,
-  PlayCircle
+  PlayCircle,
+  ShoppingBagIcon
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { IconBrandWordpress } from "@tabler/icons-react";
 
 interface Direction {
   icon: React.ReactNode;
@@ -40,6 +42,12 @@ const directions: Direction[] = [
     href: "/website-laten-maken",
   },
   {
+    icon: <ShoppingCart className="h-6 w-6" />,
+    title: "Webshop laten maken",
+    description: "Creëer krachtige online winkels.",
+    href: "/webshop-laten-maken",
+  },
+  {
     icon: <Palette className="h-6 w-6" />,
     title: "UI/UX Design",
     description: "Ontwerp intuïtieve en visueel aantrekkelijke interfaces.",
@@ -49,68 +57,63 @@ const directions: Direction[] = [
     icon: <Globe className="h-6 w-6" />,
     title: "Maatwerk Websites",
     description: "Ontwikkel websites die perfect passen bij jouw merk.",
-    href: "/maatwerk-websites",
+    href: "/maatwerk-website-laten-maken",
+  },
+  {
+    icon: <ShoppingBagIcon className="h-6 w-6" />,
+    title: "Shopify Webshop laten maken",
+    description: "Ideaal voor snelle conversies",
+    href: "/shopify-webshop-laten-maken",
   },
   {
     icon: <ShoppingCart className="h-6 w-6" />,
-    title: "E-commerce",
-    description: "Creëer krachtige online winkels.",
-    href: "/webshop-laten-maken",
+    title: "Woocommerce webshop laten maken",
+    description: "Geheel een ontwerp op maat naar jouw wensen en eisen.",
+    href: "/woocommerce-webshop-laten-maken",  
   },
   {
-    icon: <Smartphone className="h-6 w-6" />,
-    title: "Frontend Development",
-    description: "Bouw responsieve en interactieve gebruikersinterfaces.",
-    href: "/frontend-development",
-  },
-  {
-    icon: <Server className="h-6 w-6" />,
-    title: "Backend Development",
-    description: "Implementeer robuuste server-side oplossingen.",
-    href: "/backend-development",
+    icon: <IconBrandWordpress className="h-5 w-5" />,
+    title: "Wordpress website laten maken",
+    description: "Geheel een ontwerp op maat naar jouw wensen en eisen.",
+    href: "/wordpress-website-laten-maken",
   },
 ];
 
 const solutions: Solution[][] = [
   [
     {
-      icon: <TrendingUp className="h-5 w-5" />,
-      title: "Online Marketing",
-      href: "/online-marketing",
-    },
-    {
       icon: <Search className="h-5 w-5" />,
       title: "SEO",
-      href: "/seo",
+      href: "essmarketing.nl",
     },
     {
       icon: <ShoppingCart className="h-5 w-5" />,
       title: "Google Ads",
-      href: "/google-ads",
+      href: "essmarketing.nl",
     },
   ],
   [
     {
       icon: <Smartphone className="h-5 w-5" />,
       title: "Social Media",
-      href: "/social-media",
+      href: "essmarketing.nl",
     },
     {
       icon: <FileText className="h-5 w-5" />,
       title: "Content Marketing",
-      href: "/content-marketing",
+      href: "essmakreting.nl",
     },
   ],
   [
     {
       icon: <Video className="h-5 w-5" />,
       title: "Bedrijfsvideo laten maken",
-      href: "/bedrijfsvideo",
+      href: "essmedia.nl",
     },
     {
       icon: <PlayCircle className="h-5 w-5" />,
       title: "Productvideo laten maken",
-      href: "/productvideo",
+      href: "essmedia.nl",
     },
   ],
 ];
@@ -129,7 +132,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
   animate={{ opacity: 1, y: 0 }}
   exit={{ opacity: 0, y: 10 }}
   transition={{ duration: 0.2 }}
-  className="absolute left-0 right-0 bg-white dark:bg-background border-b border-border shadow-lg"
+  className="absolute left-0 right-0 bg-white dark:bg-gray-800 border-b border-border shadow-lg"
   style={{ top: "100%" } as React.CSSProperties}
 >
       <div className="container mx-auto max-w-[1800px] py-8 px-10">
@@ -202,23 +205,25 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                 <div>
                   <h4 className="font-medium">Andere oplossingen nodig?</h4>
                   <p className="text-sm text-muted-foreground">
-                    Voor teams van 300+ met geavanceerde beveiliging, controle en ondersteuning
+                    Vraag dan een vrijblijvend offerte aan of vraag een gratis adviesgesprek aan van 30 minuten.
                   </p>
                 </div>
-                <Button variant="outline" className="gap-2">
-                  Praat met sales
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
+                <Link href="/offerte-aanvragen">
+                  <Button variant="outline" className="gap-2 dark:bg-green-700">
+                    Meer informatie
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             </div>
-          </div>
+            </div>
 
           {/* Rechter kolom – Featured Video */}
           <div className="flex flex-col justify-between">
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+            <div className="relative aspect-video w-full h-[300px] overflow-hidden rounded-lg">
               <video
-                src="https://cdn.pixabay.com/video/2022/10/24/136268-764387688_tiny.mp4"
-                poster="https://cdn.pixabay.com/video/2022/10/24/136268-764387688_tiny.mp4"
+                src="https://cdn.dribbble.com/userupload/15425359/file/original-2b2e2d473e5fee8e7d8d4f6ee7860d94.mp4"
+                poster="https://cdn.dribbble.com/userupload/15425359/file/original-2b2e2d473e5fee8e7d8d4f6ee7860d94.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 muted
@@ -242,19 +247,9 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                 </p>
               </div>
             </div>
-            <div className="mt-6">
-              <h4 className="font-medium mb-2">Uitgelichte Case Study</h4>
-              <p className="text-sm text-muted-foreground mb-4">
-                Zie hoe XYZ Organisatie hun online aanwezigheid verbeterde met ons platform.
-              </p>
-              <Button variant="link" className="p-0 h-auto text-sm text-primary">
-                Lees case study
-                <ChevronRight className="h-4 w-4 ml-1" />
-              </Button>
             </div>
           </div>
         </div>
-      </div>
     </motion.div>
   );
 }

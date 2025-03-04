@@ -90,7 +90,7 @@ export default function Portfolio() {
         <div className="flex flex-wrap items-center -mx-4 mb-16">
           <div className="w-full xl:w-2/3 px-4 mb-8 xl:mb-0">
             <span className="text-sm font-semibold uppercase text-green-600">
-            Een Greep Uit Ons Werk: Portfolio
+            Een Greep Uit Ons Portfolio
             </span>
             <h2 className="max-w-2xl font-bold uppercase font-heading text-3xl sm:text-4xl dark:text-white">
               Ontdek onze cases
@@ -99,7 +99,7 @@ export default function Portfolio() {
           <div className="w-full xl:w-auto ml-auto px-4 xl:text-right">
             <Link
               href="/cases"
-              className="inline-block w-full dark:bg-green-700 dark:hover:text-black sm:w-auto py-4 px-6 text-center font-heading font-medium text-base text-gray-900 dark:text-white border border-gray-900 dark:border-white hover:text-green-500 hover:border-green-500 rounded-sm transition duration-150"
+              className="inline-block w-full dark:bg-green-700 hover:bg-green-700 hover:text-white dark:hover:text-black sm:w-auto py-4 px-6 text-center font-heading font-medium text-base text-gray-900 dark:text-white border border-gray-900 dark:border-white hover:text-green-500 hover:border-green-500 rounded-sm transition duration-150"
             >
               Bekijk alle cases
             </Link>

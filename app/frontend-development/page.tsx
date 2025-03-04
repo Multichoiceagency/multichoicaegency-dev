@@ -131,7 +131,7 @@ export default function FrontendNextjs() {
             <div className="w-full md:w-1/2 px-4 mb-6 md:mb-0">
               <div className="lg:sticky lg:top-8 bg-black/10 px-10 py-10 rounded-xl">
                 <h2 className="font-heading text-7xl md:text-7xl bg-clip-text text-transparent bg-[linear-gradient(to_right,theme(colors.green.700),theme(colors.gray.500),theme(colors.green.400),theme(colors.black),theme(colors.green.300),theme(colors.green.700))] bg-[length:200%_auto] animate-gradient">
-                  Wij bouwen al jaren Next.js applicaties
+                  Wij bouwen al jaren websites op maat! 
                 </h2>
               </div>
             </div>

@@ -3,9 +3,10 @@
 import { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import { Button } from './ui/button';
+import { decodeHtml } from '@/utils/decodeHtml'; // Importeren van decodeHtml functie
 
 interface Case {
   id: number;
@@ -35,8 +36,8 @@ export function MegaMenuCases({ isOpen, onClose, isMobile = false }: MegaMenuCas
 
       const formattedCases = data.map((item: any) => ({
         id: item.id,
-        title: item.title.rendered,
-        subtitle: item.acf?.subtitle || "",
+        title: decodeHtml(item.title.rendered),
+        subtitle: item.acf?.subtitle ? decodeHtml(item.acf.subtitle) : "",
         image: item._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.jpg',
         logonew: item.acf?.logonew || "",
         tags: item.acf?.tags ? item.acf.tags.split(",").map((tag: string) => tag.trim()) : [],
@@ -54,9 +55,8 @@ export function MegaMenuCases({ isOpen, onClose, isMobile = false }: MegaMenuCas
 
   if (!isOpen) return null;
 
-  const containerClass = isMobile
-    ? "grid grid-cols-1 gap-8"
-    : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8";
+  // Beperk de getoonde cases tot 4
+  const limitedCases = cases.slice(0, 4);
 
   return (
     <motion.div
@@ -81,17 +81,13 @@ export function MegaMenuCases({ isOpen, onClose, isMobile = false }: MegaMenuCas
         {!isMobile && (
           <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Onze Cases</h2>
         )}
-        <div
-          ref={scrollContainerRef}
-          className={`${containerClass} ${isMobile ? "flex-grow overflow-y-auto px-4 pb-4" : ""}`}
-        >
-          {cases.map((caseItem) => (
+        <div ref={scrollContainerRef} className="grid grid-cols-2 gap-8">
+          {limitedCases.map((caseItem) => (
             <motion.div
               key={caseItem.id}
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.3 }}
-              className={isMobile ? "" : "md:flex-shrink-0 md:w-[280px]"}
             >
               <Link href={`/cases/${caseItem.slug}`} className="group block" onClick={onClose}>
                 <div className="relative aspect-w-16 aspect-h-9 mb-4 overflow-hidden rounded-lg">
@@ -103,8 +99,12 @@ export function MegaMenuCases({ isOpen, onClose, isMobile = false }: MegaMenuCas
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-95"
                   />
                 </div>
-                <h3 className="text-l font-bold mb-2 text-gray-900 group-hover:text-green-600 dark:text-white">{caseItem.title}</h3>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">{caseItem.subtitle}</p>
+                <h3 className="text-l font-bold mb-2 text-gray-900 group-hover:text-green-600 dark:text-white">
+                  {caseItem.title}
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                  {caseItem.subtitle}
+                </p>
                 <div className="flex items-center text-green-500 group-hover:text-green-600 transition-colors mb-6">
                   <span className="text-sm font-medium">Bekijk case</span>
                   <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
@@ -126,4 +126,3 @@ export function MegaMenuCases({ isOpen, onClose, isMobile = false }: MegaMenuCas
     </motion.div>
   );
 }
-
