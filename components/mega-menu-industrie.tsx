@@ -119,7 +119,7 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.2 }}
-      className="absolute left-0 right-0 bg-white dark:bg-background border-b border-border shadow-lg"
+      className="absolute left-0 right-0 bg-white dark:bg-gray-800 border-b border-border shadow-lg"
       style={{ top: "100%" }}
     >
       <div className="container mx-auto max-w-[1800px] py-8 px-10">
@@ -207,10 +207,10 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
 
           {/* Right Column - Featured Video */}
           <div className="flex flex-col justify-between">
-            <div className="relative aspect-video w-full overflow-hidden rounded-lg">
+            <div className="relative aspect-video w-full h-[300px] overflow-hidden rounded-lg">
               <video
-                src="https://cdn.pixabay.com/video/2022/10/24/136268-764387688_tiny.mp4"
-                poster="https://cdn.pixabay.com/video/2022/10/24/136268-764387688_tiny.mp4"
+                src="https://cdn.dribbble.com/userupload/15397598/file/original-efa7e29c3212f8e5b3558d574c7a6654.mp4"
+                poster="https://cdn.dribbble.com/userupload/15397598/file/original-efa7e29c3212f8e5b3558d574c7a6654.mp4"
                 className="w-full h-full object-cover"
                 autoPlay
                 muted
@@ -225,17 +225,10 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
                 <p className="text-white/80 text-sm mb-4">Ontdek hoe wij jouw branche ondersteunen met maatwerk.</p>
               </div>
             </div>
-            <div className="mt-6">
-              <h4 className="font-medium mb-2">Uitgelichte Case Study</h4>
-              <p className="text-sm text-muted-foreground mb-4">Lees hoe wij bedrijven helpen groeien met onze expertise.</p>
-              <Button variant="link" className="p-0 h-auto text-sm text-primary">
-                Bekijk case study
-                <ChevronRight className="h-4 w-4 ml-1" />
-              </Button>
-            </div>
           </div>
         </div>
       </div>
     </motion.div>
   );
 }
+

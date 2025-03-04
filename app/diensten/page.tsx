@@ -180,7 +180,91 @@ const sections = [
       },
     ],
   },
-];
+  {
+      title: "INDUSTRIËN",
+      services: [
+        {
+          id: "Website laten maken voor Softwareontwikkeling",
+          title: "Website laten maken voor Softwareontwikkeling",
+          description: "Laat een professionele website ontwikkelen voor de sector Softwareontwikkeling en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor IT-dienstverlening",
+          title: "Website laten maken voor IT-dienstverlening",
+          description: "Laat een professionele website ontwikkelen voor de sector IT-dienstverlening en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor E-commerce",
+          title: "Website laten maken voor E-commerce",
+          description: "Laat een professionele website ontwikkelen voor de sector E-commerce en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Industrie & Productie",
+          title: "Website laten maken voor Industrie & Productie",
+          description: "Laat een professionele website ontwikkelen voor de sector Industrie & Productie en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Gezondheidszorg & Farmacie",
+          title: "Website laten maken voor Gezondheidszorg & Farmacie",
+          description: "Laat een professionele website ontwikkelen voor de sector Gezondheidszorg & Farmacie en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Zakelijke dienstverlening",
+          title: "Website laten maken voor Zakelijke dienstverlening",
+          description: "Laat een professionele website ontwikkelen voor de sector Zakelijke dienstverlening en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Agri & Food",
+          title: "Website laten maken voor Agri & Food",
+          description: "Laat een professionele website ontwikkelen voor de sector Agri & Food en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Bouw & Installatietechniek",
+          title: "Website laten maken voor Bouw & Installatietechniek",
+          description: "Laat een professionele website ontwikkelen voor de sector Bouw & Installatietechniek en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Groothandel",
+          title: "Website laten maken voor Groothandel",
+          description: "Laat een professionele website ontwikkelen voor de sector Groothandel en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Automotive, Transport & Logistiek",
+          title: "Website laten maken voor Automotive, Transport & Logistiek",
+          description: "Laat een professionele website ontwikkelen voor de sector Automotive, Transport & Logistiek en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Media, Reclame & Communicatie",
+          title: "Website laten maken voor Media, Reclame & Communicatie",
+          description: "Laat een professionele website ontwikkelen voor de sector Media, Reclame & Communicatie en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Horeca, Toerisme & Recreatie",
+          title: "Website laten maken voor Horeca, Toerisme & Recreatie",
+          description: "Laat een professionele website ontwikkelen voor de sector Horeca, Toerisme & Recreatie en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+        {
+          id: "Website laten maken voor Detailhandel",
+          title: "Website laten maken voor Detailhandel",
+          description: "Laat een professionele website ontwikkelen voor de sector Detailhandel en vergroot je online succes.",
+          url: "/services/website-laten-maken",
+        },
+      ],
+    },
+  ];
+
 
 const ServicesSection: React.FC = () => {
   return (

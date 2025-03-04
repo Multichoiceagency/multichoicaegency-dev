@@ -28,7 +28,7 @@ export default function OverOns() {
       }
     />
 
-    <section className="max-w-[1440px] mx-auto justify-center align-center dark:bg-gray-900 py-20 px-4 md:px-16 lg:px-24">
+    <section className="max-w-[1800px] mx-auto justify-center align-center dark:bg-gray-900 py-20 px-4 md:px-16 lg:px-24">
       <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
         {/* Video Section */}
         <div className="relative w-full h-[1000px] lg:w-3/4">
@@ -85,8 +85,9 @@ export default function OverOns() {
                 🚀 Multichoiceagency – Jouw Partner in Webdesign en Online Groei!
               </h2>
             </div>
+            <div className="pt-4">
           <a
-            href="diensten"
+            href="over-ons"
             className="inline-flex items-center bg-teal-700 text-white font-semibold px-6 py-3 rounded-lg shadow-md hover:bg-teal-900 transition-colors"
           >
             Over ons
@@ -101,6 +102,7 @@ export default function OverOns() {
               <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3" />
             </svg>
           </a>
+          </div>
         </div>
       </div>
     </section>

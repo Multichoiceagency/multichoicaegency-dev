@@ -116,7 +116,7 @@ export function Header(): JSX.Element {
             : "bg-white dark:bg-gray-900"
         }`}
       >
-        <div className="mx-auto flex h-16 md:h-20 max-w-[1800px] items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-16 md:h-20 max-w-screen items-center justify-between px-4 sm:px-6 lg:px-8">
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <Image
@@ -130,7 +130,7 @@ export function Header(): JSX.Element {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8 lg:gap-12">
-            {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over Ons"].map(
+            {["Wat doen wij", "Cases", "Development", "Portalen", "Industrieën", "Contact", "Over ons", ].map(
               (item, index) => (
                 <div key={index} className="relative">
                   {item === "Contact" || item === "Over Ons" ? (

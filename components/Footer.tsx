@@ -31,11 +31,13 @@ const navSections: NavItem[] = [
   {
     title: "Web Development",
     links: [
-      { name: "UI/UX Design", href: "/ui-ux-design" },
-      { name: "Maatwerk Websites", href: "/maatwerk-websites" },
-      { name: "E-commerce", href: "/e-commerce" },
-      { name: "Frontend Development", href: "/frontend-development" },
-      { name: "Backend Development", href: "/backend-development" },
+      { name: "Websites", href: "/website-laten-maken" },
+      { name: "Webshops", href: "/wat-is-ui-ux-design" },
+      { name: "UI/UX Design", href: "/wat-is-ui-ux-design" },
+      { name: "Maatwerk Websites", href: "/maatwerk-website-laten-maken" },
+      { name: "Shopify webshop", href: "/shopify-webshop-laten-maken" },
+      { name: "Woocommerce webshop", href: "/woocommerce-webshop-laten-maken" },
+      { name: "Wordpress website", href: "/wordpress-website-laten-maken" },
     ],
   },
   {
@@ -60,7 +62,7 @@ const navSections: NavItem[] = [
     ],
   },
   {
-    title: "Kenniscentrum",
+    title: "Informatie",
     links: [
       { name: "Inloggen bestaande klant", href: "https://projecten.mlt.multichoiceagency.nl" },
       { name: "Helpdesk", href: "/helpdesk" },
@@ -82,7 +84,7 @@ const socialLinks: SocialItem[] = [
 const contactSections: ContactItem[] = [
   {
     title: "Contact",
-    info: ["Multichoiceagency B.V.", "Edisonstraat 5c, Rotterdam", "Wij werken door heel Nederland"],
+    info: ["Multichoiceagency", "Wij werken uitsluitend op locatie en op afspraak door heel Nederland."],
     links: [
       { icon: faEnvelope, text: "sales@multichoiceagency.nl", href: "mailto:sales@multichoiceagency.nl" },
       { icon: faPhone, text: "0103220410", href: "tel:0103220410" },
@@ -98,7 +100,7 @@ const contactSections: ContactItem[] = [
   },
   {
     title: "Overige Gegevens",
-    info: ["KVK: 77481445", "BTW: NL.861020741.B01", "IBAN: NL50.INGB.0005.655.287"],
+    info: ["KVK: 71511776", "BTW: NL.002353407.B39", "IBAN: NL91.INGB.0008.3417.40"],
   },
 ];
 
