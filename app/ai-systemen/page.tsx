@@ -6,60 +6,56 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
-export default function FrontendDevelopmentPage() {
+export default function AIGeoptimaliseerdeSystemenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Wat houdt frontend development in?",
+      question: "Wat zijn AI-geoptimaliseerde systemen?",
       answer:
-        "Frontend development richt zich op het bouwen van de visuele interface van een website. Dit omvat de layout, navigatie, interactieve elementen en animaties die samen zorgen voor een optimale gebruikerservaring.",
+        "AI-geoptimaliseerde systemen maken gebruik van kunstmatige intelligentie en machine learning om bedrijfsprocessen te automatiseren, data realtime te analyseren en inzichten te genereren die leiden tot efficiëntere besluitvorming.",
     },
     {
-      question: "Welke voordelen biedt een moderne frontend?",
+      question: "Welke voordelen bieden deze systemen?",
       answer:
-        "Een moderne frontend zorgt voor een aantrekkelijke, gebruiksvriendelijke en snelle website. Dit verbetert de gebruikerservaring, verhoogt conversies en versterkt uw merkidentiteit.",
+        "Ze zorgen voor kostenbesparingen, efficiëntere workflows, verbeterde klantrelaties en een verhoogde omzet door repetitieve taken te automatiseren en data-gedreven beslissingen mogelijk te maken.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor frontend development?",
+      question: "Hoe lang duurt de implementatie van een AI-systeem?",
       answer:
-        "Wij maken gebruik van HTML5, CSS3, JavaScript en moderne frameworks zoals React, Vue of Angular, zodat we dynamische en schaalbare webapplicaties kunnen bouwen.",
+        "De implementatietijd varieert per project, maar gemiddeld duurt het tussen de 8 en 16 weken, afhankelijk van de complexiteit en de benodigde integraties.",
     },
     {
-      question: "Hoe lang duurt een typisch frontend project?",
+      question: "Kan ik het systeem volledig op maat laten maken?",
       answer:
-        "De ontwikkeltijd varieert per project, maar een standaard frontend project duurt meestal tussen de 4 en 8 weken.",
+        "Ja, onze AI-oplossingen worden volledig afgestemd op uw bedrijfsprocessen en wensen, zodat u een systeem krijgt dat perfect aansluit bij uw unieke behoeften.",
     },
     {
-      question: "Bieden jullie ook optimalisatie voor snelheid en SEO?",
+      question: "Bieden jullie ondersteuning na de implementatie?",
       answer:
-        "Ja, naast een prachtig design zorgen we ervoor dat uw website snel laadt en technisch geoptimaliseerd is voor zoekmachines, wat resulteert in betere vindbaarheid en een optimale gebruikerservaring.",
-    },
-    {
-      question: "Is mijn website volledig responsive?",
-      answer:
-        "Absoluut, wij zorgen ervoor dat uw website op elk apparaat perfect functioneert, of het nu gaat om desktops, tablets of mobiele telefoons.",
+        "Zeker, wij bieden uitgebreide support- en onderhoudpakketten, inclusief trainingen en regelmatige updates, om te garanderen dat uw systeem altijd optimaal functioneert.",
     },
   ];
 
   return (
     <div className="bg-white text-black">
+      {/* SEO & Schema */}
       <NextSeo
-        title="Frontend Development | Moderne, Responsive Webapplicaties"
-        description="Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën."
-        canonical="https://www.multichoiceagency.nl/frontend-development"
+        title="AI Geoptimaliseerde Systemen | Innovatieve AI-oplossingen voor uw Bedrijf"
+        description="Ontdek hoe AI-geoptimaliseerde systemen uw bedrijfsprocessen transformeren. Onze op maat gemaakte AI-oplossingen analyseren data, optimaliseren processen en verhogen de efficiëntie."
+        canonical="https://www.multichoiceagency.nl/ai-geoptimaliseerde-systemen"
         openGraph={{
           type: 'website',
-          url: 'https://www.multichoiceagency.nl/frontend-development',
-          title: 'Frontend Development | Moderne, Responsive Webapplicaties',
+          url: 'https://www.multichoiceagency.nl/ai-geoptimaliseerde-systemen',
+          title: 'AI Geoptimaliseerde Systemen | Innovatieve AI-oplossingen voor uw Bedrijf',
           description:
-            'Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën.',
+            'Ontdek hoe AI-geoptimaliseerde systemen uw bedrijfsprocessen transformeren. Onze op maat gemaakte AI-oplossingen analyseren data, optimaliseren processen en verhogen de efficiëntie.',
           images: [
             {
-              url: '/partners/frontend-development.png',
+              url: '/partners/ai-geoptimaliseerde-systemen.png',
               width: 1200,
               height: 630,
-              alt: 'Frontend Development',
+              alt: 'AI Geoptimaliseerde Systemen',
             },
           ],
         }}
@@ -73,64 +69,39 @@ export default function FrontendDevelopmentPage() {
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Frontend Development', item: 'https://www.multichoiceagency.nl/frontend-development' },
+          { position: 2, name: 'AI Geoptimaliseerde Systemen', item: 'https://www.multichoiceagency.nl/ai-geoptimaliseerde-systemen' },
         ]}
       />
 
       <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom is frontend development belangrijk?',
-            acceptedAnswerText:
-              'De frontend is het visitekaartje van uw website en bepaalt de eerste indruk en gebruikservaring. Een goed ontwikkelde frontend zorgt voor een optimale gebruikerservaring en stimuleert conversies.',
-          },
-          {
-            questionName: 'Welke technologieën worden er gebruikt?',
-            acceptedAnswerText:
-              'Wij werken met moderne tools en frameworks zoals React, Vue en Angular, gecombineerd met HTML5, CSS3 en JavaScript om dynamische en responsive interfaces te bouwen.',
-          },
-          {
-            questionName: 'Hoe lang duurt een frontend project?',
-            acceptedAnswerText:
-              'Afhankelijk van de complexiteit en functionaliteiten duurt een project gemiddeld tussen de 4 en 8 weken.',
-          },
-          {
-            questionName: 'Is mijn website volledig responsive?',
-            acceptedAnswerText:
-              'Ja, wij zorgen ervoor dat al onze frontend projecten volledig responsive zijn en op elk apparaat optimaal functioneren.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning na de lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudpakketten zodat uw website altijd up-to-date blijft en goed presteert.',
-          },
-        ]}
+        mainEntity={faqItems.map(item => ({
+          questionName: item.question,
+          acceptedAnswerText: item.answer,
+        }))}
       />
 
-      {/* Hero Sectie */}
+      {/* Hero Sectie met Video */}
       <HeroNieuw
-        title={"Frontend Development"}
+        title={"AI Geoptimaliseerde Systemen"}
         description={
-          "Ontdek hoe wij moderne, responsive webapplicaties ontwikkelen die de gebruikerservaring optimaliseren en uw merk versterken."
+          "Transformeer uw bedrijfsprocessen met innovatieve AI-oplossingen. Onze systemen analyseren data in realtime en optimaliseren uw processen voor maximale efficiëntie en groei."
         }
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={
-          "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
-        }
+        videoSrc={"https://cdn.dribbble.com/userupload/12345678/file/original-ai-video.mp4"}
       />
 
-      {/* Overige Sectie met Extra Informatie en Video */}
+      {/* Extra Informatie Sectie met Video */}
       <section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col-reverse lg:flex-row items-center -mx-4">
             {/* Tekst Kolom */}
             <div className="w-full lg:w-1/2 px-4">
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                Waarom kiezen voor frontend development?
+                Waarom kiezen voor AI-geoptimaliseerde systemen?
               </h2>
               <p className="text-lg text-gray-700 mb-6 dark:text-white">
-                In het digitale tijdperk is een sterke frontend cruciaal voor een optimale gebruikerservaring. Onze aanpak zorgt voor snelle laadtijden, intuïtieve navigatie en een consistent design dat uw merk versterkt.
+                In een steeds competitievere markt is het essentieel om data-gedreven beslissingen te nemen en processen te optimaliseren. AI-geoptimaliseerde systemen bieden u de mogelijkheid om enorme hoeveelheden data te verwerken en realtime inzichten te verkrijgen. Hierdoor kunt u sneller reageren op marktveranderingen, kosten verlagen en de klanttevredenheid verhogen.
               </p>
               <Link
                 href="/offerte-aanvragen"
@@ -149,7 +120,7 @@ export default function FrontendDevelopmentPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+                  src="https://cdn.dribbble.com/userupload/98765432/file/original-ai-video2.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -159,42 +130,45 @@ export default function FrontendDevelopmentPage() {
         </div>
       </section>
 
-      {/* In-Depth Sectie: Uitgebreide Uitleg over Frontend Development (700+ woorden) */}
+      {/* In-Depth Sectie: Uitgebreide Uitleg (700+ woorden) */}
       <section className="py-12 lg:py-24 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-gray-900 dark:text-white">
-            In-Depth: De Kracht van Frontend Development
+            In-Depth: De Kracht van AI-geoptimaliseerde Systemen
           </h2>
           <div className="text-lg text-gray-700 dark:text-gray-300 space-y-6">
             <p>
-              Frontend development is de kunst en wetenschap van het ontwikkelen van de gebruikersinterface van een website. Het vormt de brug tussen de technologie en de gebruiker, en speelt een cruciale rol in hoe informatie wordt gepresenteerd en ervaren. Een goed ontworpen frontend zorgt voor een aantrekkelijke en intuïtieve interface, die de gebruiker niet alleen visueel aanspreekt maar ook functioneel ondersteunt.
+              In de hedendaagse competitieve markt is efficiëntie van cruciaal belang. AI-geoptimaliseerde systemen bieden bedrijven de mogelijkheid om enorme hoeveelheden data te analyseren en processen te optimaliseren. Door gebruik te maken van geavanceerde algoritmes en machine learning, kunnen deze systemen realtime inzichten bieden die voorheen ondenkbaar waren. Dit stelt organisaties in staat om proactief te reageren op veranderingen in de markt en sneller beslissingen te nemen.
             </p>
             <p>
-              Een essentieel aspect van frontend development is het realiseren van een responsive design. In een tijd waarin consumenten toegang hebben tot internet via allerlei apparaten – van desktops tot tablets en smartphones – is het van vitaal belang dat een website zich aanpast aan verschillende schermformaten. Responsive design zorgt ervoor dat de inhoud en navigatie op elk apparaat duidelijk en toegankelijk blijven, wat de gebruikerservaring aanzienlijk verbetert en bijdraagt aan een hogere klanttevredenheid.
+              Deze systemen centraliseren alle klant- en bedrijfsdata, waardoor u een compleet beeld krijgt van uw bedrijfsprocessen. Dit resulteert in efficiëntere workflows en verhoogt de productiviteit. Automatisering van repetitieve taken vermindert de kans op menselijke fouten en bespaart kostbare tijd, waardoor uw medewerkers zich kunnen richten op strategisch belangrijke taken.
             </p>
             <p>
-              Daarnaast is snelheid een kritieke factor in frontend development. Gebruikers hebben weinig geduld en verwachten dat een website snel laadt. Door technieken zoals code splitting, lazy loading en het optimaliseren van afbeeldingen en scripts, kunnen ontwikkelaars de prestaties van een website aanzienlijk verbeteren. Dit zorgt niet alleen voor een betere gebruikerservaring, maar heeft ook een positief effect op de zoekmachineoptimalisatie (SEO) van de site, aangezien zoekmachines snellere websites vaak hoger waarderen.
+              Een van de grootste voordelen van AI-geoptimaliseerde systemen is de mogelijkheid om data in realtime te verwerken. Dit betekent dat u niet langer hoeft te wachten op rapportages, maar direct kunt inspelen op de inzichten die uw systeem genereert. Of het nu gaat om het optimaliseren van de supply chain, het voorspellen van klantgedrag of het automatiseren van marketingcampagnes, AI biedt u de tools om uw bedrijf naar een hoger niveau te tillen.
             </p>
             <p>
-              Een andere belangrijke component is toegankelijkheid. Toegankelijkheid betekent dat een website bruikbaar is voor iedereen, inclusief mensen met beperkingen. Dit omvat het gebruik van semantische HTML, ARIA-labels en andere best practices om ervoor te zorgen dat alle gebruikers, ongeacht hun fysieke of technologische beperkingen, de website kunnen gebruiken. Door toegankelijkheid te integreren in het ontwikkelproces, creëert men een inclusieve ervaring die de reikwijdte van de website vergroot.
+              Daarnaast speelt veiligheid een cruciale rol in de implementatie van AI-systemen. Gevoelige data wordt met de hoogste beveiligingsnormen verwerkt, zodat u zeker weet dat uw bedrijfsinformatie veilig is. Encryptie, strikte toegangscontroles en regelmatige updates zorgen ervoor dat uw systeem voldoet aan de laatste regelgeving, zoals de AVG.
             </p>
             <p>
-              Naast technische optimalisaties speelt ook design een grote rol in frontend development. Het visuele aspect van een website is vaak het eerste wat opvalt bij een bezoeker. Door gebruik te maken van aantrekkelijke kleurenschema’s, consistente typografie en een goed doordachte lay-out, kan een website niet alleen informatie overbrengen, maar ook een positieve emotionele reactie oproepen bij de gebruiker. Een goed design ondersteunt de merkidentiteit en zorgt ervoor dat de website er professioneel uitziet.
+              De toepassingen van AI zijn breed en divers. In de retail kan AI worden ingezet voor gepersonaliseerde marketing, waardoor klanten op maat gemaakte aanbiedingen ontvangen. In de productie helpt AI bij het monitoren en optimaliseren van processen, waardoor de efficiëntie wordt verhoogd en verspilling wordt verminderd. Ook in de gezondheidszorg en financiële sector worden AI-systemen gebruikt om complexe datasets te analyseren en risico’s te beheersen.
             </p>
             <p>
-              De rol van moderne frontend frameworks en libraries kan niet worden onderschat. Tools zoals React, Vue en Angular bieden ontwikkelaars krachtige middelen om dynamische en interactieve webapplicaties te bouwen. Deze frameworks maken het mogelijk om complexe UI-componenten te creëren die gemakkelijk herbruikbaar zijn en snel kunnen worden aangepast aan veranderende eisen. Door gebruik te maken van deze technologieën kunnen we efficiënter werken en innovatiever ontwerpen, wat leidt tot betere en meer schaalbare webapplicaties.
+              Innovatie is de sleutel tot succes in de digitale wereld. Met de voortdurende vooruitgang in machine learning, deep learning en natuurlijke taalverwerking worden AI-systemen steeds slimmer en effectiever. Deze technologieën maken het mogelijk om niet alleen reactief, maar ook proactief te werken. Zo kunnen bedrijven trends voorspellen en hun strategieën aanpassen voordat de concurrentie dat doet.
             </p>
             <p>
-              Naast de technische en visuele aspecten van frontend development is de gebruikerservaring (UX) van groot belang. UX design richt zich op het optimaliseren van de interactie tussen de gebruiker en de website. Dit omvat het analyseren van gebruikersgedrag, het testen van de interface en het continu verbeteren van de navigatie en functionaliteit. Een goede UX zorgt ervoor dat bezoekers gemakkelijk vinden wat ze zoeken, wat leidt tot hogere conversieratio’s en een sterkere klantloyaliteit.
+              Een ander belangrijk aspect van AI-geoptimaliseerde systemen is hun schaalbaarheid. Traditionele systemen kunnen vaak niet meegroeien met een bedrijf, maar AI-oplossingen zijn ontworpen om flexibel en aanpasbaar te zijn. Dit betekent dat uw systeem kan evolueren naarmate uw organisatie groeit, zonder dat u ingrijpende technische aanpassingen hoeft door te voeren.
             </p>
             <p>
-              Innovatie in frontend development stopt niet bij de technologieën die we vandaag gebruiken. De digitale wereld evolueert continu, en daarmee ook de verwachtingen van de gebruiker. Ontwikkelaars moeten constant op de hoogte blijven van de nieuwste trends, zoals Progressive Web Apps (PWA’s), motion design en micro-interacties. Deze innovaties dragen bij aan een nog rijkere gebruikerservaring en helpen bedrijven om zich te onderscheiden in een concurrerende markt.
+              De implementatie van een AI-systeem is echter geen eenmalige investering. Het vergt een gedegen strategie en samenwerking tussen verschillende disciplines, waaronder IT, datawetenschap, marketing en business analytics. Deze samenwerking zorgt ervoor dat het systeem niet alleen technisch robuust is, maar ook perfect aansluit bij uw zakelijke doelstellingen.
             </p>
             <p>
-              Tot slot is samenwerking tussen verschillende disciplines essentieel voor succesvol frontend development. Designers, ontwikkelaars, marketeers en SEO-specialisten werken samen om een geïntegreerde digitale strategie te realiseren. Deze samenwerking zorgt ervoor dat alle aspecten van een website – van het visuele ontwerp tot de technische implementatie en optimalisatie – naadloos op elkaar aansluiten en bijdragen aan de algehele prestaties van de website.
+              Daarnaast kunnen AI-geoptimaliseerde systemen bijdragen aan kostenbesparingen. Door repetitieve taken te automatiseren en de efficiëntie van uw processen te verbeteren, verlaagt u de operationele kosten. Dit resulteert in een hoger rendement op uw investering en geeft u de ruimte om te investeren in verdere groei en innovatie.
             </p>
             <p>
-              Samengevat, frontend development is veel meer dan alleen het bouwen van een mooie website. Het is een multidisciplinaire aanpak die design, technologie, performance en gebruikerservaring combineert om een digitale omgeving te creëren die zowel functioneel als visueel indrukwekkend is. Door te investeren in hoogwaardige frontend development kunnen bedrijven hun online aanwezigheid versterken, de gebruikerservaring optimaliseren en uiteindelijk hun bedrijfsresultaten verbeteren. Onze expertise in frontend development stelt ons in staat om innovatieve en toekomstbestendige webapplicaties te bouwen die de verwachtingen van vandaag overtreffen en klaar zijn voor de uitdagingen van morgen.
+              Samengevat, AI-geoptimaliseerde systemen bieden u de mogelijkheid om uw bedrijfsprocessen te transformeren en te optimaliseren. Ze bieden realtime inzichten, automatiseren complexe taken en verbeteren de algehele efficiëntie. Met een op maat gemaakt systeem dat zich aanpast aan uw unieke behoeften, kunt u niet alleen kosten besparen, maar ook de concurrentie voorblijven. Of u nu uw marketing, productie of klantenservice wilt verbeteren, AI biedt de tools en inzichten om uw organisatie te transformeren.
+            </p>
+            <p>
+              Bent u klaar om de kracht van AI te benutten en uw bedrijfsvoering naar een hoger niveau te tillen? Investeer in een AI-geoptimaliseerd systeem en ontdek hoe u met data en automatisering de toekomst van uw bedrijf vormgeeft. Neem vandaag nog contact met ons op voor een vrijblijvende offerte en ervaar zelf de voordelen van innovatieve AI-oplossingen.
             </p>
           </div>
         </div>
@@ -205,54 +179,48 @@ export default function FrontendDevelopmentPage() {
         <div className="pt-16 pb-24 px-5 xs:px-8 xl:px-12 bg-gray-900 rounded-3xl">
           <div className="container mx-auto px-4">
             <div className="flex mb-4 items-center">
-              <svg
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Ons Frontend Ontwikkelingsproces
+                Ons AI Development Proces
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Stap voor stap naar uw ideale frontend
+                Stap voor stap naar uw AI-geoptimaliseerde systeem
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Concept en Design",
+                    title: "Analyse en Strategie",
                     description:
-                      "Wij starten met een uitgebreide intake en analyse van uw wensen en doelgroep om een uniek concept te ontwikkelen.",
+                      "We beginnen met een grondige analyse van uw bedrijfsprocessen en data om de beste AI-strategie te bepalen die aansluit bij uw doelstellingen.",
                   },
                   {
-                    title: "Prototype en Wireframing",
+                    title: "Concept en Ontwerp",
                     description:
-                      "Vervolgens maken we wireframes en interactieve prototypes om de structuur en flow van uw website te visualiseren.",
+                      "Op basis van onze analyse ontwikkelen we een concept en ontwerp dat de basis vormt voor een efficiënt en schaalbaar AI-systeem.",
                   },
                   {
-                    title: "Ontwikkeling en Implementatie",
+                    title: "Ontwikkeling en Integratie",
                     description:
-                      "Onze ontwikkelaars bouwen de frontend met de nieuwste technologieën, zorgen voor een responsive design en implementeren alle gewenste functionaliteiten.",
+                      "Onze experts bouwen het systeem op maat en integreren het naadloos met uw bestaande IT-infrastructuur, zodat u direct kunt profiteren van geavanceerde data-analyse en automatisering.",
                   },
                   {
                     title: "Testen en Optimalisatie",
                     description:
-                      "Voordat de website live gaat, testen we deze op diverse apparaten en optimaliseren we laadtijden, performance en SEO.",
+                      "Voor de lancering doorloopt het systeem een intensieve testfase, waarin we prestaties optimaliseren en eventuele bugs verhelpen.",
                   },
                   {
                     title: "Lancering en Ondersteuning",
                     description:
-                      "Na de lancering bieden we ondersteuning en onderhoud zodat uw website continu optimaal functioneert.",
+                      "Na een succesvolle lancering bieden we continue ondersteuning en onderhoud, zodat uw AI-systeem altijd up-to-date blijft en optimaal functioneert.",
                   },
                   {
                     title: "Feedback en Iteratie",
                     description:
-                      "We verzamelen gebruikersfeedback en passen waar nodig verbeteringen toe om de gebruikerservaring te maximaliseren.",
+                      "We monitoren de prestaties en passen op basis van gebruikersfeedback iteratieve verbeteringen toe, zodat het systeem blijft evolueren.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -280,7 +248,7 @@ export default function FrontendDevelopmentPage() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze frontend development diensten.
+              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze AI Development diensten.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">

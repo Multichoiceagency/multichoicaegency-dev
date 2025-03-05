@@ -6,25 +6,55 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
-const CRMSysteemSEO = () => {
+export default function CRMDevelopmentPage() {
+  const [openAccordion, setOpenAccordion] = useState<number | null>(null)
+
+  const faqItems = [
+    {
+      question: "Wat is CRM Development?",
+      answer:
+        "CRM Development omvat het ontwerpen, ontwikkelen en implementeren van softwareoplossingen voor klantrelatiebeheer, waarmee bedrijven hun klantdata centraal kunnen beheren en processen kunnen automatiseren.",
+    },
+    {
+      question: "Waarom is een CRM systeem belangrijk?",
+      answer:
+        "Een goed ontwikkeld CRM systeem helpt bedrijven bij het verbeteren van klantrelaties, het stroomlijnen van sales- en marketingprocessen en het verhogen van de omzet door inzicht te geven in klantgedrag.",
+    },
+    {
+      question: "Hoe lang duurt het om een CRM systeem te ontwikkelen?",
+      answer:
+        "Afhankelijk van de complexiteit en gewenste functionaliteiten duurt de ontwikkeling van een CRM systeem doorgaans tussen de 8 en 16 weken.",
+    },
+    {
+      question: "Kan ik het CRM systeem op maat laten maken?",
+      answer:
+        "Ja, onze CRM Development oplossingen worden volledig afgestemd op de unieke wensen en processen van uw bedrijf, zodat u exact krijgt wat u nodig heeft.",
+    },
+    {
+      question: "Bieden jullie ook ondersteuning na de lancering?",
+      answer:
+        "Zeker, wij bieden uitgebreide support- en onderhoudpakketten, inclusief training en updates, zodat uw CRM systeem altijd optimaal functioneert.",
+    },
+  ];
+
   return (
-    <>
+    <div className="bg-white text-black">
       <NextSeo
-        title="CRM Systemen: Optimaliseer Uw Klantrelaties"
-        description="Ontdek hoe een op maat gemaakt CRM systeem uw bedrijfsprocessen stroomlijnt, klantrelaties versterkt en de verkoop stimuleert. Laat uw CRM systeem ontwikkelen door onze experts."
-        canonical="https://www.multichoiceagency.nl/crm-systemen"
+        title="CRM Development | Ontwikkeling van Klantrelatiebeheer Software"
+        description="Ontwikkel een op maat gemaakt CRM systeem dat uw klantrelaties optimaliseert. Onze CRM Development oplossingen helpen u klantdata centraal te beheren, processen te automatiseren en de omzet te verhogen."
+        canonical="https://www.multichoiceagency.nl/crm-development"
         openGraph={{
           type: 'website',
-          url: 'https://www.multichoiceagency.nl/crm-systemen',
-          title: 'CRM Systemen: Optimaliseer Uw Klantrelaties',
+          url: 'https://www.multichoiceagency.nl/crm-development',
+          title: 'CRM Development | Ontwikkeling van Klantrelatiebeheer Software',
           description:
-            'Ontdek hoe een op maat gemaakt CRM systeem uw bedrijfsprocessen stroomlijnt, klantrelaties versterkt en de verkoop stimuleert. Laat uw CRM systeem ontwikkelen door onze experts.',
+            'Ontwikkel een op maat gemaakt CRM systeem dat uw klantrelaties optimaliseert. Onze CRM Development oplossingen helpen u klantdata centraal te beheren, processen te automatiseren en de omzet te verhogen.',
           images: [
             {
-              url: '/partners/crm-systemen.png',
+              url: '/partners/crm-development.png',
               width: 1200,
               height: 630,
-              alt: 'CRM Systemen',
+              alt: 'CRM Development',
             },
           ],
         }}
@@ -38,90 +68,49 @@ const CRMSysteemSEO = () => {
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'CRM Systemen', item: 'https://www.multichoiceagency.nl/crm-systemen' },
+          { position: 2, name: 'CRM Development', item: 'https://www.multichoiceagency.nl/crm-development' },
         ]}
       />
 
       <FAQPageJsonLd
         mainEntity={[
           {
-            questionName: 'Wat is een CRM systeem?',
+            questionName: 'Wat is CRM Development?',
             acceptedAnswerText:
-              'Een CRM (Customer Relationship Management) systeem is software die bedrijven helpt bij het beheren van klantinteracties, sales en marketingprocessen.',
+              'CRM Development omvat het ontwerpen, ontwikkelen en implementeren van op maat gemaakte CRM systemen die klantgegevens centraliseren en bedrijfsprocessen automatiseren.',
           },
           {
-            questionName: 'Waarom is een CRM systeem belangrijk voor mijn bedrijf?',
+            questionName: 'Waarom is een CRM systeem belangrijk?',
             acceptedAnswerText:
-              'Een effectief CRM systeem verbetert klantrelaties, optimaliseert verkoopprocessen en helpt bij het analyseren van klantgedrag, wat resulteert in een hogere klanttevredenheid en omzet.',
+              'Een effectief CRM systeem verbetert de klantrelaties, stroomlijnt de sales- en marketingprocessen en zorgt voor een hogere omzet door waardevolle inzichten in klantgedrag te bieden.',
           },
           {
-            questionName: 'Kan ik het CRM systeem aanpassen aan mijn bedrijfsbehoeften?',
+            questionName: 'Hoe lang duurt de ontwikkeling van een CRM systeem?',
             acceptedAnswerText:
-              'Ja, op maat gemaakte CRM systemen kunnen volledig worden afgestemd op de specifieke processen en wensen van uw bedrijf.',
+              'Afhankelijk van de complexiteit en gewenste functionaliteiten duurt het ontwikkelen van een CRM systeem gemiddeld tussen de 8 en 16 weken.',
           },
           {
-            questionName: 'Hoe lang duurt het om een CRM systeem te ontwikkelen?',
+            questionName: 'Kan het CRM systeem volledig op maat worden gemaakt?',
             acceptedAnswerText:
-              'Afhankelijk van de complexiteit van uw project duurt de ontwikkeling van een CRM systeem gemiddeld tussen de 8 en 16 weken.',
+              'Ja, onze CRM Development oplossingen worden volledig afgestemd op uw bedrijfsprocessen, zodat u een systeem krijgt dat perfect aansluit bij uw unieke behoeften.',
           },
           {
-            questionName: 'Bieden jullie ondersteuning en onderhoud na de lancering?',
+            questionName: 'Bieden jullie ondersteuning na de lancering?',
             acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudspakketten om ervoor te zorgen dat uw CRM systeem altijd up-to-date en optimaal functioneert.',
+              'Ja, wij bieden uitgebreide support- en onderhoudspakketten, zodat uw CRM systeem altijd up-to-date en optimaal functioneert.',
           },
         ]}
       />
-    </>
-  );
-};
 
-export default function CRMSysteemPage() {
-  const [openAccordion, setOpenAccordion] = useState<number | null>(null);
-
-  const faqItems = [
-    {
-      question: "Wat is een CRM systeem en waarom is het essentieel?",
-      answer:
-        "Een CRM systeem helpt bedrijven bij het centraliseren van klantgegevens, automatiseren van sales- en marketingprocessen en het analyseren van klantgedrag. Dit leidt tot efficiëntere workflows en een hogere omzet.",
-    },
-    {
-      question: "Hoe kan een CRM systeem mijn bedrijfsprocessen verbeteren?",
-      answer:
-        "Door klantinformatie centraal te beheren en processen te automatiseren, verbetert een CRM systeem de communicatie, verhoogt het de klanttevredenheid en stroomlijnt het de verkoopcyclus.",
-    },
-    {
-      question: "Kan het CRM systeem volledig op maat gemaakt worden?",
-      answer:
-        "Ja, wij ontwikkelen CRM systemen die volledig zijn afgestemd op de unieke behoeften en processen van uw bedrijf, zodat u precies krijgt wat u nodig heeft.",
-    },
-    {
-      question: "Wat is de gemiddelde ontwikkeltijd van een CRM systeem?",
-      answer:
-        "Afhankelijk van de functionaliteiten en complexiteit kan de ontwikkeling van een CRM systeem variëren van 8 tot 16 weken.",
-    },
-    {
-      question: "Bieden jullie ook training en ondersteuning na implementatie?",
-      answer:
-        "Absoluut, wij bieden uitgebreide trainingen, support en onderhoud om ervoor te zorgen dat u het maximale uit uw CRM systeem haalt.",
-    },
-    {
-      question: "Hoe helpt een CRM systeem bij het verhogen van de omzet?",
-      answer:
-        "Door klantgegevens effectief te beheren en verkoopprocessen te optimaliseren, helpt een CRM systeem bij het identificeren van verkoopkansen, het verbeteren van klantrelaties en het verhogen van de omzet.",
-    },
-  ];
-
-  return (
-    <div className="bg-white text-black" >
       {/* Hero Sectie */}
       <HeroNieuw
-        title={"CRM Systemen"}
+        title={"CRM Development"}
         description={
-          "Optimaliseer uw klantrelaties en bedrijfsprocessen met een op maat gemaakt CRM systeem. Onze oplossingen helpen u bij het beheren van klantdata, sales en marketing voor maximale groei."
+          "Ontwikkel een krachtig CRM systeem dat uw klantrelaties optimaliseert en uw bedrijfsprocessen stroomlijnt. Onze op maat gemaakte CRM oplossingen zijn ontworpen om uw groei te stimuleren."
         }
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://cdn.dribbble.com/userupload/12345678/file/original-crm-video.mp4"}  {/* Pas de video URL aan */}
+        videoSrc={"https://cdn.dribbble.com/userupload/12345678/file/original-crm-video.mp4"}
       />
 
       {/* Overige Sectie met Extra Informatie en Video */}
@@ -131,10 +120,10 @@ export default function CRMSysteemPage() {
             {/* Tekst Kolom */}
             <div className="w-full lg:w-1/2 px-4">
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                Waarom kiezen voor een CRM systeem?
+                Waarom kiezen voor CRM Development?
               </h2>
               <p className="text-lg text-gray-700 mb-6 dark:text-white">
-                Een effectief CRM systeem centraliseert klantinformatie, automatiseert repetitieve taken en biedt waardevolle inzichten. Dit resulteert in een efficiëntere sales, betere klantenservice en uiteindelijk een hogere omzet.
+                In een competitieve markt is het beheren van klantrelaties cruciaal voor succes. CRM Development helpt u alle klantdata centraal te beheren en uw bedrijfsprocessen te automatiseren. Hierdoor krijgt u een volledig overzicht van klantgedrag, wat leidt tot gerichtere marketing, efficiëntere sales en uiteindelijk een hogere omzet.
               </p>
               <Link
                 href="/offerte-aanvragen"
@@ -153,7 +142,7 @@ export default function CRMSysteemPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/98765432/file/original-crm-video2.mp4"  {/* Pas de video URL aan */}
+                  src="https://cdn.dribbble.com/userupload/98765432/file/original-crm-video2.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -163,44 +152,46 @@ export default function CRMSysteemPage() {
         </div>
       </section>
 
-      {/* In-Depth "Waarom CRM?" Sectie */}
-      <section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
+      {/* In-Depth Sectie: Uitgebreide Uitleg over CRM Development (700+ woorden) */}
+      <section className="py-12 lg:py-24 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col lg:flex-row -mx-4">
-            {/* Tekst Kolom */}
-            <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-              <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                Wat maakt een CRM systeem waardevol?
-              </h2>
-              <p className="text-lg text-gray-700 mb-6 dark:text-white">
-                Met een CRM systeem beheert u al uw klantgegevens centraal en automatiseert u belangrijke processen. Dit zorgt voor een efficiëntere bedrijfsvoering en een betere klantrelatie.
-              </p>
-              <ul className="list-disc list-inside text-lg text-gray-700 dark:text-white">
-                <li>Centralisatie van klantinformatie</li>
-                <li>Automatisering van sales- en marketingprocessen</li>
-                <li>Diepgaande klantanalyses en rapportages</li>
-                <li>Verbeterde klantrelaties en retentie</li>
-                <li>Optimalisatie van de verkoopcyclus</li>
-              </ul>
-            </div>
-            {/* Video Kolom */}
-            <div className="w-full lg:w-1/2 px-4">
-              <div className="visible">
-                <video
-                  className="w-full h-full object-contain rounded-md"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source
-                    src="https://cdn.dribbble.com/userupload/98765432/file/original-crm-video2.mp4"  {/* Zelfde video als hierboven, aanpasbaar */}
-                    type="video/mp4"
-                  />
-                  Your browser does not support the video tag.
-                </video>
-              </div>
-            </div>
+          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-gray-900 dark:text-white">
+            In-Depth: De Kracht van CRM Development
+          </h2>
+          <div className="text-lg text-gray-700 dark:text-gray-300 space-y-6">
+            <p>
+              CRM Development, oftewel de ontwikkeling van klantrelatiebeheersystemen, is een essentieel onderdeel van de moderne bedrijfsvoering. In een wereld waar klantgerichtheid centraal staat, speelt het beheren van klantdata en interacties een cruciale rol in het succes van een organisatie. CRM systemen helpen bedrijven niet alleen bij het structureren van klantinformatie, maar ook bij het automatiseren van marketing, sales en serviceprocessen. Door deze processen te centraliseren, krijgen bedrijven beter inzicht in het gedrag en de behoeften van hun klanten, wat leidt tot efficiëntere besluitvorming en een verbeterde klanttevredenheid.
+            </p>
+            <p>
+              De ontwikkeling van een CRM systeem vereist een diepgaande analyse van de bedrijfsprocessen en klantinteracties. In deze fase worden alle benodigde functionaliteiten in kaart gebracht, van leadbeheer en verkoopautomatisering tot klantondersteuning en aftersales. Door nauw samen te werken met de opdrachtgever, kunnen ontwikkelaars een systeem ontwerpen dat perfect aansluit bij de unieke behoeften van het bedrijf. Dit maatwerk is een belangrijk voordeel van CRM Development, omdat standaard oplossingen vaak niet alle gewenste functionaliteiten bieden.
+            </p>
+            <p>
+              Een goed ontwikkeld CRM systeem biedt tal van voordelen. Ten eerste centraliseert het alle klantgegevens, wat resulteert in een gestructureerd en overzichtelijk databestand. Hierdoor kunnen bedrijven eenvoudig trends en patronen in klantgedrag analyseren. Deze inzichten leiden tot gerichte marketingcampagnes en verkoopstrategieën die beter aansluiten bij de wensen van de klant. Daarnaast helpt een CRM systeem bij het automatiseren van repetitieve taken, waardoor medewerkers meer tijd hebben voor strategische en creatieve werkzaamheden.
+            </p>
+            <p>
+              Naast de functionele voordelen speelt ook de technologische basis een belangrijke rol. Moderne CRM Development maakt gebruik van geavanceerde technologieën en programmeertalen zoals JavaScript, Python, en PHP, in combinatie met robuuste databasesystemen. Veel CRM systemen worden tegenwoordig ontwikkeld met behulp van cloudgebaseerde platformen, waardoor ze schaalbaar en flexibel zijn. Dit betekent dat bedrijven hun CRM systeem eenvoudig kunnen uitbreiden naarmate ze groeien, zonder dat er ingrijpende technische aanpassingen nodig zijn.
+            </p>
+            <p>
+              Integratie is een ander essentieel aspect van CRM Development. Een succesvol CRM systeem staat niet op zichzelf; het moet naadloos integreren met andere bedrijfsapplicaties zoals ERP-systemen, marketingtools, en supportsoftware. Door deze integraties kunnen gegevens automatisch worden gesynchroniseerd, wat de efficiëntie verhoogt en de kans op fouten verkleint. Dit zorgt voor een volledig geïntegreerde oplossing die de gehele bedrijfsvoering optimaliseert.
+            </p>
+            <p>
+              Veiligheid en privacy zijn eveneens van groot belang bij de ontwikkeling van CRM systemen. Aangezien deze systemen gevoelige klantgegevens bevatten, is het essentieel dat ze voldoen aan de hoogste beveiligingsnormen en regelgeving, zoals de AVG. Tijdens het ontwikkelproces wordt er dan ook veel aandacht besteed aan het beveiligen van data, het implementeren van encryptie en het opzetten van strikte toegangscontroles.
+            </p>
+            <p>
+              De implementatiefase van CRM Development is vaak net zo belangrijk als de ontwikkeling zelf. Na de oplevering van het systeem, zorgen wij voor uitgebreide training en ondersteuning, zodat uw team direct aan de slag kan met de nieuwe tool. Onze supportpakketten omvatten zowel technische ondersteuning als regelmatige updates en optimalisaties. Dit garandeert dat uw CRM systeem altijd optimaal functioneert en blijft voldoen aan de veranderende eisen van uw bedrijf.
+            </p>
+            <p>
+              Een ander voordeel van CRM Development is de mogelijkheid tot personalisatie. Elk bedrijf heeft zijn eigen unieke processen en behoeften. Onze maatwerk CRM oplossingen stellen u in staat om exact de functionaliteiten te implementeren die u nodig heeft, of het nu gaat om geavanceerde rapportages, workflow automatisering of integratie met specifieke externe systemen. Hierdoor krijgt u een systeem dat niet alleen efficiënt is, maar ook perfect aansluit bij uw bedrijfsdoelstellingen.
+            </p>
+            <p>
+              Innovatie staat centraal in onze aanpak van CRM Development. Wij streven ernaar om de nieuwste technologische ontwikkelingen en trends te integreren in onze oplossingen. Dit betekent dat uw CRM systeem niet alleen functioneel en veilig is, maar ook toekomstbestendig. Met de voortdurende evolutie van technologieën, zoals kunstmatige intelligentie en machine learning, kunnen CRM systemen steeds slimmer worden. Deze innovaties bieden de mogelijkheid om klantgedrag te voorspellen en proactief in te spelen op toekomstige behoeften, wat u een aanzienlijk concurrentievoordeel kan opleveren.
+            </p>
+            <p>
+              Tot slot, de return on investment (ROI) van een goed ontwikkeld CRM systeem is vaak aanzienlijk. Door processen te stroomlijnen, medewerkers te ontlasten en gerichte klantinteracties mogelijk te maken, kan een CRM systeem leiden tot een hogere omzet en een betere klantretentie. Het is een investering die niet alleen de efficiëntie verbetert, maar ook bijdraagt aan de lange termijn groei van uw bedrijf.
+            </p>
+            <p>
+              Samengevat, CRM Development is een strategisch en technisch proces dat bedrijven helpt om klantrelaties te beheren, bedrijfsprocessen te optimaliseren en de algehele prestaties te verbeteren. Door te investeren in een op maat gemaakt CRM systeem, creëert u een solide basis voor duurzame groei en succes. Onze expertise stelt ons in staat om oplossingen te ontwikkelen die niet alleen voldoen aan de huidige behoeften, maar ook klaar zijn voor toekomstige uitdagingen. Of u nu uw sales- en marketingprocessen wilt automatiseren of uw klantinteracties wilt centraliseren, met CRM Development legt u de basis voor een efficiëntere en succesvollere bedrijfsvoering.
+            </p>
           </div>
         </div>
       </section>
@@ -285,7 +276,7 @@ export default function CRMSysteemPage() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze CRM systemen en de ontwikkeling ervan.
+              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze CRM Development diensten.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -410,7 +401,7 @@ export default function CRMSysteemPage() {
               </span>
               <h5 className="text-xl font-medium mb-4">Nog vragen?</h5>
               <p className="text-gray-700">
-                Voor meer informatie over onze CRM systemen en diensten kunt u onze{" "}
+                Voor meer informatie over onze frontend development diensten kunt u onze{" "}
                 <Link href="/contact" className="inline-block text-black font-medium underline">
                   Contactpagina
                 </Link>{" "}
@@ -425,18 +416,18 @@ export default function CRMSysteemPage() {
       {/* Call to Action Sectie */}
       <section className="py-12 lg:py-24 bg-teal-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Klaar om uw CRM systeem te optimaliseren?</h2>
+          <h2 className="text-4xl font-bold mb-8">Klaar om uw frontend te optimaliseren?</h2>
           <p className="text-xl mb-12">
-            Laat uw bedrijfsprocessen verbeteren en klantrelaties versterken met een op maat gemaakt CRM systeem.
+            Laat uw online aanwezigheid stralen met een moderne en responsive website, gebouwd met professionele frontend development.
           </p>
           <Link
             href="/offerte-aanvragen"
             className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-teal-900 bg-white hover:bg-lime-500 rounded-full transition duration-200"
           >
-            Start uw CRM project
+            Start uw project
           </Link>
         </div>
       </section>
     </div>
-  );
+  )
 }

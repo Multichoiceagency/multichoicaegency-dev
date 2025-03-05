@@ -6,60 +6,55 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
-export default function FrontendDevelopmentPage() {
+export default function PlanningRoosterSystemenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Wat houdt frontend development in?",
+      question: "Wat zijn planning en rooster systemen?",
       answer:
-        "Frontend development richt zich op het bouwen van de visuele interface van een website. Dit omvat de layout, navigatie, interactieve elementen en animaties die samen zorgen voor een optimale gebruikerservaring.",
+        "Planning en rooster systemen zijn softwareoplossingen die organisaties helpen bij het efficiënt plannen van werkroosters, het beheren van personeelsbezetting en het optimaliseren van resource allocatie. Ze centraliseren alle planning en roosters zodat medewerkers, teams en afdelingen eenvoudig toegang hebben tot actuele informatie.",
     },
     {
-      question: "Welke voordelen biedt een moderne frontend?",
+      question: "Hoe verbeteren deze systemen de efficiëntie?",
       answer:
-        "Een moderne frontend zorgt voor een aantrekkelijke, gebruiksvriendelijke en snelle website. Dit verbetert de gebruikerservaring, verhoogt conversies en versterkt uw merkidentiteit.",
+        "Door geautomatiseerde planning en real-time updates verminderen deze systemen administratieve lasten, minimaliseren ze fouten en zorgen ze voor een betere afstemming tussen de personeelsbezetting en de bedrijfsbehoeften. Dit leidt tot een verhoogde productiviteit en kostenbesparing.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor frontend development?",
+      question: "Kan ik het systeem volledig op maat laten maken?",
       answer:
-        "Wij maken gebruik van HTML5, CSS3, JavaScript en moderne frameworks zoals React, Vue of Angular, zodat we dynamische en schaalbare webapplicaties kunnen bouwen.",
+        "Ja, onze oplossingen worden volledig afgestemd op de specifieke wensen en processen van uw organisatie. Of u nu een eenvoudig rooster voor uw winkel of een complex planningssysteem voor een groot bedrijf nodig heeft, wij leveren een oplossing die perfect aansluit.",
     },
     {
-      question: "Hoe lang duurt een typisch frontend project?",
+      question: "Hoe lang duurt de implementatie van zo'n systeem?",
       answer:
-        "De ontwikkeltijd varieert per project, maar een standaard frontend project duurt meestal tussen de 4 en 8 weken.",
+        "De implementatietijd varieert afhankelijk van de complexiteit van uw wensen, maar gemiddeld duurt een project tussen de 6 en 12 weken, inclusief analyse, ontwikkeling, testen en training van uw medewerkers.",
     },
     {
-      question: "Bieden jullie ook optimalisatie voor snelheid en SEO?",
+      question: "Bieden jullie ondersteuning na de lancering?",
       answer:
-        "Ja, naast een prachtig design zorgen we ervoor dat uw website snel laadt en technisch geoptimaliseerd is voor zoekmachines, wat resulteert in betere vindbaarheid en een optimale gebruikerservaring.",
-    },
-    {
-      question: "Is mijn website volledig responsive?",
-      answer:
-        "Absoluut, wij zorgen ervoor dat uw website op elk apparaat perfect functioneert, of het nu gaat om desktops, tablets of mobiele telefoons.",
+        "Ja, we bieden uitgebreide support- en onderhoudpakketten om ervoor te zorgen dat uw planning en rooster systeem altijd up-to-date blijft en optimaal functioneert.",
     },
   ];
 
   return (
     <div className="bg-white text-black">
       <NextSeo
-        title="Frontend Development | Moderne, Responsive Webapplicaties"
-        description="Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën."
-        canonical="https://www.multichoiceagency.nl/frontend-development"
+        title="Planning en Rooster Systemen | Efficiënte Personeelsplanning"
+        description="Optimaliseer uw organisatie met geavanceerde planning en rooster systemen. Onze op maat gemaakte oplossingen zorgen voor efficiënte personeelsplanning, resource allocatie en realtime roosters."
+        canonical="https://www.multichoiceagency.nl/planning-rooster-systemen"
         openGraph={{
           type: 'website',
-          url: 'https://www.multichoiceagency.nl/frontend-development',
-          title: 'Frontend Development | Moderne, Responsive Webapplicaties',
+          url: 'https://www.multichoiceagency.nl/planning-rooster-systemen',
+          title: 'Planning en Rooster Systemen | Efficiënte Personeelsplanning',
           description:
-            'Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën.',
+            'Optimaliseer uw organisatie met geavanceerde planning en rooster systemen. Onze op maat gemaakte oplossingen zorgen voor efficiënte personeelsplanning, resource allocatie en realtime roosters.',
           images: [
             {
-              url: '/partners/frontend-development.png',
+              url: '/partners/planning-rooster-systemen.png',
               width: 1200,
               height: 630,
-              alt: 'Frontend Development',
+              alt: 'Planning en Rooster Systemen',
             },
           ],
         }}
@@ -73,64 +68,39 @@ export default function FrontendDevelopmentPage() {
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Frontend Development', item: 'https://www.multichoiceagency.nl/frontend-development' },
+          { position: 2, name: 'Planning en Rooster Systemen', item: 'https://www.multichoiceagency.nl/planning-rooster-systemen' },
         ]}
       />
 
       <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom is frontend development belangrijk?',
-            acceptedAnswerText:
-              'De frontend is het visitekaartje van uw website en bepaalt de eerste indruk en gebruikservaring. Een goed ontwikkelde frontend zorgt voor een optimale gebruikerservaring en stimuleert conversies.',
-          },
-          {
-            questionName: 'Welke technologieën worden er gebruikt?',
-            acceptedAnswerText:
-              'Wij werken met moderne tools en frameworks zoals React, Vue en Angular, gecombineerd met HTML5, CSS3 en JavaScript om dynamische en responsive interfaces te bouwen.',
-          },
-          {
-            questionName: 'Hoe lang duurt een frontend project?',
-            acceptedAnswerText:
-              'Afhankelijk van de complexiteit en functionaliteiten duurt een project gemiddeld tussen de 4 en 8 weken.',
-          },
-          {
-            questionName: 'Is mijn website volledig responsive?',
-            acceptedAnswerText:
-              'Ja, wij zorgen ervoor dat al onze frontend projecten volledig responsive zijn en op elk apparaat optimaal functioneren.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning na de lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudpakketten zodat uw website altijd up-to-date blijft en goed presteert.',
-          },
-        ]}
+        mainEntity={faqItems.map(item => ({
+          questionName: item.question,
+          acceptedAnswerText: item.answer,
+        }))}
       />
 
-      {/* Hero Sectie */}
+      {/* Hero Sectie met Video */}
       <HeroNieuw
-        title={"Frontend Development"}
+        title={"Planning en Rooster Systemen"}
         description={
-          "Ontdek hoe wij moderne, responsive webapplicaties ontwikkelen die de gebruikerservaring optimaliseren en uw merk versterken."
+          "Optimaliseer uw personeelsplanning en resource management met onze geavanceerde planning en rooster systemen. Real-time updates en geïntegreerde functionaliteiten zorgen voor een efficiënte en flexibele organisatie."
         }
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={
-          "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
-        }
+        videoSrc={"https://cdn.dribbble.com/userupload/12345678/file/original-planning-video.mp4"}
       />
 
-      {/* Overige Sectie met Extra Informatie en Video */}
+      {/* Extra Informatie Sectie met Video */}
       <section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col-reverse lg:flex-row items-center -mx-4">
             {/* Tekst Kolom */}
             <div className="w-full lg:w-1/2 px-4">
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                Waarom kiezen voor frontend development?
+                Waarom kiezen voor een planning- en rooster systeem?
               </h2>
               <p className="text-lg text-gray-700 mb-6 dark:text-white">
-                In het digitale tijdperk is een sterke frontend cruciaal voor een optimale gebruikerservaring. Onze aanpak zorgt voor snelle laadtijden, intuïtieve navigatie en een consistent design dat uw merk versterkt.
+                Een efficiënt planningssysteem helpt organisaties om medewerkers, taken en resources optimaal in te plannen. Dit vermindert administratieve lasten, verhoogt de productiviteit en zorgt voor een betere afstemming tussen werk en capaciteit. Met realtime updates en geautomatiseerde processen bespaart u tijd en voorkomt u fouten.
               </p>
               <Link
                 href="/offerte-aanvragen"
@@ -149,7 +119,7 @@ export default function FrontendDevelopmentPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+                  src="https://cdn.dribbble.com/userupload/98765432/file/original-rooster-video.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -159,42 +129,39 @@ export default function FrontendDevelopmentPage() {
         </div>
       </section>
 
-      {/* In-Depth Sectie: Uitgebreide Uitleg over Frontend Development (700+ woorden) */}
+      {/* In-Depth Sectie: Uitgebreide Uitleg over Planning en Rooster Systemen (700+ woorden) */}
       <section className="py-12 lg:py-24 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-gray-900 dark:text-white">
-            In-Depth: De Kracht van Frontend Development
+            In-Depth: De Kracht van Planning en Rooster Systemen
           </h2>
           <div className="text-lg text-gray-700 dark:text-gray-300 space-y-6">
             <p>
-              Frontend development is de kunst en wetenschap van het ontwikkelen van de gebruikersinterface van een website. Het vormt de brug tussen de technologie en de gebruiker, en speelt een cruciale rol in hoe informatie wordt gepresenteerd en ervaren. Een goed ontworpen frontend zorgt voor een aantrekkelijke en intuïtieve interface, die de gebruiker niet alleen visueel aanspreekt maar ook functioneel ondersteunt.
+              In een dynamische en snel veranderende markt is een goed georganiseerd rooster van cruciaal belang voor elk bedrijf. Planning en rooster systemen stellen organisaties in staat om de inzet van personeel en resources nauwkeurig te beheren. Deze systemen bieden niet alleen overzicht, maar maken het ook mogelijk om snel in te spelen op onverwachte veranderingen, zoals ziekte of piekdrukte. Hierdoor kunnen bedrijven efficiënter werken en blijven zij wendbaar in een concurrerende omgeving.
             </p>
             <p>
-              Een essentieel aspect van frontend development is het realiseren van een responsive design. In een tijd waarin consumenten toegang hebben tot internet via allerlei apparaten – van desktops tot tablets en smartphones – is het van vitaal belang dat een website zich aanpast aan verschillende schermformaten. Responsive design zorgt ervoor dat de inhoud en navigatie op elk apparaat duidelijk en toegankelijk blijven, wat de gebruikerservaring aanzienlijk verbetert en bijdraagt aan een hogere klanttevredenheid.
+              Een belangrijk aspect van deze systemen is de mogelijkheid om alle planning centraal te beheren. In plaats van gebruik te maken van losse spreadsheets of handmatige processen, bundelt een modern planningssysteem alle relevante informatie op één plek. Dit zorgt voor een helder overzicht van de beschikbaarheid van medewerkers, geplande diensten en de verdeling van taken. Door deze centralisatie worden fouten verminderd en kan er snel worden bijgestuurd wanneer dat nodig is.
             </p>
             <p>
-              Daarnaast is snelheid een kritieke factor in frontend development. Gebruikers hebben weinig geduld en verwachten dat een website snel laadt. Door technieken zoals code splitting, lazy loading en het optimaliseren van afbeeldingen en scripts, kunnen ontwikkelaars de prestaties van een website aanzienlijk verbeteren. Dit zorgt niet alleen voor een betere gebruikerservaring, maar heeft ook een positief effect op de zoekmachineoptimalisatie (SEO) van de site, aangezien zoekmachines snellere websites vaak hoger waarderen.
+              Automatisering speelt een sleutelrol in planning en rooster systemen. Door routinetaken te automatiseren, zoals het genereren van roosters en het versturen van meldingen, kunnen managers zich richten op strategische beslissingen. Automatisering helpt ook bij het minimaliseren van menselijke fouten, wat leidt tot een efficiënter en betrouwbaarder planningsproces. Met behulp van algoritmes en machine learning kunnen deze systemen voorspellingen doen over de benodigde personeelsbezetting, gebaseerd op historische data en actuele trends.
             </p>
             <p>
-              Een andere belangrijke component is toegankelijkheid. Toegankelijkheid betekent dat een website bruikbaar is voor iedereen, inclusief mensen met beperkingen. Dit omvat het gebruik van semantische HTML, ARIA-labels en andere best practices om ervoor te zorgen dat alle gebruikers, ongeacht hun fysieke of technologische beperkingen, de website kunnen gebruiken. Door toegankelijkheid te integreren in het ontwikkelproces, creëert men een inclusieve ervaring die de reikwijdte van de website vergroot.
+              Daarnaast bieden moderne planningssystemen de mogelijkheid tot integratie met andere bedrijfsprocessen. Zo kunnen ze gekoppeld worden aan HR-systemen, zodat verlofaanvragen en ziekteverzuim automatisch in het rooster worden verwerkt. Ook integratie met ERP-systemen maakt het mogelijk om resourceallocatie en productieplanning te optimaliseren. Dit resulteert in een naadloze workflow waarbij alle afdelingen binnen het bedrijf profiteren van de inzichten en automatiseringen die het systeem biedt.
             </p>
             <p>
-              Naast technische optimalisaties speelt ook design een grote rol in frontend development. Het visuele aspect van een website is vaak het eerste wat opvalt bij een bezoeker. Door gebruik te maken van aantrekkelijke kleurenschema’s, consistente typografie en een goed doordachte lay-out, kan een website niet alleen informatie overbrengen, maar ook een positieve emotionele reactie oproepen bij de gebruiker. Een goed design ondersteunt de merkidentiteit en zorgt ervoor dat de website er professioneel uitziet.
+              Veiligheid en privacy zijn eveneens van groot belang in planning en rooster systemen. Omdat deze systemen vaak gevoelige gegevens bevatten, zoals persoonlijke informatie van medewerkers en bedrijfsdata, is het essentieel dat zij voldoen aan de strengste beveiligingsnormen. Geavanceerde encryptietechnieken, regelmatige updates en strikte toegangscontroles zorgen ervoor dat uw data veilig is en dat alleen bevoegde personen toegang hebben tot de informatie.
             </p>
             <p>
-              De rol van moderne frontend frameworks en libraries kan niet worden onderschat. Tools zoals React, Vue en Angular bieden ontwikkelaars krachtige middelen om dynamische en interactieve webapplicaties te bouwen. Deze frameworks maken het mogelijk om complexe UI-componenten te creëren die gemakkelijk herbruikbaar zijn en snel kunnen worden aangepast aan veranderende eisen. Door gebruik te maken van deze technologieën kunnen we efficiënter werken en innovatiever ontwerpen, wat leidt tot betere en meer schaalbare webapplicaties.
+              Een ander voordeel van een modern planningssysteem is de flexibiliteit en schaalbaarheid. Organisaties groeien en veranderen voortdurend, en een systeem dat vandaag perfect werkt, moet morgen nog steeds mee kunnen groeien. Met een schaalbaar systeem kunt u eenvoudig extra functionaliteiten toevoegen of bestaande processen aanpassen naarmate uw bedrijfsbehoeften evolueren. Dit maakt het systeem niet alleen een investering voor de korte termijn, maar ook een duurzame oplossing voor de toekomst.
             </p>
             <p>
-              Naast de technische en visuele aspecten van frontend development is de gebruikerservaring (UX) van groot belang. UX design richt zich op het optimaliseren van de interactie tussen de gebruiker en de website. Dit omvat het analyseren van gebruikersgedrag, het testen van de interface en het continu verbeteren van de navigatie en functionaliteit. Een goede UX zorgt ervoor dat bezoekers gemakkelijk vinden wat ze zoeken, wat leidt tot hogere conversieratio’s en een sterkere klantloyaliteit.
+              De impact van een efficiënt planningssysteem reikt verder dan alleen de operationele efficiëntie. Het verbetert de tevredenheid en motivatie van medewerkers doordat zij altijd inzicht hebben in hun roosters en snel kunnen reageren op wijzigingen. Dit zorgt voor een betere balans tussen werk en privé, wat op zijn beurt leidt tot een hogere productiviteit en een positieve bedrijfscultuur.
             </p>
             <p>
-              Innovatie in frontend development stopt niet bij de technologieën die we vandaag gebruiken. De digitale wereld evolueert continu, en daarmee ook de verwachtingen van de gebruiker. Ontwikkelaars moeten constant op de hoogte blijven van de nieuwste trends, zoals Progressive Web Apps (PWA’s), motion design en micro-interacties. Deze innovaties dragen bij aan een nog rijkere gebruikerservaring en helpen bedrijven om zich te onderscheiden in een concurrerende markt.
+              Innovatie speelt eveneens een belangrijke rol in de ontwikkeling van planning en rooster systemen. Met de opkomst van cloud computing en mobiele technologieën hebben deze systemen een geheel nieuwe dimensie gekregen. Medewerkers kunnen nu via mobiele apps hun roosters inzien, verlof aanvragen en zelfs in realtime communiceren met hun team. Dit verhoogt de toegankelijkheid en gebruiksvriendelijkheid van het systeem en zorgt voor een meer flexibele en moderne werkomgeving.
             </p>
             <p>
-              Tot slot is samenwerking tussen verschillende disciplines essentieel voor succesvol frontend development. Designers, ontwikkelaars, marketeers en SEO-specialisten werken samen om een geïntegreerde digitale strategie te realiseren. Deze samenwerking zorgt ervoor dat alle aspecten van een website – van het visuele ontwerp tot de technische implementatie en optimalisatie – naadloos op elkaar aansluiten en bijdragen aan de algehele prestaties van de website.
-            </p>
-            <p>
-              Samengevat, frontend development is veel meer dan alleen het bouwen van een mooie website. Het is een multidisciplinaire aanpak die design, technologie, performance en gebruikerservaring combineert om een digitale omgeving te creëren die zowel functioneel als visueel indrukwekkend is. Door te investeren in hoogwaardige frontend development kunnen bedrijven hun online aanwezigheid versterken, de gebruikerservaring optimaliseren en uiteindelijk hun bedrijfsresultaten verbeteren. Onze expertise in frontend development stelt ons in staat om innovatieve en toekomstbestendige webapplicaties te bouwen die de verwachtingen van vandaag overtreffen en klaar zijn voor de uitdagingen van morgen.
+              Samengevat bieden planning en rooster systemen een krachtige oplossing voor de uitdagingen van moderne bedrijfsvoering. Ze centraliseren data, automatiseren repetitieve taken en bieden realtime inzichten, waardoor organisaties beter kunnen plannen, sneller kunnen reageren en efficiënter kunnen werken. Door te investeren in een geavanceerd planningssysteem creëert u niet alleen meer overzicht en efficiëntie, maar versterkt u ook de betrokkenheid en tevredenheid van uw medewerkers. Dit alles resulteert in een robuuste en toekomstbestendige organisatie die klaar is om de uitdagingen van morgen aan te gaan.
             </p>
           </div>
         </div>
@@ -205,54 +172,48 @@ export default function FrontendDevelopmentPage() {
         <div className="pt-16 pb-24 px-5 xs:px-8 xl:px-12 bg-gray-900 rounded-3xl">
           <div className="container mx-auto px-4">
             <div className="flex mb-4 items-center">
-              <svg
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Ons Frontend Ontwikkelingsproces
+                Ons Plannings- en Roostersysteem Proces
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Stap voor stap naar uw ideale frontend
+                Stap voor stap naar een efficiënt roostersysteem
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Concept en Design",
+                    title: "Analyse en Inventarisatie",
                     description:
-                      "Wij starten met een uitgebreide intake en analyse van uw wensen en doelgroep om een uniek concept te ontwikkelen.",
+                      "We starten met een grondige analyse van uw huidige planningsprocessen en identificeren de knelpunten die verbeterd kunnen worden.",
                   },
                   {
-                    title: "Prototype en Wireframing",
+                    title: "Concept en Ontwerp",
                     description:
-                      "Vervolgens maken we wireframes en interactieve prototypes om de structuur en flow van uw website te visualiseren.",
+                      "Op basis van deze analyse ontwikkelen we een concept dat perfect aansluit bij uw wensen. Dit omvat een gebruiksvriendelijke interface en slimme automatiseringen.",
                   },
                   {
-                    title: "Ontwikkeling en Implementatie",
+                    title: "Ontwikkeling en Integratie",
                     description:
-                      "Onze ontwikkelaars bouwen de frontend met de nieuwste technologieën, zorgen voor een responsive design en implementeren alle gewenste functionaliteiten.",
+                      "Onze experts bouwen een op maat gemaakt systeem en integreren het met bestaande HR- en ERP-systemen voor een naadloze workflow.",
                   },
                   {
                     title: "Testen en Optimalisatie",
                     description:
-                      "Voordat de website live gaat, testen we deze op diverse apparaten en optimaliseren we laadtijden, performance en SEO.",
+                      "Voor de lancering doorloopt het systeem een intensieve testfase, waarbij we de functionaliteit, snelheid en gebruiksvriendelijkheid grondig controleren en optimaliseren.",
                   },
                   {
                     title: "Lancering en Ondersteuning",
                     description:
-                      "Na de lancering bieden we ondersteuning en onderhoud zodat uw website continu optimaal functioneert.",
+                      "Na een succesvolle implementatie bieden we continue ondersteuning en onderhoud om ervoor te zorgen dat het systeem altijd optimaal presteert.",
                   },
                   {
                     title: "Feedback en Iteratie",
                     description:
-                      "We verzamelen gebruikersfeedback en passen waar nodig verbeteringen toe om de gebruikerservaring te maximaliseren.",
+                      "Wij monitoren het gebruik van het systeem en passen het continu aan op basis van feedback van gebruikers en veranderende bedrijfsbehoeften.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -280,7 +241,7 @@ export default function FrontendDevelopmentPage() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze frontend development diensten.
+              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze planning en rooster systemen.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -405,7 +366,7 @@ export default function FrontendDevelopmentPage() {
               </span>
               <h5 className="text-xl font-medium mb-4">Nog vragen?</h5>
               <p className="text-gray-700">
-                Voor meer informatie over onze frontend development diensten kunt u onze{" "}
+                Voor meer informatie over onze planning en rooster systemen kunt u onze{" "}
                 <Link href="/contact" className="inline-block text-black font-medium underline">
                   Contactpagina
                 </Link>{" "}
@@ -420,9 +381,9 @@ export default function FrontendDevelopmentPage() {
       {/* Call to Action Sectie */}
       <section className="py-12 lg:py-24 bg-teal-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Klaar om uw frontend te optimaliseren?</h2>
+          <h2 className="text-4xl font-bold mb-8">Klaar om uw planning en rooster systemen te optimaliseren?</h2>
           <p className="text-xl mb-12">
-            Laat uw online aanwezigheid stralen met een moderne en responsive website, gebouwd met professionele frontend development.
+            Ontwikkel een geïntegreerd planningssysteem dat uw organisatie stroomlijnt, uw medewerkers efficiënt inzet en uw bedrijfsprocessen optimaliseert.
           </p>
           <Link
             href="/offerte-aanvragen"

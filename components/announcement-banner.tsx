@@ -16,10 +16,10 @@ export function AnnouncementBanner({ isVisible }: { isVisible: boolean }) {
       exit={{ height: 0, opacity: 0 }}
       className="bg-teal-900 text-white overflow-hidden"
     >
-      <div className="container mx-auto max-w-[1800px] px-4 py-2 flex items-center justify-between">
+      <div className="container mx-auto max-w-full px-4 py-2 flex items-center justify-between">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/10">BROCHURE</span>
-          <span className="text-sm">Vraag nu de digital design rapport aan</span>
+          <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-white/10">ONDERHOUD</span>
+          <span className="text-sm">Let op onze website is nog in ontwikkeling</span>
         </div>
         <button
           onClick={() => {/*setIsVisible(false)*/}} //Commented out as isVisible is managed externally
