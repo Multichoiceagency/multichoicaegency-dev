@@ -6,60 +6,56 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
-export default function FrontendDevelopmentPage() {
+export default function PortalenPlatformenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Wat houdt frontend development in?",
+      question: "Wat is een digitaal portaal?",
       answer:
-        "Frontend development richt zich op het bouwen van de visuele interface van een website. Dit omvat de layout, navigatie, interactieve elementen en animaties die samen zorgen voor een optimale gebruikerservaring.",
+        "Een digitaal portaal is een centrale toegangspoort tot diverse diensten, informatie en interacties. Het fungeert als een verzameling van modules en functionaliteiten die bedrijven in staat stelt om gebruikers op een overzichtelijke en efficiënte manier te bedienen.",
     },
     {
-      question: "Welke voordelen biedt een moderne frontend?",
+      question: "Wat zijn de voordelen van een platformoplossing?",
       answer:
-        "Een moderne frontend zorgt voor een aantrekkelijke, gebruiksvriendelijke en snelle website. Dit verbetert de gebruikerservaring, verhoogt conversies en versterkt uw merkidentiteit.",
+        "Een platform biedt de mogelijkheid om meerdere diensten en applicaties te integreren, waardoor gebruikers een complete en samenhangende ervaring krijgen. Dit leidt tot betere interactie, hogere klanttevredenheid en efficiëntie in bedrijfsprocessen.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor frontend development?",
+      question: "Hoe lang duurt de ontwikkeling van een portaal of platform?",
       answer:
-        "Wij maken gebruik van HTML5, CSS3, JavaScript en moderne frameworks zoals React, Vue of Angular, zodat we dynamische en schaalbare webapplicaties kunnen bouwen.",
+        "De ontwikkeltijd varieert sterk, afhankelijk van de complexiteit en het aantal te integreren functionaliteiten. Gemiddeld loopt dit proces van 8 tot 20 weken.",
     },
     {
-      question: "Hoe lang duurt een typisch frontend project?",
+      question: "Kan ik het portaal volledig op maat laten maken?",
       answer:
-        "De ontwikkeltijd varieert per project, maar een standaard frontend project duurt meestal tussen de 4 en 8 weken.",
+        "Ja, onze oplossingen worden volledig afgestemd op uw specifieke bedrijfsprocessen en doelstellingen. Dit betekent dat het portaal of platform precies die functies bevat die u nodig heeft, zonder overbodige standaardoplossingen.",
     },
     {
-      question: "Bieden jullie ook optimalisatie voor snelheid en SEO?",
+      question: "Bieden jullie ondersteuning en onderhoud na de lancering?",
       answer:
-        "Ja, naast een prachtig design zorgen we ervoor dat uw website snel laadt en technisch geoptimaliseerd is voor zoekmachines, wat resulteert in betere vindbaarheid en een optimale gebruikerservaring.",
-    },
-    {
-      question: "Is mijn website volledig responsive?",
-      answer:
-        "Absoluut, wij zorgen ervoor dat uw website op elk apparaat perfect functioneert, of het nu gaat om desktops, tablets of mobiele telefoons.",
+        "Zeker, we bieden uitgebreide support- en onderhoudpakketten om ervoor te zorgen dat uw digitale portaal of platform altijd up-to-date is en optimaal presteert.",
     },
   ];
 
   return (
     <div className="bg-white text-black">
+      {/* SEO & Schema */}
       <NextSeo
-        title="Frontend Development | Moderne, Responsive Webapplicaties"
-        description="Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën."
-        canonical="https://www.multichoiceagency.nl/frontend-development"
+        title="Portalen en Platformen | Digitale Oplossingen op Maat"
+        description="Ontdek hoe op maat gemaakte digitale portalen en platformen uw bedrijfsprocessen stroomlijnen en de klantbeleving optimaliseren. Wij ontwikkelen schaalbare en geïntegreerde oplossingen voor moderne organisaties."
+        canonical="https://www.multichoiceagency.nl/portalen-en-platformen"
         openGraph={{
           type: 'website',
-          url: 'https://www.multichoiceagency.nl/frontend-development',
-          title: 'Frontend Development | Moderne, Responsive Webapplicaties',
+          url: 'https://www.multichoiceagency.nl/portalen-en-platformen',
+          title: 'Portalen en Platformen | Digitale Oplossingen op Maat',
           description:
-            'Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën.',
+            'Ontdek hoe op maat gemaakte digitale portalen en platformen uw bedrijfsprocessen stroomlijnen en de klantbeleving optimaliseren. Wij ontwikkelen schaalbare en geïntegreerde oplossingen voor moderne organisaties.',
           images: [
             {
-              url: '/partners/frontend-development.png',
+              url: '/partners/portalen-en-platformen.png',
               width: 1200,
               height: 630,
-              alt: 'Frontend Development',
+              alt: 'Portalen en Platformen',
             },
           ],
         }}
@@ -73,64 +69,39 @@ export default function FrontendDevelopmentPage() {
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Frontend Development', item: 'https://www.multichoiceagency.nl/frontend-development' },
+          { position: 2, name: 'Portalen en Platformen', item: 'https://www.multichoiceagency.nl/portalen-en-platformen' },
         ]}
       />
 
       <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom is frontend development belangrijk?',
-            acceptedAnswerText:
-              'De frontend is het visitekaartje van uw website en bepaalt de eerste indruk en gebruikservaring. Een goed ontwikkelde frontend zorgt voor een optimale gebruikerservaring en stimuleert conversies.',
-          },
-          {
-            questionName: 'Welke technologieën worden er gebruikt?',
-            acceptedAnswerText:
-              'Wij werken met moderne tools en frameworks zoals React, Vue en Angular, gecombineerd met HTML5, CSS3 en JavaScript om dynamische en responsive interfaces te bouwen.',
-          },
-          {
-            questionName: 'Hoe lang duurt een frontend project?',
-            acceptedAnswerText:
-              'Afhankelijk van de complexiteit en functionaliteiten duurt een project gemiddeld tussen de 4 en 8 weken.',
-          },
-          {
-            questionName: 'Is mijn website volledig responsive?',
-            acceptedAnswerText:
-              'Ja, wij zorgen ervoor dat al onze frontend projecten volledig responsive zijn en op elk apparaat optimaal functioneren.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning na de lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudpakketten zodat uw website altijd up-to-date blijft en goed presteert.',
-          },
-        ]}
+        mainEntity={faqItems.map(item => ({
+          questionName: item.question,
+          acceptedAnswerText: item.answer,
+        }))}
       />
 
-      {/* Hero Sectie */}
+      {/* Hero Sectie met Video */}
       <HeroNieuw
-        title={"Frontend Development"}
+        title={"Portalen en Platformen"}
         description={
-          "Ontdek hoe wij moderne, responsive webapplicaties ontwikkelen die de gebruikerservaring optimaliseren en uw merk versterken."
+          "Bouw uw digitale ecosysteem met op maat gemaakte portalen en platformen die naadloos integreren met uw bedrijfsprocessen en de gebruikerservaring naar een hoger niveau tillen."
         }
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={
-          "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
-        }
+        videoSrc={"https://cdn.dribbble.com/userupload/12345678/file/original-portalen.mp4"}
       />
 
-      {/* Overige Sectie met Extra Informatie en Video */}
+      {/* Extra Informatie Sectie met Video */}
       <section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex flex-col-reverse lg:flex-row items-center -mx-4">
             {/* Tekst Kolom */}
             <div className="w-full lg:w-1/2 px-4">
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                Waarom kiezen voor frontend development?
+                Waarom kiezen voor digitale portalen en platformen?
               </h2>
               <p className="text-lg text-gray-700 mb-6 dark:text-white">
-                In het digitale tijdperk is een sterke frontend cruciaal voor een optimale gebruikerservaring. Onze aanpak zorgt voor snelle laadtijden, intuïtieve navigatie en een consistent design dat uw merk versterkt.
+                In de huidige digitale economie zijn portalen en platformen onmisbaar geworden. Ze bieden een centrale toegangspoort tot informatie, diensten en interacties. Of u nu interne bedrijfsprocessen wilt stroomlijnen of een extern platform voor klanten wilt creëren, een goed ontwikkeld digitaal portaal biedt de flexibiliteit en schaalbaarheid die nodig is om te groeien.
               </p>
               <Link
                 href="/offerte-aanvragen"
@@ -149,7 +120,7 @@ export default function FrontendDevelopmentPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+                  src="https://cdn.dribbble.com/userupload/98765432/file/original-portalen-video.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -159,42 +130,39 @@ export default function FrontendDevelopmentPage() {
         </div>
       </section>
 
-      {/* In-Depth Sectie: Uitgebreide Uitleg over Frontend Development (700+ woorden) */}
+      {/* In-Depth Sectie: Uitgebreide Uitleg (700+ woorden) */}
       <section className="py-12 lg:py-24 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-gray-900 dark:text-white">
-            In-Depth: De Kracht van Frontend Development
+            In-Depth: De Kracht van Digitale Portalen en Platformen
           </h2>
           <div className="text-lg text-gray-700 dark:text-gray-300 space-y-6">
             <p>
-              Frontend development is de kunst en wetenschap van het ontwikkelen van de gebruikersinterface van een website. Het vormt de brug tussen de technologie en de gebruiker, en speelt een cruciale rol in hoe informatie wordt gepresenteerd en ervaren. Een goed ontworpen frontend zorgt voor een aantrekkelijke en intuïtieve interface, die de gebruiker niet alleen visueel aanspreekt maar ook functioneel ondersteunt.
+              Digitale portalen en platformen vormen het hart van de moderne digitale strategie. Ze fungeren als centrale toegangspunten waar informatie, diensten en interacties samenkomen. Deze systemen bieden gebruikers een geïntegreerde ervaring en stellen bedrijven in staat om hun aanbod op een gestructureerde en toegankelijke manier te presenteren. In een wereld waar digitale connectiviteit essentieel is, maken portalen en platformen het mogelijk om klanten, partners en interne teams naadloos met elkaar te verbinden.
             </p>
             <p>
-              Een essentieel aspect van frontend development is het realiseren van een responsive design. In een tijd waarin consumenten toegang hebben tot internet via allerlei apparaten – van desktops tot tablets en smartphones – is het van vitaal belang dat een website zich aanpast aan verschillende schermformaten. Responsive design zorgt ervoor dat de inhoud en navigatie op elk apparaat duidelijk en toegankelijk blijven, wat de gebruikerservaring aanzienlijk verbetert en bijdraagt aan een hogere klanttevredenheid.
+              Een van de belangrijkste voordelen van een digitaal portaal is de centralisatie van informatie. In plaats van verschillende, losstaande systemen te gebruiken, bundelt een portaal alle belangrijke data op één plek. Dit zorgt voor een overzichtelijk beheer van klantinformatie, productdata en andere cruciale bedrijfsinformatie. Het resultaat is een efficiënter bedrijfsproces waarin alle belanghebbenden toegang hebben tot dezelfde betrouwbare data.
             </p>
             <p>
-              Daarnaast is snelheid een kritieke factor in frontend development. Gebruikers hebben weinig geduld en verwachten dat een website snel laadt. Door technieken zoals code splitting, lazy loading en het optimaliseren van afbeeldingen en scripts, kunnen ontwikkelaars de prestaties van een website aanzienlijk verbeteren. Dit zorgt niet alleen voor een betere gebruikerservaring, maar heeft ook een positief effect op de zoekmachineoptimalisatie (SEO) van de site, aangezien zoekmachines snellere websites vaak hoger waarderen.
+              Daarnaast bieden digitale platformen de mogelijkheid om verschillende diensten te integreren. Denk bijvoorbeeld aan een e-commerce platform dat niet alleen als online winkel functioneert, maar ook extra diensten zoals klantenservice, community features en contentmanagement aanbiedt. Dit zorgt voor een holistische gebruikerservaring, waarbij klanten niet alleen producten kunnen kopen, maar ook direct kunnen communiceren en informatie vinden. De integratie van meerdere functionaliteiten in één platform maakt het beheer eenvoudiger en verhoogt de tevredenheid van de gebruiker.
             </p>
             <p>
-              Een andere belangrijke component is toegankelijkheid. Toegankelijkheid betekent dat een website bruikbaar is voor iedereen, inclusief mensen met beperkingen. Dit omvat het gebruik van semantische HTML, ARIA-labels en andere best practices om ervoor te zorgen dat alle gebruikers, ongeacht hun fysieke of technologische beperkingen, de website kunnen gebruiken. Door toegankelijkheid te integreren in het ontwikkelproces, creëert men een inclusieve ervaring die de reikwijdte van de website vergroot.
+              Een ander cruciaal aspect van portalen en platformen is de schaalbaarheid. Naarmate uw bedrijf groeit, moet uw digitale infrastructuur mee-evolueren. Een goed ontwikkeld platform is ontworpen met de flexibiliteit om nieuwe modules en diensten te integreren, zonder dat dit ten koste gaat van de prestaties. Dit betekent dat u zich geen zorgen hoeft te maken over de technische beperkingen, maar zich kunt concentreren op groei en innovatie.
             </p>
             <p>
-              Naast technische optimalisaties speelt ook design een grote rol in frontend development. Het visuele aspect van een website is vaak het eerste wat opvalt bij een bezoeker. Door gebruik te maken van aantrekkelijke kleurenschema’s, consistente typografie en een goed doordachte lay-out, kan een website niet alleen informatie overbrengen, maar ook een positieve emotionele reactie oproepen bij de gebruiker. Een goed design ondersteunt de merkidentiteit en zorgt ervoor dat de website er professioneel uitziet.
+              Veiligheid en privacy spelen een belangrijke rol bij digitale portalen. Met de toenemende hoeveelheid data die wordt verzameld en verwerkt, is het van essentieel belang dat uw platform voldoet aan de strengste beveiligingsnormen. Geavanceerde encryptie, toegangscontroles en regelmatige beveiligingsupdates zijn standaard onderdelen van een robuust portaal. Hierdoor beschermt u niet alleen de gegevens van uw klanten, maar bouwt u ook vertrouwen op bij uw gebruikers.
             </p>
             <p>
-              De rol van moderne frontend frameworks en libraries kan niet worden onderschat. Tools zoals React, Vue en Angular bieden ontwikkelaars krachtige middelen om dynamische en interactieve webapplicaties te bouwen. Deze frameworks maken het mogelijk om complexe UI-componenten te creëren die gemakkelijk herbruikbaar zijn en snel kunnen worden aangepast aan veranderende eisen. Door gebruik te maken van deze technologieën kunnen we efficiënter werken en innovatiever ontwerpen, wat leidt tot betere en meer schaalbare webapplicaties.
+              Innovatie staat centraal in de ontwikkeling van moderne platformen. Technologieën zoals cloud computing, big data analytics en kunstmatige intelligentie worden steeds vaker geïntegreerd in digitale portalen. Deze innovaties maken het mogelijk om real-time inzichten te verkrijgen, klantgedrag te analyseren en gepersonaliseerde ervaringen te bieden. Zo kan een platform niet alleen statische informatie presenteren, maar ook dynamisch inspelen op de behoeften van de gebruiker.
             </p>
             <p>
-              Naast de technische en visuele aspecten van frontend development is de gebruikerservaring (UX) van groot belang. UX design richt zich op het optimaliseren van de interactie tussen de gebruiker en de website. Dit omvat het analyseren van gebruikersgedrag, het testen van de interface en het continu verbeteren van de navigatie en functionaliteit. Een goede UX zorgt ervoor dat bezoekers gemakkelijk vinden wat ze zoeken, wat leidt tot hogere conversieratio’s en een sterkere klantloyaliteit.
+              De implementatie van een digitaal portaal of platform is een complex proces dat een multidisciplinaire aanpak vereist. Het begint met een grondige analyse van uw bedrijfsdoelstellingen en de wensen van uw gebruikers. Vervolgens wordt er een concept ontwikkeld dat de basis legt voor het ontwerp en de functionaliteiten van het platform. Gedurende het ontwikkelproces werken ontwerpers, ontwikkelaars en data-specialisten nauw samen om een oplossing te creëren die niet alleen technisch robuust is, maar ook visueel aantrekkelijk en gebruiksvriendelijk.
             </p>
             <p>
-              Innovatie in frontend development stopt niet bij de technologieën die we vandaag gebruiken. De digitale wereld evolueert continu, en daarmee ook de verwachtingen van de gebruiker. Ontwikkelaars moeten constant op de hoogte blijven van de nieuwste trends, zoals Progressive Web Apps (PWA’s), motion design en micro-interacties. Deze innovaties dragen bij aan een nog rijkere gebruikerservaring en helpen bedrijven om zich te onderscheiden in een concurrerende markt.
+              Na de implementatie is continue optimalisatie van cruciaal belang. Digitale platformen zijn nooit “af” – ze moeten voortdurend worden aangepast en verbeterd op basis van gebruikersfeedback en veranderende marktomstandigheden. Regelmatige updates, nieuwe functionaliteiten en prestatieverbeteringen zorgen ervoor dat uw platform relevant en effectief blijft. Dit is essentieel om de concurrentie voor te blijven in een snel veranderende digitale wereld.
             </p>
             <p>
-              Tot slot is samenwerking tussen verschillende disciplines essentieel voor succesvol frontend development. Designers, ontwikkelaars, marketeers en SEO-specialisten werken samen om een geïntegreerde digitale strategie te realiseren. Deze samenwerking zorgt ervoor dat alle aspecten van een website – van het visuele ontwerp tot de technische implementatie en optimalisatie – naadloos op elkaar aansluiten en bijdragen aan de algehele prestaties van de website.
-            </p>
-            <p>
-              Samengevat, frontend development is veel meer dan alleen het bouwen van een mooie website. Het is een multidisciplinaire aanpak die design, technologie, performance en gebruikerservaring combineert om een digitale omgeving te creëren die zowel functioneel als visueel indrukwekkend is. Door te investeren in hoogwaardige frontend development kunnen bedrijven hun online aanwezigheid versterken, de gebruikerservaring optimaliseren en uiteindelijk hun bedrijfsresultaten verbeteren. Onze expertise in frontend development stelt ons in staat om innovatieve en toekomstbestendige webapplicaties te bouwen die de verwachtingen van vandaag overtreffen en klaar zijn voor de uitdagingen van morgen.
+              Tot slot is het belangrijk om te benadrukken dat een digitaal portaal of platform niet alleen een technische investering is, maar ook een strategische keuze. Het is een instrument dat uw bedrijf helpt om beter in te spelen op de behoeften van de klant, de efficiëntie te verhogen en uiteindelijk de omzet te stimuleren. Door te investeren in een op maat gemaakt platform, legt u de basis voor duurzame groei en innovatie.
             </p>
           </div>
         </div>
@@ -215,44 +183,44 @@ export default function FrontendDevelopmentPage() {
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Ons Frontend Ontwikkelingsproces
+                Ons Portalen en Platformen Proces
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Stap voor stap naar uw ideale frontend
+                Stap voor stap naar uw ideale digitale oplossing
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Concept en Design",
+                    title: "Analyse en Strategie",
                     description:
-                      "Wij starten met een uitgebreide intake en analyse van uw wensen en doelgroep om een uniek concept te ontwikkelen.",
+                      "Wij beginnen met een grondige analyse van uw bedrijfsprocessen en de wensen van uw doelgroep om de beste digitale strategie te bepalen.",
                   },
                   {
-                    title: "Prototype en Wireframing",
+                    title: "Concept en Ontwerp",
                     description:
-                      "Vervolgens maken we wireframes en interactieve prototypes om de structuur en flow van uw website te visualiseren.",
+                      "Op basis van onze analyse ontwikkelen we een concept en visueel ontwerp dat de basis vormt voor uw op maat gemaakte portaal of platform.",
                   },
                   {
-                    title: "Ontwikkeling en Implementatie",
+                    title: "Ontwikkeling en Integratie",
                     description:
-                      "Onze ontwikkelaars bouwen de frontend met de nieuwste technologieën, zorgen voor een responsive design en implementeren alle gewenste functionaliteiten.",
+                      "Onze experts bouwen het systeem op maat en integreren het naadloos met uw bestaande IT-infrastructuur, zodat u direct kunt profiteren van een geïntegreerde oplossing.",
                   },
                   {
                     title: "Testen en Optimalisatie",
                     description:
-                      "Voordat de website live gaat, testen we deze op diverse apparaten en optimaliseren we laadtijden, performance en SEO.",
+                      "Voor de lancering doorloopt uw platform een intensieve testfase, waarin we prestatie, veiligheid en gebruiksvriendelijkheid optimaliseren.",
                   },
                   {
                     title: "Lancering en Ondersteuning",
                     description:
-                      "Na de lancering bieden we ondersteuning en onderhoud zodat uw website continu optimaal functioneert.",
+                      "Na een succesvolle lancering bieden wij continue ondersteuning en onderhoud, zodat uw digitale oplossing altijd up-to-date blijft.",
                   },
                   {
                     title: "Feedback en Iteratie",
                     description:
-                      "We verzamelen gebruikersfeedback en passen waar nodig verbeteringen toe om de gebruikerservaring te maximaliseren.",
+                      "Wij monitoren de prestaties en passen op basis van gebruikersfeedback iteratieve verbeteringen toe, zodat uw platform blijft evolueren.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -280,7 +248,7 @@ export default function FrontendDevelopmentPage() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze frontend development diensten.
+              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze digitale portalen en platformen.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -405,7 +373,7 @@ export default function FrontendDevelopmentPage() {
               </span>
               <h5 className="text-xl font-medium mb-4">Nog vragen?</h5>
               <p className="text-gray-700">
-                Voor meer informatie over onze frontend development diensten kunt u onze{" "}
+                Voor meer informatie over onze digitale portalen en platformen kunt u onze{" "}
                 <Link href="/contact" className="inline-block text-black font-medium underline">
                   Contactpagina
                 </Link>{" "}
@@ -420,9 +388,9 @@ export default function FrontendDevelopmentPage() {
       {/* Call to Action Sectie */}
       <section className="py-12 lg:py-24 bg-teal-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Klaar om uw frontend te optimaliseren?</h2>
+          <h2 className="text-4xl font-bold mb-8">Klaar om uw digitale platform te lanceren?</h2>
           <p className="text-xl mb-12">
-            Laat uw online aanwezigheid stralen met een moderne en responsive website, gebouwd met professionele frontend development.
+            Ontwikkel een geïntegreerd digitaal portaal dat al uw diensten en informatie bundelt en uw gebruikers een naadloze ervaring biedt.
           </p>
           <Link
             href="/offerte-aanvragen"

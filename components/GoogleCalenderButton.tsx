@@ -1,6 +1,5 @@
 // components/GoogleCalendarButton.tsx
 'use client';
-
 import { useState } from 'react';
 
 const GoogleCalendarButton = () => {
@@ -17,6 +16,7 @@ const GoogleCalendarButton = () => {
   return (
     <>
       <button
+        id="googleCalendarButton"
         onClick={handleOpen}
         className="fixed bottom-4 left-4 z-40 inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition duration-30 animate-pulseCustom"
       >
