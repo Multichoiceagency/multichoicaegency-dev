@@ -108,15 +108,6 @@ export function Footer() {
   return (
     <section className="p-4">
       <div className="relative py-12 lg:py-24 bg-teal-900 dark:bg-gray-900 overflow-hidden rounded-xl">
-        {/* Achtergrondafbeelding */}
-        <Image
-          className="absolute bottom-0 left-0 h-full"
-          src="/flow-assets/footer/waves-lines-bg.png"
-          alt="Decoratieve achtergrond"
-          width={500}
-          height={500}
-        />
-
         <div className="container px-4 mx-auto relative">
           <div className="flex flex-wrap mb-12 md:mb-24 xl:mb-40 -mx-4">
             {/* Logo */}
@@ -136,13 +127,13 @@ export function Footer() {
               <div className="flex flex-wrap -mx-4">
                 {navSections.map((section, index) => (
                   <div key={index} className="w-1/2 xs:w-1/3 px-4 mb-8 xs:mb-0">
-                    <h2 className="text-xl mb-6 text-white dark:text-gray-200 font-bold">{section.title}</h2>
+                    <h2 className="text-lg mb-6 text-white dark:text-gray-200 font-bold">{section.title}</h2>
                     <ul>
                       {section.links.map((link, idx) => (
                         <li key={idx} className="mb-4">
                           <Link
                             href={link.href}
-                            className="inline-block text-white dark:text-gray-300 hover:text-lime-600 dark:hover:text-lime-400 font-medium"
+                            className="inline-block text-white dark:text-gray-300 hover:text-lime-600 dark:hover:text-lime-400"
                           >
                             {link.name}
                           </Link>
@@ -171,36 +162,6 @@ export function Footer() {
                 </Link>
               ))}
             </div>
-          </div>
-
-          {/* Contact & Bedrijfsinformatie */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {contactSections.map((block, idx) => (
-              <div
-                key={idx}
-                className="px-4 py-6 bg-white dark:bg-gray-800 text-black dark:text-gray-200 rounded-md shadow-lg"
-              >
-                <h3 className="text-2xl font-semibold mb-4">{block.title}</h3>
-                {block.info.map((text, index) => (
-                  <p key={index} className="mb-2">
-                    {text}
-                  </p>
-                ))}
-                {block.links?.map((link, index) => (
-                  <p key={index} className="mt-2">
-                    <Link
-                      href={link.href}
-                      className="hover:text-teal-900 dark:hover:text-lime-400 font-medium flex items-center"
-                    >
-                      {link.icon && (
-                        <FontAwesomeIcon icon={link.icon} className="w-5 h-5 mr-2" />
-                      )}
-                      {link.text}
-                    </Link>
-                  </p>
-                ))}
-              </div>
-            ))}
           </div>
         </div>
       </div>

@@ -48,6 +48,27 @@
     --ring: 142 59% 50%;
   }
 
+  @layer base {
+    h1 {
+      @apply text-4xl font-extrabold tracking-tight;
+    }
+    h2 {
+      @apply text-3xl font-semibold tracking-tight;
+    }
+    h3 {
+      @apply text-2xl font-semibold tracking-tight;
+    }
+    h4 {
+      @apply text-xl font-semibold;
+    }
+    h5 {
+      @apply text-lg font-semibold;
+    }
+    h6 {
+      @apply text-base font-semibold;
+    }
+  }
+
 /* Hides horizontal scrollbar and disables horizontal scrolling */
 body {
   overflow-x: hidden; /* Prevents horizontal scrolling entirely */

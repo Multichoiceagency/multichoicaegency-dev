@@ -6,25 +6,25 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
-const WebsiteLatenMakenVoorGezondheidszorg = () => {
+const WebsiteLatenMakenVoorHoreca = () => {
   return (
     <>
       <NextSeo
-        title="Website Laten Maken voor Gezondheidszorg | Professioneel Webdesign"
-        description="Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en vertrouwen wekt. Vraag een offerte aan!"
-        canonical="https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg"
+        title="Website Laten Maken voor Horeca | Professioneel Webdesign"
+        description="Wilt u een website laten maken voor horeca? Ontdek hoe een professionele website uw restaurant, café of hotel versterkt met een aantrekkelijk design, online reserveringen en meer. Vraag een offerte aan!"
+        canonical="https://www.multichoiceagency.nl/website-laten-maken-voor-horeca"
         openGraph={{
           type: 'website',
-          url: 'https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg',
-          title: 'Website Laten Maken voor Gezondheidszorg | Professioneel Webdesign',
+          url: 'https://www.multichoiceagency.nl/website-laten-maken-voor-horeca',
+          title: 'Website Laten Maken voor Horeca | Professioneel Webdesign',
           description:
-            'Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en vertrouwen wekt. Vraag een offerte aan!',
+            'Wilt u een website laten maken voor horeca? Ontdek hoe een professionele website uw restaurant, café of hotel versterkt met een aantrekkelijk design, online reserveringen en meer. Vraag een offerte aan!',
           images: [
             {
-              url: '/partners/website-laten-maken-voor-gezondheidszorg.png',
+              url: '/partners/website-laten-maken-voor-horeca.png',
               width: 1200,
               height: 630,
-              alt: 'Website laten maken voor gezondheidszorg',
+              alt: 'Website laten maken voor horeca',
             },
           ],
         }}
@@ -39,7 +39,7 @@ const WebsiteLatenMakenVoorGezondheidszorg = () => {
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Website Laten Maken voor Gezondheidszorg', item: 'https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg' },
+          { position: 2, name: 'Website Laten Maken voor Horeca', item: 'https://www.multichoiceagency.nl/website-laten-maken-voor-horeca' },
         ]}
       />
 
@@ -47,29 +47,29 @@ const WebsiteLatenMakenVoorGezondheidszorg = () => {
       <FAQPageJsonLd
         mainEntity={[
           {
-            questionName: 'Waarom is een professionele website belangrijk voor de gezondheidszorg?',
+            questionName: 'Waarom is een professionele website belangrijk voor de horeca?',
             acceptedAnswerText:
-              'Een professionele website voor gezondheidszorg versterkt de communicatie tussen zorgverleners en patiënten, vergroot het vertrouwen en verbetert de toegankelijkheid van zorginformatie.',
+              'Een professionele website voor horeca creëert een sterke eerste indruk, maakt online reserveringen en bestellingen mogelijk en versterkt het vertrouwen van gasten. Het is essentieel voor het presenteren van uw menu, sfeer en unieke ervaring.',
           },
           {
-            questionName: 'Hoeveel kost een website laten maken voor gezondheidszorg?',
+            questionName: 'Hoeveel kost een website laten maken voor horeca?',
             acceptedAnswerText:
-              'De kosten variëren, maar doorgaans liggen de prijzen tussen de €1.499 voor een eenvoudige website tot €10.000+ voor maatwerk, afhankelijk van design, functionaliteiten en integraties.',
+              'De kosten variëren op basis van ontwerp, functionaliteiten en integraties zoals reserveringssystemen. Gemiddeld liggen de prijzen tussen de €1.499 voor een eenvoudige website en €10.000+ voor een maatwerkoplossing.',
           },
           {
-            questionName: 'Hoe lang duurt het om een website voor gezondheidszorg te laten maken?',
+            questionName: 'Hoe lang duurt het om een website voor horeca te laten maken?',
             acceptedAnswerText:
-              'Een standaard website kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.',
+              'Een standaard website kan binnen 2 tot 4 weken worden opgeleverd. Voor complexere projecten met extra functionaliteiten kan de ontwikkeling 6 tot 12 weken duren.',
           },
           {
             questionName: 'Is een mobiele versie van de website inbegrepen?',
             acceptedAnswerText:
-              'Ja, alle websites die wij ontwikkelen, inclusief die voor de gezondheidszorg, zijn 100% responsive en geoptimaliseerd voor alle apparaten.',
+              'Ja, alle websites die wij ontwikkelen, inclusief die voor horeca, zijn volledig responsive en geoptimaliseerd voor mobiele apparaten, tablets en desktops.',
           },
           {
             questionName: 'Bieden jullie onderhoud en support na de lancering?',
             acceptedAnswerText:
-              'Ja, we bieden diverse onderhoudspakketten met beveiligingsupdates, back-ups en technische ondersteuning, zodat uw website altijd optimaal functioneert.',
+              'Ja, we bieden diverse onderhoudspakketten aan die zorgen voor regelmatige updates, beveiligingspatches en technische ondersteuning, zodat uw website altijd optimaal functioneert.',
           },
         ]}
       />      
@@ -77,59 +77,59 @@ const WebsiteLatenMakenVoorGezondheidszorg = () => {
   );
 };
 
-export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
+export default function WebsiteLatenMakenVoorHorecaPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Waarom is een website voor gezondheidszorg belangrijk?",
+      question: "Waarom is een website voor horeca belangrijk?",
       answer:
-        "Een professionele website fungeert als het online visitekaartje van uw zorginstelling. Het zorgt voor betere communicatie, vergroot het vertrouwen en helpt patiënten snel de juiste informatie te vinden.",
+        "Een professionele website is essentieel voor horecabedrijven omdat het de uitstraling van uw zaak versterkt, online reserveringen en bestellingen mogelijk maakt en de klantbeleving verbetert.",
     },
     {
-      question: "Hoe lang duurt het om een website voor gezondheidszorg te laten maken?",
+      question: "Hoe lang duurt het om een website voor horeca te laten maken?",
       answer:
-        "De doorlooptijd is afhankelijk van de complexiteit en gewenste functionaliteiten. Een eenvoudige website kan binnen 2 tot 4 weken gereed zijn, terwijl maatwerkprojecten meer tijd vragen.",
+        "De doorlooptijd is afhankelijk van de complexiteit. Een eenvoudige website kan binnen 2 tot 4 weken worden opgeleverd, terwijl een uitgebreide site met extra functionaliteiten 6 tot 12 weken kan duren.",
     },
     {
-      question: "Kan ik een bestaande website laten vernieuwen voor de gezondheidszorg?",
+      question: "Kan ik mijn bestaande website laten vernieuwen voor mijn horecazaak?",
       answer:
-        "Ja, we kunnen uw huidige website vernieuwen met een modern design, verbeterde functionaliteiten en optimalisaties die specifiek gericht zijn op de zorgsector.",
+        "Ja, we kunnen uw huidige website moderniseren met een aantrekkelijk design, verbeterde functionaliteiten en integraties zoals online reserveringen en menu's, speciaal voor de horeca.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor webdevelopment in de gezondheidszorg?",
+      question: "Welke technologieën gebruiken jullie voor webdevelopment in de horeca?",
       answer:
-        "We maken gebruik van moderne technologieën zoals WordPress, Next.js en maatwerkoplossingen met Laravel, Django of Node.js om te voldoen aan de strenge eisen van de zorgsector.",
+        "We maken gebruik van moderne technologieën zoals WordPress, Next.js en maatwerkoplossingen met Laravel, Django of Node.js, zodat uw website snel, veilig en gebruiksvriendelijk is.",
     },
     {
       question: "Hoe zorgen jullie ervoor dat mijn website goed vindbaar is in Google?",
       answer:
-        "We implementeren vanaf het begin een gedegen zoekmachineoptimalisatie (SEO) strategie, met aandacht voor technische optimalisaties, laadtijden en mobielvriendelijk design.",
+        "We implementeren een gedegen SEO-strategie, optimaliseren laadtijden en zorgen voor een mobielvriendelijk design, zodat uw horecasite goed scoort in zoekmachines.",
     },
     {
-      question: "Wat zijn de kosten voor een website voor gezondheidszorg?",
+      question: "Wat zijn de kosten voor een website voor horeca?",
       answer:
-        "De kosten hangen af van de complexiteit en de gewenste functionaliteiten. Een eenvoudige website begint vanaf €1.499,-, terwijl uitgebreide zorgplatforms €5.000,- tot €20.000,- kunnen kosten.",
+        "De kosten variëren afhankelijk van de gewenste functies en het design. Een eenvoudige website begint vanaf €1.499,-, terwijl uitgebreide oplossingen met integraties zoals reserveringssystemen €5.000,- tot €20.000,- kunnen kosten.",
     },
     {
       question: "Is mijn website geschikt voor mobiel en tablets?",
       answer:
-        "Ja, alle websites die wij bouwen zijn volledig responsive, zodat patiënten en zorgverleners altijd een optimale ervaring hebben, ongeacht het apparaat.",
+        "Ja, alle websites die we ontwikkelen zijn volledig responsive, zodat gasten altijd een optimale ervaring hebben, ongeacht het apparaat dat ze gebruiken.",
     },
     {
       question: "Kan ik zelf content aanpassen op mijn website?",
       answer:
-        "Ja, we bouwen websites met gebruiksvriendelijke CMS-systemen zoals WordPress of een maatwerk dashboard, zodat u eenvoudig teksten en afbeeldingen kunt bijwerken.",
+        "Ja, we bouwen websites met gebruiksvriendelijke CMS-systemen zoals WordPress of een maatwerk dashboard, zodat u eenvoudig uw menu's, foto's en teksten kunt updaten.",
     },
     {
       question: "Hoe zit het met onderhoud en updates na de lancering?",
       answer:
-        "Wij bieden onderhoudspakketten aan om ervoor te zorgen dat uw website veilig, snel en up-to-date blijft, met regelmatige updates en back-ups.",
+        "Wij bieden onderhoudspakketten aan om ervoor te zorgen dat uw website veilig, snel en up-to-date blijft, met regelmatige updates en technische ondersteuning.",
     },
     {
-      question: "Kunnen jullie mijn website koppelen aan externe systemen zoals CRM of patiëntportalen?",
+      question: "Kunnen jullie mijn website koppelen aan externe systemen zoals online reserveringen of bestelsystemen?",
       answer:
-        "Ja, we verzorgen integraties met diverse systemen zoals CRM-software, patiëntportalen en betalingsproviders om uw website naadloos aan te sluiten op bestaande processen.",
+        "Ja, we verzorgen integraties met diverse systemen zoals online reserveringssoftware, bestelsystemen en betalingsproviders, zodat uw website naadloos aansluit op uw bedrijfsprocessen.",
     },
   ];
   
@@ -137,9 +137,9 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
   return (
     <div className="bg-white text-black">
       <HeroNieuw
-        title={"Website laten maken voor gezondheidszorg"}
+        title={"Website laten maken voor horeca"}
         description={
-          "Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en het vertrouwen vergroot."
+          "Wilt u een website laten maken voor horeca? Ontdek hoe een professionele website uw restaurant, café of hotel versterkt met een aantrekkelijk design en gebruiksvriendelijke functies."
         }
         buttonText={"Offerte aanvragen"}
         buttonLink={"/offerte-aanvragen"}
@@ -162,7 +162,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
               <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
             </svg>
             <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-              Gezondheidszorg specialisten
+              Horeca specialisten
             </span>
           </div>
           <div className="border-t border-gray-800 pt-16">
@@ -189,23 +189,23 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                 {/* Text Column */}
                 <div className="w-full lg:w-1/2 px-4">
                   <div className="max-w-xl">
-                    <h2 className="font-heading sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                      Website Laten Maken voor Gezondheidszorg: Alles Wat U Moet Weten
-                    </h2>
+                    <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                      Website Laten Maken voor Horeca: Alles Wat U Moet Weten
+                    </h1>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                      In de gezondheidszorg is een professionele website essentieel om patiënten te informeren, vertrouwen te wekken en de communicatie te stroomlijnen. Een goed ontworpen website ondersteunt zowel zorgverleners als patiënten.
+                      In de horeca is een professionele website cruciaal om gasten te informeren, reserveringen te vergemakkelijken en de unieke sfeer van uw zaak te presenteren. Een goed ontworpen website trekt klanten en versterkt uw merk.
                     </p>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                      Door te investeren in een moderne website verbetert u de toegankelijkheid en het imago van uw zorginstelling.
+                      Door te investeren in een moderne website voor horeca, zorgt u voor een optimale online ervaring die aansluit bij de verwachtingen van uw gasten.
                     </p>
 
                     <ul className="text-black">
                       {[
-                        "Gebruiksvriendelijk en toegankelijk design",
-                        "Betere communicatie met patiënten",
-                        "SEO-geoptimaliseerd voor de zorgsector",
-                        "Integratie van patiëntportalen en afspraken",
-                        "Betrouwbaar en veilig online platform",
+                        "Aantrekkelijk en gastvrij design",
+                        "Gebruiksvriendelijke online reserveringen",
+                        "SEO-geoptimaliseerd voor de horeca",
+                        "Integratie van menu's en specials",
+                        "Veilig en betrouwbaar platform",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center mb-4">
                           <svg
@@ -246,17 +246,17 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Waar Moet U Op Letten Bij Het Laten Maken van een Website voor Gezondheidszorg?
+                  Waar Moet U Op Letten Bij Het Laten Maken van een Website voor Horeca?
                 </h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                  Kwaliteit, veiligheid en gebruiksvriendelijkheid zijn cruciaal in de zorgsector. Let op de ervaring, specialisaties en integraties met patiëntportalen.
+                  Let op de ervaring, specialisaties en integraties zoals online reserveringen en bestelsystemen, die specifiek gericht zijn op de horecasector.
                 </p>
                 <ul className="text-black py-5">
                   {[
-                    "Portfolio en Ervaring: Bekijk eerdere zorgprojecten.",
-                    "Specialisaties: Kies voor webdesigners met kennis van de zorgsector.",
+                    "Portfolio en Ervaring: Bekijk eerdere horecaprojecten.",
+                    "Specialisaties: Kies voor webdesigners met kennis van de horeca.",
                     "Prijs en Kostenstructuur: Vraag een transparante offerte aan.",
-                    "SEO en Marketing: Zorg dat uw website goed gevonden wordt door patiënten.",
+                    "SEO en Marketing: Zorg dat uw website goed gevonden wordt door gasten.",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center mb-4">
                       <svg
@@ -285,7 +285,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                   href="/offerte-aanvragen"
                   className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
-                  Start uw zorgwebsite project vandaag nog!
+                  Start uw horeca website project vandaag nog!
                 </Link>
               </div>
             </div>
@@ -327,29 +327,29 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Hoe Werkt Webdevelopment in de Gezondheidszorg?
+                Hoe Werkt Webdevelopment in de Horeca?
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Een robuuste zorgwebsite wordt gebouwd met behulp van:
+                Een professionele horeca website wordt gebouwd met behulp van:
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
                     title: "Kennismaking en Analyse",
                     description:
-                      "Tijdens een eerste gesprek bespreken we de wensen en doelen van uw zorgwebsite om een passende strategie op te stellen.",
+                      "Tijdens een eerste gesprek bespreken we de wensen en doelen van uw horecasite om een passende strategie op te stellen.",
                   },
                   {
                     title: "Ontwerp en Conceptontwikkeling",
                     description:
-                      "Wij creëren een eerste ontwerp (wireframe) dat de structuur en gebruiksvriendelijkheid van uw zorgwebsite weerspiegelt.",
+                      "Wij creëren een eerste ontwerp (wireframe) dat de unieke sfeer en functionaliteiten van uw horecabedrijf weerspiegelt.",
                   },
                   {
                     title: "Ontwikkeling en Programmeren",
                     description:
-                      "Hier vindt de bouw van de website plaats. We integreren functies zoals afspraakplanning, patiëntportalen en veilige data-overdracht.",
+                      "Hier vindt de bouw van de website plaats. We integreren functies zoals online reserveringen, menu's en contactformulieren.",
                   },
                   {
                     title: "Testfase en Optimalisatie",
@@ -364,7 +364,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                   {
                     title: "Prestatie-optimalisatie",
                     description:
-                      "We passen technieken toe om de snelheid en efficiëntie van uw website te maximaliseren, zodat patiënten snel en eenvoudig de informatie vinden.",
+                      "We passen technieken toe om de snelheid en efficiëntie van uw website te maximaliseren, zodat gasten snel en eenvoudig de informatie vinden.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -398,7 +398,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
               <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
             </svg>
             <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-              Gezondheidszorg specialisten
+              Horeca specialisten
             </span>
           </div>
           <div className="border-t border-gray-800 pt-16">
@@ -424,10 +424,10 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                 <div className="w-full lg:w-1/2 px-4">
                   <div className="max-w-xl">
                     <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                      Hoeveel Kost een Website Laten Maken voor Gezondheidszorg?
+                      Hoeveel Kost een Website Laten Maken voor Horeca?
                     </h1>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                      De kosten voor een website in de zorgsector variëren sterk, afhankelijk van de complexiteit, functionaliteiten en integraties. Gemiddeld kunt u rekening houden met de volgende richtprijzen:
+                      De kosten voor een horeca website variëren afhankelijk van de complexiteit, functionaliteiten en gewenste integraties. Gemiddeld kunt u rekenen op de volgende richtprijzen:
                     </p>
                     <section className="dark:bg-white">
                       <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #ddd" }}>
@@ -443,7 +443,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                             <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€249 - €500</td>
                           </tr>
                           <tr>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard Zorgwebsite</td>
+                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard Horecawebsite</td>
                             <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€1.999 - €5.000</td>
                           </tr>
                           <tr>
@@ -473,7 +473,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u antwoorden op de meest gestelde vragen over het laten maken van een website voor gezondheidszorg.
+              Hier vindt u antwoorden op de meest gestelde vragen over het laten maken van een website voor horeca.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -610,9 +610,9 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-r bg-white text-black dark:text-white dark:bg-gray-900 text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-6">Klaar om een professionele zorgwebsite te laten maken?</h2>
+          <h2 className="text-4xl font-bold mb-6">Klaar om een professionele horeca website te laten maken?</h2>
           <p className="text-lg mb-8 text-black-700 hover:text-green-700 max-w-2xl mx-auto">
-            Zet vandaag de stap naar een moderne, toegankelijke en gebruiksvriendelijke website voor uw zorginstelling. Wij helpen u met een op maat gemaakte oplossing die vertrouwen en efficiëntie bevordert.
+            Zet vandaag de stap naar een moderne, aantrekkelijke en functionele website voor uw horecazaken. Wij helpen u met een op maat gemaakte oplossing die uw bedrijf online laat groeien.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-4">
             <a

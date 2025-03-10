@@ -1,6 +1,6 @@
 const withPWA = require('next-pwa')({
   dest: 'public',
-  disable: process.env.NODE_ENV === 'development', // Schakelt PWA uit tijdens development
+  disable: process.env.NODE_ENV === 'production', // Schakelt PWA uit tijdens development
 });
 
 /** @type {import('next').NextConfig} */
