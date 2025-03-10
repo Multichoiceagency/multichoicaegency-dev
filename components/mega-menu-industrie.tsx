@@ -22,11 +22,13 @@ interface Direction {
   icon: JSX.Element;
   title: string;
   description: string;
+  href: string;
 }
 
 interface Solution {
   icon: JSX.Element;
   title: string;
+  href: string;
   isNew?: boolean;
 }
 
@@ -35,28 +37,32 @@ const directions: Direction[] = [
     icon: <FontAwesomeIcon icon={faHospital} className="h-6 w-6 text-primary" />,
     title: "Website laten maken voor Gezondheidszorg",
     description: "Wij bouwen veilige en gebruiksvriendelijke websites die zorginstellingen verbinden met hun patiënten.",
+    href: "/website-laten-maken/website-laten-maken-voor-gezondheidszorg",
   },
   {
     icon: <FontAwesomeIcon icon={faBuilding} className="h-6 w-6 text-primary" />,
     title: "Website laten maken voor Bouw",
     description: "Onze oplossingen tonen uw projecten en maken het gemakkelijk voor klanten om offertes aan te vragen.",
+    href: "/website-laten-maken/website-laten-maken-voor-bouw",
   },
   {
     icon: <FontAwesomeIcon icon={faGraduationCap} className="h-6 w-6 text-primary" />,
     title: "Website laten maken voor Onderwijs",
     description: "Wij creëren interactieve platforms die leren en communiceren eenvoudiger maken voor scholen en universiteiten.",
+    href: "/website-laten-maken/website-laten-maken-voor-onderwijs",
   },
   {
     icon: <FontAwesomeIcon icon={faLeaf} className="h-6 w-6 text-primary" />,
     title: "Website laten maken voor Duurzaamheid",
     description: "Met onze expertise laten we uw groene initiatieven stralen via een inspirerende online aanwezigheid.",
+    href: "/website-laten-maken/website-laten-maken-voor-duurzaamheid",
   },
   {
     icon: <FontAwesomeIcon icon={faUtensils} className="h-6 w-6 text-primary" />,
     title: "Website laten maken voor Horeca",
     description: "Wij ontwikkelen stijlvolle websites met online reserveringssystemen en menu-integraties.",
+    href: "/website-laten-maken/website-laten-maken-voor-horeca",
   },
-  
 ];
 
 const solutions: Solution[][] = [
@@ -64,42 +70,51 @@ const solutions: Solution[][] = [
     {
       icon: <FontAwesomeIcon icon={faTools} className="h-5 w-5 text-muted-foreground" />,
       title: "Digitale oplossingen voor Zorg",
+      href: "/oplossingen/digitale-zorg",
     },
     {
       icon: <FontAwesomeIcon icon={faGlobe} className="h-5 w-5 text-muted-foreground" />,
       title: "Online platforms voor Bouwprojecten",
+      href: "/oplossingen/online-bouw",
     },
     {
       icon: <FontAwesomeIcon icon={faGraduationCap} className="h-5 w-5 text-muted-foreground" />,
       title: "E-learning voor Onderwijs",
+      href: "/oplossingen/e-learning",
     },
   ],
   [
     {
       icon: <FontAwesomeIcon icon={faEdit} className="h-5 w-5 text-muted-foreground" />,
       title: "Branding voor Duurzaamheidsinitiatieven",
+      href: "/oplossingen/branding",
     },
     {
       icon: <FontAwesomeIcon icon={faUtensils} className="h-5 w-5 text-muted-foreground" />,
       title: "Strategieën voor Horeca",
+      href: "/oplossingen/horeca",
     },
     {
       icon: <FontAwesomeIcon icon={faChartLine} className="h-5 w-5 text-muted-foreground" />,
       title: "SEO voor Lokale Bedrijven",
+      href: "/oplossingen/seo-lokale-bedrijven",
     },
   ],
   [
     {
       icon: <FontAwesomeIcon icon={faLightbulb} className="h-5 w-5 text-muted-foreground" />,
       title: "Marketing voor Industrieën",
+      href: "/oplossingen/marketing-industrie",
     },
     {
       icon: <FontAwesomeIcon icon={faGlobe} className="h-5 w-5 text-muted-foreground" />,
       title: "Webhosting en Domeinbeheer",
+      href: "/oplossingen/webhosting",
     },
     {
       icon: <FontAwesomeIcon icon={faEdit} className="h-5 w-5 text-muted-foreground" />,
       title: "Content Creatie",
+      href: "/oplossingen/content-creatie",
       isNew: true,
     },
   ],
@@ -133,7 +148,7 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
               {directions.map((direction, index) => (
                 <Link
                   key={index}
-                  href="#"
+                  href={direction.href}
                   className="flex items-start gap-4 group"
                   onClick={onClose}
                 >
@@ -164,7 +179,7 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
                   {column.map((solution, index) => (
                     <Link
                       key={index}
-                      href="#"
+                      href={solution.href}
                       className="flex items-center gap-3 group"
                       onClick={onClose}
                     >
@@ -196,10 +211,10 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
                   </p>
                 </div>
                 <Link href="/industrien">
-                <Button variant="outline" className="gap-2">
-                  Bekijk alle industrien
-                  <ChevronRight className="h-4 w-4" />
-                </Button>
+                  <Button variant="outline" className="gap-2">
+                    Bekijk alle industrien
+                    <ChevronRight className="h-4 w-4" />
+                  </Button>
                 </Link>
               </div>
             </div>
@@ -221,8 +236,12 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
                 Your browser does not support the video tag.
               </video>
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-6 pointer-events-none">
-                <h3 className="text-white text-xl font-semibold mb-2">Meer over onze industrie-oplossingen</h3>
-                <p className="text-white/80 text-sm mb-4">Ontdek hoe wij jouw branche ondersteunen met maatwerk.</p>
+                <h3 className="text-white text-xl font-semibold mb-2">
+                  Meer over onze industrie-oplossingen
+                </h3>
+                <p className="text-white/80 text-sm mb-4">
+                  Ontdek hoe wij jouw branche ondersteunen met maatwerk.
+                </p>
               </div>
             </div>
           </div>
@@ -231,4 +250,3 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
     </motion.div>
   );
 }
-

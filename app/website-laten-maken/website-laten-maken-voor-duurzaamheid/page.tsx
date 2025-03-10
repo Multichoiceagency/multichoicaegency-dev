@@ -6,25 +6,25 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
-const WebsiteLatenMakenVoorGezondheidszorg = () => {
+const WebsiteLatenMakenVoorDuurzaamheid = () => {
   return (
     <>
       <NextSeo
-        title="Website Laten Maken voor Gezondheidszorg | Professioneel Webdesign"
-        description="Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en vertrouwen wekt. Vraag een offerte aan!"
-        canonical="https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg"
+        title="Website Laten Maken voor Duurzaamheid | Professioneel Webdesign"
+        description="Wilt u een website laten maken voor duurzaamheid? Ontdek hoe een duurzame website uw bedrijf versterkt met milieubewustzijn en innovatie. Vraag een offerte aan!"
+        canonical="https://www.multichoiceagency.nl/website-laten-maken-voor-duurzaamheid"
         openGraph={{
           type: 'website',
-          url: 'https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg',
-          title: 'Website Laten Maken voor Gezondheidszorg | Professioneel Webdesign',
+          url: 'https://www.multichoiceagency.nl/website-laten-maken-voor-duurzaamheid',
+          title: 'Website Laten Maken voor Duurzaamheid | Professioneel Webdesign',
           description:
-            'Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en vertrouwen wekt. Vraag een offerte aan!',
+            'Wilt u een website laten maken voor duurzaamheid? Ontdek hoe een duurzame website uw bedrijf versterkt met milieubewustzijn en innovatie. Vraag een offerte aan!',
           images: [
             {
-              url: '/partners/website-laten-maken-voor-gezondheidszorg.png',
+              url: '/partners/website-laten-maken-voor-duurzaamheid.png',
               width: 1200,
               height: 630,
-              alt: 'Website laten maken voor gezondheidszorg',
+              alt: 'Website laten maken voor duurzaamheid',
             },
           ],
         }}
@@ -39,7 +39,7 @@ const WebsiteLatenMakenVoorGezondheidszorg = () => {
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Website Laten Maken voor Gezondheidszorg', item: 'https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg' },
+          { position: 2, name: 'Website Laten Maken voor Duurzaamheid', item: 'https://www.multichoiceagency.nl/website-laten-maken-voor-duurzaamheid' },
         ]}
       />
 
@@ -47,29 +47,29 @@ const WebsiteLatenMakenVoorGezondheidszorg = () => {
       <FAQPageJsonLd
         mainEntity={[
           {
-            questionName: 'Waarom is een professionele website belangrijk voor de gezondheidszorg?',
+            questionName: 'Waarom is een duurzame website belangrijk?',
             acceptedAnswerText:
-              'Een professionele website voor gezondheidszorg versterkt de communicatie tussen zorgverleners en patiënten, vergroot het vertrouwen en verbetert de toegankelijkheid van zorginformatie.',
+              'Een duurzame website versterkt uw merk door milieubewustzijn uit te stralen en innovatie te stimuleren. Het trekt klanten aan die waarde hechten aan duurzaamheid en maatschappelijk verantwoord ondernemen.',
           },
           {
-            questionName: 'Hoeveel kost een website laten maken voor gezondheidszorg?',
+            questionName: 'Hoeveel kost een website laten maken voor duurzaamheid?',
             acceptedAnswerText:
-              'De kosten variëren, maar doorgaans liggen de prijzen tussen de €1.499 voor een eenvoudige website tot €10.000+ voor maatwerk, afhankelijk van design, functionaliteiten en integraties.',
+              'De kosten variëren, maar doorgaans liggen de prijzen tussen de €1.499 voor een eenvoudige website tot €10.000+ voor maatwerk. De prijs is afhankelijk van het design, de functionaliteiten en de duurzaamheidsfeatures.',
           },
           {
-            questionName: 'Hoe lang duurt het om een website voor gezondheidszorg te laten maken?',
+            questionName: 'Hoe lang duurt het om een duurzame website te laten maken?',
             acceptedAnswerText:
-              'Een standaard website kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.',
+              'Een standaard duurzame website kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.',
           },
           {
             questionName: 'Is een mobiele versie van de website inbegrepen?',
             acceptedAnswerText:
-              'Ja, alle websites die wij ontwikkelen, inclusief die voor de gezondheidszorg, zijn 100% responsive en geoptimaliseerd voor alle apparaten.',
+              'Ja, alle websites die wij ontwikkelen – inclusief duurzame websites – zijn 100% responsive en geoptimaliseerd voor mobiele apparaten, tablets en desktops.',
           },
           {
             questionName: 'Bieden jullie onderhoud en support na de lancering?',
             acceptedAnswerText:
-              'Ja, we bieden diverse onderhoudspakketten met beveiligingsupdates, back-ups en technische ondersteuning, zodat uw website altijd optimaal functioneert.',
+              'Ja, we bieden verschillende onderhoudspakketten, inclusief beveiligingsupdates, back-ups en technische ondersteuning, zodat uw duurzame website veilig en up-to-date blijft.',
           },
         ]}
       />      
@@ -77,59 +77,60 @@ const WebsiteLatenMakenVoorGezondheidszorg = () => {
   );
 };
 
-export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
+export default function WebsiteLatenMakenVoorDuurzaamheidPage() {
+  const [showContent, setShowContent] = useState(false)
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Waarom is een website voor gezondheidszorg belangrijk?",
+      question: "Waarom is een duurzame website belangrijk voor mijn bedrijf?",
       answer:
-        "Een professionele website fungeert als het online visitekaartje van uw zorginstelling. Het zorgt voor betere communicatie, vergroot het vertrouwen en helpt patiënten snel de juiste informatie te vinden.",
+        "Een duurzame website is essentieel om uw bedrijf te positioneren als milieubewust en innovatief. Het draagt bij aan een positieve merkidentiteit en trekt klanten aan die waarde hechten aan duurzaamheid.",
     },
     {
-      question: "Hoe lang duurt het om een website voor gezondheidszorg te laten maken?",
+      question: "Hoe lang duurt het om een duurzame website te laten maken?",
       answer:
-        "De doorlooptijd is afhankelijk van de complexiteit en gewenste functionaliteiten. Een eenvoudige website kan binnen 2 tot 4 weken gereed zijn, terwijl maatwerkprojecten meer tijd vragen.",
+        "De doorlooptijd varieert afhankelijk van de complexiteit en functionaliteiten. Een eenvoudige duurzame website kan binnen 2 tot 4 weken gereed zijn, terwijl een maatwerk website 6 tot 12 weken kan duren.",
     },
     {
-      question: "Kan ik een bestaande website laten vernieuwen voor de gezondheidszorg?",
+      question: "Kan ik mijn bestaande website laten vernieuwen naar een duurzame variant?",
       answer:
-        "Ja, we kunnen uw huidige website vernieuwen met een modern design, verbeterde functionaliteiten en optimalisaties die specifiek gericht zijn op de zorgsector.",
+        "Ja, we kunnen uw bestaande website moderniseren en verduurzamen door energiezuinige technologieën en milieuvriendelijke ontwerpen te integreren.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor webdevelopment in de gezondheidszorg?",
+      question: "Welke technologieën gebruiken jullie voor duurzame webdevelopment?",
       answer:
-        "We maken gebruik van moderne technologieën zoals WordPress, Next.js en maatwerkoplossingen met Laravel, Django of Node.js om te voldoen aan de strenge eisen van de zorgsector.",
+        "We werken met moderne technologieën zoals WordPress, Next.js en andere energiezuinige frameworks. Voor maatwerkoplossingen gebruiken we onder andere Laravel, Django of Node.js, afhankelijk van uw wensen.",
     },
     {
-      question: "Hoe zorgen jullie ervoor dat mijn website goed vindbaar is in Google?",
+      question: "Hoe zorgen jullie ervoor dat mijn duurzame website goed vindbaar is in Google?",
       answer:
-        "We implementeren vanaf het begin een gedegen zoekmachineoptimalisatie (SEO) strategie, met aandacht voor technische optimalisaties, laadtijden en mobielvriendelijk design.",
+        "We passen vanaf het begin zoekmachineoptimalisatie (SEO) toe, inclusief technische SEO, snelle laadtijden en mobielvriendelijk design, zodat uw website goed scoort in zoekmachines.",
     },
     {
-      question: "Wat zijn de kosten voor een website voor gezondheidszorg?",
+      question: "Wat zijn de kosten voor een duurzame website?",
       answer:
-        "De kosten hangen af van de complexiteit en de gewenste functionaliteiten. Een eenvoudige website begint vanaf €1.499,-, terwijl uitgebreide zorgplatforms €5.000,- tot €20.000,- kunnen kosten.",
+        "De kosten hangen af van de complexiteit en functies. Een eenvoudige duurzame website begint vanaf €1.499,-, terwijl een uitgebreide duurzame webshop of maatwerk platform €5.000,- tot €20.000,- kan kosten.",
     },
     {
-      question: "Is mijn website geschikt voor mobiel en tablets?",
+      question: "Is mijn duurzame website geschikt voor mobiel en tablets?",
       answer:
-        "Ja, alle websites die wij bouwen zijn volledig responsive, zodat patiënten en zorgverleners altijd een optimale ervaring hebben, ongeacht het apparaat.",
+        "Ja, alle websites die we bouwen zijn volledig responsive en passen zich automatisch aan verschillende schermformaten aan, wat een optimale gebruikerservaring garandeert.",
     },
     {
-      question: "Kan ik zelf content aanpassen op mijn website?",
+      question: "Kan ik zelf content aanpassen op mijn duurzame website?",
       answer:
-        "Ja, we bouwen websites met gebruiksvriendelijke CMS-systemen zoals WordPress of een maatwerk dashboard, zodat u eenvoudig teksten en afbeeldingen kunt bijwerken.",
+        "Ja, we bouwen websites met gebruiksvriendelijke CMS-systemen zoals WordPress of een maatwerk dashboard, zodat u eenvoudig teksten, afbeeldingen en producten kunt aanpassen.",
     },
     {
       question: "Hoe zit het met onderhoud en updates na de lancering?",
       answer:
-        "Wij bieden onderhoudspakketten aan om ervoor te zorgen dat uw website veilig, snel en up-to-date blijft, met regelmatige updates en back-ups.",
+        "Wij bieden onderhoudspakketten aan waarmee uw website veilig en up-to-date blijft, inclusief beveiligingsupdates, back-ups, en prestatie-optimalisatie.",
     },
     {
-      question: "Kunnen jullie mijn website koppelen aan externe systemen zoals CRM of patiëntportalen?",
+      question: "Kunnen jullie mijn website koppelen aan externe systemen zoals CRM of betalingsproviders?",
       answer:
-        "Ja, we verzorgen integraties met diverse systemen zoals CRM-software, patiëntportalen en betalingsproviders om uw website naadloos aan te sluiten op bestaande processen.",
+        "Ja, we verzorgen integraties met diverse systemen zoals CRM-software, betalingsproviders, boekhoudprogramma's en marketingtools.",
     },
   ];
   
@@ -137,9 +138,9 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
   return (
     <div className="bg-white text-black">
       <HeroNieuw
-        title={"Website laten maken voor gezondheidszorg"}
+        title={"Website laten maken voor duurzaamheid"}
         description={
-          "Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en het vertrouwen vergroot."
+          "Wilt u een website laten maken voor duurzaamheid? Ontdek hoe een duurzame website uw bedrijf versterkt met een milieubewuste en innovatieve uitstraling."
         }
         buttonText={"Offerte aanvragen"}
         buttonLink={"/offerte-aanvragen"}
@@ -162,7 +163,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
               <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
             </svg>
             <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-              Gezondheidszorg specialisten
+              Duurzaamheid specialisten
             </span>
           </div>
           <div className="border-t border-gray-800 pt-16">
@@ -189,23 +190,23 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                 {/* Text Column */}
                 <div className="w-full lg:w-1/2 px-4">
                   <div className="max-w-xl">
-                    <h2 className="font-heading sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                      Website Laten Maken voor Gezondheidszorg: Alles Wat U Moet Weten
-                    </h2>
+                    <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                      Website Laten Maken voor Duurzaamheid: Alles Wat U Moet Weten
+                    </h1>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                      In de gezondheidszorg is een professionele website essentieel om patiënten te informeren, vertrouwen te wekken en de communicatie te stroomlijnen. Een goed ontworpen website ondersteunt zowel zorgverleners als patiënten.
+                      In het digitale tijdperk is een duurzame website niet alleen een visitekaartje, maar ook een krachtig instrument om uw milieubewustzijn te tonen. Een duurzame website combineert esthetiek met functionaliteit en draagt bij aan een positief imago.
                     </p>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                      Door te investeren in een moderne website verbetert u de toegankelijkheid en het imago van uw zorginstelling.
+                      Door te investeren in een duurzame website onderscheidt u zich van de concurrentie en communiceert u uw toewijding aan innovatie en het milieu.
                     </p>
 
                     <ul className="text-black">
                       {[
-                        "Gebruiksvriendelijk en toegankelijk design",
-                        "Betere communicatie met patiënten",
-                        "SEO-geoptimaliseerd voor de zorgsector",
-                        "Integratie van patiëntportalen en afspraken",
-                        "Betrouwbaar en veilig online platform",
+                        "Innovatief en milieubewust design",
+                        "Betere gebruikerservaring",
+                        "SEO Geoptimaliseerd voor duurzaamheid",
+                        "Energie-efficiënt en schaalbaar",
+                        "Fundament voor toekomstgerichte oplossingen",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center mb-4">
                           <svg
@@ -246,17 +247,17 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Waar Moet U Op Letten Bij Het Laten Maken van een Website voor Gezondheidszorg?
+                  Waar Moet U Op Letten Bij Het Laten Maken van een Duurzame Website?
                 </h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                  Kwaliteit, veiligheid en gebruiksvriendelijkheid zijn cruciaal in de zorgsector. Let op de ervaring, specialisaties en integraties met patiëntportalen.
+                  Duurzaamheid en innovatie staan centraal in moderne weboplossingen. Let op energiezuinige technologieën, milieuvriendelijke designs en toekomstbestendige functionaliteiten.
                 </p>
                 <ul className="text-black py-5">
                   {[
-                    "Portfolio en Ervaring: Bekijk eerdere zorgprojecten.",
-                    "Specialisaties: Kies voor webdesigners met kennis van de zorgsector.",
-                    "Prijs en Kostenstructuur: Vraag een transparante offerte aan.",
-                    "SEO en Marketing: Zorg dat uw website goed gevonden wordt door patiënten.",
+                    "Portfolio en Ervaring: Bekijk eerdere duurzame projecten.",
+                    "Specialisaties: Sommige webdesigners richten zich op duurzame en energiezuinige oplossingen.",
+                    "Prijs en Kostenstructuur: Vraag altijd een duidelijke offerte en controleer wat inbegrepen is.",
+                    "SEO en Marketing Integratie: Zorg dat uw website goed vindbaar is en uw duurzaamheidswaarden uitstraalt.",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center mb-4">
                       <svg
@@ -285,7 +286,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                   href="/offerte-aanvragen"
                   className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
-                  Start uw zorgwebsite project vandaag nog!
+                  Start uw duurzame website project vandaag nog!
                 </Link>
               </div>
             </div>
@@ -327,44 +328,44 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Hoe Werkt Webdevelopment in de Gezondheidszorg?
+                Hoe Werkt Duurzame Webdevelopment?
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Een robuuste zorgwebsite wordt gebouwd met behulp van:
+                Een robuuste duurzame website wordt gebouwd met behulp van:
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
                     title: "Kennismaking en Analyse",
                     description:
-                      "Tijdens een eerste gesprek bespreken we de wensen en doelen van uw zorgwebsite om een passende strategie op te stellen.",
+                      "Tijdens een eerste gesprek bespreken we de wensen en doelen van uw duurzame website om een passende strategie op te stellen.",
                   },
                   {
                     title: "Ontwerp en Conceptontwikkeling",
                     description:
-                      "Wij creëren een eerste ontwerp (wireframe) dat de structuur en gebruiksvriendelijkheid van uw zorgwebsite weerspiegelt.",
+                      "Wij creëren een eerste ontwerp (wireframe) dat de structuur en duurzaamheid van de website weerspiegelt.",
                   },
                   {
                     title: "Ontwikkeling en Programmeren",
                     description:
-                      "Hier vindt de bouw van de website plaats. We integreren functies zoals afspraakplanning, patiëntportalen en veilige data-overdracht.",
+                      "Hier vindt de bouw van de website plaats. We integreren energiezuinige functionaliteiten en duurzame oplossingen.",
                   },
                   {
                     title: "Testfase en Optimalisatie",
                     description:
-                      "Voordat de website live gaat, testen we deze op diverse apparaten en browsers om een optimale prestatie te garanderen.",
+                      "Voordat de website live gaat, testen we deze op diverse apparaten en browsers zodat u verzekerd bent van optimale prestaties.",
                   },
                   {
                     title: "Lancering en Onderhoud",
                     description:
-                      "Na uw goedkeuring zetten we de website live. Onderhoud en updates zorgen ervoor dat uw website veilig en up-to-date blijft.",
+                      "Na uw goedkeuring zetten we de website live. Onderhoud en updates garanderen dat uw duurzame website veilig en up-to-date blijft.",
                   },
                   {
                     title: "Prestatie-optimalisatie",
                     description:
-                      "We passen technieken toe om de snelheid en efficiëntie van uw website te maximaliseren, zodat patiënten snel en eenvoudig de informatie vinden.",
+                      "We passen technieken toe om de snelheid en efficiëntie van uw website te maximaliseren met een focus op duurzaamheid.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -398,7 +399,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
               <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
             </svg>
             <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-              Gezondheidszorg specialisten
+              Duurzaamheid specialisten
             </span>
           </div>
           <div className="border-t border-gray-800 pt-16">
@@ -414,7 +415,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                       playsInline
                     >
                       <source
-                        src="https://cdn.dribbble.com/userupload/15831576/file/original-77e3918e88d9f08e8e79e7ad2f8154f9.mp4"
+                        src="https://cdn.dribbble.com/userupload/31676732/file/original-396e835eee2b982448adba728049e125.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -424,10 +425,10 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                 <div className="w-full lg:w-1/2 px-4">
                   <div className="max-w-xl">
                     <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                      Hoeveel Kost een Website Laten Maken voor Gezondheidszorg?
+                      Hoeveel Kost een Duurzame Website Laten Maken?
                     </h1>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                      De kosten voor een website in de zorgsector variëren sterk, afhankelijk van de complexiteit, functionaliteiten en integraties. Gemiddeld kunt u rekening houden met de volgende richtprijzen:
+                      De kosten voor een duurzame website variëren sterk, afhankelijk van de complexiteit, functionaliteiten en de mate van duurzaamheid. Gemiddeld kunt u rekening houden met de volgende richtprijzen:
                     </p>
                     <section className="dark:bg-white">
                       <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #ddd" }}>
@@ -443,7 +444,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
                             <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€249 - €500</td>
                           </tr>
                           <tr>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard Zorgwebsite</td>
+                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard Duurzame Website</td>
                             <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€1.999 - €5.000</td>
                           </tr>
                           <tr>
@@ -473,7 +474,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u antwoorden op de meest gestelde vragen over het laten maken van een website voor gezondheidszorg.
+              Hier vindt u antwoorden op de meest gestelde vragen over het laten maken van een duurzame website.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -610,9 +611,9 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
       {/* Call to Action */}
       <section className="py-16 bg-gradient-to-r bg-white text-black dark:text-white dark:bg-gray-900 text-center">
         <div className="container mx-auto px-6">
-          <h2 className="text-4xl font-bold mb-6">Klaar om een professionele zorgwebsite te laten maken?</h2>
+          <h2 className="text-4xl font-bold mb-6">Klaar om een duurzame website te laten maken?</h2>
           <p className="text-lg mb-8 text-black-700 hover:text-green-700 max-w-2xl mx-auto">
-            Zet vandaag de stap naar een moderne, toegankelijke en gebruiksvriendelijke website voor uw zorginstelling. Wij helpen u met een op maat gemaakte oplossing die vertrouwen en efficiëntie bevordert.
+            Zet vandaag nog de stap naar een moderne, duurzame en conversiegerichte website. Wij helpen u met een op maat gemaakte oplossing die uw bedrijf duurzaam laat groeien.
           </p>
           <div className="flex flex-col md:flex-row justify-center gap-4">
             <a

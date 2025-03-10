@@ -1,17 +1,18 @@
 import "./globals.css";
 import type { Metadata } from "next";
-import { PT_Sans } from "next/font/google";
+import { Unbounded } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Footer } from "@/components/Footer";
 import GoogleCalendarButton from "@/components/GoogleCalenderButton";
 import { Header } from "@/components/header";
 import ScrollToTop from "@/components/ScrollToTop";
 import LiveChat from "@/components/livechat";
+import { AnnouncementBanner } from "@/components/announcement-banner";
 
 // Importeer PT Sans met de gewenste subsets en gewicht(en)
-const ptSans = PT_Sans({
+const unbounded = Unbounded({
   subsets: ["latin"],
-  weight: ["400", "700"], // Voeg hier de gewenste diktes toe
+  weight: ["400", "500", "600", "700", "900",], // Voeg hier de gewenste diktes toe
 });
 
 export const metadata: Metadata = {
@@ -47,7 +48,7 @@ export default function RootLayout({
         />
       </head>
       {/* Gebruik de ptSans-className om PT Sans toe te passen op de body */}
-      <body className={ptSans.className}>
+      <body className={unbounded.className}>
         <ScrollToTop />
         <ThemeProvider attribute="class" defaultTheme="auto" enableSystem>
           <Header />

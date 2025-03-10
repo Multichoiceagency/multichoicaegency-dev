@@ -4,7 +4,6 @@ import Oplossingen from "@/components/oplossingen"
 import { Testimonials } from "@/components/testimonials"
 import Portfolio from "@/components/cases-display"
 import HeroNieuw from "@/components/HeroNieuw"
-import OverOns from "@/components/OverOns"
 import ContactOpnemen from "@/components/ContactOpnemen"
 import AnimatedText from "@/components/AnimatedText"
 
@@ -19,7 +18,6 @@ export default function Home() {
       buttonLink={"/diensten"} 
       videoSrc={"https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/UI-UX-Design-SHOWREEL-2023-｜-Musemind.mp4"} />
       <Oplossingen />
-      <OverOns />
       <BentoGridDemo />
       <HeroSection />
       <Portfolio />
