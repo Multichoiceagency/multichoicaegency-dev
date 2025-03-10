@@ -6,55 +6,60 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
-export default function CRMDevelopmentPage() {
+export default function PortalenPlatformenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Wat is CRM Development?",
+      question: "Wat zijn portalen en platformen?",
       answer:
-        "CRM Development omvat het ontwerpen, ontwikkelen en implementeren van softwareoplossingen voor klantrelatiebeheer, waarmee bedrijven hun klantdata centraal kunnen beheren en processen kunnen automatiseren.",
+        "Portalen en platformen vormen de digitale ruggengraat van moderne organisaties. Waar een portaal fungeert als een toegankelijke interface voor informatie en diensten, bieden platformen een robuuste omgeving voor interactie, samenwerking en maatwerk.",
     },
     {
-      question: "Waarom is een CRM systeem belangrijk?",
+      question: "Welke voordelen bieden moderne portalen en platformen?",
       answer:
-        "Een goed ontwikkeld CRM systeem helpt bedrijven bij het verbeteren van klantrelaties, het stroomlijnen van sales- en marketingprocessen en het verhogen van de omzet door inzicht te geven in klantgedrag.",
+        "Moderne portalen en platformen zorgen voor een geïntegreerde gebruikerservaring, bevorderen samenwerking en verhogen de efficiëntie. Ze stellen gebruikers in staat snel toegang te krijgen tot informatie en diensten, wat de productiviteit en klanttevredenheid verbetert.",
     },
     {
-      question: "Hoe lang duurt het om een CRM systeem te ontwikkelen?",
+      question: "Welke technologieën worden gebruikt bij de ontwikkeling?",
       answer:
-        "Afhankelijk van de complexiteit en gewenste functionaliteiten duurt de ontwikkeling van een CRM systeem doorgaans tussen de 8 en 16 weken.",
+        "Wij maken gebruik van de nieuwste technologieën, waaronder HTML5, CSS3, JavaScript en moderne frameworks zoals React, Vue en Angular. Dit stelt ons in staat dynamische, schaalbare en veilige digitale omgevingen te creëren.",
     },
     {
-      question: "Kan ik het CRM systeem op maat laten maken?",
+      question: "Hoe lang duurt een typisch project voor portalen en platformen?",
       answer:
-        "Ja, onze CRM Development oplossingen worden volledig afgestemd op de unieke wensen en processen van uw bedrijf, zodat u exact krijgt wat u nodig heeft.",
+        "De ontwikkelingstijd varieert afhankelijk van de complexiteit, maar een standaard project duurt doorgaans tussen de 6 en 12 weken.",
     },
     {
-      question: "Bieden jullie ook ondersteuning na de lancering?",
+      question: "Bieden jullie ondersteuning na de lancering?",
       answer:
-        "Zeker, wij bieden uitgebreide support- en onderhoudpakketten, inclusief training en updates, zodat uw CRM systeem altijd optimaal functioneert.",
+        "Ja, wij bieden uitgebreide onderhouds- en supportpakketten om ervoor te zorgen dat uw portaal of platform altijd up-to-date en veilig is.",
+    },
+    {
+      question: "Is mijn portaal of platform volledig responsive?",
+      answer:
+        "Absoluut, wij zorgen ervoor dat al onze projecten volledig responsive zijn en op elk apparaat optimaal functioneren.",
     },
   ];
 
   return (
     <div className="bg-white text-black">
       <NextSeo
-        title="CRM Development | Ontwikkeling van Klantrelatiebeheer Software"
-        description="Ontwikkel een op maat gemaakt CRM systeem dat uw klantrelaties optimaliseert. Onze CRM Development oplossingen helpen u klantdata centraal te beheren, processen te automatiseren en de omzet te verhogen."
-        canonical="https://www.multichoiceagency.nl/crm-development"
+        title="Portalen en Platformen | Moderne, Responsive Weboplossingen"
+        description="Ontdek hoe portalen en platformen uw organisatie transformeren. Wij ontwikkelen moderne, veilige en gebruiksvriendelijke digitale omgevingen met de nieuwste technologieën."
+        canonical="https://www.multichoiceagency.nl/portalen-platformen"
         openGraph={{
           type: 'website',
-          url: 'https://www.multichoiceagency.nl/crm-development',
-          title: 'CRM Development | Ontwikkeling van Klantrelatiebeheer Software',
+          url: 'https://www.multichoiceagency.nl/portalen-platformen',
+          title: 'Portalen en Platformen | Moderne, Responsive Weboplossingen',
           description:
-            'Ontwikkel een op maat gemaakt CRM systeem dat uw klantrelaties optimaliseert. Onze CRM Development oplossingen helpen u klantdata centraal te beheren, processen te automatiseren en de omzet te verhogen.',
+            'Ontdek hoe portalen en platformen uw organisatie transformeren. Wij ontwikkelen moderne, veilige en gebruiksvriendelijke digitale omgevingen met de nieuwste technologieën.',
           images: [
             {
-              url: '/partners/crm-development.png',
+              url: '/partners/portalen-platformen.png',
               width: 1200,
               height: 630,
-              alt: 'CRM Development',
+              alt: 'Portalen en Platformen',
             },
           ],
         }}
@@ -68,49 +73,51 @@ export default function CRMDevelopmentPage() {
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'CRM Development', item: 'https://www.multichoiceagency.nl/crm-development' },
+          { position: 2, name: 'Portalen en Platformen', item: 'https://www.multichoiceagency.nl/portalen-platformen' },
         ]}
       />
 
       <FAQPageJsonLd
         mainEntity={[
           {
-            questionName: 'Wat is CRM Development?',
+            questionName: 'Waarom zijn portalen en platformen essentieel?',
             acceptedAnswerText:
-              'CRM Development omvat het ontwerpen, ontwikkelen en implementeren van op maat gemaakte CRM systemen die klantgegevens centraliseren en bedrijfsprocessen automatiseren.',
+              'Ze vormen de digitale ruggengraat van moderne organisaties, faciliteren samenwerking, centraliseren informatie en verbeteren de gebruikerservaring.',
           },
           {
-            questionName: 'Waarom is een CRM systeem belangrijk?',
+            questionName: 'Welke technologieën worden gebruikt?',
             acceptedAnswerText:
-              'Een effectief CRM systeem verbetert de klantrelaties, stroomlijnt de sales- en marketingprocessen en zorgt voor een hogere omzet door waardevolle inzichten in klantgedrag te bieden.',
+              'Wij gebruiken moderne tools en frameworks zoals React, Vue en Angular, in combinatie met HTML5, CSS3 en JavaScript voor het bouwen van dynamische en veilige omgevingen.',
           },
           {
-            questionName: 'Hoe lang duurt de ontwikkeling van een CRM systeem?',
+            questionName: 'Hoe lang duurt een project gemiddeld?',
             acceptedAnswerText:
-              'Afhankelijk van de complexiteit en gewenste functionaliteiten duurt het ontwikkelen van een CRM systeem gemiddeld tussen de 8 en 16 weken.',
+              'Afhankelijk van de complexiteit en vereisten duurt een project gemiddeld tussen de 6 en 12 weken.',
           },
           {
-            questionName: 'Kan het CRM systeem volledig op maat worden gemaakt?',
+            questionName: 'Is mijn project volledig responsive?',
             acceptedAnswerText:
-              'Ja, onze CRM Development oplossingen worden volledig afgestemd op uw bedrijfsprocessen, zodat u een systeem krijgt dat perfect aansluit bij uw unieke behoeften.',
+              'Ja, al onze projecten worden ontwikkeld met een focus op responsiviteit, zodat ze op elk apparaat optimaal functioneren.',
           },
           {
-            questionName: 'Bieden jullie ondersteuning na de lancering?',
+            questionName: 'Bieden jullie ondersteuning na lancering?',
             acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudspakketten, zodat uw CRM systeem altijd up-to-date en optimaal functioneert.',
+              'Ja, wij bieden uitgebreide support- en onderhoudspakketten om de veiligheid en functionaliteit van uw project te waarborgen.',
           },
         ]}
       />
 
       {/* Hero Sectie */}
       <HeroNieuw
-        title={"CRM Development"}
+        title={"Portalen en Platformen"}
         description={
-          "Ontwikkel een krachtig CRM systeem dat uw klantrelaties optimaliseert en uw bedrijfsprocessen stroomlijnt. Onze op maat gemaakte CRM oplossingen zijn ontworpen om uw groei te stimuleren."
+          "Ontdek hoe wij moderne digitale omgevingen ontwikkelen die de gebruikerservaring optimaliseren en uw organisatie versterken."
         }
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://cdn.dribbble.com/userupload/4007247/file/original-6159857d96d936231790b2d1066362bb.mp4"}
+        videoSrc={
+          "https://cdn.dribbble.com/userupload/13697628/file/original-d5b38b0f802f1e1f969383bc50adc434.mp4"
+        }
       />
 
       {/* Overige Sectie met Extra Informatie en Video */}
@@ -120,10 +127,10 @@ export default function CRMDevelopmentPage() {
             {/* Tekst Kolom */}
             <div className="w-full lg:w-1/2 px-4">
               <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                Waarom kiezen voor CRM Development?
+                Waarom kiezen voor portalen en platformen?
               </h2>
               <p className="text-lg text-gray-700 mb-6 dark:text-white">
-                In een competitieve markt is het beheren van klantrelaties cruciaal voor succes. CRM Development helpt u alle klantdata centraal te beheren en uw bedrijfsprocessen te automatiseren. Hierdoor krijgt u een volledig overzicht van klantgedrag, wat leidt tot gerichtere marketing, efficiëntere sales en uiteindelijk een hogere omzet.
+                In het digitale tijdperk is een krachtig portaal of platform cruciaal voor het centraliseren van informatie en het faciliteren van interactie. Onze aanpak zorgt voor snelle laadtijden, intuïtieve navigatie en een consistent design dat uw organisatie versterkt.
               </p>
               <Link
                 href="/offerte-aanvragen"
@@ -142,7 +149,7 @@ export default function CRMDevelopmentPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/18471565/file/original-272be27eb24bd916b9f74e87fee25b6a.mp4"
+                  src="https://cdn.dribbble.com/userupload/15425359/file/original-2b2e2d473e5fee8e7d8d4f6ee7860d94.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -152,45 +159,51 @@ export default function CRMDevelopmentPage() {
         </div>
       </section>
 
-      {/* In-Depth Sectie: Uitgebreide Uitleg over CRM Development (700+ woorden) */}
+      {/* In-Depth Sectie: Uitgebreide Uitleg over Portalen en Platformen (minimaal 700 woorden) */}
       <section className="py-12 lg:py-24 bg-gray-100 dark:bg-gray-800">
         <div className="container mx-auto px-4">
           <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-gray-900 dark:text-white">
-            In-Depth: De Kracht van CRM Development
+            In-Depth: De Kracht van Portalen en Platformen
           </h2>
           <div className="text-lg text-gray-700 dark:text-gray-300 space-y-6">
             <p>
-              CRM Development, oftewel de ontwikkeling van klantrelatiebeheersystemen, is een essentieel onderdeel van de moderne bedrijfsvoering. In een wereld waar klantgerichtheid centraal staat, speelt het beheren van klantdata en interacties een cruciale rol in het succes van een organisatie. CRM systemen helpen bedrijven niet alleen bij het structureren van klantinformatie, maar ook bij het automatiseren van marketing, sales en serviceprocessen. Door deze processen te centraliseren, krijgen bedrijven beter inzicht in het gedrag en de behoeften van hun klanten, wat leidt tot efficiëntere besluitvorming en een verbeterde klanttevredenheid.
+              Portalen en platformen vormen de kern van digitale transformatie in zowel het bedrijfsleven als de publieke sector. Zij fungeren als de centrale toegangspunten tot informatie, diensten en interactie. Waar traditionele websites vaak beperkt blijven tot het presenteren van statische inhoud, bieden portalen en platformen een dynamische en geïntegreerde omgeving waarin gebruikers niet alleen informatie kunnen opzoeken, maar ook actief kunnen participeren, communiceren en transacties uitvoeren.
             </p>
             <p>
-              De ontwikkeling van een CRM systeem vereist een diepgaande analyse van de bedrijfsprocessen en klantinteracties. In deze fase worden alle benodigde functionaliteiten in kaart gebracht, van leadbeheer en verkoopautomatisering tot klantondersteuning en aftersales. Door nauw samen te werken met de opdrachtgever, kunnen ontwikkelaars een systeem ontwerpen dat perfect aansluit bij de unieke behoeften van het bedrijf. Dit maatwerk is een belangrijk voordeel van CRM Development, omdat standaard oplossingen vaak niet alle gewenste functionaliteiten bieden.
+              Een portaal is in essentie een toegangspunt dat gebruikers helpt om snel en efficiënt de informatie te vinden die zij nodig hebben. Het aggregeert content uit verschillende bronnen en presenteert deze op een overzichtelijke en intuïtieve manier. Dit maakt het mogelijk om complexe datasets en informatiebronnen samen te brengen in één uniform overzicht, wat niet alleen tijd bespaart maar ook de gebruikservaring aanzienlijk verbetert.
             </p>
             <p>
-              Een goed ontwikkeld CRM systeem biedt tal van voordelen. Ten eerste centraliseert het alle klantgegevens, wat resulteert in een gestructureerd en overzichtelijk databestand. Hierdoor kunnen bedrijven eenvoudig trends en patronen in klantgedrag analyseren. Deze inzichten leiden tot gerichte marketingcampagnes en verkoopstrategieën die beter aansluiten bij de wensen van de klant. Daarnaast helpt een CRM systeem bij het automatiseren van repetitieve taken, waardoor medewerkers meer tijd hebben voor strategische en creatieve werkzaamheden.
+              Platformen gaan een stap verder door gebruikers in staat te stellen actief te participeren in een digitale omgeving. Zij bieden de mogelijkheid tot interactie, samenwerking en maatwerk. Dit kan variëren van sociale netwerken en e-commerce sites tot zakelijke samenwerkingsomgevingen en educatieve portalen. Door de combinatie van informatievoorziening en interactieve elementen, ontstaat er een ecosysteem waarin zowel de gebruiker als de organisatie profijt heeft.
             </p>
             <p>
-              Naast de functionele voordelen speelt ook de technologische basis een belangrijke rol. Moderne CRM Development maakt gebruik van geavanceerde technologieën en programmeertalen zoals JavaScript, Python, en PHP, in combinatie met robuuste databasesystemen. Veel CRM systemen worden tegenwoordig ontwikkeld met behulp van cloudgebaseerde platformen, waardoor ze schaalbaar en flexibel zijn. Dit betekent dat bedrijven hun CRM systeem eenvoudig kunnen uitbreiden naarmate ze groeien, zonder dat er ingrijpende technische aanpassingen nodig zijn.
+              De ontwikkeling van een succesvol portaal of platform begint met een grondige analyse van de behoeften en doelstellingen van de organisatie. Er wordt gekeken naar de gewenste functionaliteiten, de integratie van bestaande systemen en de specifieke eisen op het gebied van beveiliging en performance. Dit vormt de basis voor een doordacht concept dat vervolgens door een uitgebreid ontwerpproces tot leven wordt gebracht.
             </p>
             <p>
-              Integratie is een ander essentieel aspect van CRM Development. Een succesvol CRM systeem staat niet op zichzelf; het moet naadloos integreren met andere bedrijfsapplicaties zoals ERP-systemen, marketingtools, en supportsoftware. Door deze integraties kunnen gegevens automatisch worden gesynchroniseerd, wat de efficiëntie verhoogt en de kans op fouten verkleint. Dit zorgt voor een volledig geïntegreerde oplossing die de gehele bedrijfsvoering optimaliseert.
+              Een belangrijk aspect is de responsiviteit. In een wereld waarin gebruikers via diverse apparaten toegang hebben tot digitale diensten, is het cruciaal dat de interface zich naadloos aanpast aan verschillende schermformaten. Mobile-first design en progressive enhancement zorgen ervoor dat de ervaring consistent en optimaal is, ongeacht of de gebruiker een smartphone, tablet of desktop gebruikt.
             </p>
             <p>
-              Veiligheid en privacy zijn eveneens van groot belang bij de ontwikkeling van CRM systemen. Aangezien deze systemen gevoelige klantgegevens bevatten, is het essentieel dat ze voldoen aan de hoogste beveiligingsnormen en regelgeving, zoals de AVG. Tijdens het ontwikkelproces wordt er dan ook veel aandacht besteed aan het beveiligen van data, het implementeren van encryptie en het opzetten van strikte toegangscontroles.
+              Naast het visuele en functionele ontwerp speelt veiligheid een sleutelrol bij portalen en platformen. Gegevensbescherming, privacy en compliance met regelgeving zoals de AVG zijn essentiële onderdelen van het ontwikkelproces. Door robuuste beveiligingsmaatregelen te implementeren – zoals encryptie, multi-factor authenticatie en regelmatige beveiligingsaudits – wordt ervoor gezorgd dat de digitale omgeving bestand is tegen cyberdreigingen en datalekken.
             </p>
             <p>
-              De implementatiefase van CRM Development is vaak net zo belangrijk als de ontwikkeling zelf. Na de oplevering van het systeem, zorgen wij voor uitgebreide training en ondersteuning, zodat uw team direct aan de slag kan met de nieuwe tool. Onze supportpakketten omvatten zowel technische ondersteuning als regelmatige updates en optimalisaties. Dit garandeert dat uw CRM systeem altijd optimaal functioneert en blijft voldoen aan de veranderende eisen van uw bedrijf.
+              De technische architectuur van een portaal of platform is vaak gebaseerd op een modulaire en schaalbare opzet. Het gebruik van microservices en API-gedreven integraties maakt het mogelijk om verschillende onderdelen van het systeem onafhankelijk van elkaar te ontwikkelen en te onderhouden. Hierdoor kunnen updates sneller en efficiënter worden doorgevoerd, terwijl de algehele stabiliteit en performance van de applicatie behouden blijft.
             </p>
             <p>
-              Een ander voordeel van CRM Development is de mogelijkheid tot personalisatie. Elk bedrijf heeft zijn eigen unieke processen en behoeften. Onze maatwerk CRM oplossingen stellen u in staat om exact de functionaliteiten te implementeren die u nodig heeft, of het nu gaat om geavanceerde rapportages, workflow automatisering of integratie met specifieke externe systemen. Hierdoor krijgt u een systeem dat niet alleen efficiënt is, maar ook perfect aansluit bij uw bedrijfsdoelstellingen.
+              Een uitstekende gebruikerservaring (UX) staat centraal in elke digitale omgeving. Intuïtieve navigatie, snelle laadtijden en gepersonaliseerde content dragen bij aan een hoge gebruikerstevredenheid. Door continu te testen en gebruikersfeedback te verzamelen, kan de interface iteratief worden verbeterd. Dit resulteert in een platform dat niet alleen functioneel is, maar ook aansluit bij de verwachtingen en behoeften van de eindgebruiker.
             </p>
             <p>
-              Innovatie staat centraal in onze aanpak van CRM Development. Wij streven ernaar om de nieuwste technologische ontwikkelingen en trends te integreren in onze oplossingen. Dit betekent dat uw CRM systeem niet alleen functioneel en veilig is, maar ook toekomstbestendig. Met de voortdurende evolutie van technologieën, zoals kunstmatige intelligentie en machine learning, kunnen CRM systemen steeds slimmer worden. Deze innovaties bieden de mogelijkheid om klantgedrag te voorspellen en proactief in te spelen op toekomstige behoeften, wat u een aanzienlijk concurrentievoordeel kan opleveren.
+              De ontwikkeling van portalen en platformen vraagt om een nauwe samenwerking tussen verschillende disciplines. Ontwerpers, ontwikkelaars, IT-specialisten en strategische adviseurs werken samen om een geïntegreerde oplossing te realiseren. Deze multidisciplinaire aanpak zorgt ervoor dat alle aspecten – van de visuele presentatie tot de onderliggende technische infrastructuur – naadloos op elkaar aansluiten, wat resulteert in een gebruiksvriendelijke, veilige en efficiënte digitale omgeving.
             </p>
             <p>
-              Tot slot, de return on investment (ROI) van een goed ontwikkeld CRM systeem is vaak aanzienlijk. Door processen te stroomlijnen, medewerkers te ontlasten en gerichte klantinteracties mogelijk te maken, kan een CRM systeem leiden tot een hogere omzet en een betere klantretentie. Het is een investering die niet alleen de efficiëntie verbetert, maar ook bijdraagt aan de lange termijn groei van uw bedrijf.
+              Zakelijk gezien bieden portalen en platformen talrijke voordelen. Zij centraliseren niet alleen informatie en diensten, maar verbeteren ook de interne communicatie en samenwerking binnen organisaties. Dit leidt tot efficiëntere werkprocessen, lagere operationele kosten en een betere klantinteractie. Daarnaast opent een goed ontwikkeld digitaal platform de deur naar nieuwe vormen van datagedreven besluitvorming en innovatie, wat bijdraagt aan een sterkere concurrentiepositie.
             </p>
             <p>
-              Samengevat, CRM Development is een strategisch en technisch proces dat bedrijven helpt om klantrelaties te beheren, bedrijfsprocessen te optimaliseren en de algehele prestaties te verbeteren. Door te investeren in een op maat gemaakt CRM systeem, creëert u een solide basis voor duurzame groei en succes. Onze expertise stelt ons in staat om oplossingen te ontwikkelen die niet alleen voldoen aan de huidige behoeften, maar ook klaar zijn voor toekomstige uitdagingen. Of u nu uw sales- en marketingprocessen wilt automatiseren of uw klantinteracties wilt centraliseren, met CRM Development legt u de basis voor een efficiëntere en succesvollere bedrijfsvoering.
+              De toekomst van portalen en platformen ziet er veelbelovend uit. Met de voortdurende ontwikkelingen op het gebied van kunstmatige intelligentie, machine learning en big data analytics zullen deze digitale omgevingen steeds slimmer en meer gepersonaliseerd worden. Innovaties zoals chatbots, geautomatiseerde aanbevelingssystemen en real-time data-integratie zorgen ervoor dat gebruikers nog sneller en gerichter bediend worden. Bovendien speelt de integratie van het Internet of Things (IoT) een steeds belangrijkere rol, waardoor apparaten en sensoren met elkaar communiceren om waardevolle data te genereren.
+            </p>
+            <p>
+              Tot slot is het belangrijk te benadrukken dat de ontwikkeling van hoogwaardige portalen en platformen een continu proces is. De digitale wereld evolueert voortdurend en daarmee ook de wensen van gebruikers. Het is daarom essentieel om niet alleen bij de lancering, maar ook tijdens de nazorg te blijven investeren in updates en optimalisaties. Door regelmatig de functionaliteit, veiligheid en gebruikerservaring te evalueren en te verbeteren, blijft uw digitale omgeving relevant en toekomstbestendig.
+            </p>
+            <p>
+              Samenvattend vormen portalen en platformen een onmisbaar instrument voor organisaties die willen inspelen op de digitale transformatie. Ze combineren functionaliteit, veiligheid en gebruiksgemak in één geïntegreerd systeem dat is toegespitst op de specifieke behoeften van de moderne gebruiker. Investeren in een kwalitatief hoogstaand digitaal platform betekent investeren in de toekomst van uw organisatie.
             </p>
           </div>
         </div>
@@ -211,44 +224,44 @@ export default function CRMDevelopmentPage() {
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Ons CRM Ontwikkelingsproces
+                Ons Ontwikkelingsproces voor Portalen & Platformen
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Stap voor stap naar uw ideale CRM systeem
+                Stap voor stap naar uw ideale digitale oplossing
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Intake en Analyse",
+                    title: "Concept en Analyse",
                     description:
-                      "We starten met een uitgebreid gesprek om uw bedrijfsprocessen, klantbehoeften en doelstellingen in kaart te brengen.",
+                      "Wij starten met een grondige analyse van uw organisatie, behoeften en doelgroep om een uniek concept te ontwikkelen dat naadloos aansluit bij uw doelstellingen.",
                   },
                   {
-                    title: "Concept en Ontwerp",
+                    title: "Prototype en Wireframing",
                     description:
-                      "Op basis van de analyse ontwikkelen we een concept en ontwerp dat volledig is afgestemd op uw unieke wensen.",
+                      "Vervolgens creëren wij wireframes en interactieve prototypes om de structuur, flow en gebruikerservaring van uw portaal of platform te visualiseren.",
                   },
                   {
-                    title: "Ontwikkeling en Integratie",
+                    title: "Ontwikkeling en Implementatie",
                     description:
-                      "Onze ontwikkelaars bouwen een CRM systeem op maat en integreren de gewenste functionaliteiten en externe systemen.",
+                      "Onze experts ontwikkelen het digitale platform met behulp van de nieuwste technologieën, zorgen voor een responsive design en integreren alle gewenste functionaliteiten.",
                   },
                   {
                     title: "Testen en Optimalisatie",
                     description:
-                      "We testen het systeem grondig en optimaliseren de prestaties en gebruiksvriendelijkheid.",
+                      "Voordat de lancering vindt plaats, testen we de applicatie uitvoerig op verschillende apparaten en optimaliseren we performance, veiligheid en SEO.",
                   },
                   {
                     title: "Lancering en Ondersteuning",
                     description:
-                      "Na een succesvolle lancering bieden we voortdurende ondersteuning en onderhoud om uw CRM systeem optimaal te laten functioneren.",
+                      "Na de succesvolle lancering bieden wij uitgebreide ondersteuning en onderhoud zodat uw digitale oplossing continu optimaal functioneert.",
                   },
                   {
                     title: "Feedback en Iteratie",
                     description:
-                      "Op basis van uw feedback voeren we verdere verbeteringen door om het systeem continu te optimaliseren.",
+                      "Wij verzamelen gebruikersfeedback en passen de oplossing continu aan om de gebruikerservaring en functionaliteit verder te verbeteren.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -276,7 +289,7 @@ export default function CRMDevelopmentPage() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze CRM Development diensten.
+              Hier vindt u uitgebreide antwoorden op de meest gestelde vragen over onze digitale oplossingen voor portalen en platformen.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -401,7 +414,7 @@ export default function CRMDevelopmentPage() {
               </span>
               <h5 className="text-xl font-medium mb-4">Nog vragen?</h5>
               <p className="text-gray-700">
-                Voor meer informatie over onze frontend development diensten kunt u onze{" "}
+                Voor meer informatie over onze digitale oplossingen kunt u onze{" "}
                 <Link href="/contact" className="inline-block text-black font-medium underline">
                   Contactpagina
                 </Link>{" "}
@@ -416,9 +429,9 @@ export default function CRMDevelopmentPage() {
       {/* Call to Action Sectie */}
       <section className="py-12 lg:py-24 bg-teal-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Klaar om uw frontend te optimaliseren?</h2>
+          <h2 className="text-4xl font-bold mb-8">Klaar om uw digitale strategie te versterken?</h2>
           <p className="text-xl mb-12">
-            Laat uw online aanwezigheid stralen met een moderne en responsive website, gebouwd met professionele frontend development.
+            Transformeer uw organisatie met een modern portaal of platform dat naadloos aansluit bij de behoeften van uw gebruikers.
           </p>
           <Link
             href="/offerte-aanvragen"

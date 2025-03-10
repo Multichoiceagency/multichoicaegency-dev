@@ -6,76 +6,76 @@ import HeroNieuw from "@/components/HeroNieuw"
 import Image from "next/image"
 import { PricingTable } from "@/components/pricing-table"
 
-export default function LeadManagementSystem() {
+export default function Webapplicaties() {
   const [showContent, setShowContent] = useState(false)
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Waarom is een lead management systeem belangrijk voor mijn bedrijf?",
+      question: "Waarom zijn webapplicaties belangrijk voor mijn bedrijf?",
       answer:
-        "Een effectief lead management systeem optimaliseert uw verkoopproces door potentiële klanten efficiënt te volgen, te kwalificeren en om te zetten in daadwerkelijke klanten. Het biedt waardevolle inzichten en versterkt uw marketinginspanningen.",
+        "Webapplicaties vormen het digitale visitekaartje van uw bedrijf. Ze zorgen voor een efficiënte online aanwezigheid, betere interactie met klanten en dragen bij aan de groei van uw onderneming.",
     },
     {
-      question: "Hoe lang duurt de implementatie van een lead management systeem?",
+      question: "Hoe lang duurt het om een custom webapplicatie te ontwikkelen?",
       answer:
-        "De implementatietijd varieert per project, maar gemiddeld kunt u binnen 1 tot 3 maanden resultaat verwachten. Dit omvat de planning, configuratie, integratie en training van uw team.",
+        "De ontwikkeltijd varieert per project, maar gemiddeld duurt het proces tussen de 3 en 6 maanden. Dit omvat planning, ontwerp, ontwikkeling, testen en implementatie.",
     },
     {
-      question: "Kunnen jullie mijn bestaande CRM-systemen integreren met het nieuwe systeem?",
+      question: "Kunnen jullie mijn bestaande systemen integreren met de nieuwe webapplicatie?",
       answer:
-        "Ja, wij zorgen voor een naadloze integratie met uw bestaande CRM en andere marketingtools, zodat al uw data centraal beheerd wordt zonder uw huidige workflows te verstoren.",
+        "Ja, wij zorgen voor een naadloze integratie met uw bestaande systemen en databases, zodat u kunt profiteren van extra functionaliteiten zonder uw huidige workflows te verstoren.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor lead management systemen?",
+      question: "Welke technologieën gebruiken jullie voor webapplicatie ontwikkeling?",
       answer:
-        "Wij maken gebruik van moderne, cloud-gebaseerde oplossingen, API-integraties en realtime data-analysetools die uw verkoopproces optimaliseren en direct inzicht geven in uw lead funnel.",
+        "Wij werken met moderne technologieën zoals React, Node.js, Django en Ruby on Rails om robuuste en schaalbare webapplicaties te bouwen. Tevens integreren wij met diverse databases en API's.",
     },
     {
-      question: "Hoe waarborgen jullie de beveiliging van klantdata in het systeem?",
+      question: "Hoe waarborgen jullie de beveiliging van de webapplicaties?",
       answer:
-        "Beveiliging staat bij ons voorop. We implementeren encryptie, strikte toegangscontroles en regelmatige audits zodat uw klantgegevens beschermd zijn volgens de hoogste industriestandaarden.",
+        "Beveiliging staat bij ons voorop. We implementeren HTTPS, data-encryptie, veilige authenticatie en voeren regelmatige audits uit om uw applicatie optimaal te beschermen.",
     },
     {
-      question: "Wat zijn de voordelen van een op maat gemaakt systeem ten opzichte van standaard oplossingen?",
+      question: "Wat zijn de voordelen van custom webapplicaties ten opzichte van standaard oplossingen?",
       answer:
-        "Een op maat gemaakt lead management systeem sluit perfect aan bij uw bedrijfsprocessen, biedt flexibiliteit, betere integratie en unieke functionaliteiten die standaardoplossingen vaak niet leveren.",
+        "Op maat gemaakte webapplicaties worden precies afgestemd op uw bedrijfsbehoeften, bieden volledige controle over functionaliteiten en leveren een unieke gebruikerservaring die standaardoplossingen vaak niet kunnen bieden.",
     },
     {
-      question: "Hoe waarborgen jullie de schaalbaarheid van het systeem?",
+      question: "Hoe zorgen jullie voor de schaalbaarheid van de webapplicaties?",
       answer:
-        "Ons systeem is ontworpen om met uw bedrijf mee te groeien. Of het nu gaat om een toename in leadvolume of uitbreiding naar nieuwe markten, onze schaalbare oplossingen zorgen voor een soepele operatie.",
+        "Onze webapplicaties zijn ontworpen om mee te groeien met uw bedrijf. Met een modulaire architectuur en cloud-oplossingen garanderen wij optimale prestaties, zelfs bij hoge verkeersvolumes.",
     },
     {
-      question: "Kunnen jullie geavanceerde analysetools en automatiseringsprocessen implementeren?",
+      question: "Kunnen jullie complexe functionaliteiten en real-time data integreren in webapplicaties?",
       answer:
-        "Absoluut! Wij integreren krachtige analysetools en automatiseringsfuncties die klantgedrag monitoren en u helpen uw marketingstrategieën te optimaliseren op basis van realtime data.",
+        "Zeker! Wij implementeren complexe bedrijfslogica, real-time data processing en integreren diverse API's om een naadloze en dynamische gebruikerservaring te realiseren.",
     },
     {
-      question: "Hoe zorgen jullie voor onderhoud en ondersteuning na implementatie?",
+      question: "Hoe zorgen jullie voor onderhoud en ondersteuning na de lancering?",
       answer:
-        "Wij bieden uitgebreide ondersteuning na implementatie, inclusief regelmatige updates, 24/7 monitoring en training, zodat uw systeem altijd optimaal functioneert.",
+        "Wij bieden uitgebreide ondersteuning na de lancering, inclusief regelmatige updates, monitoring en technische ondersteuning, zodat uw webapplicatie altijd optimaal functioneert.",
     },
     {
-      question: "Hoe verzorgen jullie de migratie van bestaande klantdata?",
+      question: "Hoe gaan jullie om met data migratie bij de overgang naar een nieuwe webapplicatie?",
       answer:
-        "Data migratie is een cruciaal onderdeel van de transitie. We analyseren en mappen uw data zorgvuldig en zorgen voor een veilige migratie met minimale verstoring van uw bedrijfsvoering.",
+        "Data migratie is een zorgvuldig proces. We analyseren en mappen uw bestaande data en zorgen voor een veilige en soepele migratie met minimale onderbreking van uw bedrijfsvoering.",
     },
   ]
 
   return (
     <div className="bg-white text-black">
       <HeroNieuw
-        title={"Lead Management Systeem & CRM Oplossingen"}
+        title={"Webapplicaties & Custom Software"}
         description={
-          "Optimaliseer uw verkoopproces met een geavanceerd lead management systeem dat potentiële klanten efficiënt beheert en omzet in loyale klanten. Ontdek hoe onze oplossing u realtime inzichten en naadloze integraties biedt."
+          "Transformeer uw online aanwezigheid met op maat gemaakte webapplicaties. Onze oplossingen verbeteren de interactie met klanten, verhogen de efficiëntie en stimuleren de groei van uw bedrijf."
         }
         buttonText={"Vraag een demo aan"}
         buttonLink={"/offerte-aanvragen"}
         videoSrc={"https://videos.pexels.com/video-files/29458457/12680994_1920_1080_25fps.mp4"}
       />
 
-      {/* Lead Management Section */}
+      {/* Webapplicaties Section */}
       <section className="py-12 lg:py-24 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4 lg:flex-row lg:items-center">
@@ -83,18 +83,18 @@ export default function LeadManagementSystem() {
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Efficiënt beheer van uw leads
+                  Geavanceerde webapplicaties voor uw bedrijf
                 </h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                  Een geavanceerd lead management systeem helpt u bij het organiseren, kwalificeren en opvolgen van potentiële klanten. Zo verbetert u uw conversie en versterkt u de klantrelatie.
+                  Onze op maat gemaakte webapplicaties optimaliseren uw bedrijfsprocessen en verbeteren de gebruikerservaring. Door gebruik te maken van de nieuwste technologieën creëren wij krachtige online oplossingen.
                 </p>
                 <ul className="text-black py-5">
                   {[
-                    "Realtime inzicht in klantactiviteiten",
-                    "Geautomatiseerde opvolgstrategieën",
-                    "Naadloze integratie met bestaande CRM-systemen",
-                    "Uitgebreide data-analyse en rapportages",
-                    "Verhoogde conversie en klanttevredenheid",
+                    "Responsieve en gebruiksvriendelijke interfaces",
+                    "Naadloze integratie met bestaande systemen",
+                    "Schaalbare oplossingen voor groeiende bedrijven",
+                    "Veilige en betrouwbare infrastructuur",
+                    "Realtime data en analytics",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center mb-4">
                       <svg
@@ -123,7 +123,7 @@ export default function LeadManagementSystem() {
                   href="/offerte-aanvragen"
                   className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
-                  Start uw lead management project vandaag nog!
+                  Start uw webapplicatie project vandaag nog!
                 </Link>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function LeadManagementSystem() {
                   playsInline
                 >
                   <source
-                    src="https://cdn.dribbble.com/userupload/10762311/file/original-a3c2a7155d0e755ddc205f1b1df8991a.mp4"
+                    src="https://videos.pexels.com/video-files/29458457/12680994_1920_1080_25fps.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -157,18 +157,18 @@ export default function LeadManagementSystem() {
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Optimaliseer uw verkoopstrategie
+                  Innovatieve weboplossingen
                 </h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                  Met ons lead management systeem krijgt u volledige controle over uw sales funnel. Organiseer uw leads en zet inzichten om in actie voor maximale groei.
+                  Wij ontwikkelen dynamische webapplicaties die zich aanpassen aan de behoeften van uw bedrijf. Optimaliseer de interactie met uw klanten en beheer uw data efficiënt.
                 </p>
                 <ul className="text-black py-5">
                   {[
-                    "Geautomatiseerde lead capturing",
-                    "Intuïtieve dashboards en rapportages",
-                    "Efficiënte workflow automatisering",
-                    "Integratie met marketingtools en CRM",
-                    "Realtime tracking en analytics",
+                    "Op maat gemaakte ontwerpen",
+                    "Geavanceerde functionaliteiten",
+                    "Optimale prestaties en snelheid",
+                    "Integratie met externe systemen",
+                    "Realtime monitoring en analytics",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center mb-4">
                       <svg
@@ -197,7 +197,7 @@ export default function LeadManagementSystem() {
                   href="/offerte-aanvragen"
                   className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
-                  Start uw lead management project vandaag nog!
+                  Start uw webapplicatie project vandaag nog!
                 </Link>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function LeadManagementSystem() {
                   playsInline
                 >
                   <source
-                    src="https://cdn.dribbble.com/userupload/4987167/file/original-998e79da4d42830174eadcd610511ca6.mp4"
+                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -233,38 +233,38 @@ export default function LeadManagementSystem() {
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Hoe werkt een Lead Management Systeem?
+                Hoe werkt een webapplicatie?
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Een effectief systeem omvat:
+                Onze aanpak omvat:
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Geautomatiseerde lead capturing",
-                    description: "Verzamel en kwalificeer leads automatisch via diverse kanalen.",
+                    title: "Responsief ontwerp",
+                    description: "Uw applicatie past zich moeiteloos aan elk apparaat aan.",
                   },
                   {
-                    title: "Intuïtieve dashboards",
-                    description: "Krijg realtime inzichten en rapportages over uw sales funnel.",
+                    title: "Moderne technologie",
+                    description: "Gebouwd met de nieuwste frameworks en tools voor optimale prestaties.",
                   },
                   {
-                    title: "Workflow automatisering",
-                    description: "Automatiseer routinetaken om uw team te ontlasten.",
+                    title: "Geavanceerde integraties",
+                    description: "Eenvoudige koppelingen met bestaande systemen en API's.",
                   },
                   {
-                    title: "Naadloze integratie",
-                    description: "Integreer met uw bestaande CRM en marketingtools voor een vloeiende dataflow.",
+                    title: "Beveiligde infrastructuur",
+                    description: "Geavanceerde beveiligingsmaatregelen om uw data te beschermen.",
                   },
                   {
-                    title: "Realtime tracking",
-                    description: "Monitor klantinteracties en optimaliseer uw opvolging.",
+                    title: "Realtime analytics",
+                    description: "Monitor prestaties en gebruikersgedrag met geavanceerde data-analyse.",
                   },
                   {
-                    title: "Veilige infrastructuur",
-                    description: "Bescherm uw klantdata met geavanceerde beveiligingsmaatregelen.",
+                    title: "Continue optimalisatie",
+                    description: "Regelmatige updates en verbeteringen voor een optimale gebruikerservaring.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -289,7 +289,7 @@ export default function LeadManagementSystem() {
               <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
             </svg>
             <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-              Lead Management Specialisten
+              Webapplicatie Specialisten
             </span>
           </div>
           <div className="border-t border-gray-800 pt-16">
@@ -312,15 +312,15 @@ export default function LeadManagementSystem() {
                       Wat kunt u van ons verwachten?
                     </h1>
                     <p className="text-lg text-gray-700 mb-10">
-                      Bij de implementatie van ons lead management systeem staat optimalisatie voorop. Onze aanpak zorgt voor een oplossing die uw verwachtingen overtreft door efficiënte lead capturing en conversie-optimalisatie.
+                      Bij de ontwikkeling van onze webapplicaties staat innovatie en gebruiksvriendelijkheid voorop. Wij leveren oplossingen die precies aansluiten op uw bedrijfsbehoeften en zorgen voor een optimale online ervaring.
                     </p>
                     <ul className="text-black">
                       {[
-                        "Geavanceerde lead capturing methodes",
-                        "Realtime data-analyse en rapportages",
-                        "Schaalbare oplossingen voor groeiende verkoopteams",
-                        "Naadloze integratie met bestaande tools",
-                        "Verbeterde klantbetrokkenheid en conversie",
+                        "Modern ontwerp en functionaliteit",
+                        "Naadloze integratie met bestaande systemen",
+                        "Schaalbare en toekomstbestendige oplossingen",
+                        "Geavanceerde beveiligingsmaatregelen",
+                        "Uitgebreide ondersteuning en onderhoud",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center mb-4">
                           <svg
@@ -357,7 +357,7 @@ export default function LeadManagementSystem() {
           <div className="text-center mb-20">
             <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-black dark:text-white">Veelgestelde vragen</h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u antwoorden op de meest gestelde vragen over ons lead management systeem.
+              Hier vindt u antwoorden op de meest gestelde vragen over onze webapplicaties.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -476,12 +476,12 @@ export default function LeadManagementSystem() {
                 Heeft u nog vragen?
               </h5>
               <p className="text-gray-700">
-                Voor meer informatie over ons lead management systeem kunt u onze{" "}
+                Voor meer informatie over onze webapplicaties kunt u onze{" "}
                 <Link href="#" className="inline-block text-lime-500 font-medium underline">
                   Contactpagina
                 </Link>{" "}
                 bezoeken of bel onze klantenservice op{" "}
-                <span className="text-lime-500 font-medium">010 322 04 10</span>. Ons toegewijde team staat klaar om u te helpen met uw verkoopoptimalisatie.
+                <span className="text-lime-500 font-medium">010 322 04 10</span>. Ons toegewijde team staat klaar om u te helpen met uw online succes.
               </p>
             </div>
           </div>
@@ -491,15 +491,15 @@ export default function LeadManagementSystem() {
       {/* Call to Action */}
       <section className="py-12 lg:py-24 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Klaar om uw verkoopproces te optimaliseren?</h2>
+          <h2 className="text-4xl font-bold mb-8">Klaar om uw online aanwezigheid te versterken?</h2>
           <p className="text-xl mb-12 text-gray-300">
-            Laat uw bedrijf groeien met een geavanceerd lead management systeem dat realtime inzichten en optimale conversie biedt.
+            Laat uw bedrijf groeien met op maat gemaakte webapplicaties die de gebruikerservaring optimaliseren en de efficiëntie verhogen.
           </p>
           <Link
             href="/offerte-aanvragen"
             className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-black hover:text-white bg-green-500 hover:bg-transparent border border-lime-500 hover:border-white rounded-full transition duration-200"
           >
-            Start uw lead management project
+            Start uw webapplicatie project
           </Link>
         </div>
       </section>

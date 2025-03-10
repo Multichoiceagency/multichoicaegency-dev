@@ -441,7 +441,7 @@ export default function CustomWebdesign() {
                   Contactpagina
                 </Link>
                 <span> bezoeken of bel onze klantenservice op </span>
-                <span className="text-black font-medium">071 203 24 88</span>
+                <span className="text-black font-medium">010 322 04 10</span>
                 <span>
                   . Ons toegewijde team staat klaar om u te helpen bij het realiseren van uw perfecte custom website.
                 </span>

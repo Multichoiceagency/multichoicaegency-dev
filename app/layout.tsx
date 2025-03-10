@@ -1,20 +1,22 @@
-import './globals.css';
-import type { Metadata } from 'next';
-import { Hanken_Grotesk } from 'next/font/google';
-import { ThemeProvider } from '@/components/theme-provider';
-import { Footer } from '@/components/Footer';
-import GoogleCalendarButton from '@/components/GoogleCalenderButton';
-import { Header } from '@/components/header';
-import ExitIntentPopup from '@/components/ExitIntentPopup';
-import ClientWrapper from '@/components/ClientWrapper';
-import ScrollToTop from '@/components/ScrollToTop';
+import "./globals.css";
+import type { Metadata } from "next";
+import { PT_Sans } from "next/font/google";
+import { ThemeProvider } from "@/components/theme-provider";
+import { Footer } from "@/components/Footer";
+import GoogleCalendarButton from "@/components/GoogleCalenderButton";
+import { Header } from "@/components/header";
+import ScrollToTop from "@/components/ScrollToTop";
+import LiveChat from "@/components/livechat";
 
-// Initialize Hanken Grotesk
-const hankenGrotesk = Hanken_Grotesk({ subsets: ['latin'] });
+// Importeer PT Sans met de gewenste subsets en gewicht(en)
+const ptSans = PT_Sans({
+  subsets: ["latin"],
+  weight: ["400", "700"], // Voeg hier de gewenste diktes toe
+});
 
 export const metadata: Metadata = {
-  title: 'Multichoiceagency',
-  description: 'Jouw online maatwerk en website specialisten',
+  title: "Multichoiceagency",
+  description: "Jouw online maatwerk en website specialisten",
 };
 
 export default function RootLayout({
@@ -39,19 +41,20 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-        <meta name="apple-mobile-web-app-title" content="Multichoiceagency App" />
-        </head>
-      <body className={hankenGrotesk.className}>
-      <ScrollToTop />
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="auto"
-          enableSystem
-        >
+        <meta
+          name="apple-mobile-web-app-title"
+          content="Multichoiceagency App"
+        />
+      </head>
+      {/* Gebruik de ptSans-className om PT Sans toe te passen op de body */}
+      <body className={ptSans.className}>
+        <ScrollToTop />
+        <ThemeProvider attribute="class" defaultTheme="auto" enableSystem>
           <Header />
           {children}
           <Footer />
           <GoogleCalendarButton />
+          <LiveChat />
         </ThemeProvider>
       </body>
     </html>

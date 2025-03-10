@@ -88,7 +88,7 @@ export default function AIGeoptimaliseerdeSystemenPage() {
         }
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://cdn.dribbble.com/userupload/12345678/file/original-ai-video.mp4"}
+        videoSrc={"https://cdn.dribbble.com/userupload/17351661/file/original-15f093aeaaa8db2dba3fc53bf15e0c67.mp4"}
       />
 
       {/* Extra Informatie Sectie met Video */}
@@ -120,7 +120,7 @@ export default function AIGeoptimaliseerdeSystemenPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/98765432/file/original-ai-video2.mp4"
+                  src="https://cdn.dribbble.com/userupload/15641581/file/original-4811c61d374900ed4785a5785c9272ba.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

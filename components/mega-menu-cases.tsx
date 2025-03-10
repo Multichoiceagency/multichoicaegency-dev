@@ -81,7 +81,10 @@ export function MegaMenuCases({ isOpen, onClose, isMobile = false }: MegaMenuCas
         {!isMobile && (
           <h2 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Onze Cases</h2>
         )}
-        <div ref={scrollContainerRef} className="grid grid-cols-2 gap-8">
+        <div
+          ref={scrollContainerRef}
+          className={isMobile ? "grid grid-cols-1 gap-8" : "grid grid-cols-4 gap-8"}
+        >
           {limitedCases.map((caseItem) => (
             <motion.div
               key={caseItem.id}

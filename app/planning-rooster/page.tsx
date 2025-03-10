@@ -87,7 +87,7 @@ export default function PlanningRoosterSystemenPage() {
         }
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://cdn.dribbble.com/userupload/12345678/file/original-planning-video.mp4"}
+        videoSrc={"https://cdn.dribbble.com/userupload/17381263/file/original-f496ef02cc02dc2a971f1271bdd61898.mp4"}
       />
 
       {/* Extra Informatie Sectie met Video */}
@@ -119,7 +119,7 @@ export default function PlanningRoosterSystemenPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/98765432/file/original-rooster-video.mp4"
+                  src="https://cdn.dribbble.com/userupload/36847666/file/large-a9fa4720103b422627a0028f8083160e.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
