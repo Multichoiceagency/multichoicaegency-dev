@@ -149,7 +149,7 @@ export default function FrontendDevelopmentPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+                  src="https://cdn.dribbble.com/userupload/6441914/file/large-90209f3f4e3ea645eba4d185397ecf58.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.

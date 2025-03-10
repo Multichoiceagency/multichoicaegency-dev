@@ -75,42 +75,80 @@ export default function BackendDevelopment() {
         videoSrc={"https://cdn.dribbble.com/userupload/17855128/file/large-45aef91c794d3dfe747127edc550fd15.mp4"}
       />
       {/* Backend Development Section */}
-      <section className="w-screen py-12 lg:py-24 relative flex flex-col lg:flex-row">
-      {/* Linker kolom (tekst) */}
-      <div className="lg:w-1/2">
-        <div className="container mx-auto px-4 pt-12 pb-28 lg:py-24">
-          <div className="flex mb-6 items-center">
-            <svg
-              width="12"
-              height="12"
-              viewBox="0 0 12 12"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="12" height="12" rx="2" fill="#BEF264"></rect>
-              <circle cx="6" cy="6" r="4" fill="#022C22"></circle>
-            </svg>
-            <span className="ml-2 text-sm font-medium">
-              Transformeer uw bedrijf met krachtige backend oplossingen
-            </span>
-          </div>
-          <h1 className="font-heading text-6xl xs:text-2xl sm:text-xl xl:text-6xl tracking-tight mb-8">
-            Wat is Backend Development?
-          </h1>
-          <p className="max-w-md xl:max-w-none text-lg text-gray-700 mb-10">
-            Backend development vormt het fundament van moderne digitale oplossingen...
-          </p>
-          <div className="flex flex-col sm:flex-row">
-            <Link
-              href="#"
-              className="inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-black hover:text-white border border-lime-500 hover:border-white bg-green-500 hover:bg-transparent rounded-full transition duration-200"
-            >
-              Offerte aanvragen
-            </Link>
+      <section className="py-12 lg:py-24 bg-white dark:bg-black">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-wrap -mx-4 lg:flex-row lg:items-center">
+          {/* LINKER KOLOM OP DESKTOP (maar in HTML als eerste, dus RECHTS op mobiel) */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-xl">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+              Sterke backend voor toekomstbestendige oplossingen
+              </h1>
+              <p className="text-lg text-gray-700 mb-1 dark:text-white">
+              Een goed ontwikkelde backend zorgt voor stabiliteit, veiligheid en schaalbaarheid binnen jouw digitale omgeving. Met een doordacht systeem stroomlijn je bedrijfsprocessen en maximaliseer je efficiëntie.
+              </p>
+              <ul className="text-black py-5">
+                {[
+                  "Automatisering van complexe workflows",
+                  "Betrouwbare en veilige data-opslag",
+                  "Flexibel en schaalbaar voor groei",
+                  "Eenvoudige integratie met externe software en API’s",
+                  "De basis voor slimme en innovatieve toepassingen",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center mb-4">
+                    <svg
+                      width="20"
+                      height="20"
+                      viewBox="0 0 20 20"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                      <path
+                        d="M14.8 6.40002L8.19995 13L5.19995 10"
+                        stroke="#022C22"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                    <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+              <Link
+                href="/offerte-aanvragen"
+                className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+              >
+                Start jouw backend project vandaag nog!
+              </Link>
+            </div>
+            </div>
+
+                    {/* RECHTER KOLOM OP DESKTOP (maar in HTML als tweede, dus ONDER op mobiel) */}
+                    <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video
+                className="w-full h-full object-contain rounded-md"
+                autoPlay
+                loop
+                muted
+                playsInline
+              >
+                <source
+                  src="https://cdn.dribbble.com/userupload/2956351/file/original-3e80fcc86b8a3b5340a1864832c8a82c.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
           </div>
         </div>
       </div>
-      </section>
+    </section>
+
       
       <section className="py-12 lg:py-24 bg-white dark:bg-black">
       <div className="container mx-auto px-4">
@@ -119,20 +157,17 @@ export default function BackendDevelopment() {
           <div className="w-full lg:w-1/2 px-4">
             <div className="max-w-xl">
               <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                Efficiënt beheer van jouw data
+              Optimale controle over jouw data
               </h1>
               <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt
-                bedrijven in staat om complexe processen te automatiseren, grote hoeveelheden data
-                te verwerken en schaalbare systemen te bouwen die kunnen groeien met uw bedrijf.
-              </p>
+              Moderne backend development vormt de kern van digitale innovatie. Het zorgt voor efficiënte automatisering, veilige opslag en naadloze integratie met andere systemen, zodat jouw bedrijf altijd klaar is voor groei.              </p>
               <ul className="text-black py-5">
                 {[
-                  "Krachtige verwerking van complexe processen",
-                  "Veilige opslag en beheer van data",
-                  "Schaalbaarheid voor groeiende bedrijven",
-                  "Integratie met externe systemen en API's",
-                  "Fundament voor innovatieve features",
+                  "Robuuste verwerking van complexe processen",
+                  "Geavanceerde en veilige dataopslag",
+                  "Schaalbare infrastructuur die meegroeit",
+                  "Slimme koppelingen met externe systemen en API’s",
+                  "Stevige basis voor innovatieve functionaliteiten",
                 ].map((item, index) => (
                   <li key={index} className="flex items-center mb-4">
                     <svg
@@ -442,7 +477,7 @@ export default function BackendDevelopment() {
                   Contactpagina
                 </Link>
                 <span> bezoeken of bel onze klantenservice op </span>
-                <span className="text-lime-500 font-medium">071 203 24 88</span>
+                <span className="text-lime-500 font-medium">010 322 04 10</span>
                 <span>
                 Ons toegewijde team staat klaar om u te helpen bij het realiseren van uw perfecte backend oplossing.
                 </span>

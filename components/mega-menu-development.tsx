@@ -24,7 +24,7 @@ export function MegaMenuDevelopment({ isOpen, onClose }: DevelopmentMenuProps) {
       icon: <FontAwesomeIcon icon={faServer} className="h-6 w-6" />,
       title: "Backend Development",
       description: "Ontwikkel robuuste en schaalbare backend-oplossingen voor elke toepassing.",
-      href: "/woocommerce-webshop-laten-maken",  
+      href: "/backend-development",  
     },
     {
       icon: <FontAwesomeIcon icon={faChartLine} className="h-6 w-6" />,

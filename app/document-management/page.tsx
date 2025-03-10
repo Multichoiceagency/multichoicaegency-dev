@@ -6,76 +6,76 @@ import HeroNieuw from "@/components/HeroNieuw"
 import Image from "next/image"
 import { PricingTable } from "@/components/pricing-table"
 
-export default function LeadManagementSystem() {
+export default function DocumentManagementSystemen() {
   const [showContent, setShowContent] = useState(false)
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Waarom is een lead management systeem belangrijk voor mijn bedrijf?",
+      question: "Waarom zijn Document Management Systemen belangrijk voor mijn organisatie?",
       answer:
-        "Een effectief lead management systeem optimaliseert uw verkoopproces door potentiële klanten efficiënt te volgen, te kwalificeren en om te zetten in daadwerkelijke klanten. Het biedt waardevolle inzichten en versterkt uw marketinginspanningen.",
+        "Document Management Systemen centraliseren en beveiligen uw documenten, waardoor efficiënte workflows en verbeterde samenwerking mogelijk worden. Dit resulteert in een snellere en betrouwbaardere bedrijfsvoering.",
     },
     {
-      question: "Hoe lang duurt de implementatie van een lead management systeem?",
+      question: "Hoe lang duurt het om een op maat gemaakt DMS te implementeren?",
       answer:
-        "De implementatietijd varieert per project, maar gemiddeld kunt u binnen 1 tot 3 maanden resultaat verwachten. Dit omvat de planning, configuratie, integratie en training van uw team.",
+        "De implementatietijd varieert per project, maar gemiddeld ligt de doorlooptijd tussen de 3 en 6 maanden, inclusief planning, ontwikkeling, integratie en training.",
     },
     {
-      question: "Kunnen jullie mijn bestaande CRM-systemen integreren met het nieuwe systeem?",
+      question: "Kunnen jullie mijn bestaande systemen integreren met het nieuwe DMS?",
       answer:
-        "Ja, wij zorgen voor een naadloze integratie met uw bestaande CRM en andere marketingtools, zodat al uw data centraal beheerd wordt zonder uw huidige workflows te verstoren.",
+        "Ja, wij zorgen voor een naadloze integratie met uw bestaande software en databases, zodat uw documentbeheer volledig wordt geoptimaliseerd zonder de huidige workflows te verstoren.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor lead management systemen?",
+      question: "Welke technologieën gebruiken jullie voor de ontwikkeling van DMS-oplossingen?",
       answer:
-        "Wij maken gebruik van moderne, cloud-gebaseerde oplossingen, API-integraties en realtime data-analysetools die uw verkoopproces optimaliseren en direct inzicht geven in uw lead funnel.",
+        "Wij werken met moderne technologieën zoals .NET, Java en cloud-gebaseerde oplossingen om een veilig, schaalbaar en flexibel Document Management Systeem te bouwen.",
     },
     {
-      question: "Hoe waarborgen jullie de beveiliging van klantdata in het systeem?",
+      question: "Hoe waarborgen jullie de beveiliging van gevoelige documenten?",
       answer:
-        "Beveiliging staat bij ons voorop. We implementeren encryptie, strikte toegangscontroles en regelmatige audits zodat uw klantgegevens beschermd zijn volgens de hoogste industriestandaarden.",
+        "Beveiliging is cruciaal. Wij implementeren encryptie, strikte toegangscontrole en voeren regelmatige beveiligingsaudits uit om uw documenten te beschermen volgens de hoogste industriestandaarden.",
     },
     {
-      question: "Wat zijn de voordelen van een op maat gemaakt systeem ten opzichte van standaard oplossingen?",
+      question: "Wat zijn de voordelen van een custom DMS ten opzichte van standaardoplossingen?",
       answer:
-        "Een op maat gemaakt lead management systeem sluit perfect aan bij uw bedrijfsprocessen, biedt flexibiliteit, betere integratie en unieke functionaliteiten die standaardoplossingen vaak niet leveren.",
+        "Een op maat gemaakt DMS sluit perfect aan op uw bedrijfsprocessen, biedt flexibiliteit en schaalbaarheid en verbetert de workflow en samenwerking binnen uw organisatie.",
     },
     {
-      question: "Hoe waarborgen jullie de schaalbaarheid van het systeem?",
+      question: "Hoe zorgen jullie voor de schaalbaarheid van het DMS?",
       answer:
-        "Ons systeem is ontworpen om met uw bedrijf mee te groeien. Of het nu gaat om een toename in leadvolume of uitbreiding naar nieuwe markten, onze schaalbare oplossingen zorgen voor een soepele operatie.",
+        "Onze oplossingen zijn ontworpen om met uw organisatie mee te groeien. Door een modulaire architectuur en cloud-integraties garanderen wij optimale prestaties, zelfs bij toenemende documentvolumes.",
     },
     {
-      question: "Kunnen jullie geavanceerde analysetools en automatiseringsprocessen implementeren?",
+      question: "Kunnen jullie integreren met andere bedrijfsapplicaties?",
       answer:
-        "Absoluut! Wij integreren krachtige analysetools en automatiseringsfuncties die klantgedrag monitoren en u helpen uw marketingstrategieën te optimaliseren op basis van realtime data.",
+        "Absoluut! Wij realiseren koppelingen met ERP-, CRM- en andere bedrijfssoftware zodat uw DMS naadloos onderdeel wordt van uw gehele digitale infrastructuur.",
     },
     {
-      question: "Hoe zorgen jullie voor onderhoud en ondersteuning na implementatie?",
+      question: "Hoe verzorgen jullie onderhoud en ondersteuning na de implementatie?",
       answer:
-        "Wij bieden uitgebreide ondersteuning na implementatie, inclusief regelmatige updates, 24/7 monitoring en training, zodat uw systeem altijd optimaal functioneert.",
+        "Wij bieden uitgebreide ondersteuning na de lancering, met regelmatige updates, 24/7 monitoring en technische ondersteuning zodat uw DMS altijd optimaal functioneert.",
     },
     {
-      question: "Hoe verzorgen jullie de migratie van bestaande klantdata?",
+      question: "Hoe verloopt de migratie van bestaande documenten naar het nieuwe systeem?",
       answer:
-        "Data migratie is een cruciaal onderdeel van de transitie. We analyseren en mappen uw data zorgvuldig en zorgen voor een veilige migratie met minimale verstoring van uw bedrijfsvoering.",
+        "Wij voeren een zorgvuldige data migratie uit, waarbij we uw bestaande documenten analyseren, mappen en veilig overzetten met minimale verstoring van uw bedrijfsprocessen.",
     },
   ]
 
   return (
     <div className="bg-white text-black">
       <HeroNieuw
-        title={"Lead Management Systeem & CRM Oplossingen"}
+        title={"Document Management Systemen & Custom Software"}
         description={
-          "Optimaliseer uw verkoopproces met een geavanceerd lead management systeem dat potentiële klanten efficiënt beheert en omzet in loyale klanten. Ontdek hoe onze oplossing u realtime inzichten en naadloze integraties biedt."
+          "Beheer uw documenten centraal met op maat gemaakte DMS-oplossingen. Onze systemen optimaliseren uw documentstromen, verbeteren de beveiliging en stroomlijnen uw bedrijfsprocessen."
         }
         buttonText={"Vraag een demo aan"}
         buttonLink={"/offerte-aanvragen"}
         videoSrc={"https://videos.pexels.com/video-files/29458457/12680994_1920_1080_25fps.mp4"}
       />
 
-      {/* Lead Management Section */}
+      {/* Document Management Section */}
       <section className="py-12 lg:py-24 bg-white dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="flex flex-wrap -mx-4 lg:flex-row lg:items-center">
@@ -83,18 +83,18 @@ export default function LeadManagementSystem() {
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Efficiënt beheer van uw leads
+                  Geavanceerde documentoplossingen voor uw organisatie
                 </h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                  Een geavanceerd lead management systeem helpt u bij het organiseren, kwalificeren en opvolgen van potentiële klanten. Zo verbetert u uw conversie en versterkt u de klantrelatie.
+                  Onze Document Management Systemen centraliseren en beveiligen al uw documenten. Hierdoor creëert u efficiënte workflows en verbetert u de samenwerking binnen uw team.
                 </p>
                 <ul className="text-black py-5">
                   {[
-                    "Realtime inzicht in klantactiviteiten",
-                    "Geautomatiseerde opvolgstrategieën",
-                    "Naadloze integratie met bestaande CRM-systemen",
-                    "Uitgebreide data-analyse en rapportages",
-                    "Verhoogde conversie en klanttevredenheid",
+                    "Veilige opslag en beheer",
+                    "Eenvoudige toegankelijkheid",
+                    "Workflow automatisering",
+                    "Integratie met bestaande systemen",
+                    "Realtime document tracking",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center mb-4">
                       <svg
@@ -123,7 +123,7 @@ export default function LeadManagementSystem() {
                   href="/offerte-aanvragen"
                   className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
-                  Start uw lead management project vandaag nog!
+                  Start uw DMS-project vandaag nog!
                 </Link>
               </div>
             </div>
@@ -139,7 +139,7 @@ export default function LeadManagementSystem() {
                   playsInline
                 >
                   <source
-                    src="https://cdn.dribbble.com/userupload/10762311/file/original-a3c2a7155d0e755ddc205f1b1df8991a.mp4"
+                    src="https://videos.pexels.com/video-files/29458457/12680994_1920_1080_25fps.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -157,18 +157,18 @@ export default function LeadManagementSystem() {
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Optimaliseer uw verkoopstrategie
+                  Innovatieve documentbeheer oplossingen
                 </h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
-                  Met ons lead management systeem krijgt u volledige controle over uw sales funnel. Organiseer uw leads en zet inzichten om in actie voor maximale groei.
+                  Wij ontwikkelen systemen die het beheer van uw documenten vereenvoudigen. Optimaliseer de toegankelijkheid en veiligheid van uw data met onze op maat gemaakte oplossingen.
                 </p>
                 <ul className="text-black py-5">
                   {[
-                    "Geautomatiseerde lead capturing",
-                    "Intuïtieve dashboards en rapportages",
+                    "Intuïtieve gebruikersinterfaces",
                     "Efficiënte workflow automatisering",
-                    "Integratie met marketingtools en CRM",
-                    "Realtime tracking en analytics",
+                    "Naadloze integratie met bestaande tools",
+                    "Geavanceerde beveiligingsmaatregelen",
+                    "Realtime monitoring en rapportage",
                   ].map((item, index) => (
                     <li key={index} className="flex items-center mb-4">
                       <svg
@@ -197,7 +197,7 @@ export default function LeadManagementSystem() {
                   href="/offerte-aanvragen"
                   className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
-                  Start uw lead management project vandaag nog!
+                  Start uw DMS-project vandaag nog!
                 </Link>
               </div>
             </div>
@@ -213,7 +213,7 @@ export default function LeadManagementSystem() {
                   playsInline
                 >
                   <source
-                    src="https://cdn.dribbble.com/userupload/4987167/file/original-998e79da4d42830174eadcd610511ca6.mp4"
+                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -233,38 +233,38 @@ export default function LeadManagementSystem() {
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
               <span className="inline-block ml-2 text-sm font-medium text-white">
-                Hoe werkt een Lead Management Systeem?
+                Hoe werkt een Document Management Systeem?
               </span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Een effectief systeem omvat:
+                Onze aanpak omvat:
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Geautomatiseerde lead capturing",
-                    description: "Verzamel en kwalificeer leads automatisch via diverse kanalen.",
-                  },
-                  {
-                    title: "Intuïtieve dashboards",
-                    description: "Krijg realtime inzichten en rapportages over uw sales funnel.",
+                    title: "Veilig documentbeheer",
+                    description: "Bescherm en beheer uw documenten met geavanceerde beveiligingsmaatregelen.",
                   },
                   {
                     title: "Workflow automatisering",
-                    description: "Automatiseer routinetaken om uw team te ontlasten.",
+                    description: "Automatiseer documentstromen en optimaliseer interne processen.",
                   },
                   {
-                    title: "Naadloze integratie",
-                    description: "Integreer met uw bestaande CRM en marketingtools voor een vloeiende dataflow.",
+                    title: "Intuïtieve gebruikersinterface",
+                    description: "Een gebruiksvriendelijke interface zorgt voor een eenvoudige toegang tot uw documenten.",
                   },
                   {
-                    title: "Realtime tracking",
-                    description: "Monitor klantinteracties en optimaliseer uw opvolging.",
+                    title: "Integratie met bestaande systemen",
+                    description: "Naadloze koppelingen met ERP, CRM en andere bedrijfsapplicaties.",
                   },
                   {
-                    title: "Veilige infrastructuur",
-                    description: "Bescherm uw klantdata met geavanceerde beveiligingsmaatregelen.",
+                    title: "Realtime rapportage",
+                    description: "Monitor documentactiviteiten en verkrijg direct inzicht in uw data.",
+                  },
+                  {
+                    title: "Continue optimalisatie",
+                    description: "Regelmatige updates en ondersteuning voor een toekomstbestendig systeem.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
@@ -289,7 +289,7 @@ export default function LeadManagementSystem() {
               <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
             </svg>
             <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-              Lead Management Specialisten
+              DMS Specialisten
             </span>
           </div>
           <div className="border-t border-gray-800 pt-16">
@@ -312,15 +312,15 @@ export default function LeadManagementSystem() {
                       Wat kunt u van ons verwachten?
                     </h1>
                     <p className="text-lg text-gray-700 mb-10">
-                      Bij de implementatie van ons lead management systeem staat optimalisatie voorop. Onze aanpak zorgt voor een oplossing die uw verwachtingen overtreft door efficiënte lead capturing en conversie-optimalisatie.
+                      Bij de ontwikkeling van onze Document Management Systemen staat efficiënt documentbeheer en veiligheid voorop. Wij leveren oplossingen die perfect aansluiten op uw bedrijfsbehoeften.
                     </p>
                     <ul className="text-black">
                       {[
-                        "Geavanceerde lead capturing methodes",
-                        "Realtime data-analyse en rapportages",
-                        "Schaalbare oplossingen voor groeiende verkoopteams",
-                        "Naadloze integratie met bestaande tools",
-                        "Verbeterde klantbetrokkenheid en conversie",
+                        "Veilige opslag en beheer",
+                        "Efficiënte workflow automatisering",
+                        "Integratie met bestaande applicaties",
+                        "Realtime monitoring en rapportage",
+                        "Uitgebreide ondersteuning en onderhoud",
                       ].map((item, index) => (
                         <li key={index} className="flex items-center mb-4">
                           <svg
@@ -355,9 +355,11 @@ export default function LeadManagementSystem() {
       <section className="py-12 lg:py-24 dark:bg-black">
         <div className="container mx-auto px-4">
           <div className="text-center mb-20">
-            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-black dark:text-white">Veelgestelde vragen</h2>
+            <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-black dark:text-white">
+              Veelgestelde vragen
+            </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u antwoorden op de meest gestelde vragen over ons lead management systeem.
+              Hier vindt u antwoorden op de meest gestelde vragen over onze Document Management Systemen.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -465,23 +467,18 @@ export default function LeadManagementSystem() {
             </div>
             <div className="max-w-xl mx-auto text-center">
               <span className="inline-block mb-8 ml-10">
-                <Image
-                  src="/logos/logo.png"
-                  alt={""}
-                  height={800}
-                  width={400}
-                />
+                <Image src="/logos/logo.png" alt={""} height={800} width={400} />
               </span>
-              <h5 className="text-4xl font-medium mb-4 text-black dark:text-white">
+              <h5 className="text-4xl font-medium mb-4  text-black dark:text-white">
                 Heeft u nog vragen?
               </h5>
-              <p className="text-gray-700">
-                Voor meer informatie over ons lead management systeem kunt u onze{" "}
-                <Link href="#" className="inline-block text-lime-500 font-medium underline">
+              <p className="text-gray-700 dark:text-white">
+                Voor meer informatie over onze Document Management Systemen kunt u onze{" "}
+                <Link href="contact" className="inline-block text-lime-500 font-medium underline">
                   Contactpagina
                 </Link>{" "}
                 bezoeken of bel onze klantenservice op{" "}
-                <span className="text-lime-500 font-medium">010 322 04 10</span>. Ons toegewijde team staat klaar om u te helpen met uw verkoopoptimalisatie.
+                <span className="text-lime-500 font-medium">010 322 04 10</span>. Ons deskundige team staat klaar om u te ondersteunen bij het optimaliseren van uw documentbeheer.
               </p>
             </div>
           </div>
@@ -491,15 +488,15 @@ export default function LeadManagementSystem() {
       {/* Call to Action */}
       <section className="py-12 lg:py-24 bg-gray-900 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Klaar om uw verkoopproces te optimaliseren?</h2>
+          <h2 className="text-4xl font-bold mb-8">Klaar om uw documentbeheer te optimaliseren?</h2>
           <p className="text-xl mb-12 text-gray-300">
-            Laat uw bedrijf groeien met een geavanceerd lead management systeem dat realtime inzichten en optimale conversie biedt.
+            Transformeer uw organisatie met een op maat gemaakt Document Management Systeem dat uw workflow stroomlijnt en de veiligheid van uw data waarborgt.
           </p>
           <Link
             href="/offerte-aanvragen"
             className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-black hover:text-white bg-green-500 hover:bg-transparent border border-lime-500 hover:border-white rounded-full transition duration-200"
           >
-            Start uw lead management project
+            Start uw DMS-project
           </Link>
         </div>
       </section>
