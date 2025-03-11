@@ -8,6 +8,7 @@ import { Header } from "@/components/header";
 import ScrollToTop from "@/components/ScrollToTop";
 import LiveChat from "@/components/livechat";
 import { AnnouncementBanner } from "@/components/announcement-banner";
+import QuoteButton from "@/components/OfferteAanvraagKnop";
 
 // Importeer PT Sans met de gewenste subsets en gewicht(en)
 const unbounded = Unbounded({
@@ -55,7 +56,7 @@ export default function RootLayout({
           {children}
           <Footer />
           <GoogleCalendarButton />
-          <LiveChat />
+          <QuoteButton />
         </ThemeProvider>
       </body>
     </html>

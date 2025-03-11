@@ -93,7 +93,7 @@ export function MegaMenuPortalen({ isOpen, onClose }: MegaMenuPortalenProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.2 }}
-      className="absolute left-0 right-0 bg-white dark:bg-background border-b border-border shadow-lg"
+      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-b border-border shadow-lg"
       style={{ top: "100%" }}
     >
       <div className="container mx-auto max-w-[1800px] py-8 px-10">
@@ -102,7 +102,7 @@ export function MegaMenuPortalen({ isOpen, onClose }: MegaMenuPortalenProps) {
             <Link href={portal.link} key={index}>
               <div
                 onClick={onClose}
-                className="border border-gray-200 dark:border-gray-700 rounded-lg p-6 bg-white dark:bg-gray-800 shadow-sm cursor-pointer hover:shadow-md transition"
+                className="border border-gray-200 dark:border-green-700 rounded-lg p-6 bg-white dark:bg-black shadow-sm cursor-pointer hover:shadow-md transition"
               >
                 <div className="flex items-center mb-4">
                   <div className="h-10 w-10 flex items-center justify-center rounded-full bg-primary/10 text-primary">

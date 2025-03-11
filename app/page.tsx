@@ -6,6 +6,7 @@ import Portfolio from "@/components/cases-display"
 import HeroNieuw from "@/components/HeroNieuw"
 import ContactOpnemen from "@/components/ContactOpnemen"
 import AnimatedText from "@/components/AnimatedText"
+import TeamSection from "@/components/team-section"
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
       <Oplossingen />
       <BentoGridDemo />
       <HeroSection />
+      <TeamSection />
       <Portfolio />
       <AnimatedText />
       <Testimonials />

@@ -1,6 +1,8 @@
+'use client'
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import HeroNieuw from "@/components/HeroNieuw";
 
 const sections = [
   {
@@ -266,84 +268,78 @@ const sections = [
   ];
 
 
-const ServicesSection: React.FC = () => {
-  return (
-<section className="relative bg-teal-900">
-  <img
-    className="absolute left-0 w-full h-full top-0"
-    src="flow-assets/headers/bg-waves.png"
-    alt=""
-  />
-  <nav className="py-6"></nav>
-  <div className="relative pb-24 sm:pb-32 lg:pt-36 lg:pb-62">
-    <div className="container mx-auto px-4 relative">
-      <div className="max-w-lg xl:max-w-xl mx-auto text-center">
-        <h1 className="font-heading text-5xl xs:text-7xl xl:text-8xl tracking-tight text-white mb-8">
-          Onze diensten
-        </h1>
-        <p className="max-w-md xl:max-w-none text-lg text-white opacity-80 mb-10">
-          Bij ons staan jouw wensen en ambities centraal. Met een breed scala
-          aan professionele diensten bieden wij maatwerkoplossingen die jouw
-          bedrijf laten groeien, je merk versterken en je klanten tevreden
-          stellen. Ontdek onze expertise en ervaar onze toewijding aan kwaliteit
-          en innovatie.
-        </p>
-        <a
-          href="#"
-          className="inline-flex py-4 px-6 items-center justify-center text-lg font-medium text-teal-900 border border-lime-500 hover:border-white bg-lime-500 hover:bg-white rounded-full transition duration-200"
-        >
-          Ontdek onze oplossingen
-        </a>
-      </div>
-    </div>
-  </div>
-
-
-    <section className="py-40">
-      <div className="container mx-auto px-4">
-        {sections.map((section) => (
-          <div key={section.title} className="mb-16">
-            <h2 className="tracking-tight text-white bg-teal-900 font-heading text-4xl md:text-5xl font-medium mb-8 text-center">
-              {section.title}
-            </h2>
-            <div className="flex flex-wrap -m-4">
-              {section.services.map((service) => (
-                <div key={service.id} className="w-full md:w-1/2 lg:w-1/4 p-4">
-                  <div
-                    className="group rounded-2xl bg-gray-50 hover:bg-teal-900 dark:bg-gray-800 p-8 relative transition-transform transform hover:scale-105"
-                    style={{ height: "420px" }}
-                  >
-                    <p className="tracking-tight text-2xl font-medium text-black dark:text-white group-hover:text-white">
-                      {service.title}
-                    </p>
-                    <p className="text-gray-600  group-hover:text-white dark:text-gray-300 mt-4 text-xl transition-opacity duration-300">
-                      {service.description}
-                    </p>
-                    <div className="absolute bottom-6 right-6">
-                      <a
-                        href={service.url}
-                        className="flex items-center font-bold text-green-600 hover:text-white dark:text-blue-400 hover:underline"
-                      >
-                        Meer informatie
-                        <FontAwesomeIcon
-                          icon={faArrowRight}
-                          className="ml-2 transform transition-transform group-hover:translate-x-1"
-                        />
-                      </a>
+  const ServicesSection: React.FC = () => {
+    return (
+      <section className="relative bg-[#FCF4EB] dark:bg-gray-900">
+        <HeroNieuw 
+          title={"Bouw Samen Met Ons Aan Jouw Digitale Toekomst"} 
+          description={"Bij ons staan jouw wensen en ambities centraal. Met een breed scala aan professionele diensten bieden wij maatwerkoplossingen die jouw bedrijf laten groeien, je merk versterken en je klanten tevreden stellen. Ontdek onze expertise en ervaar onze toewijding aan kwaliteit en innovatie."} 
+          buttonText={"Vraag een vrijblijvend offerte aan!"} 
+          buttonLink={"/offerte-aanvragen"} 
+          videoSrc={"https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/UI-UX-Design-SHOWREEL-2023-｜-Musemind.mp4"} 
+        />
+  
+        <section className="py-40">
+          <div className="container mx-auto px-4">
+            {sections.map((section) => (
+              <div key={section.title} className="mb-16">
+                <h2 className="tracking-tight text-white bg-teal-900 font-heading text-4xl md:text-5xl font-medium mb-8 text-center rounded-xl">
+                  {section.title}
+                </h2>
+                <div className="flex flex-wrap -m-4">
+                  {section.services.map((service) => (
+                    <div key={service.id} className="w-full md:w-1/2 lg:w-1/4 p-4">
+                      {/* Extra wrapper voor 3D-perspectief */}
+                      <div className="card-3d group">
+                        <div
+                          className="card-3d-inner rounded-2xl bg-gray-50 dark:bg-gray-800 p-8 relative transition-transform transform"
+                          style={{ height: "420px" }}
+                        >
+                          <p className="tracking-tight text-2xl font-medium text-black dark:text-white group-hover:text-green-600">
+                            {service.title}
+                          </p>
+                          <p className="text-gray-600 dark:text-gray-300 mt-4 text-xl transition-opacity duration-300 group-hover:text-green-600">
+                            {service.description}
+                          </p>
+                          <div className="absolute bottom-6 right-6">
+                            <a
+                              href={service.url}
+                              className="flex items-center font-bold text-green-600 dark:text-white hover:text-white dark:hover:text-green-900 hover:underline"
+                            >
+                              Meer informatie
+                              <FontAwesomeIcon
+                                icon={faArrowRight}
+                                className="ml-2 transform transition-transform group-hover:translate-x-1"
+                              />
+                            </a>
+                          </div>
+                        </div>
+                      </div>
                     </div>
-                  </div>
+                  ))}
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
           </div>
-
-        ))}
-      </div>
+        </section>
+  
+        {/* CSS voor 3D effect */}
+        <style jsx>{`
+          .card-3d {
+            perspective: 1000px;
+          }
+          .card-3d-inner {
+            transition: transform 0.5s ease, box-shadow 0.5s ease;
+            transform-style: preserve-3d;
+          }
+          .card-3d:hover .card-3d-inner {
+            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+          }
+        `}</style>
       </section>
-
-    </section>
-
-  );
-};
-
-export default ServicesSection;
+    );
+  };
+  
+  export default ServicesSection;
+  

@@ -20,7 +20,7 @@ const LiveChat = () => {
     };
   }, []);
 
-  return <div id="livechat-container" className="fixed bottom-4 right-4 z-50"></div>;
+  return <div id="livechat-container" className="fixed bottom-10 right-4 z-50"></div>;
 };
 
 export default LiveChat;

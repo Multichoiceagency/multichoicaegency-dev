@@ -28,9 +28,9 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontSize: {
-        xs: '0.95rem',    // 12px
+        xs: '0.60rem',    // 12px
         sm: '0.875rem',   // 14px
-        base: '1rem',     // 16px
+        base: '0.955rem',     // 16px
         lg: '0.85rem',   // 18px
         xl: '0.75rem',    // 20px
         '2xl': '1.5rem',  // 24px

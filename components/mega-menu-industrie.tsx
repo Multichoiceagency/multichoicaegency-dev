@@ -134,7 +134,7 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: 10 }}
       transition={{ duration: 0.2 }}
-      className="absolute left-0 right-0 bg-white dark:bg-gray-800 border-b border-border shadow-lg"
+      className="absolute left-0 right-0 bg-white dark:bg-gray-900 border-b border-border shadow-lg"
       style={{ top: "100%" }}
     >
       <div className="container mx-auto max-w-[1800px] py-8 px-10">

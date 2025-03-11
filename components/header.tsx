@@ -4,7 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-// Import en cast AnimatePresence zodat het children accepteert.
 import { AnimatePresence as FramerAnimatePresence } from "framer-motion";
 import React from "react";
 import { useOutsideClick } from "@/hooks/use-outside-click"; // Pas het pad aan indien nodig
@@ -104,7 +103,7 @@ export function Header(): JSX.Element {
       className="fixed top-0 left-0 right-0 z-50"
       initial={{ y: 0 }}
       animate={{ y: isHeaderVisible ? 0 : -100 }}
-      transition={{ duration: 0.3 }}
+      transition={{ duration: 0.70 }}
     >
       <AnimatePresence>
         {!isScrolled && <AnnouncementBanner isVisible={!isScrolled} />}
@@ -136,18 +135,18 @@ export function Header(): JSX.Element {
                   {item === "Contact" || item === "Over ons" ? (
                     <Link
                       href={`/${item.toLowerCase().replace(/ /g, "-")}`}
-                      className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
+                      className="text-sm lg:text-sm uppercase font-bold text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
                     >
                       {item}
                     </Link>
                   ) : (
                     <button
                       onClick={() => setActiveMegaMenu(activeMegaMenu === item ? null : item)}
-                      className="text-sm lg:text-base font-medium text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 flex items-center gap-1"
+                      className="text-xs lg:text-base text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400 flex items-center gap-1"
                     >
                       {item}
                       <ChevronDown
-                        className={`h-4 w-4 transition-transform duration-200 ${
+                        className={`h-4 w-4 transition-transform duration-1200 ${
                           activeMegaMenu === item ? "rotate-180" : ""
                         }`}
                       />
@@ -170,18 +169,11 @@ export function Header(): JSX.Element {
         >
           <Button
             variant="ghost"
-            className="text-gray-700 dark:text-gray-300 hover:text-green-500 dark:hover:text-green-400"
+            className="text-gray-700 dark:text-gray-300 font-bold hover:text-green-500 dark:hover:text-green-400"
           >
             Inloggen
           </Button>
         </Link>
-
-          {/* Offerte Aanvragen Button with Link */}
-          <Link href="/offerte-aanvragen">
-            <Button className="bg-green-700 uppercase font-bold text-sm text-white hover:bg-green-900 dark:hover:bg-green-900">
-              Offerte aanvragen
-            </Button>
-          </Link>
         </div>
 
           {/* Mobile Menu Button */}
