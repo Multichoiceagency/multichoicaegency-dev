@@ -16,28 +16,28 @@ interface SlideContent {
 
 const slides: SlideContent[] = [
   {
-    title: "Ons DNA",
+    title: "Onze Visie",
     description:
-      "Bij Webgrade doen we er alles aan om de relatie met onze klanten zo persoonlijk mogelijk te maken. Omdat we dat gewoon heel leuk vinden. Maar het is ook de snelste manier om wederzijds vertrouwen op te bouwen. Daarmee creëren we de vrijheid om het allerbeste werk te kunnen leveren.",
-    ctaText: "Meer over ons",
+      "Bij Multichoiceagency bouwen we sterke, langdurige relaties met onze klanten. Door persoonlijk contact en transparantie zorgen we voor wederzijds vertrouwen en optimale resultaten.",
+    ctaText: "Lees meer over ons",
     ctaLink: "/over-ons",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg",
   },
   {
-    title: "Onze Aanpak",
+    title: "Onze Werkwijze",
     description:
-      "We geloven in een persoonlijke en transparante werkwijze. Door nauw samen te werken met onze klanten, kunnen we precies begrijpen wat er nodig is en de beste oplossingen bieden.",
-    ctaText: "Onze werkwijze",
+      "Wij geloven in een resultaatgerichte en strategische aanpak. Samen met onze klanten analyseren we hun doelen en ontwikkelen we op maat gemaakte oplossingen die echt impact maken.",
+    ctaText: "Ontdek onze werkwijze",
     ctaLink: "/werkwijze",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://images.pexels.com/photos/6476589/pexels-photo-6476589.jpeg",
   },
   {
-    title: "Het Team",
+    title: "Ons Team",
     description:
-      "Ons team bestaat uit gepassioneerde specialisten die elk hun eigen expertise meebrengen. Samen vormen we een hecht team dat elkaar versterkt en inspireert.",
-    ctaText: "Ontmoet het team",
+      "Multichoiceagency bestaat uit een dynamisch team van creatieve en technische specialisten. Samen werken we aan innovatieve projecten die bedrijven helpen groeien en digitaliseren.",
+    ctaText: "Maak kennis met ons team",
     ctaLink: "/team",
-    image: "/placeholder.svg?height=600&width=800",
+    image: "https://images.pexels.com/photos/3182773/pexels-photo-3182773.jpeg",
   },
 ]
 
@@ -56,7 +56,6 @@ export default function TeamSection() {
       if (typeof window !== "undefined") {
         const Flickity = (await import("flickity")).default
 
-        // Initialize text slider
         if (textContainerRef.current && !textSliderRef.current) {
           textFlickity = new Flickity(textContainerRef.current, {
             cellAlign: "left",
@@ -68,7 +67,6 @@ export default function TeamSection() {
           textSliderRef.current = textFlickity
         }
 
-        // Initialize image slider
         if (imageContainerRef.current && !imageSliderRef.current) {
           imageFlickity = new Flickity(imageContainerRef.current, {
             cellAlign: "left",
@@ -76,10 +74,11 @@ export default function TeamSection() {
             prevNextButtons: false,
             pageDots: false,
             draggable: true,
+            autoPlay: 5000, // ✅ Autoplay elke 5 seconden
+            wrapAround: true, // ✅ Oneindige loop
           })
           imageSliderRef.current = imageFlickity
 
-          // Sync sliders when image slider changes
           imageFlickity.on("change", (index: number) => {
             textFlickity.select(index)
             setCurrentSlide(index)
@@ -115,10 +114,10 @@ export default function TeamSection() {
   }
 
   return (
-    <section className="relative bg-gray-50 overflow-hidden">
+    <section className="relative bg-gray-50 dark:bg-gray-800 overflow-hidden">
       <div className="absolute inset-0 pointer-events-none">
-        <h1 className="text-[120px] md:text-[200px] font-bold text-gray-100 absolute -top-10 left-0 right-0 text-center whitespace-nowrap">
-          Een eigen team van specialisten
+        <h1 className="text-[120px] animate-marquee md:text-[200px] font-bold text-gray-100 absolute -top-10 left-0 right-0 text-center whitespace-nowrap">
+          Expertise, Creativiteit en Strategie
         </h1>
       </div>
 
@@ -164,7 +163,7 @@ export default function TeamSection() {
             {slides.map((slide, index) => (
               <div key={index} className="w-full">
                 <div className="relative aspect-[4/3] rounded-lg overflow-hidden">
-                  <Image src={slide.image || "/placeholder.svg"} alt={slide.title} fill className="object-cover" />
+                  <Image src={slide.image} alt={slide.title} fill className="object-cover" />
                 </div>
               </div>
             ))}
@@ -174,4 +173,3 @@ export default function TeamSection() {
     </section>
   )
 }
-

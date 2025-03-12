@@ -2,6 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .border-border {
+    border-color: hsl(var(--border));
+  }
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -48,55 +54,55 @@
     --ring: 142 59% 50%;
   }
 
-  @layer base {
-    h1 {
-      @apply text-4xl font-extrabold tracking-tight;
-    }
-    h2 {
-      @apply text-3xl font-semibold tracking-tight;
-    }
-    h3 {
-      @apply text-2xl font-semibold tracking-tight;
-    }
-    h4 {
-      @apply text-xl font-semibold;
-    }
-    h5 {
-      @apply text-lg font-semibold;
-    }
-    h6 {
-      @apply text-base font-semibold;
-    }
+  * {
+    @layer border-border;
   }
 
-/* Hides horizontal scrollbar and disables horizontal scrolling */
-body {
-  overflow-x: hidden; /* Prevents horizontal scrolling entirely */
+  body {
+    overflow-x: hidden; /* Prevents horizontal scrolling */
+  }
 }
 
-/* Optional: Keeps vertical scrollbar visible in all browsers */
+.writing-mode-vertical-rl {
+  writing-mode: vertical-rl;
+}
+
+.text-orientation-upright {
+  text-orientation: upright;
+}
+
+@keyframes pulseBg {
+  0%, 100% {
+    background-color: #15803d; /* Tailwind bg-green-700 */
+  }
+  50% {
+    background-color: #D97700; /* Een iets andere tint groen */
+  }
+}
+
+.animate-pulse-bg {
+  animation: pulseBg 2s ease-in-out infinite;
+}
+
+/* Custom Scrollbar Fixes */
 ::-webkit-scrollbar:horizontal {
-  display: none; /* Hides horizontal scrollbar for WebKit browsers */
+  display: none !important; /* Hide horizontal scrollbar */
 }
 
-/* For IE and Edge */
 body {
-  -ms-overflow-style: scrollbar; /* Keeps the vertical scrollbar visible */
+  scrollbar-width: auto; /* Firefox scrollbar fix */
 }
 
-/* For Firefox */
-body {
-  scrollbar-width: auto; /* Keeps the vertical scrollbar visible */
-}
+/* Animations */
 @keyframes gradientAnimation {
   0% {
     background: #22553B;
   }
   50% {
-    background: #22553B; /* Gebruik dezelfde kleur om het midden constant te houden */
+    background: #22553B;
   }
   100% {
-    background: #123D2C; /* Donkere kleur voor het einde */
+    background: #123D2C;
   }
 }
 
@@ -117,17 +123,6 @@ body {
 
 .stroke-text {
   -webkit-text-stroke: 2px rgba(0, 0, 0, 0.1); /* Border effect */
-  color: transparent; /* Transparent text */
-  white-space: nowrap; /* Prevent line breaks */
-}
-
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
+  color: transparent;
+  white-space: nowrap;
 }

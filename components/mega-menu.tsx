@@ -139,7 +139,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
         <div className="grid grid-cols-[2fr,3fr,2fr] gap-16">
           {/* Linker kolom – DIENSTEN */}
           <div>
-            <h3 className="text-xs font-semibold text-muted-foreground mb-6 uppercase tracking-wider">
+            <h3 className="text-xs font-semibold mb-6 uppercase tracking-wider">
               DIENSTEN
             </h3>
             <div className="space-y-6">
@@ -147,10 +147,10 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
                 <Link
                   key={index}
                   href={direction.href}
-                  className="flex items-start gap-4 group"
+                  className="flex items-start gap-4 group text-sm"
                   onClick={onClose}
                 >
-                  <div className="flex h-8 w-8 items-center justify-center rounded bg-primary/10 text-primary">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-md hover:text-black bg-primary/10 text-primary">
                     {direction.icon}
                   </div>
                   <div>
@@ -168,7 +168,7 @@ export function MegaMenu({ isOpen, onClose }: MegaMenuProps) {
 
           {/* Middelste kolom – OPLOSSINGEN */}
           <div>
-            <h3 className="text-xs font-semibold text-muted-foreground mb-6 uppercase tracking-wider">
+            <h3 className="text-sm font-semibold mb-6 uppercase tracking-wider">
               OPLOSSINGEN
             </h3>
             <div className="grid grid-cols-3 gap-8">

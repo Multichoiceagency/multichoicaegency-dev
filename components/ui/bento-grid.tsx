@@ -1,5 +1,8 @@
 import { cn } from "@/lib/utils";
+import Image from "next/image";
+import Link from "next/link";
 
+// ✅ **BentoGrid Component**
 export const BentoGrid = ({
   className,
   children,
@@ -10,7 +13,7 @@ export const BentoGrid = ({
   return (
     <div
       className={cn(
-        "grid md:auto-rows-[18rem] grid-cols-1 md:grid-cols-3 gap-4 max-w-7xl mx-auto ",
+        "grid md:grid-cols-3 gap-4 max-w-7xl mx-auto p-4",
         className
       )}
     >
@@ -19,36 +22,78 @@ export const BentoGrid = ({
   );
 };
 
+// ✅ **BentoGridItem Component**
 export const BentoGridItem = ({
   className,
   title,
   description,
-  header,
   icon,
+  image,
+  video,
+  link,
+  tags,
+  background,
 }: {
   className?: string;
-  title?: string | React.ReactNode;
-  description?: string | React.ReactNode;
-  header?: React.ReactNode;
+  title?: string;
+  description?: string;
   icon?: React.ReactNode;
+  image?: string;
+  video?: string;
+  link?: string;
+  tags?: string[];
+  background?: string;
 }) => {
-  return (
+  const Content = (
     <div
       className={cn(
-        "row-span-1 rounded-xl group/bento hover:shadow-xl transition duration-200 shadow-input dark:shadow-none p-4 dark:bg-black dark:border-white/[0.2] bg-white border border-transparent justify-between flex flex-col space-y-4",
+        `rounded-xl dark:bg-gray-10 overflow-hidden shadow-lg p-6 flex flex-col justify-between transition-transform duration-300 hover:scale-[1.02]`,
+        background ? background : "bg-white",
         className
       )}
     >
-      {header}
-      <div className="group-hover/bento:translate-x-2 transition duration-200">
-        {icon}
-        <div className="font-sans font-bold text-neutral-600 dark:text-neutral-200 mb-2 mt-2">
-          {title}
-        </div>
-        <div className="font-sans font-normal text-neutral-600 text-xs dark:text-neutral-300">
-          {description}
-        </div>
+      {/* ✅ Video of afbeelding tonen */}
+      {video ? (
+        <video
+          className="w-full h-56 rounded-lg object-cover"
+          src={video}
+          autoPlay
+          loop
+          muted
+          playsInline
+        />
+      ) : image ? (
+        <Image
+          src={image}
+          alt={title || "BentoGrid item"}
+          width={600}
+          height={300}
+          className="w-full h-56 rounded-lg object-cover"
+        />
+      ) : null}
+
+      {/* ✅ Content */}
+      <div className="mt-4">
+        {icon && <div className="mb-2">{icon}</div>}
+        <h3 className="text-1xl font-bold dark:text-black">{title}</h3>
+        <p className="mt-1 text-sm dark:text-black">{description}</p>
+
+        {/* ✅ Tags */}
+        {tags && (
+          <div className="mt-3 flex flex-wrap gap-2">
+            {tags.map((tag, index) => (
+              <span
+                key={index}
+                className="bg-black/10 text-black/80 px-3 py-1 rounded-full text-xs hover:bg-green-900 hover:text-white"
+              >
+                {tag}
+              </span>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
+
+  return link ? <Link href={link}>{Content}</Link> : Content;
 };

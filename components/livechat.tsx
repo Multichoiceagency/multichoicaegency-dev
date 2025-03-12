@@ -15,8 +15,12 @@ const LiveChat = () => {
     document.body.appendChild(script2);
 
     return () => {
-      document.body.removeChild(script1);
-      document.body.removeChild(script2);
+      if (script1.parentNode) {
+        script1.parentNode.removeChild(script1);
+      }
+      if (script2.parentNode) {
+        script2.parentNode.removeChild(script2);
+      }
     };
   }, []);
 

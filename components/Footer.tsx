@@ -1,12 +1,25 @@
 "use client"
 
-import { useEffect, useRef } from "react"
+import type React from "react"
+
+import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faFacebook, faInstagram, faLinkedin } from "@fortawesome/free-brands-svg-icons"
-import { faEnvelope, faPhone, faChevronDown } from "@fortawesome/free-solid-svg-icons"
+import {
+  faEnvelope,
+  faPhone,
+  faChevronDown,
+  faArrowRight,
+  faCode,
+  faPencil,
+  faUsers,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons"
+import { motion, AnimatePresence } from "framer-motion"
 
+// Keep all your original data
 const navSections = [
   {
     title: "Web Development",
@@ -82,8 +95,60 @@ const socialLinks = [
   { icon: faLinkedin, text: "Volg ons op LinkedIn", href: "https://linkedin.com/company/multichoiceagency" },
 ]
 
+// Map section titles to icons
+const sectionIcons = {
+  "Web Development": faCode,
+  "Online Marketing": faPencil,
+  "Over Ons": faUsers,
+  Informatie: faInfoCircle,
+}
+
+interface AccordionItemProps {
+  title: string
+  children: React.ReactNode
+  isOpen: boolean
+  onToggle: () => void
+  icon: any
+}
+
+const AccordionItem = ({ title, children, isOpen, onToggle, icon }: AccordionItemProps) => {
+  return (
+    <div className="border-b border-gray-200">
+      <button className="w-full py-4 px-6 flex justify-between items-center text-left" onClick={onToggle}>
+        <span className="text-black dark:text-white font-bold flex items-center gap-2">
+          <FontAwesomeIcon icon={icon} className="w-4 h-4" />
+          {title}
+        </span>
+
+        {/* Animated arrow */}
+        <motion.div
+          initial={{ rotate: 0 }}
+          animate={{ rotate: isOpen ? 90 : 0 }}
+          transition={{ duration: 0.3, type: "spring", stiffness: 300 }}
+        >
+          <FontAwesomeIcon icon={faArrowRight} className="w-4 h-4 text-green-700" />
+        </motion.div>
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3 }}
+            className="overflow-hidden"
+          >
+            <div className="px-6 pb-4">{children}</div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  )
+}
+
 export function Footer() {
   const svgRef = useRef<SVGSVGElement>(null)
+  const [openSection, setOpenSection] = useState<string | null>(null)
 
   useEffect(() => {
     if (svgRef.current) {
@@ -101,58 +166,80 @@ export function Footer() {
     }
   }, [])
 
+  const toggleSection = (title: string) => {
+    setOpenSection(openSection === title ? null : title)
+  }
+
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-green-50 dark:bg-gray-800 text-white">
       {/* Hero CTA Section */}
-      <div className="container mx-auto px-4 py-24 relative">
+      <div className="container mx-auto px-4 py-24 relative dark:bg-green-50">
         <div className="max-w-2xl relative z-10">
-          <h2 className="text-5xl md:text-6xl font-bold mb-4">Laten we jouw project bespreken.</h2>
-          <p className="text-gray-400 mb-8">Neem contact met ons op. We helpen je graag verder.</p>
+          <h2 className="text-green-900 dark:text-black text-5xl md:text-6xl font-bold mb-4">
+            Laten we jouw project bespreken.
+          </h2>
+          <p className="text-black dark:text-black mb-8">Neem contact met ons op. We helpen je graag verder.</p>
           <Link
-            href="/contact"
-            className="inline-block bg-red-600 hover:bg-red-700 transition-colors px-8 py-4 text-white font-medium relative"
+            href="/offerte-aanvragen"
+            className="inline-block bg-green-600 hover:bg-black rounded-md transition-colors px-8 py-4 text-white font-medium relative"
           >
             Offerte aanvragen
-            <span className="absolute -top-2 -right-2 w-4 h-4 bg-red-600 rounded-full"></span>
           </Link>
         </div>
 
-        {/* Animated SVG Line */}
-        <div className="absolute top-0 right-0 w-full h-full pointer-events-none">
-          <svg ref={svgRef} viewBox="0 0 100 100" className="w-full h-full">
-            <path d="M90 10 Q 50 50 10 90" fill="none" stroke="#ef4444" strokeWidth="0.5" />
-          </svg>
+        {/* Spline 3D-object (verborgen op mobiel) */}
+        <div className="absolute dark:bg-gray-800 top-0 left-96 w-full h-full pointer-events-auto hidden sm:block">
+          <iframe
+            src="https://my.spline.design/robotfollowcursorforlandingpage-a92834220e6cf3d5f95aca1004f6e5dd/"
+            frameBorder="0"
+            width="100%"
+            height="100%"
+            className="w-full h-full"
+          ></iframe>
         </div>
       </div>
 
-      {/* Navigation Grid */}
-      <div className="container mx-auto px-4 py-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      {/* Navigation Grid - Desktop */}
+      <div className="container mx-auto px-4 py-16 hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
         {/* Web Development */}
         <div>
-          <h3 className="text-lg font-bold mb-6">{navSections[0].title}</h3>
+          <h3 className="text-1xl text-black dark:text-white font-bold mb-6 flex items-center gap-2">
+            <FontAwesomeIcon icon={sectionIcons["Web Development"]} className="w-4 h-4" />
+            {navSections[0].title}
+          </h3>
           <ul className="space-y-3">
             {navSections[0].links.map((link, linkIdx) => (
-              <li key={linkIdx}>
-                <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+              <li key={linkIdx} className="group">
+                <Link
+                  href={link.href}
+                  className="text-black dark:text-white hover:text-green-700 dark:hover:text-green-600 transition-colors flex items-center gap-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  />
                   {link.name}
                 </Link>
               </li>
             ))}
           </ul>
           {/* Service & Support */}
-          <div className="mt-8">
-            <h4 className="text-lg font-bold mb-4">{contactSections[1].title}</h4>
+          <div className="text-1xl text-black dark:text-white mt-8">
+            <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+              <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
+              {contactSections[1].title}
+            </h4>
             {contactSections[1].info.map((line, i) => (
-              <p key={i} className="text-gray-400">
+              <p key={i} className="text-black dark:text-white">
                 {line}
               </p>
             ))}
             <ul className="mt-2 space-y-2">
               {contactSections[1].links?.map((link, i) => (
-                <li key={i}>
+                <li key={i} className="group">
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                    className="text-black dark:text-white hover:text-green-700 dark:hover:text-green-600 transition-colors flex items-center gap-2"
                   >
                     {link.icon && <FontAwesomeIcon icon={link.icon} className="w-4 h-4" />}
                     {link.text}
@@ -165,21 +252,34 @@ export function Footer() {
 
         {/* Online Marketing */}
         <div>
-          <h3 className="text-lg font-bold mb-6">{navSections[1].title}</h3>
+          <h3 className="text-1xl font-bold mb-6 text-black dark:text-white flex items-center gap-2">
+            <FontAwesomeIcon icon={sectionIcons["Online Marketing"]} className="w-4 h-4" />
+            {navSections[1].title}
+          </h3>
           <ul className="space-y-3">
             {navSections[1].links.map((link, linkIdx) => (
-              <li key={linkIdx}>
-                <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+              <li key={linkIdx} className="group">
+                <Link
+                  href={link.href}
+                  className="text-black dark:text-white hover:text-green-700 dark:hover:text-green-600 transition-colors flex items-center gap-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  />
                   {link.name}
                 </Link>
               </li>
             ))}
           </ul>
           {/* Overige Gegevens */}
-          <div className="mt-8">
-            <h4 className="text-lg font-bold mb-4">{contactSections[2].title}</h4>
+          <div className="text-1xl text-black dark:text-white mt-20">
+            <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+              <FontAwesomeIcon icon={faInfoCircle} className="w-4 h-4" />
+              {contactSections[2].title}
+            </h4>
             {contactSections[2].info.map((line, i) => (
-              <p key={i} className="text-gray-400">
+              <p key={i} className="text-black dark:text-white">
                 {line}
               </p>
             ))}
@@ -188,11 +288,21 @@ export function Footer() {
 
         {/* Over Ons */}
         <div>
-          <h3 className="text-lg font-bold mb-6">{navSections[2].title}</h3>
+          <h3 className="text-1xl text-black dark:text-white font-bold mb-6 flex items-center gap-2">
+            <FontAwesomeIcon icon={sectionIcons["Over Ons"]} className="w-4 h-4" />
+            {navSections[2].title}
+          </h3>
           <ul className="space-y-3">
             {navSections[2].links.map((link, linkIdx) => (
-              <li key={linkIdx}>
-                <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+              <li key={linkIdx} className="group">
+                <Link
+                  href={link.href}
+                  className="text-black dark:text-white hover:text-green-700 dark:hover:text-green-600 transition-colors flex items-center gap-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  />
                   {link.name}
                 </Link>
               </li>
@@ -202,11 +312,21 @@ export function Footer() {
 
         {/* Informatie and Contact */}
         <div>
-          <h3 className="text-lg font-bold mb-6">{navSections[3].title}</h3>
+          <h3 className="text-1xl text-black dark:text-white font-bold mb-6 flex items-center gap-2">
+            <FontAwesomeIcon icon={sectionIcons["Informatie"]} className="w-4 h-4" />
+            {navSections[3].title}
+          </h3>
           <ul className="space-y-3">
             {navSections[3].links.map((link, linkIdx) => (
-              <li key={linkIdx}>
-                <Link href={link.href} className="text-gray-400 hover:text-white transition-colors">
+              <li key={linkIdx} className="group">
+                <Link
+                  href={link.href}
+                  className="text-black dark:text-white hover:text-green-700 dark:hover:text-green-600 transition-colors flex items-center gap-2"
+                >
+                  <FontAwesomeIcon
+                    icon={faArrowRight}
+                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  />
                   {link.name}
                 </Link>
               </li>
@@ -214,18 +334,21 @@ export function Footer() {
           </ul>
           {/* Contact */}
           <div className="mt-8">
-            <h4 className="text-lg font-bold mb-4">{contactSections[0].title}</h4>
+            <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+              <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
+              {contactSections[0].title}
+            </h4>
             {contactSections[0].info.map((line, i) => (
-              <p key={i} className="text-gray-400">
+              <p key={i} className="text-black dark:text-white">
                 {line}
               </p>
             ))}
             <ul className="mt-2 space-y-2">
               {contactSections[0].links?.map((link, i) => (
-                <li key={i}>
+                <li key={i} className="group">
                   <Link
                     href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors flex items-center gap-2"
+                    className="text-black dark:text-white hover:text-green-700 dark:hover:text-green-600 transition-colors flex items-center gap-2"
                   >
                     {link.icon && <FontAwesomeIcon icon={link.icon} className="w-4 h-4" />}
                     {link.text}
@@ -237,29 +360,149 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
+      {/* Navigation Accordion - Mobile */}
+      <div className="md:hidden">
+        {navSections.map((section) => (
+          <AccordionItem
+            key={section.title}
+            title={section.title}
+            isOpen={openSection === section.title}
+            onToggle={() => toggleSection(section.title)}
+            icon={sectionIcons[section.title as keyof typeof sectionIcons]}
+          >
+            <ul className="space-y-3">
+              {section.links.map((link, linkIdx) => (
+                <li key={linkIdx}>
+                  <Link
+                    href={link.href}
+                    className="text-black dark:text-white hover:text-green-700 dark:hover:text-green-600 transition-colors flex items-center gap-2"
+                  >
+                    <FontAwesomeIcon icon={faArrowRight} className="w-3 h-3" />
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Add contact sections to relevant accordions on mobile */}
+            {section.title === "Web Development" && (
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <h4 className="font-bold mb-2">{contactSections[1].title}</h4>
+                {contactSections[1].info.map((line, i) => (
+                  <p key={i} className="text-black dark:text-white text-sm">
+                    {line}
+                  </p>
+                ))}
+                <ul className="mt-2 space-y-2">
+                  {contactSections[1].links?.map((link, i) => (
+                    <li key={i}>
+                      <Link
+                        href={link.href}
+                        className="text-black dark:text-white hover:text-green-700 text-sm flex items-center gap-2"
+                      >
+                        {link.icon && <FontAwesomeIcon icon={link.icon} className="w-3 h-3" />}
+                        {link.text}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+
+            {section.title === "Online Marketing" && (
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <h4 className="font-bold mb-2">{contactSections[2].title}</h4>
+                {contactSections[2].info.map((line, i) => (
+                  <p key={i} className="text-black dark:text-white text-sm">
+                    {line}
+                  </p>
+                ))}
+              </div>
+            )}
+
+            {section.title === "Informatie" && (
+              <div className="mt-6 pt-4 border-t border-gray-200">
+                <h4 className="font-bold mb-2">{contactSections[0].title}</h4>
+                {contactSections[0].info.map((line, i) => (
+                  <p key={i} className="text-black dark:text-white text-sm">
+                    {line}
+                  </p>
+                ))}
+                <ul className="mt-2 space-y-2">
+                  {contactSections[0].links?.map((link, i) => (
+                    <li key={i}>
+                      <Link
+                        href={link.href}
+                        className="text-black dark:text-white hover:text-green-700 text-sm flex items-center gap-2"
+                      >
+                        {link.icon && <FontAwesomeIcon icon={link.icon} className="w-3 h-3" />}
+                        {link.text}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </AccordionItem>
+        ))}
+      </div>
+
+      {/* Bottom section with logo, social links and language switcher */}
       <div className="border-t border-gray-800">
         <div className="container mx-auto px-4 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4">
-            <div className="flex items-center gap-8">
+          {/* Mobile layout */}
+          <div className="block md:hidden">
+            {/* Logo at top */}
+            <div className="flex justify-center mb-4">
               <Image
-                src="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/12/Logo-wit@4x.png"
+                src="/logos/logo.png"
                 alt="Multichoiceagency logo"
                 width={200}
-                height={25}
-                className="h-8 w-auto"
+                height={100}
+                className="h-16 w-auto"
               />
-              <div className="flex gap-4">
+            </div>
+            {/* Social icons right-aligned with 'Volg ons' label */}
+            <div className="flex justify-center items-center">
+              <span className="text-black text-sm mr-2">Volg ons</span>
+              <div className="flex gap-2">
                 {socialLinks.map((social, idx) => (
-                  <Link key={idx} href={social.href} className="text-gray-400 hover:text-white transition-colors">
-                    <FontAwesomeIcon icon={social.icon} className="w-5 h-5" />
+                  <Link key={idx} href={social.href} className="text-black hover:text-green-700 transition-colors">
+                    <FontAwesomeIcon icon={social.icon} className="w-6 h-6" />
                     <span className="sr-only">{social.text}</span>
                   </Link>
                 ))}
               </div>
             </div>
+            {/* Language switcher at bottom (centered) */}
+            <div className="flex justify-end mt-4">
+              <button className="flex items-right gap-2 px-4 py-2 border bg-green-700 rounded">
+                <span>Nederlands</span>
+                <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4" />
+              </button>
+            </div>
+          </div>
 
-            <button className="flex items-center gap-2 px-4 py-2 border border-gray-800 rounded">
+          {/* Desktop layout: original design */}
+          <div className="hidden md:flex justify-between items-center">
+            <div className="flex items-center gap-8">
+              <Image
+                src="/logos/logo.png"
+                alt="Multichoiceagency logo"
+                width={200}
+                height={100}
+                className="h-16 w-auto"
+              />
+              <div className="flex gap-4">
+                {socialLinks.map((social, idx) => (
+                  <Link key={idx} href={social.href} className="text-black hover:text-green-700 transition-colors">
+                    <FontAwesomeIcon icon={social.icon} className="w-6 h-6" />
+                    <span className="sr-only">{social.text}</span>
+                  </Link>
+                ))}
+              </div>
+            </div>
+            <button className="flex items-center gap-2 px-4 py-2 ml-10 border bg-green-700 rounded">
               <span>Nederlands</span>
               <FontAwesomeIcon icon={faChevronDown} className="w-4 h-4" />
             </button>

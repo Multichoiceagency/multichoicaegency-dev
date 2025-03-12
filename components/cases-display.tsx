@@ -55,16 +55,15 @@ export default function Portfolio() {
           const FlickityModule = await import("flickity")
           const FlickityInstance = FlickityModule.default
 
-          // Only initialize if not already initialized
           if (!flickityRef.current && flickityContainerRef.current) {
             flkty = new FlickityInstance(flickityContainerRef.current, {
               cellAlign: "left",
               contain: true,
               groupCells: 2,
               wrapAround: false,
-              freeScroll: false,
+              freeScroll: true,
               pageDots: false,
-              prevNextButtons: false, // We'll use custom buttons
+              prevNextButtons: false,
               draggable: true,
               friction: 0.15,
             })
@@ -79,7 +78,6 @@ export default function Portfolio() {
 
     loadFlickity()
 
-    // Cleanup function
     return () => {
       if (flickityRef.current) {
         try {
@@ -117,11 +115,10 @@ export default function Portfolio() {
   }
 
   return (
-    <section className="py-16 bg-white">
+    <section className="py-16 bg-white dark:text-white dark:bg-gray-800">
       <div className="container mx-auto px-4 md:px-8 lg:px-16">
-        {/* Header */}
         <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-black">Onze Cases</h2>
+          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white">Onze Cases</h2>
         </div>
 
         {/* Flickity Slider */}
@@ -139,36 +136,17 @@ export default function Portfolio() {
                     {/* Laptop mockup with image */}
                     <div className="relative mb-6 bg-gray-900 rounded-md overflow-hidden">
                       <div className="pt-8 pb-12 px-12">
-                        {/* Company logo or icon */}
-                        <div className="absolute top-8 left-8 bg-white rounded-full p-2 z-10 w-12 h-12 flex items-center justify-center">
-                          {caseItem.id % 2 === 0 ? (
-                            <div className="text-2xl font-bold">X</div>
-                          ) : (
-                            <div className="w-8 h-8">
-                              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M12 2L2 7L12 12L22 7L12 2Z" stroke="black" strokeWidth="2" />
-                                <path d="M2 17L12 22L22 17" stroke="black" strokeWidth="2" />
-                                <path d="M2 12L12 17L22 12" stroke="black" strokeWidth="2" />
-                              </svg>
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Laptop screen with website image */}
                         <div className="relative w-full h-[280px] rounded-t-md overflow-hidden border-t-8 border-x-8 border-gray-800 bg-white">
-                          <Image src={imageSrc || "/placeholder.svg"} alt={title} fill className="object-cover" />
+                          <Image src={imageSrc} alt={title} fill className="object-cover" />
                         </div>
-
-                        {/* Laptop base */}
                         <div className="h-4 bg-gray-800 rounded-b-md"></div>
                       </div>
                     </div>
 
                     {/* Text content */}
                     <div>
-                      {/* Company name and stats */}
                       <div className="flex items-center mb-2">
-                        <p className="text-sm font-bold text-gray-900">{industry}</p>
+                        <p className="text-sm font-bold text-gray-900 dark:text-white">{industry}</p>
                         {stats && (
                           <>
                             <div className="mx-2 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-xs text-green-800 font-bold">
@@ -179,8 +157,12 @@ export default function Portfolio() {
                         )}
                       </div>
 
-                      {/* Case title */}
-                      <h3 className="text-2xl font-bold text-gray-900 mb-2">{title}</h3>
+                      {/* ✅ Case Titel met Link en Hover-effect */}
+                      <Link href={`/cases/${caseItem.slug}`}>
+                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white transition-transform transform hover:scale-105 hover:text-green-700 hover:shadow-md hover:shadow-green-300 dark:hover:shadow-green-500 mb-2 cursor-pointer">
+                          {title}
+                        </h3>
+                      </Link>
                     </div>
                   </div>
                 </div>
@@ -188,7 +170,7 @@ export default function Portfolio() {
             })}
           </div>
 
-          {/* Navigation */}
+          {/* Navigatie */}
           <div className="flex justify-end mt-4">
             <Link
               href="/cases"
@@ -216,4 +198,3 @@ export default function Portfolio() {
     </section>
   )
 }
-

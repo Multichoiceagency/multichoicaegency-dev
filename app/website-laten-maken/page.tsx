@@ -6,6 +6,7 @@ import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
 import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd, } from 'next-seo';
 
+
 const WebsiteLatenMaken = () => {
   return (
     <>

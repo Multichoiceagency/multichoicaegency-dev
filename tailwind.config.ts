@@ -4,9 +4,9 @@ import type { Config } from 'tailwindcss';
 const config: Config = {
   darkMode: ['class'],
   content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
+    "./app/**/*.{js,ts,jsx,tsx}",
+    "./pages/**/*.{js,ts,jsx,tsx}",
+    "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     extend: {
@@ -28,9 +28,9 @@ const config: Config = {
         sm: 'calc(var(--radius) - 4px)',
       },
       fontSize: {
-        xs: '0.60rem',    // 12px
+        xs: '0.70rem',    // 12px
         sm: '0.875rem',   // 14px
-        base: '0.955rem',     // 16px
+        base: '1rem',     // 16px
         lg: '0.85rem',   // 18px
         xl: '0.75rem',    // 20px
         '2xl': '1.5rem',  // 24px

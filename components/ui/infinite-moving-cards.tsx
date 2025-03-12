@@ -26,7 +26,7 @@ export const InfiniteMovingCards = ({
     }
   }, []);
 
-  const duration = speed === "fast" ? 80 : speed === "normal" ? 70 : 120;
+  const duration = speed === "fast" ? 10 : speed === "normal" ? 70 : 120;
 
   return (
     <div

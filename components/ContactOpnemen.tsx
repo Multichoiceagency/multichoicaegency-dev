@@ -8,16 +8,9 @@ function ContactOpnemen() {
     <div className='bg-white dark:bg-gray-700 py-12'>
     <div className="max-w-xl mx-auto text-center">
     <Link href="www.multichoiceagency.nl">
-<span className="inline-block ml-10">
-<Image src="/logos/logo.png" 
-  alt={""}
-    height={800}
-    width={400}>
-  </Image>
-</span>
 </Link>
 
-<h5 className="text-4xl font-medium mb-4 text-black dark:text-white">🔥 Klaar om jouw digitale toekomst te bouwen?</h5>
+<h5 className="text-4xl font-medium mb-4 text-black dark:text-white">Klaar om jouw digitale toekomst te bouwen?🔥</h5>
 <p className="text-gray-700 dark:text-white">
   <span>Laten we samen een impact maken. Neem vandaag nog contact met ons op en ontdek hoe we jouw visie kunnen realiseren! </span>
   <Link href="contact" className="inline-block text-lime-500 font-medium underline">

@@ -4,32 +4,21 @@ import Image from "next/image"
 import Link from "next/link"
 import { motion } from "framer-motion"
 import { Shield, Gauge, Users } from "lucide-react"
-import { useEffect, useState, useRef } from "react"
 
-// Carousel componenten
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "@/components/ui/carousel"
-
-export default function PartnersServicesSection() {
-  // Configureerbare map voor partner logo's
-  const logoFolderPath = "/partners/zwarte-logos"
-
-  // Partner logo bestandsnamen
-  const partnerLogos = [
-    "sydneydranken.png",
-    "lovka.png",
-    "dutchtransportgroup.png",
-    "alkanaany.png",
-    "binvino.png",
-    "powerforce uitzendgroep.png",
-    "sunsen-zonnestudio.png",
-    "bouhs-steigerwerken.png",
-    "gardenlux.png",
-    "binvino.png",
-    "hengelvissportschiedam.png",
+export default function HeroSection() {
+  const partners = [
+    "/partners/zwarte-logos/sydneydranken.png",
+    "/partners/zwarte-logos/lovka.png",
+    "/partners/zwarte-logos/dutchtransportgroup.png",
+    "/partners/zwarte-logos/alkanaany.png",
+    "/partners/zwarte-logos/binvino.png",
+    "/partners/zwarte-logos/powerforce uitzendgroep.png",
+    "/partners/zwarte-logos/sunsen-zonnestudio.png",
+    "/partners/zwarte-logos/bouhs-steigerwerken.png",
+    "/partners/zwarte-logos/gardenlux.png",
+    "/partners/zwarte-logos/binvino.png",
+    "/partners/zwarte-logos/hengelvissportschiedam.png",
   ]
-
-  // Volledige paden naar de logo's
-  const partners = partnerLogos.map((logo) => `${logoFolderPath}/${logo}`)
 
   const services = [
     {
@@ -75,64 +64,34 @@ export default function PartnersServicesSection() {
     },
   }
 
-  // Automatisch scrollen voor de carousel
-  const [api, setApi] = useState<any>(null)
-  const intervalRef = useRef<NodeJS.Timeout | null>(null)
-
-  useEffect(() => {
-    if (!api) return
-
-    // Start automatisch scrollen
-    intervalRef.current = setInterval(() => {
-      api.scrollNext()
-    }, 3000)
-
-    // Cleanup bij unmount
-    return () => {
-      if (intervalRef.current) clearInterval(intervalRef.current)
-    }
-  }, [api])
-
   return (
     <section className="w-full py-16 md:py-24 bg-green-50">
       <div className="container max-w-[1440px] mx-auto px-4 md:px-6">
-        {/* Partners Carousel */}
+        {/* Partners Grid */}
         <motion.div className="mb-20" initial="hidden" animate="visible" variants={containerVariants}>
           <motion.h2 className="text-2xl font-bold text-center mb-12 text-green-800" variants={itemVariants}>
             Vertrouwd door toonaangevende bedrijven
           </motion.h2>
-
-          <motion.div variants={itemVariants} className="mx-auto max-w-5xl">
-            <Carousel
-              setApi={setApi}
-              className="w-full"
-              opts={{
-                align: "start",
-                loop: true,
-              }}
-            >
-              <CarouselContent>
-                {partners.map((partner, index) => (
-                  <CarouselItem key={index} className="md:basis-1/3 lg:basis-1/5">
-                    <div className="p-1">
-                      <div className="bg-white p-4 rounded-lg shadow-sm h-[120px] flex items-center justify-center relative">
-                        <Image
-                          src={partner || "/placeholder.svg"}
-                          alt={`Partner logo ${index + 1}`}
-                          fill
-                          style={{ objectFit: "contain" }}
-                          className="p-2"
-                        />
-                      </div>
-                    </div>
-                  </CarouselItem>
-                ))}
-              </CarouselContent>
-              <div className="flex justify-center mt-4 gap-2">
-                <CarouselPrevious className="relative transform-none bg-green-100 hover:bg-green-200 text-green-800 border-green-200" />
-                <CarouselNext className="relative transform-none bg-green-100 hover:bg-green-200 text-green-800 border-green-200" />
-              </div>
-            </Carousel>
+          <motion.div
+            className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center justify-items-center"
+            variants={containerVariants}
+          >
+            {partners.map((partner, index) => (
+              <motion.div
+                key={index}
+                className="w-full max-w-[200px] h-[100px] relative flex items-center justify-center bg-white p-4 rounded-lg shadow-sm"
+                variants={itemVariants}
+                whileHover={{ scale: 1.05, boxShadow: "0 10px 15px -3px rgba(0, 0, 0, 0.1)" }}
+              >
+                <Image
+                  src={partner || "/placeholder.svg"}
+                  alt={`Partner logo ${index + 1}`}
+                  fill
+                  style={{ objectFit: "contain" }}
+                  className="transition-opacity duration-300 hover:opacity-80 p-2"
+                />
+              </motion.div>
+            ))}
           </motion.div>
         </motion.div>
 

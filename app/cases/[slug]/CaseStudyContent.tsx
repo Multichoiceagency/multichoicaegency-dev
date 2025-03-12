@@ -1,139 +1,256 @@
-'use client';
+"use client"
+import Image from "next/image"
+import Link from "next/link"
+import { useTheme } from "next-themes"
+import ProjectGallery from "./ProjectGallery"
+import ClientInfo from "./ClientInfo"
+import ProjectResults from "./ProjectResults"
+import Hero from "./Hero"
+import Portfolio from "@/components/cases-display"
 
-import React from 'react';
-import Image from 'next/image';
-import AuthorInfo from '@/components/AuthorInfo';
-import SocialShare from '@/components/SocialShare';
-import NewsletterSignup from '@/components/NewsLetterSignup';
-import AuthorBio from '@/components/AuthorBio';
-import { formatDate } from '@/utils/formatDate';
-import ClientInfo from './ClientInfo';
-
-export interface CaseStudyContent {
-  slug: any;
-  title: { rendered: string };
-  content: { rendered: string };
-  date: string;
+export interface CaseStudy {
+  id: number
+  title: { rendered: string }
+  content: { rendered: string }
+  excerpt: { rendered: string }
+  slug: string
+  date: string
   acf?: {
-    logonew?: string;
-    client_name?: string;
-    project_date?: string;
-    author_image?: string;
-    author_bio?: string;
-    clientName?: string;
-    industry?: string;
-  };
+    location?: string
+    industry?: string
+    media_type?: "video" | "image"
+    video_url?: string
+    tags?: string
+    category?: string
+    description?: string
+    quote?: string
+    quote_author?: string
+    client_logo?: string
+    project_images?: Array<{
+      url: string
+      alt: string
+    }>
+    project_results?: Array<{
+      title: string
+      description: string
+    }>
+  }
   _embedded?: {
-    'wp:featuredmedia'?: Array<{ source_url: string }>;
-  };
+    "wp:featuredmedia"?: Array<{
+      source_url: string
+    }>
+  }
 }
-
 
 export interface CaseStudyContentProps {
-  content: CaseStudyContent;
-  allCaseStudies: Array<CaseStudyContent>; // Adjust types based on your API data structure
+  content: CaseStudy
+  allCaseStudies: CaseStudy[]
 }
 
+// Helper function to decode HTML entities
+const decodeHtml = (html: string): string => {
+  const txt = document.createElement("textarea")
+  txt.innerHTML = html
+  return txt.value
+}
 
 export default function CaseStudyContent({ content, allCaseStudies }: CaseStudyContentProps) {
-  const featuredImage =
-    content._embedded?.['wp:featuredmedia']?.[0]?.source_url || '/placeholder.svg?height=400&width=800';
+  const { theme } = useTheme()
+
+  // Get related cases (excluding current case)
+  const relatedCases = allCaseStudies.filter((cs) => cs.id !== content.id).slice(0, 3)
+
+  // Stock photos from Pexels for additional imagery
+  const stockPhotos = [
+    "https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg",
+    "https://images.pexels.com/photos/3182812/pexels-photo-3182812.jpeg",
+    "https://images.pexels.com/photos/3182777/pexels-photo-3182777.jpeg",
+  ]
+
+  // Prepare gallery images
+  const galleryImages = content.acf?.project_images || [
+    {
+      url: content._embedded?.["wp:featuredmedia"]?.[0]?.source_url || stockPhotos[0],
+      alt: decodeHtml(content.title.rendered),
+    },
+    { url: stockPhotos[1], alt: "Project image 2" },
+    { url: stockPhotos[2], alt: "Project image 3" },
+  ]
+
+  // Prepare project results
+  const projectResults = content.acf?.project_results || [
+    {
+      title: "Verbeterde conversie",
+      description: "Door de nieuwe aanpak is de conversie van bezoekers naar sollicitanten significant verbeterd.",
+    },
+    {
+      title: "Hogere kwaliteit sollicitaties",
+      description: "De kwaliteit van de binnenkomende sollicitaties is aanzienlijk toegenomen.",
+    },
+    {
+      title: "Betere candidate experience",
+      description: "Kandidaten waarderen de verbeterde gebruikerservaring en duidelijke communicatie.",
+    },
+    {
+      title: "Efficiënter recruitmentproces",
+      description: "Het recruitmentproces verloopt nu sneller en efficiënter dan voorheen.",
+    },
+  ]
+
+  // Get the featured image URL
+  const featuredImageUrl = content._embedded?.["wp:featuredmedia"]?.[0]?.source_url || stockPhotos[0]
 
   return (
-    <section className=" pt-5 pb-12 md:pb-24">
-      {/* Hero Section */}
-      <div className="relative pt-5 pb-80">
-        <Image
-          className="absolute top-0 left-0 w-full h-full"
-          src="/flow-assets/content/bg-teal-waves.png"
-          alt="Background"
-          width={1440}
-          height={823}
-        />
+    <div
+      className={`${theme === "dark" ? "bg-gray-900" : "bg-[#f8f9f6]"} min-h-screen pb-20 transition-colors duration-200`}
+    >
+      {/* Hero Section with Image Above Title */}
+      <Hero title={decodeHtml(content.title.rendered)} industry={content.acf?.industry} imageUrl={featuredImageUrl} />
 
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="font-heading text-4xl xs:text-5xl md:text-6xl tracking-xs text-white mb-6">
-              {content.title.rendered}
-            </h2>
-            <div className="flex items-center justify-center">
-              <span className="mx-3">
-                <svg
-                  width="5"
-                  height="4"
-                  viewBox="0 0 5 4"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+      {/* Main Content Grid */}
+      <div className="container mx-auto px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Main Content - 2/3 width on large screens */}
+          <div className="lg:col-span-2">
+            <div
+              className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} rounded-lg overflow-hidden p-6 md:p-8 mb-8 transition-colors duration-200`}
+            >
+              <div
+                className={`prose max-w-none ${theme === "dark" ? "prose-invert" : ""}`}
+                dangerouslySetInnerHTML={{ __html: content.content.rendered }}
+              />
+
+              {content.acf?.quote && (
+                <div
+                  className={`mt-8 p-6 ${theme === "dark" ? "bg-gray-700" : "bg-gray-50"} rounded-lg transition-colors duration-200`}
                 >
-                  <circle cx="2.5" cy="2" r="2" fill="#929C9A"></circle>
-                </svg>
-              </span>
-              <span className="text-sm font-medium text-white">
-                Geplaatst op {formatDate(content.date)}
-              </span>
+                  <blockquote
+                    className={`text-lg font-medium italic ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}
+                  >
+                    "{content.acf.quote}"
+                  </blockquote>
+                  {content.acf?.quote_author && (
+                    <p className={`text-sm ${theme === "dark" ? "text-gray-400" : "text-gray-500"} mt-2`}>
+                      - {content.acf.quote_author}
+                    </p>
+                  )}
+                </div>
+              )}
+            </div>
+            </div>
+
+          {/* Sidebar - 1/3 width on large screens */}
+          <div className="lg:col-span-1">
+            {/* Client Info */}
+            <ClientInfo
+              clientName={content.acf?.quote_author || "Client Name"}
+              industry={content.acf?.industry || "Uncategorized"}
+              projectDate={content.date}
+              logonew={content.acf?.client_logo || ""}
+              featuredImage={featuredImageUrl}
+            />
+
+            {/* Tags */}
+            <div
+              className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} p-6 rounded-lg shadow-md mt-6 transition-colors duration-200`}
+            >
+              <h3 className={`text-xl font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+                Tags
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {content.acf?.industry && (
+                  <span
+                    className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
+                  >
+                    {content.acf.industry}
+                  </span>
+                )}
+                {content.acf?.location && (
+                  <span
+                    className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
+                  >
+                    {content.acf.location}
+                  </span>
+                )}
+                {content.acf?.tags &&
+                  content.acf.tags.split(",").map((tag, index) => (
+                    <span
+                      key={index}
+                      className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
+                    >
+                      {tag.trim()}
+                    </span>
+                  ))}
+              </div>
+            </div>
+
+            {/* CTA */}
+            <div className="bg-[#1e3a29] text-white p-6 rounded-lg mt-6">
+              <p className="text-[#4cd964] mb-2">Geïnteresseerd?</p>
+              <h2 className="text-xl font-bold mb-4">Bekijk onze diensten</h2>
+              <Link
+                href="/diensten"
+                className="bg-[#4cd964] text-white py-2 px-6 rounded-full inline-block w-max hover:bg-[#3cb953] transition-colors"
+              >
+                Bekijk diensten
+              </Link>
             </div>
           </div>
-        </div>
-
-      {/* Main Content Section */}
-      <div className="container mx-auto -mt-64 px-4 relative">
-        <div className="flex flex-wrap -mx-4 mb-18">
-          {/* Left Column */}
-          <div className="w-full md:w-1/6 px-4 mb-6 md:mb-0 ">
-            <AuthorInfo
-              name={content.acf?.client_name ?? 'Unknown Author'}
-              image={content.acf?.author_image ?? '/placeholder.svg?height=100&width=100'}
-              logo={content.acf?.logonew ?? '/placeholder.svg?height=50&width=50'}
-            />
-          </div>
-
-
-
-          {/* Center Column */}
-          <div className="w-full md:w-4/6 px-4 mb-6 md:mb-0 rounded-md">
-            <Image
-              src={featuredImage}
-              alt={content.title.rendered}
-              width={800}
-              height={600}
-              layout="responsive"
-              className="block w-full max-w-3xl mx-auto"
-            />
-          </div>
-
-          {/* Right Column */}
-          <div className="w-full md:w-auto px-4">
-            <div className="flex flex-row md:flex-col items-center justify-end gap-4">
-              <span className="block lg:mb-2 text-sm font-medium text-gray-700 md:text-white md:opacity-80">
-              </span>
-              <SocialShare />
-            </div>
-          </div>
-        </div>
-
-        {/* Content and Additional Info */}
-        <div className="max-w-lg lg:max-w-2xl mx-auto `${theme === 'dark' ? 'bg-white' : 'bg-gray-400'} p-6 rounded-lg shadow-md transition-colors duration-200`}">
-          <div className='max-w-lg lg:max-w-2xl mx-auto pt-5 pb-10'>
-          <ClientInfo 
-          clientName={content.acf?.client_name ?? 'Unknown Author'}
-           industry={content.acf?.industry ?? 'Unknown Author'}
-           projectDate={content.acf?.project_date ?? 'projectdatum'} 
-           logonew={''} />
-          </div>
-          <div
-            className="prose prose-lg max-w-none dark:prose-invert mb-16"
-            dangerouslySetInnerHTML={{ __html: content.content.rendered }}
-          />
-          <NewsletterSignup />
-          <AuthorBio
-            name="Multichoiceagency"
-            role="Online maatwerk specialisten"
-            image="https://cloud.multichoiceagency.nl/wp-content/uploads/2024/11/favicon.jpg"
-            bio="Multichoice Agency staat al ruim 8 jaar bekend als dé expert in webdesign, webdevelopment en online marketing. Met een klantgerichte aanpak creëren we op maat gemaakte websites die niet alleen visueel aantrekkelijk zijn, maar ook converteren. Onze marketingstrategieën zijn gericht op meetbare resultaten, waardoor jouw bedrijf kan groeien en bloeien in de digitale wereld. Kies voor kwaliteit, innovatie en betrouwbaarheid. Kies voor Multichoice Agency."
-          />
-          
         </div>
       </div>
-    </section>
 
-  );
+      {/* Related Cases */}
+      <div>
+        <Portfolio />
+        </div>
+
+      {/* Services Section */}
+      <section className="container mx-auto px-6 mt-16">
+        <h2 className={`text-2xl font-bold mb-6 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+          Waar kunnen we je mee helpen?
+        </h2>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div
+            className={`${theme === "dark" ? "bg-gray-800" : "bg-[#f2e9de]"} rounded-lg p-6 transition-colors duration-200`}
+          >
+            <h3 className={`font-bold mb-2 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+              Recruitment websites
+            </h3>
+            <p className={`${theme === "dark" ? "text-gray-300" : "text-gray-700"} mb-4`}>
+              Aantrekkelijke websites die kandidaten converteren
+            </p>
+            <Link href="/diensten" className="text-[#4cd964] font-medium">
+              Meer info
+            </Link>
+          </div>
+          <div
+            className={`${theme === "dark" ? "bg-gray-800" : "bg-[#f2e9de]"} rounded-lg p-6 transition-colors duration-200`}
+          >
+            <h3 className={`font-bold mb-2 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Employer branding</h3>
+            <p className={`${theme === "dark" ? "text-gray-300" : "text-gray-700"} mb-4`}>
+              Versterk je werkgeversmerk en trek talent aan
+            </p>
+            <Link href="/diensten" className="text-[#4cd964] font-medium">
+              Meer info
+            </Link>
+          </div>
+          <div
+            className={`${theme === "dark" ? "bg-gray-800" : "bg-[#f2e9de]"} rounded-lg p-6 relative transition-colors duration-200`}
+          >
+            <div className="rounded-full overflow-hidden w-12 h-12 absolute right-6 top-6">
+              <Image src={stockPhotos[2] || "/placeholder.svg"} alt="Profile" width={48} height={48} />
+            </div>
+            <h3 className={`font-bold mb-2 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Communicatie</h3>
+            <p className={`${theme === "dark" ? "text-gray-300" : "text-gray-700"} mb-4`}>
+              Persoonlijk advies over recruitment marketing
+            </p>
+            <Link href="/diensten" className="text-[#4cd964] font-medium">
+              Neem contact op
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
+

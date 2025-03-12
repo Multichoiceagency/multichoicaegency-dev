@@ -1,8 +1,10 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const GoogleCalendarButton = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
+  const lastScrollY = useRef(0);
 
   const handleOpen = () => {
     setIsOpen(true);
@@ -12,12 +14,30 @@ const GoogleCalendarButton = () => {
     setIsOpen(false);
   };
 
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      // Toon de knop als je naar boven scrollt, anders verberg je hem
+      if (currentScrollY < lastScrollY.current) {
+        setIsVisible(true);
+      } else {
+        setIsVisible(false);
+      }
+      lastScrollY.current = currentScrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
     <>
       <button
         id="googleCalendarButton"
         onClick={handleOpen}
-        className="fixed bottom-4 left-4 z-40 inline-flex py-4 px-6 mb-3 sm:mb-0 sm:mr-4 items-center justify-center text-lg font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition duration-30 animate-pulseCustom"
+        className={`fixed bottom-4 left-4 z-40 inline-flex py-2 px-4 items-center justify-center text-sm font-medium text-white hover:text-teal-900 border border-teal-900 hover:border-lime-500 bg-teal-900 hover:bg-lime-500 rounded-full transition-opacity duration-500 transform active:scale-95 ${
+          isVisible ? 'opacity-100' : 'opacity-0 pointer-events-none'
+        }`}
       >
         Gratis Adviesgesprek
       </button>
