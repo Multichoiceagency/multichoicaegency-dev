@@ -3,89 +3,22 @@
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
-import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd, } from 'next-seo';
+import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from "next-seo"
 
-const WebshopLatenmaken = () => {
-  return (
-    <>
-      <NextSeo
-        title="Webshop laten Maken | Professioneel Webdesign voor Bedrijven"
-        description="Wil je een webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe je de beste webdesigner kiest voor jouw bedrijf. Vraag een offerte aan!"
-        canonical="https://www.multichoiceagency.nl/webshop-laten-maken"
-        openGraph={{
-          type: 'webshop',
-          url: 'https://www.multichoiceagency.nl/webshop-laten-maken',
-          title: 'Webshop laten Maken | Professioneel Webdesign voor Bedrijven',
-          description:
-            'Wil je een webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe je de beste webdesigner kiest voor jouw bedrijf. Vraag een offerte aan!',
-          images: [
-            {
-              url: '/partners/webshop-laten-maken.png',
-              width: 1200,
-              height: 630,
-              alt: 'webshop laten maken',
-            },
-          ],
-        }}
-      />
-
-      {/* Breadcrumb Schema (voor betere navigatie-indexering) */}
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'webshop Laten Maken', item: 'https://www.multichoiceagency.nl/webshop-laten-maken' },
-        ]}
-      />
-
-      {/* FAQ Schema (voor Google Rich Snippets) */}
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom is een professionele webshop belangrijk?',
-            acceptedAnswerText:
-              'Een professionele webshop vergroot de online zichtbaarheid, verbetert klantvertrouwen en verhoogt conversies. Het biedt een professionele uitstraling en helpt je beter gevonden te worden in zoekmachines.',
-          },
-          {
-            questionName: 'Hoeveel kost een webshop laten maken?',
-            acceptedAnswerText:
-              'De kosten variëren van €1.499 voor een eenvoudige webshop tot €10.000+ voor maatwerk. De prijs is afhankelijk van het design, functionaliteiten en de complexiteit van de webshop.',
-          },
-          {
-            questionName: 'Hoe lang duurt het om een webshop te laten maken?',
-            acceptedAnswerText:
-              'Een standaard webshop kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.',
-          },
-          {
-            questionName: 'Is een mobiele versie van de webshop inbegrepen?',
-            acceptedAnswerText:
-              'Ja, alle webshops die wij ontwikkelen zijn 100% responsive en geoptimaliseerd voor mobiele apparaten, tablets en desktops.',
-          },
-          {
-            questionName: 'Bieden jullie onderhoud en support na de lancering?',
-            acceptedAnswerText:
-              'Ja, we bieden verschillende onderhoudspakketten, inclusief beveiligingsupdates, back-ups en technische ondersteuning.',
-          },
-        ]}
-      />      
-    </>
-  );
-};
-
-export default function WebshopMaken() {
+export default function WebshopLatenMaken() {
   const [showContent, setShowContent] = useState(false)
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   const faqItems = [
     {
-      question: "Waarom is een professionele webshop belangrijk voor mijn bedrijf?",
+      question: "Waarom zou ik mijn webwinkel door Multichoiceagency laten bouwen?",
       answer:
-        "Een professionele webshop is het online visitekaartje van je bedrijf en een essentieel marketinginstrument. Het zorgt voor geloofwaardigheid, vergroot je bereik en helpt bij het aantrekken van klanten. Een goed ontworpen webshop verbetert de gebruikerservaring en draagt bij aan hogere conversies.",
+        "Onze experts bouwen alle webshops in WooCommerce. Dit systeem is de winkelomgeving binnen WordPress en wereldwijd het systeem dat het meest gebruikt wordt voor webwinkels. Het staat bovendien bekend om zijn gebruiksvriendelijkheid. Als je jouw webwinkel door Multichoiceagency laat maken, betekent dit dat je jouw webshop eenvoudig zelf kunt onderhouden en beheren.",
     },
     {
       question: "Hoe lang duurt het om een webshop te laten maken?",
       answer:
-        "De doorlooptijd van een webshop varieert afhankelijk van de complexiteit en functionaliteiten. Een eenvoudige bedrijfswebshop kan binnen 2 tot 4 weken gereed zijn, terwijl een maatwerk webshop of webshop 6 tot 12 weken kan duren. We zorgen ervoor dat je gedurende het hele proces op de hoogte blijft.",
+        "De doorlooptijd van een webshop varieert afhankelijk van de complexiteit en functionaliteiten. Een eenvoudige webshop kan binnen 2 tot 4 weken gereed zijn, terwijl een maatwerk webshop 6 tot 12 weken kan duren. We zorgen ervoor dat je gedurende het hele proces op de hoogte blijft.",
     },
     {
       question: "Kan ik mijn bestaande webshop laten vernieuwen of optimaliseren?",
@@ -93,9 +26,9 @@ export default function WebshopMaken() {
         "Ja, we kunnen je bestaande webshop moderniseren, zowel qua design als prestaties. Dit kan variëren van een visuele opfrissing tot een volledige technische herstructurering om de snelheid, SEO en gebruiksvriendelijkheid te verbeteren.",
     },
     {
-      question: "Welke technologieën gebruiken jullie voor webdevelopment?",
+      question: "Welke betaalmethoden kunnen worden geïntegreerd in mijn webshop?",
       answer:
-        "We werken met moderne technologieën zoals WordPress, Next.js, Vue.js en Shopify voor front-end en back-end ontwikkeling. Voor maatwerk oplossingen gebruiken we frameworks zoals Laravel, Django of Node.js, afhankelijk van de behoeften van je project.",
+        "We kunnen je webshop koppelen aan alle gangbare betaalsystemen zoals iDEAL, PayPal, creditcards, en andere populaire betaalmethoden. Je kunt ook kiezen voor vooruitbetaling of verzending onder rembours. Jij bepaalt hoe je jouw klanten laat betalen.",
     },
     {
       question: "Hoe zorgen jullie ervoor dat mijn webshop goed vindbaar is in Google?",
@@ -103,19 +36,14 @@ export default function WebshopMaken() {
         "We passen zoekmachineoptimalisatie (SEO) toe vanaf de basis, inclusief technische SEO, snelle laadtijden, mobielvriendelijk design en geoptimaliseerde content. We zorgen ervoor dat je webshop goed scoort in zoekmachines en helpen bij de juiste strategie om meer verkeer aan te trekken.",
     },
     {
-      question: "Wat zijn de kosten voor een webshop laten maken?",
-      answer:
-        "De kosten hangen af van de complexiteit en functies van de webshop. Een eenvoudige webshop begint vanaf €1.499,-, terwijl een uitgebreide webshop of maatwerk platform €5.000,- tot €20.000,- kan kosten. We bieden transparante prijzen en adviseren je graag over de beste optie voor jouw bedrijf.",
-    },
-    {
       question: "Is mijn webshop geschikt voor mobiel en tablets?",
       answer:
         "Ja, alle webshops die we bouwen zijn volledig responsive, wat betekent dat ze zich automatisch aanpassen aan verschillende schermformaten. Dit zorgt voor een optimale gebruikerservaring op desktops, tablets en smartphones.",
     },
     {
-      question: "Kan ik zelf content aanpassen op mijn webshop?",
+      question: "Kan ik zelf producten toevoegen en beheren in mijn webshop?",
       answer:
-        "Ja, we bouwen webshops met gebruiksvriendelijke CMS-systemen zoals WordPress of een maatwerk dashboard. Hiermee kun je eenvoudig teksten, afbeeldingen en producten aanpassen zonder technische kennis.",
+        "Ja, we bouwen webshops met gebruiksvriendelijke beheersystemen zoals WooCommerce. Hiermee kun je eenvoudig producten, categorieën, prijzen en voorraad beheren zonder technische kennis. Je krijgt toegang tot exclusieve video's met uitleg over hoe je jouw webshop zelf beheert.",
     },
     {
       question: "Hoe zit het met onderhoud en updates na de lancering?",
@@ -123,254 +51,282 @@ export default function WebshopMaken() {
         "We bieden onderhoudspakketten waarmee je webshop veilig en up-to-date blijft. Dit omvat beveiligingsupdates, back-ups, prestatie-optimalisatie en technische ondersteuning. Zo voorkom je problemen en blijft je webshop optimaal functioneren.",
     },
     {
-      question: "Kunnen jullie mijn webshop koppelen aan externe systemen zoals CRM of betalingsproviders?",
+      question: "Kunnen jullie mijn webshop koppelen aan externe systemen zoals voorraad- of boekhoudprogramma's?",
       answer:
-        "Ja, we kunnen integraties verzorgen met verschillende systemen zoals CRM-software, betalingsproviders (zoals Mollie of Stripe), boekhoudprogramma's en marketingtools. Hierdoor wordt je webshop een krachtig onderdeel van je bedrijfsvoering.",
+        "Ja, we kunnen integraties verzorgen met verschillende systemen zoals voorraadbeheersystemen, boekhoudprogramma's, CRM-software en marketingtools. Hierdoor wordt je webshop een krachtig onderdeel van je bedrijfsvoering.",
     },
-  ];
-  
+    {
+      question: "Wat maakt jullie webshops anders dan die van andere aanbieders?",
+      answer:
+        "Onze webshops onderscheiden zich door de combinatie van professioneel design, gebruiksvriendelijkheid en technische kwaliteit. We focussen niet alleen op het uiterlijk, maar ook op conversie-optimalisatie, snelheid en schaalbaarheid. Bovendien bieden we uitstekende ondersteuning en zorgen we dat je zelf je webshop kunt beheren.",
+    },
+  ]
 
   return (
     <div className="bg-white text-black">
-      <HeroNieuw
-        title={"webshop laten maken"}
-        description={
-          "Webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe je de beste webdesigner kiest voor jouw bedrijf."
-        }
-        buttonText={"Offerte aanvragen"}
-        buttonLink={"/offerte-aanvragen"}
-        videoSrc={
-          "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
-        }
+      <NextSeo
+        title="Webshop Laten Maken | Professionele E-commerce Oplossingen"
+        description="Wil je een webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe wij jouw online verkoop kunnen stimuleren. Vraag een offerte aan!"
+        canonical="https://www.multichoiceagency.nl/webshop-laten-maken"
+        openGraph={{
+          type: "website",
+          url: "https://www.multichoiceagency.nl/webshop-laten-maken",
+          title: "Webshop Laten Maken | Professionele E-commerce Oplossingen",
+          description:
+            "Wil je een webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe wij jouw online verkoop kunnen stimuleren. Vraag een offerte aan!",
+          images: [
+            {
+              url: "/partners/webshop-laten-maken.png",
+              width: 1200,
+              height: 630,
+              alt: "Webshop laten maken",
+            },
+          ],
+        }}
+        twitter={{
+          handle: "@jouwtwitterhandle",
+          site: "@jouwtwitterhandle",
+          cardType: "summary_large_image",
+        }}
       />
 
-  {/* About Section */}
-<section className="py-12 lg:py-24 dark:bg-gray-900">
-  <div className="container mx-auto px-4">
-    <div className="flex mb-4 items-center">
-      <svg
-        width="8"
-        height="8"
-        viewBox="0 0 9 9"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
-      </svg>
-      <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-        webshop specialisten
-      </span>
-    </div>
-    <div className="border-t border-gray-800 pt-16">
-      <div className="max-w-lg mx-auto lg:max-w-none">
-        <div className="flex flex-wrap lg:items-center lg:flex-row-reverse -mx-4">
-          {/* Video Column */}
-          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-            <div className="visible">
-              <video
-                className="w-full h-full object-contain rounded-md"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source
-                  src="https://cdn.dribbble.com/userupload/3266205/file/original-65cf49de6dc583c826a888011e6e75ff.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
-          </div>
-          {/* Text Column */}
-          <div className="w-full lg:w-1/2 px-4">
-            <div className="max-w-xl">
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-              Webshop Laten Maken: Alles Wat Je Moet Weten
-              </h1>
-              <p className="text-lg text-gray-700 mb-10 dark:text-white">
-              In het digitale tijdperk is een professionele webshop onmisbaar voor bedrijven en ondernemers. Een goed ontworpen webshop is niet alleen een online visitekaartje, maar ook een krachtig marketinginstrument. Het bepaalt hoe potentiële klanten jouw merk waarnemen en beïnvloedt hun aankoopbeslissingen. Daarom is een webshop laten maken door een professional een slimme investering.
-              </p>
-              <p className="text-lg text-gray-700 mb-10 dark:text-white">
-              Een webshop biedt zichtbaarheid, geloofwaardigheid en toegankelijkheid. Klanten zoeken tegenwoordig online naar producten en diensten, en zonder een sterke online aanwezigheid mis je kansen. Een op maat gemaakte webshop verhoogt de betrouwbaarheid en zorgt ervoor dat je beter vindbaar bent in zoekmachines.
-              </p>
+      <BreadcrumbJsonLd
+        itemListElements={[
+          { position: 1, name: "Home", item: "https://www.multichoiceagency.nl" },
+          { position: 2, name: "Webshop Laten Maken", item: "https://www.multichoiceagency.nl/webshop-laten-maken" },
+        ]}
+      />
 
-              <ul className="text-black">
-                {[
-                  "Een Uniek en Aantrekkelijk Design",
-                  "Betere Gebruikerservaring",
-                  "SEO Geoptimaliseerd voor Beter Vindbaarheid",
-                  "Schaalbaarheid en Toekomstbestendigheid",
-                  "Fundament voor innovatieve opties",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center mb-4">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
-                      <path
-                        d="M14.8 6.40002L8.19995 13L5.19995 10"
-                        stroke="#022C22"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      ></path>
-                    </svg>
-                    <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+      <FAQPageJsonLd
+        mainEntity={[
+          {
+            questionName: "Waarom is een professionele webshop belangrijk?",
+            acceptedAnswerText:
+              "Een professionele webshop vergroot je online verkoopkansen, verbetert klantvertrouwen en verhoogt conversies. Het biedt een professionele uitstraling en helpt je beter gevonden te worden in zoekmachines.",
+          },
+          {
+            questionName: "Hoe lang duurt het om een webshop te laten maken?",
+            acceptedAnswerText:
+              "Een standaard webshop kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.",
+          },
+          {
+            questionName: "Is een mobiele versie van de webshop inbegrepen?",
+            acceptedAnswerText:
+              "Ja, alle webshops die wij ontwikkelen zijn 100% responsive en geoptimaliseerd voor mobiele apparaten, tablets en desktops.",
+          },
+          {
+            questionName: "Welke betaalmethoden kunnen worden geïntegreerd?",
+            acceptedAnswerText:
+              "We kunnen je webshop koppelen aan alle gangbare betaalsystemen zoals iDEAL, PayPal, creditcards en andere populaire betaalmethoden.",
+          },
+          {
+            questionName: "Bieden jullie onderhoud en support na de lancering?",
+            acceptedAnswerText:
+              "Ja, we bieden verschillende onderhoudspakketten, inclusief beveiligingsupdates, back-ups en technische ondersteuning.",
+          },
+        ]}
+      />
+
+      <HeroNieuw
+        title={"Webshop laten maken"}
+        description={"Webshop laten maken? Bij Multichoiceagency vind je de webshop die bij jou past."}
+        buttonText={"Offerte aanvragen"}
+        buttonLink={"/offerte-aanvragen"}
+        videoSrc={"https://cdn.dribbble.com/userupload/17109055/file/original-2cafa8b32d4d214f655c9c127ad036fd.mp4"}
+      />
+
+      {/* About Section */}
+      <section className="py-12 lg:py-24 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="flex mb-4 items-center">
+            <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+            </svg>
+            <span className="inline-block ml-2 text-sm font-medium text-lime-500">Webshop specialisten</span>
+          </div>
+          <div className="border-t border-gray-800 pt-16">
+            <div className="max-w-lg mx-auto lg:max-w-none">
+              <div className="flex flex-wrap lg:items-center lg:flex-row-reverse -mx-4">
+                {/* Video Column */}
+                <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+                  <div className="visible">
+                    <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                      <source
+                        src="https://cdn.dribbble.com/userupload/3266205/file/original-65cf49de6dc583c826a888011e6e75ff.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+                {/* Text Column */}
+                <div className="w-full lg:w-1/2 px-4">
+                  <div className="max-w-xl">
+                    <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                      Webshop Laten Maken: Alles Wat Je Moet Weten
+                    </h1>
+                    <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                      In het digitale tijdperk is een professionele webshop onmisbaar voor bedrijven en ondernemers. Een
+                      goed ontworpen webshop is niet alleen een online winkel, maar ook een krachtig verkoopinstrument.
+                      Het bepaalt hoe potentiële klanten jouw producten waarnemen en beïnvloedt hun aankoopbeslissingen.
+                      Daarom is een webshop laten maken door een professional een slimme investering.
+                    </p>
+                    <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                      Een webshop biedt zichtbaarheid, geloofwaardigheid en toegankelijkheid. Klanten zoeken
+                      tegenwoordig online naar producten, en zonder een sterke online aanwezigheid mis je kansen. Een op
+                      maat gemaakte webshop verhoogt de betrouwbaarheid en zorgt ervoor dat je beter vindbaar bent in
+                      zoekmachines.
+                    </p>
+
+                    <ul className="text-black">
+                      {[
+                        "Een Uniek en Aantrekkelijk Design",
+                        "Betere Gebruikerservaring",
+                        "SEO Geoptimaliseerd voor Beter Vindbaarheid",
+                        "Schaalbaarheid en Toekomstbestendigheid",
+                        "Professionele Productpresentatie",
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-center mb-4">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                            <path
+                              d="M14.8 6.40002L8.19995 13L5.19995 10"
+                              stroke="#022C22"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            ></path>
+                          </svg>
+                          <span className="ml-3 text-xs font-medium text-gray-700 dark:text-white">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-{/* Overige content */}
-<section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
-  <div className="container mx-auto px-4">
-    <div className="flex flex-col-reverse lg:flex-row-reverse lg:items-center -mx-4">
-      {/* Linker kolom op desktop (rechter kolom op mobiel) */}
-      <div className="w-full lg:w-1/2 px-4">
-        <div className="max-w-xl">
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-          Waar Moet Je Op Letten Bij Het Laten Maken van een webshop?
-          </h1>
-          <p className="text-lg text-gray-700 mb-1 dark:text-white">
-            Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt
-            bedrijven in staat om complexe processen te automatiseren, grote hoeveelheden data
-            te verwerken en schaalbare systemen te bouwen die kunnen groeien met uw bedrijf.
-          </p>
-          <ul className="text-black py-5">
-            {[
-              "Portfolio en Ervaring: Bekijk eerdere projecten en beoordeel de kwaliteit van het werk.",
-              "Specialisaties: Sommige webdesigners zijn gespecialiseerd in e-commerce, terwijl anderen zich richten op corporate webshops of blogs.",
-              "Prijs en Kostenstructuur: Vraag altijd een duidelijke offerte en check wat is inbegrepen.",
-              "SEO en Marketing Integratie: Een goede webshop is niet alleen mooi, maar ook goed vindbaar.",
-            ].map((item, index) => (
-              <li key={index} className="flex items-center mb-4">
-                <svg
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
+      {/* Overige content */}
+      <section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="flex flex-col-reverse lg:flex-row-reverse lg:items-center -mx-4">
+            {/* Linker kolom op desktop (rechter kolom op mobiel) */}
+            <div className="w-full lg:w-1/2 px-4">
+              <div className="max-w-xl">
+                <h2 className="font-heading text-2xl sm:text-2xl md:text-3xl mb-6 dark:text-white">
+                  Waar Moet Je Op Letten Bij Het Laten Maken van een Webshop?
+                </h2>
+                <p className="text-lg text-gray-700 mb-1 dark:text-white">
+                  Een goede webshop is meer dan alleen een online catalogus. Het is een compleet verkoopplatform dat
+                  gebruiksvriendelijk, veilig en schaalbaar moet zijn. Bij het laten maken van een webshop zijn er
+                  verschillende aspecten waar je op moet letten.
+                </p>
+                <ul className="text-black py-5">
+                  {[
+                    "E-commerce Expertise: Kies een ontwikkelaar met specifieke ervaring in het bouwen van webshops.",
+                    "Gebruiksvriendelijk CMS: Zorg dat je zelf eenvoudig producten kunt toevoegen en beheren.",
+                    "Veilige Betalingsopties: Integratie met betrouwbare betaalsystemen is essentieel.",
+                    "Mobiele Optimalisatie: Je webshop moet perfect werken op alle apparaten.",
+                  ].map((item, index) => (
+                    <li key={index} className="flex items-center mb-4">
+                      <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                        <path
+                          d="M14.8 6.40002L8.19995 13L5.19995 10"
+                          stroke="#022C22"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        ></path>
+                      </svg>
+                      <span className="ml-3 text-xs text-gray-700 font-medium font-600 dark:text-white">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Link
+                  href="/offerte-aanvragen"
+                  className="inline-flex py-4 px-6 items-center justify-center text-xs font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
-                  <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
-                  <path
-                    d="M14.8 6.40002L8.19995 13L5.19995 10"
-                    stroke="#022C22"
-                    strokeWidth="1.5"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  ></path>
-                </svg>
-                <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                  {item}
-                </span>
-              </li>
-            ))}
-          </ul>
-          <Link
-            href="/offerte-aanvragen"
-            className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
-          >
-            Start jouw webshop project vandaag nog!
-          </Link>
-        </div>
-      </div>
+                  Start jouw webshop project vandaag nog!
+                </Link>
+              </div>
+            </div>
 
-      {/* Rechter kolom op desktop (linker kolom op mobiel) */}
-      <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-        <div className="visible">
-          <video
-            className="w-full h-full object-contain rounded-md"
-            autoPlay
-            loop
-            muted
-            playsInline
-          >
-            <source
-              src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
-              type="video/mp4"
-            />
-            Your browser does not support the video tag.
-          </video>
+            {/* Rechter kolom op desktop (linker kolom op mobiel) */}
+            <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+              <div className="visible">
+                <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                  <source
+                    src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+                    type="video/mp4"
+                  />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </section>
 
       {/* Services Section */}
       <section className="p-4 bg-white">
         <div className="pt-16 pb-24 px-5 xs:px-8 xl:px-12 bg-gray-900 rounded-3xl">
           <div className="container mx-auto px-4">
             <div className="flex mb-4 items-center">
-              <svg
-                width="8"
-                height="8"
-                viewBox="0 0 8 8"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+              <svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
               </svg>
-              <span className="inline-block ml-2 text-sm font-medium text-white">
-                Hoe Werkt Backend Development?
-              </span>
+              <span className="inline-block ml-2 text-sm font-medium text-white">Hoe Werkt Webshop Development?</span>
             </div>
             <div className="border-t border-gray-700 pt-14">
               <h2 className="font-heading text-4xl sm:text-6xl text-white mb-24">
-                Een robuuste webshop wordt gebouwd met behulp van:
+                Een succesvolle webshop wordt gebouwd met behulp van:
               </h2>
               <div className="flex flex-wrap -mx-4">
                 {[
                   {
-                    title: "Kennismaking en Analyse",
+                    title: "Strategie en Planning",
                     description:
-                      "Tijdens een eerste gesprek worden de wensen en doelen van de webshop besproken. Dit helpt de webdesigner om een strategie op te stellen.",
+                      "We beginnen met het begrijpen van je doelen, doelgroep en producten om een effectieve webshop-strategie te ontwikkelen.",
                   },
                   {
-                    title: "Ontwerp en Conceptontwikkeling",
+                    title: "Design en Gebruikerservaring",
                     description:
-                      "Hier wordt een eerste ontwerp (wireframe) gemaakt. Dit geeft een visuele voorstelling van de structuur en indeling van de webshop.",
+                      "We ontwerpen een aantrekkelijke en gebruiksvriendelijke interface die bezoekers omzet in klanten.",
                   },
                   {
-                    title: "Ontwikkeling en Programmeren",
+                    title: "E-commerce Functionaliteiten",
                     description:
-                      "De daadwerkelijke bouw van de webshop vindt plaats. Hier worden functionaliteiten geïmplementeerd zoals formulieren, animaties en e-commerce functies.",
+                      "Implementatie van productcatalogi, winkelwagens, betaalsystemen en andere essentiële e-commerce functies.",
                   },
                   {
-                    title: "Testfase en Optimalisatie",
+                    title: "Integratie en Koppelingen",
                     description:
-                      "Voordat de webshop live gaat, wordt deze uitgebreid getest op verschillende apparaten en browsers. Eventuele fouten en verbeterpunten worden doorgevoerd.",
+                      "Koppeling met voorraadsystemen, betaalproviders, verzendmethoden en andere bedrijfssystemen.",
                   },
                   {
-                    title: "Lancering en Onderhoud",
+                    title: "Testen en Optimalisatie",
                     description:
-                      "Na goedkeuring wordt de webshop live gezet. Onderhoud en updates zijn belangrijk om de webshop veilig en up-to-date te houden.",
+                      "Uitgebreide tests op functionaliteit, gebruiksvriendelijkheid en prestaties voordat de webshop live gaat.",
                   },
                   {
-                    title: "Prestatie-optimalisatie",
+                    title: "Lancering en Ondersteuning",
                     description:
-                      "Technieken om de snelheid en efficiëntie van uw systemen te maximaliseren.",
+                      "Professionele lancering van je webshop en doorlopende ondersteuning om je online succes te garanderen.",
                   },
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
                     <div className="flex flex-col h-full ">
-                      <h5 className="text-2xl font-medium text-white mt-6 mb-3">
-                        {service.title}
-                      </h5>
+                      <h5 className="text-2xl font-medium text-white mt-6 mb-3">{service.title}</h5>
                       <p className="text-gray-400 mb-6">{service.description}</p>
                     </div>
                   </div>
@@ -381,114 +337,102 @@ export default function WebshopMaken() {
         </div>
       </section>
 
-      <PricingTable />
-
-       {/* About Section */}
-<section className="py-12 lg:py-24 dark:bg-gray-900">
-  <div className="container mx-auto px-4">
-    <div className="flex mb-4 items-center">
-      <svg
-        width="8"
-        height="8"
-        viewBox="0 0 9 9"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
-      </svg>
-      <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-        webshop specialisten
-      </span>
-    </div>
-    <div className="border-t border-gray-800 pt-16">
-      <div className="max-w-lg mx-auto lg:max-w-none">
-        <div className="flex flex-wrap lg:items-center lg:flex-row-reverse -mx-4">
-          {/* Video Column */}
-          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-            <div className="visible">
-              <video
-                className="w-full h-full object-contain rounded-md"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
-                <source
-                  src="https://cdn.dribbble.com/userupload/31676732/file/original-396e835eee2b982448adba728049e125.mp4"
-                  type="video/mp4"
-                />
-                Your browser does not support the video tag.
-              </video>
-            </div>
+      {/* About Section */}
+      <section className="py-12 lg:py-24 dark:bg-gray-900">
+        <div className="container mx-auto px-4">
+          <div className="flex mb-4 items-center">
+            <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+            </svg>
+            <span className="inline-block ml-2 text-sm font-medium text-lime-500">Webshop specialisten</span>
           </div>
-          {/* Text Column */}
-          <div className="w-full lg:w-1/2 px-4">
-            <div className="max-w-xl">
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-              Veelgemaakte Fouten Bij Het Laten Maken van een webshop
-              </h1>
-              <p className="text-lg text-gray-700 mb-10 dark:text-white">
-              Ondernemers maken vaak fouten bij het ontwikkelen van een webshop, en deze valkuilen kunnen de effectiviteit van een site sterk beïnvloeden. Een veelvoorkomende fout is het ontbreken van een duidelijk doel. Zonder een strategie mist de webshop focus en wordt het lastig om de juiste doelgroep te bereiken. Daarnaast zien we vaak dat er te veel nadruk ligt op het design, terwijl functionaliteit en gebruiksvriendelijkheid minstens zo belangrijk zijn. Een mooie webshop is waardevol, maar als bezoekers moeite hebben met navigeren of niet worden aangezet tot actie, dan mist de site zijn doel.</p>
-              <p className="text-lg text-gray-700 mb-10 dark:text-white">
-              Een andere grote misser is het negeren van SEO. Zonder zoekmachineoptimalisatie wordt de webshop nauwelijks gevonden, wat betekent dat potentiële klanten de site niet bereiken. Ook mobiele optimalisatie wordt nog te vaak over het hoofd gezien. Aangezien een groot deel van de internetgebruikers webshops bezoekt via een smartphone, is een mobielvriendelijke site essentieel. Door deze valkuilen te vermijden, zorg je voor een webshop die niet alleen visueel aantrekkelijk is, maar ook goed functioneert en effectief is in het aantrekken van bezoekers en klanten.
-              </p>
+          <div className="border-t border-gray-800 pt-16">
+            <div className="max-w-lg mx-auto lg:max-w-none">
+              <div className="flex flex-wrap lg:items-center lg:flex-row-reverse -mx-4">
+                {/* Video Column */}
+                <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+                  <div className="visible">
+                    <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                      <source
+                        src="https://cdn.dribbble.com/userupload/31676732/file/original-396e835eee2b982448adba728049e125.mp4"
+                        type="video/mp4"
+                      />
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+                {/* Text Column */}
+                <div className="w-full lg:w-1/2 px-4">
+                  <div className="max-w-xl">
+                    <h2 className="font-heading text-2xl sm:text-2xl md:text-3xl mb-6 dark:text-white">
+                      Veelgemaakte Fouten Bij Het Laten Maken van een Webshop
+                    </h2>
+                    <p className="text-md text-gray-700 mb-10 dark:text-white">
+                      Ondernemers maken vaak fouten bij het ontwikkelen van een webshop, en deze valkuilen kunnen de
+                      effectiviteit van een online winkel sterk beïnvloeden. Een veelvoorkomende fout is het
+                      onderschatten van gebruiksvriendelijkheid. Een ingewikkeld bestelproces of onoverzichtelijke
+                      navigatie kan potentiële klanten afschrikken. Daarnaast zien we vaak dat er te weinig aandacht
+                      wordt besteed aan productfoto's en -beschrijvingen, terwijl deze juist cruciaal zijn voor het
+                      overtuigen van klanten.
+                    </p>
+                    <p className="text-md text-gray-700 mb-10 dark:text-white">
+                      Een andere grote misser is het negeren van mobiele optimalisatie. Met het groeiende aantal mobiele
+                      shoppers is een responsieve webshop essentieel. Ook worden beveiligingsaspecten vaak over het
+                      hoofd gezien, terwijl veilige betalingen en gegevensbescherming het vertrouwen van klanten sterk
+                      beïnvloeden. Door deze valkuilen te vermijden en te kiezen voor een professionele aanpak, zorg je
+                      voor een webshop die niet alleen aantrekkelijk is, maar ook effectief verkoopt.
+                    </p>
 
-              <ul className="text-black">
-                <h3 className="text-lg py-3 font-bold dark:text-white">Wat Zijn de Belangrijkste Functionaliteiten van een Goede webshop?</h3>
-                {[
-                  "Responsief Design: Geschikt voor mobiel, tablet en desktop.",
-                  "Snelle Laadtijd: Bezoekers haken af bij een trage webshop.",
-                  "Duidelijke Navigatie: Gebruiksvriendelijke menu’s en knoppen.",
-                  "Sterke Call-to-Action (CTA’s): Duidelijke knoppen om bezoekers te laten converteren.",
-                  "SEO-geoptimaliseerde Content: Belangrijke zoekwoorden en relevante teksten.",
-                  "Veiligheid en SSL-certificaat: Bescherming van gegevens en een betrouwbaar imago.",
-                ].map((item, index) => (
-                  <li key={index} className="flex items-center mb-4">
-                    <svg
-                      width="20"
-                      height="20"
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
-                      <path
-                        d="M14.8 6.40002L8.19995 13L5.19995 10"
-                        stroke="#022C22"
-                        strokeWidth="1.5"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      ></path>
-                    </svg>
-                    <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
-                      {item}
-                    </span>
-                  </li>
-                ))}
-              </ul>
+                    <ul className="text-black">
+                      <h3 className="text-sm py-3 font-bold dark:text-white">
+                        Wat Zijn de Belangrijkste Functionaliteiten van een Goede Webshop?
+                      </h3>
+                      {[
+                        "Gebruiksvriendelijk bestelproces met minimale stappen",
+                        "Duidelijke productcategorieën en filteropties",
+                        "Veilige en diverse betaalmethoden",
+                        "Professionele productfotografie en -beschrijvingen",
+                        "Mobiel-vriendelijk design voor shoppers onderweg",
+                        "Integratie met voorraad- en orderbeheer",
+                      ].map((item, index) => (
+                        <li key={index} className="flex items-center mb-4">
+                          <svg
+                            width="20"
+                            height="20"
+                            viewBox="0 0 20 20"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                            <path
+                              d="M14.8 6.40002L8.19995 13L5.19995 10"
+                              stroke="#022C22"
+                              strokeWidth="1.5"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                            ></path>
+                          </svg>
+                          <span className="ml-3 text-xs font-medium text-gray-700 dark:text-white">{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* About Section */}
       <section className="py-12 lg:py-24 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="flex mb-4 items-center">
-            <svg
-              width="8"
-              height="8"
-              viewBox="0 0 9 9"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
+            <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
               <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
             </svg>
             <span className="inline-block ml-2 text-sm font-medium text-lime-500">
-              Backend development specialisten
+              Webshop development specialisten
             </span>
           </div>
           <div className="border-t border-gray-800 pt-16">
@@ -496,13 +440,7 @@ export default function WebshopMaken() {
               <div className="flex flex-wrap lg:items-center -mx-4">
                 <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
                   <div className="visible">
-                    <video
-                      className="w-full h-full object-contain rounded-md"
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                    >
+                    <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                       <source
                         src="https://cdn.dribbble.com/userupload/15831576/file/original-77e3918e88d9f08e8e79e7ad2f8154f9.mp4"
                         type="video/mp4"
@@ -514,39 +452,19 @@ export default function WebshopMaken() {
                 <div className="w-full lg:w-1/2 px-4">
                   <div className="max-w-xl">
                     <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                    Hoeveel Kost een webshop Laten Maken?
+                      Waarom een Webshop Laten Maken bij Multichoiceagency?
                     </h1>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                    De kosten van een webshop laten maken variëren sterk, afhankelijk van complexiteit, functionaliteiten en de gekozen ontwikkelaar. Gemiddeld kun je rekening houden met de volgende richtprijzen:
+                      Bij Multichoiceagency begrijpen we dat een webshop meer is dan alleen een online winkel. Het is
+                      een verlengstuk van je merk en een belangrijk verkoopkanaal. Daarom bieden we maatwerk oplossingen
+                      die perfect aansluiten bij jouw bedrijf en doelstellingen.
                     </p>
-                    <section className="dark:bg-white">
-                    <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #ddd" }}>
-                    <thead>
-                      <tr style={{ backgroundColor: "#f4f4f4", textAlign: "left" }}>
-                        <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Type webshop</th>
-                        <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Kostenindicatie</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Simpele Onepager (zzp)</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€249- €500</td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard Bedrijfswebshop</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€1.999 - €5.000</td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Webshop / E-commerce</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€2.499 - €10.000+</td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Gecodeerde webshop</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€6.995 - €20.000+</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  </section>
+                    <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                      Onze webshops worden gebouwd in WooCommerce, het meest gebruikte e-commerce platform ter wereld.
+                      Dit geeft je niet alleen een betrouwbare basis, maar ook eindeloze mogelijkheden voor uitbreiding
+                      en aanpassing. Bovendien zorgen we ervoor dat je zelf eenvoudig je webshop kunt beheren, met
+                      duidelijke instructies en ondersteuning wanneer je die nodig hebt.
+                    </p>
                   </div>
                 </div>
               </div>
@@ -563,8 +481,7 @@ export default function WebshopMaken() {
               Veelgestelde vragen
             </h2>
             <p className="text-gray-700 dark:text-white">
-              Hier vindt u antwoorden op de meest gestelde vragen over backend development en
-              custom software.
+              Hier vindt u antwoorden op de meest gestelde vragen over webshop development en e-commerce oplossingen.
             </p>
           </div>
           <div className="max-w-xl mx-auto lg:max-w-none">
@@ -588,13 +505,7 @@ export default function WebshopMaken() {
                     </div>
                     <span className="flex-shrink-0">
                       {openAccordion === index ? (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M5.69995 12H18.3"
                             stroke="#BEF264"
@@ -604,13 +515,7 @@ export default function WebshopMaken() {
                           ></path>
                         </svg>
                       ) : (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M12 5.69995V18.3"
                             stroke="#BEF264"
@@ -650,13 +555,7 @@ export default function WebshopMaken() {
                     </div>
                     <span className="flex-shrink-0">
                       {openAccordion === index + 5 ? (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M5.69995 12H18.3"
                             stroke="#BEF264"
@@ -666,13 +565,7 @@ export default function WebshopMaken() {
                           ></path>
                         </svg>
                       ) : (
-                        <svg
-                          width="24"
-                          height="24"
-                          viewBox="0 0 24 24"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                           <path
                             d="M12 5.69995V18.3"
                             stroke="#BEF264"
@@ -699,28 +592,30 @@ export default function WebshopMaken() {
       </section>
 
       {/* Call to Action */}
-            <section className="py-16 bg-gradient-to-r bg-white text-black dark:text-white dark:bg-gray-900 text-center">
-            <div className="container mx-auto px-6">
-              <h2 className="text-4xl font-bold mb-6">Klaar om een professionele webshop te laten maken?</h2>
-              <p className="text-lg mb-8 text-black-700 hover:text-green-700 max-w-2xl mx-auto">
-                Zet vandaag nog de stap naar een moderne, snelle en conversiegerichte webshop. Wij helpen je met een op maat gemaakte oplossing die jouw bedrijf online laat groeien.
-              </p>
-              <div className="flex flex-col md:flex-row justify-center gap-4">
-                <a
-                  href="/offerte-aanvragen"
-                  className="bg-green-700 text-white font-semibold py-4 px-6 rounded-full text-lg hover:bg-green-900 hover:text-white transition duration-300"
-                >
-                  Vraag een gratis offerte aan
-                </a>
-                <a
-                  href="/portfolio"
-                  className="border border-white text-black dark:bg-white font-semibold py-4 px-6 rounded-full text-lg hover:bg-white hover:text-green-900 transition duration-300"
-                >
-                  Bekijk ons werk
-                </a>
-              </div>
-            </div>
-          </section>
+      <section className="py-16 bg-gradient-to-r bg-white text-black dark:text-white dark:bg-gray-900 text-center">
+        <div className="container mx-auto px-6">
+          <h2 className="text-4xl font-bold mb-6">Klaar om een professionele webshop te laten maken?</h2>
+          <p className="text-lg mb-8 text-black-700 max-w-2xl mx-auto">
+            Zet vandaag nog de stap naar een moderne, snelle en conversiegerichte webshop. Wij helpen je met een op maat
+            gemaakte oplossing die jouw bedrijf online laat groeien.
+          </p>
+          <div className="flex flex-col md:flex-row justify-center gap-4">
+            <a
+              href="/offerte-aanvragen"
+              className="bg-green-700 text-white font-semibold py-4 px-6 rounded-full text-lg hover:bg-green-900 hover:text-white transition duration-300"
+            >
+              Vraag een gratis offerte aan
+            </a>
+            <a
+              href="/portfolio"
+              className="dark:bg-black dark:text-white text-black font-semibold py-4 px-6 rounded-full text-lg hover:bg-white hover:text-green-900 transition duration-300"
+            >
+              Bekijk ons werk
+            </a>
+          </div>
         </div>
+      </section>
+    </div>
   )
 }
+

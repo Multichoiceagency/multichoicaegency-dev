@@ -18,7 +18,6 @@ export default function Home() {
       buttonText={"Onze expertises"} 
       buttonLink={"/diensten"} 
       videoSrc={"https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/UI-UX-Design-SHOWREEL-2023-｜-Musemind.mp4"} />
-      <Oplossingen />
       <BentoGridDemo />
       <AboutUsSection />
       <TeamSection />

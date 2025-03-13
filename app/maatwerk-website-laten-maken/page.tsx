@@ -9,37 +9,38 @@ import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 const MaatwerkWebsitesSEO = () => {
   return (
     <>
-      <NextSeo
-        title="Maatwerk Websites: Op Maat Gemaakt voor Jouw Bedrijf"
-        description="Ontdek onze maatwerk websites, volledig afgestemd op de unieke behoeften van jouw bedrijf. Hoogwaardige, op maat gemaakte oplossingen die presteren."
-        canonical="https://www.multichoiceagency.nl/maatwerk-websites"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/maatwerk-websites',
-          title: 'Maatwerk Websites: Op Maat Gemaakt voor Jouw Bedrijf',
-          description:
-            'Ontdek onze maatwerk websites, volledig afgestemd op de unieke behoeften van jouw bedrijf. Hoogwaardige, op maat gemaakte oplossingen die presteren.',
-          images: [
-            {
-              url: '/partners/maatwerk-websites.png',
-              width: 1200,
-              height: 630,
-              alt: 'Maatwerk Websites',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
+    <NextSeo
+      title="Maatwerk Websites: Op Maat Gemaakt voor Jouw Bedrijf"
+      description="Ontdek onze maatwerk websites, volledig afgestemd op de unieke behoeften van jouw bedrijf. Hoogwaardige, op maat gemaakte oplossingen die presteren."
+      canonical="https://www.multichoiceagency.nl/maatwerk-websites"
+      openGraph={{
+        type: "website",
+        url: "https://www.multichoiceagency.nl/maatwerk-websites",
+        title: "Maatwerk Websites: Op Maat Gemaakt voor Jouw Bedrijf",
+        description:
+          "Ontdek onze maatwerk websites, volledig afgestemd op de unieke behoeften van jouw bedrijf. Hoogwaardige, op maat gemaakte oplossingen die presteren.",
+
+        images: [
+          {
+            url: "/partners/maatwerk-websites.png",
+            width: 1200,
+            height: 630,
+            alt: "Maatwerk Websites",
+          },
+        ],
+      }}
+      twitter={{
+        handle: "@jouwtwitterhandle",
+        site: "@jouwtwitterhandle",
+        cardType: "summary_large_image",
+      }}
+    />
 
       {/* Breadcrumb Schema */}
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Maatwerk Websites', item: 'https://www.multichoiceagency.nl/maatwerk-websites' },
+          { position: 2, name: 'Maatwerk Websites', item: 'https://www.multichoiceagency.nl/maatwerk-website-laten-maken' },
         ]}
       />
 
@@ -135,7 +136,7 @@ export default function MaatwerkWebsitesPage() {
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
         videoSrc={
-          "https://cdn.dribbble.com/userupload/12345678/file/original-maatwerk-video.mp4"
+          "https://cdn.dribbble.com/userupload/17298535/file/original-712b4db26762e2f7569d48be1c64acdb.mp4"
         }
       />
 
@@ -158,7 +159,7 @@ export default function MaatwerkWebsitesPage() {
                   <div className="visible">
                     <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                       <source
-                        src="https://cdn.dribbble.com/userupload/98765432/file/original-maatwerk-video1.mp4"
+                        src="https://cdn.dribbble.com/userupload/18370891/file/original-c7e789f386b8f077ccc2793bf8d1ed98.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -262,7 +263,7 @@ export default function MaatwerkWebsitesPage() {
               <div className="visible">
                 <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                   <source
-                    src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+                    src="https://cdn.dribbble.com/userupload/18676578/file/original-76aa8294de93fe86aef600341d61e81b.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

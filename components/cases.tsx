@@ -101,7 +101,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
   }
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-white min-h-screen pt-36">
       {/* Hero Section with Featured Case */}
       <section className="relative bg-gray-50 overflow-hidden">
         <div className="container mx-auto px-4 py-24">
@@ -136,7 +136,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
                   alt={decodeHtml(featuredCase.title.rendered)}
                   fill
                   priority
-                  style={{ objectFit: "cover" }}
+                  style={{ objectFit: "contain" }}
                   className="transition-transform duration-700 hover:scale-105"
                 />
               )}

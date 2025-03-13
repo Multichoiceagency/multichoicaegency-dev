@@ -37,28 +37,28 @@ const Oplossingen: React.FC = () => {
       title: 'Websites',
       description:
         'Wij ontwerpen en bouwen diverse websites, van indrukwekkende zakelijke pagina’s tot geavanceerde platforms die helpen bij het genereren van leads.',
-      link: 'http://localhost:3000/websites',
+      link: '/website-laten-maken',
     },
     {
       icon: <FontAwesomeIcon icon={faShoppingCart} />,
       title: 'E-commerce',
       description:
         'Wij creëren gebruiksvriendelijke en visueel aantrekkelijke bestelportalen die ontworpen zijn om hoge conversies te behalen.',
-      link: 'http://localhost:3000/e-commerce',
+      link: '/webshop-laten-maken',
     },
     {
       icon: <FontAwesomeIcon icon={faUserShield} />,
       title: 'Portalen',
       description:
         'Een klantportaal biedt een centrale plek waar klanten, leden en collega’s eenvoudig kunnen inloggen en informatie kunnen beheren.',
-      link: 'http://localhost:3000/portalen',
+      link: '/portalen',
     },
     {
       icon: <FontAwesomeIcon icon={faCode} />,
       title: 'Software Development',
       description:
         'Wij ontwikkelen op maat gemaakte softwareoplossingen die perfect aansluiten bij jouw bedrijfsdoelen en processen automatiseren.',
-      link: 'http://localhost:3000/software-development',
+      link: '/software-development',
     },
   ];
 

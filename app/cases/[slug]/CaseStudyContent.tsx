@@ -7,6 +7,7 @@ import ClientInfo from "./ClientInfo"
 import ProjectResults from "./ProjectResults"
 import Hero from "./Hero"
 import Portfolio from "@/components/cases-display"
+import Oplossingen from "@/components/oplossingen"
 
 export interface CaseStudy {
   id: number
@@ -199,58 +200,13 @@ export default function CaseStudyContent({ content, allCaseStudies }: CaseStudyC
         </div>
       </div>
 
-      {/* Related Cases */}
       <div>
         <Portfolio />
         </div>
-
-      {/* Services Section */}
-      <section className="container mx-auto px-6 mt-16">
-        <h2 className={`text-2xl font-bold mb-6 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
-          Waar kunnen we je mee helpen?
-        </h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          <div
-            className={`${theme === "dark" ? "bg-gray-800" : "bg-[#f2e9de]"} rounded-lg p-6 transition-colors duration-200`}
-          >
-            <h3 className={`font-bold mb-2 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
-              Recruitment websites
-            </h3>
-            <p className={`${theme === "dark" ? "text-gray-300" : "text-gray-700"} mb-4`}>
-              Aantrekkelijke websites die kandidaten converteren
-            </p>
-            <Link href="/diensten" className="text-[#4cd964] font-medium">
-              Meer info
-            </Link>
-          </div>
-          <div
-            className={`${theme === "dark" ? "bg-gray-800" : "bg-[#f2e9de]"} rounded-lg p-6 transition-colors duration-200`}
-          >
-            <h3 className={`font-bold mb-2 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Employer branding</h3>
-            <p className={`${theme === "dark" ? "text-gray-300" : "text-gray-700"} mb-4`}>
-              Versterk je werkgeversmerk en trek talent aan
-            </p>
-            <Link href="/diensten" className="text-[#4cd964] font-medium">
-              Meer info
-            </Link>
-          </div>
-          <div
-            className={`${theme === "dark" ? "bg-gray-800" : "bg-[#f2e9de]"} rounded-lg p-6 relative transition-colors duration-200`}
-          >
-            <div className="rounded-full overflow-hidden w-12 h-12 absolute right-6 top-6">
-              <Image src={stockPhotos[2] || "/placeholder.svg"} alt="Profile" width={48} height={48} />
-            </div>
-            <h3 className={`font-bold mb-2 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>Communicatie</h3>
-            <p className={`${theme === "dark" ? "text-gray-300" : "text-gray-700"} mb-4`}>
-              Persoonlijk advies over recruitment marketing
-            </p>
-            <Link href="/diensten" className="text-[#4cd964] font-medium">
-              Neem contact op
-            </Link>
-          </div>
+        <div>
+        <Oplossingen />
         </div>
-      </section>
-    </div>
+        </div>
   )
 }
 

@@ -15,19 +15,39 @@ export default function PartnersServicesSection() {
 
   // Partner logo bestandsnamen
   const partnerLogos = [
-    "sydneydranken.png",
-    "lovka.png",
-    "dutchtransportgroup.png",
-    "alkanaany.png",
-    "binvino.png",
-    "powerforce uitzendgroep.png",
-    "sunsen-zonnestudio.png",
+    "Adeaconstruct.png",
+    "adeainfra.png",
+    "Alkanaany.png",
+    "Autoservice Maestropoort.png",
+    "Autotradervoorschoten.png",
+    "BGR Taxi Amsterdam.png",
+    "Binvino.png",
+    "BK Bewindvoering.png",
+    "Bluelinenetwork.png",
     "bouhs-steigerwerken.png",
+    "CKN infratechniek.png",
+    "Dutchtransportgroup.png",
+    "E&H Bouw bv.png",
+    "Ergon bouw aannemersbedrijf.png",
     "gardenlux.png",
-    "binvino.png",
-    "hengelvissportschiedam.png",
+    "Hengelvissportschiedam.png",
+    "HUB Makelaardij.png",
+    "Kozan klussenbedrijf.png",
+    "Lionzone.png",
+    "Lovka.png",
+    "Maazcleanrevolution.png",
+    "Menstale.png",
+    "Moleculeperfumes.png",
+    "notenleverancier.png",
+    "Orangereclame.png",
+    "Powerforce uitzendgroep.png",
+    "sunsen-zonnestudio.png",
+    "sydneydranken.png",
+    "Tecura therapie coaching.png",
+    "Volta elektrotechniek.png",
+    "YZ Content.png",
   ]
-
+  
   // Volledige paden naar de logo's
   const partners = partnerLogos.map((logo) => `${logoFolderPath}/${logo}`)
 

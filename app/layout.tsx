@@ -1,5 +1,4 @@
-"use client"
-
+import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
 import { Unbounded } from "next/font/google"
@@ -8,14 +7,21 @@ import { Footer } from "@/components/Footer"
 import GoogleCalendarButton from "@/components/GoogleCalenderButton"
 import { Header } from "@/components/header"
 import ScrollToTop from "@/components/ScrollToTop"
-import LiveChat from "@/components/livechat"
 import QuoteButton from "@/components/OfferteAanvraagKnop"
+import SmoothScrolling from "@/components/SmoothScrolling";
+import FloatingSocialIcons from "@/components/FloatingSocialicons"
+import LiveChat from "@/components/livechat"
 
 // ✅ Google Font configuratie
 const unbounded = Unbounded({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "900"],
 })
+
+export const metadata: Metadata = {
+  title: "Multichoiceagency",
+  description: "Multichoiceagency website",
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -39,16 +45,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
 
       <body className={unbounded.className} suppressHydrationWarning>
-          <ScrollToTop />
-          <ThemeProvider attribute="class" defaultTheme="auto" enableSystem>
-            <Header />
-            {children}
+        <ThemeProvider attribute="class" defaultTheme="auto" enableSystem>
+            <ScrollToTop />
+            <FloatingSocialIcons />
+            <LiveChat />
+            <Header /><SmoothScrolling>
+            {children}</SmoothScrolling>
             <Footer />
             <GoogleCalendarButton />
             <QuoteButton />
-            <LiveChat />
-          </ThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
   )
 }
+

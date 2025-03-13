@@ -1,0 +1,13 @@
+# Allow all crawlers
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /flow-assets/
+
+# Sitemap location
+Sitemap: https://www.multichoiceagency.nl/sitemap.xml
+
+# Crawl-delay for better server performance (optional)
+Crawl-delay: 1
+

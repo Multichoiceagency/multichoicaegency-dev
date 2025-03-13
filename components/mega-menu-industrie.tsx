@@ -187,7 +187,7 @@ export function MegaMenuIndustrie({ isOpen, onClose }: MegaMenuIndustrieProps) {
                         {solution.icon}
                       </div>
                       <div className="flex items-center gap-2">
-                        <span className="text-sm font-medium text-foreground group-hover:text-primary">
+                        <span className="text-[10px] font-medium text-foreground group-hover:text-primary">
                           {solution.title}
                         </span>
                         {solution.isNew && (

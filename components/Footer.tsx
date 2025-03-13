@@ -25,7 +25,9 @@ const navSections = [
     title: "Web Development",
     links: [
       { name: "Websites", href: "/website-laten-maken" },
-      { name: "Webshops", href: "/wat-is-ui-ux-design" },
+      { name: "Webshops", href: "/webshop-laten-maken" },
+      { name: "Portalen", href: "/portalen" },
+      { name: "Development", href: "/development" },
       { name: "UI/UX Design", href: "/wat-is-ui-ux-design" },
       { name: "Maatwerk Websites", href: "/maatwerk-website-laten-maken" },
       { name: "Shopify webshop", href: "/shopify-webshop-laten-maken" },
@@ -194,7 +196,7 @@ export function Footer() {
             frameBorder="0"
             width="100%"
             height="100%"
-            className="w-full h-full"
+            className="w-full h-full bg-green-50"
           ></iframe>
         </div>
       </div>
@@ -274,7 +276,7 @@ export function Footer() {
           </ul>
           {/* Overige Gegevens */}
           <div className="text-1xl text-black dark:text-white mt-20">
-            <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+            <h4 className="text-lg text-black dark:text-white font-bold mb-4 flex items-center gap-2">
               <FontAwesomeIcon icon={faInfoCircle} className="w-4 h-4" />
               {contactSections[2].title}
             </h4>
@@ -334,7 +336,7 @@ export function Footer() {
           </ul>
           {/* Contact */}
           <div className="mt-8">
-            <h4 className="text-lg font-bold mb-4 flex items-center gap-2">
+            <h4 className="text-lg text-black dark:text-white font-bold mb-4 flex items-center gap-2">
               <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
               {contactSections[0].title}
             </h4>
@@ -464,10 +466,10 @@ export function Footer() {
             </div>
             {/* Social icons right-aligned with 'Volg ons' label */}
             <div className="flex justify-center items-center">
-              <span className="text-black text-sm mr-2">Volg ons</span>
+              <span className="text-black dark:text-white  text-sm mr-2">Volg ons</span>
               <div className="flex gap-2">
                 {socialLinks.map((social, idx) => (
-                  <Link key={idx} href={social.href} className="text-black hover:text-green-700 transition-colors">
+                  <Link key={idx} href={social.href} className="text-black dark:text-white hover:text-green-700 transition-colors">
                     <FontAwesomeIcon icon={social.icon} className="w-6 h-6" />
                     <span className="sr-only">{social.text}</span>
                   </Link>

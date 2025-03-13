@@ -146,7 +146,7 @@ export default function BackendDevelopment() {
         buttonText={"Offerte aanvragen"}
         buttonLink={"/offerte-aanvragen"}
         videoSrc={
-          "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
+          "https://cdn.dribbble.com/userupload/17109055/file/original-2cafa8b32d4d214f655c9c127ad036fd.mp4"
         }
       />
 
@@ -226,7 +226,7 @@ export default function BackendDevelopment() {
                         strokeLinejoin="round"
                       ></path>
                     </svg>
-                    <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
+                    <span className="ml-3 text-xs font-medium text-gray-700 dark:text-white">
                       {item}
                     </span>
                   </li>
@@ -247,9 +247,9 @@ export default function BackendDevelopment() {
       {/* Linker kolom op desktop (rechter kolom op mobiel) */}
       <div className="w-full lg:w-1/2 px-4">
         <div className="max-w-xl">
-          <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+          <h2 className="font-heading text-2xl sm:text-2xl md:text-3xl mb-6 dark:text-white">
           Waar Moet Je Op Letten Bij Het Laten Maken van een Website?
-          </h1>
+          </h2>
           <p className="text-lg text-gray-700 mb-1 dark:text-white">
             Backend development is de ruggengraat van moderne digitale oplossingen. Het stelt
             bedrijven in staat om complexe processen te automatiseren, grote hoeveelheden data
@@ -274,12 +274,12 @@ export default function BackendDevelopment() {
                   <path
                     d="M14.8 6.40002L8.19995 13L5.19995 10"
                     stroke="#022C22"
-                    strokeWidth="1.5"
+                    strokeWidth="2"
                     strokeLinecap="round"
                     strokeLinejoin="round"
                   ></path>
                 </svg>
-                <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
+                <span className="ml-3 text-xs text-gray-700 font-medium font-600 dark:text-white">
                   {item}
                 </span>
               </li>
@@ -287,7 +287,7 @@ export default function BackendDevelopment() {
           </ul>
           <Link
             href="/offerte-aanvragen"
-            className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+            className="inline-flex py-4 px-6 items-center justify-center text-xs font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
           >
             Start jouw website project vandaag nog!
           </Link>
@@ -430,17 +430,17 @@ export default function BackendDevelopment() {
           {/* Text Column */}
           <div className="w-full lg:w-1/2 px-4">
             <div className="max-w-xl">
-              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+            <h2 className="font-heading text-2xl sm:text-2xl md:text-3xl mb-6 dark:text-white">
               Veelgemaakte Fouten Bij Het Laten Maken van een Website
-              </h1>
-              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+              </h2>
+              <p className="text-md text-gray-700 mb-10 dark:text-white">
               Ondernemers maken vaak fouten bij het ontwikkelen van een website, en deze valkuilen kunnen de effectiviteit van een site sterk beïnvloeden. Een veelvoorkomende fout is het ontbreken van een duidelijk doel. Zonder een strategie mist de website focus en wordt het lastig om de juiste doelgroep te bereiken. Daarnaast zien we vaak dat er te veel nadruk ligt op het design, terwijl functionaliteit en gebruiksvriendelijkheid minstens zo belangrijk zijn. Een mooie website is waardevol, maar als bezoekers moeite hebben met navigeren of niet worden aangezet tot actie, dan mist de site zijn doel.</p>
-              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+              <p className="text-md text-gray-700 mb-10 dark:text-white">
               Een andere grote misser is het negeren van SEO. Zonder zoekmachineoptimalisatie wordt de website nauwelijks gevonden, wat betekent dat potentiële klanten de site niet bereiken. Ook mobiele optimalisatie wordt nog te vaak over het hoofd gezien. Aangezien een groot deel van de internetgebruikers websites bezoekt via een smartphone, is een mobielvriendelijke site essentieel. Door deze valkuilen te vermijden, zorg je voor een website die niet alleen visueel aantrekkelijk is, maar ook goed functioneert en effectief is in het aantrekken van bezoekers en klanten.
               </p>
 
               <ul className="text-black">
-                <h3 className="text-lg py-3 font-bold dark:text-white">Wat Zijn de Belangrijkste Functionaliteiten van een Goede Website?</h3>
+                <h3 className="text-sm py-3 font-bold dark:text-white">Wat Zijn de Belangrijkste Functionaliteiten van een Goede Website?</h3>
                 {[
                   "Responsief Design: Geschikt voor mobiel, tablet en desktop.",
                   "Snelle Laadtijd: Bezoekers haken af bij een trage website.",
@@ -466,7 +466,7 @@ export default function BackendDevelopment() {
                         strokeLinejoin="round"
                       ></path>
                     </svg>
-                    <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
+                    <span className="ml-3 text-xs font-medium text-gray-700 dark:text-white">
                       {item}
                     </span>
                   </li>
@@ -708,7 +708,7 @@ export default function BackendDevelopment() {
             <section className="py-16 bg-gradient-to-r bg-white text-black dark:text-white dark:bg-gray-900 text-center">
             <div className="container mx-auto px-6">
               <h2 className="text-4xl font-bold mb-6">Klaar om een professionele website te laten maken?</h2>
-              <p className="text-lg mb-8 text-black-700 hover:text-green-700 max-w-2xl mx-auto">
+              <p className="text-lg mb-8 text-black-700 max-w-2xl mx-auto">
                 Zet vandaag nog de stap naar een moderne, snelle en conversiegerichte website. Wij helpen je met een op maat gemaakte oplossing die jouw bedrijf online laat groeien.
               </p>
               <div className="flex flex-col md:flex-row justify-center gap-4">
@@ -720,7 +720,7 @@ export default function BackendDevelopment() {
                 </a>
                 <a
                   href="/portfolio"
-                  className="border border-white text-black font-semibold py-4 px-6 rounded-full text-lg hover:bg-white hover:text-green-900 transition duration-300"
+                  className="dark:bg-black dark:text-white text-black font-semibold py-4 px-6 rounded-full text-lg hover:bg-white hover:text-green-900 transition duration-300"
                 >
                   Bekijk ons werk
                 </a>

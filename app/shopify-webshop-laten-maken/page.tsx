@@ -135,7 +135,7 @@ export default function ShopifyWebshopPage() {
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
         videoSrc={
-          "https://cdn.dribbble.com/userupload/17295206/file/original-77aa0eb0dd1a9affb8a7a39f37e7d7f5.mp4"
+          "https://cdn.dribbble.com/userupload/17063963/file/original-3ffbb3e25cbbfd8da5bb893f65b04a12.mp4"
         }
       />
 
@@ -262,7 +262,7 @@ export default function ShopifyWebshopPage() {
               <div className="visible">
                 <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                   <source
-                    src="https://cdn.dribbble.com/userupload/2935470/file/original-41678497c3bbcf77470768a2420438b7.mp4"
+                    src="https://cdn.dribbble.com/userupload/17394148/file/original-908f00def579149997e93e1d2ce33feb.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
