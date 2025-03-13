@@ -2,6 +2,11 @@ import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import CaseStudyContent, { type CaseStudyContentProps, type CaseStudy } from "./CaseStudyContent"
 
+// Define the params type exactly as Next.js expects
+type Params = {
+  slug: string
+}
+
 async function getCaseStudy(slug: string): Promise<CaseStudy> {
   const res = await fetch(`https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases?slug=${slug}&_embed`, {
     next: { revalidate: 3600 },
@@ -32,7 +37,7 @@ async function getAllCaseStudies(): Promise<CaseStudy[]> {
   return res.json()
 }
 
-export async function generateStaticParams() {
+export async function generateStaticParams(): Promise<Params[]> {
   const caseStudies = await getAllCaseStudies()
 
   return caseStudies.map((cs: CaseStudy) => ({
@@ -40,7 +45,7 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
+export async function generateMetadata({ params }: { params: Params }): Promise<Metadata> {
   const caseStudy = await getCaseStudy(params.slug)
 
   return {
@@ -57,7 +62,8 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   }
 }
 
-export default async function CaseStudyPage({ params }: { params: { slug: string } }) {
+// Use the exact type structure that Next.js expects
+export default async function Page({ params }: { params: Params }) {
   const caseStudy = await getCaseStudy(params.slug)
 
   if (!caseStudy) {

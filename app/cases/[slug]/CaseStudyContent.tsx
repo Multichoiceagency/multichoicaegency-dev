@@ -138,7 +138,7 @@ export default function CaseStudyContent({ content, allCaseStudies }: CaseStudyC
                 </div>
               )}
             </div>
-            </div>
+          </div>
 
           {/* Sidebar - 1/3 width on large screens */}
           <div className="lg:col-span-1">
@@ -200,13 +200,13 @@ export default function CaseStudyContent({ content, allCaseStudies }: CaseStudyC
         </div>
       </div>
 
+      {/* Portfolio and Solutions sections */}
       <div>
         <Portfolio />
-        </div>
-        <div>
+      </div>
+      <div>
         <Oplossingen />
-        </div>
-        </div>
+      </div>
+    </div>
   )
 }
-
