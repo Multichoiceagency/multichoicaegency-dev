@@ -96,7 +96,16 @@ body {
   max-width: 100%;
   overflow-x: hidden;
 }
+/* Add this to your globals.css */
+html {
+  scroll-behavior: smooth;
+}
 
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
 .writing-mode-vertical-rl {
   writing-mode: vertical-rl;
 }

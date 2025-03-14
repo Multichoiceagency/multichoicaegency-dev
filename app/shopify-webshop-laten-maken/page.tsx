@@ -9,7 +9,7 @@ import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 const ShopifyWebshopSEO = () => {
   return (
     <>
-      <NextSeo
+<NextSeo
         title="Shopify Webshop Laten Maken: Bouw Jouw Online Winkel"
         description="Laat jouw Shopify webshop maken door experts. Wij bouwen een gebruiksvriendelijke en converterende Shopify webshop die perfect aansluit bij jouw merk en groeidoelstellingen."
         canonical="https://www.multichoiceagency.nl/shopify-webshop-laten-maken"
@@ -35,7 +35,6 @@ const ShopifyWebshopSEO = () => {
         }}
       />
 
-      {/* Breadcrumb Schema */}
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
@@ -43,7 +42,6 @@ const ShopifyWebshopSEO = () => {
         ]}
       />
 
-      {/* FAQ Schema */}
       <FAQPageJsonLd
         mainEntity={[
           {

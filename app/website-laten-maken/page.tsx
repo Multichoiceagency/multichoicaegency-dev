@@ -22,7 +22,7 @@ const WebsiteLatenMaken = () => {
             'Wil je een website laten maken? Ontdek de voordelen van een professionele website en hoe je de beste webdesigner kiest voor jouw bedrijf. Vraag een offerte aan!',
           images: [
             {
-              url: '/partners/website-laten-maken.png',
+              url: '/website-laten-maken.png',
               width: 1200,
               height: 630,
               alt: 'Website laten maken',
@@ -523,36 +523,8 @@ export default function BackendDevelopment() {
                     Hoeveel Kost een Website Laten Maken?
                     </h1>
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                    De kosten van een website laten maken variëren sterk, afhankelijk van complexiteit, functionaliteiten en de gekozen ontwikkelaar. Gemiddeld kun je rekening houden met de volgende richtprijzen:
+                    De kosten van een website laten maken variëren sterk, afhankelijk van complexiteit, functionaliteiten en aantal functionaliteiten. Gemiddeld kun je rekening houden met de een startbedrag vanaf € 2000 euro.
                     </p>
-                    <section className="dark:bg-white">
-                    <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #ddd" }}>
-                    <thead>
-                      <tr style={{ backgroundColor: "#f4f4f4", textAlign: "left" }}>
-                        <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Type Website</th>
-                        <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Kostenindicatie</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Simpele Onepager (zzp)</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€249- €500</td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard Bedrijfswebsite</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€1.999 - €5.000</td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Webshop / E-commerce</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€2.499 - €10.000+</td>
-                      </tr>
-                      <tr>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Gecodeerde website</td>
-                        <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€6.995 - €20.000+</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  </section>
                   </div>
                 </div>
               </div>

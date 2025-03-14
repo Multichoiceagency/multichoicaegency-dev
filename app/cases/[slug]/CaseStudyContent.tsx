@@ -8,6 +8,8 @@ import ProjectResults from "./ProjectResults"
 import Hero from "./Hero"
 import Portfolio from "@/components/cases-display"
 import Oplossingen from "@/components/oplossingen"
+import { decodeHtml } from "@/utils/decodeHtml"
+// Import the decodeHtml utility from your lib folder
 
 export interface CaseStudy {
   id: number
@@ -48,12 +50,7 @@ export interface CaseStudyContentProps {
   allCaseStudies: CaseStudy[]
 }
 
-// Helper function to decode HTML entities
-const decodeHtml = (html: string): string => {
-  const txt = document.createElement("textarea")
-  txt.innerHTML = html
-  return txt.value
-}
+// Remove the local decodeHtml function definition
 
 export default function CaseStudyContent({ content, allCaseStudies }: CaseStudyContentProps) {
   const { theme } = useTheme()
