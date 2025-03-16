@@ -17,19 +17,19 @@ export function MegaMenuDevelopment({ isOpen, onClose }: DevelopmentMenuProps) {
     {
       icon: <FontAwesomeIcon icon={faCode} className="h-6 w-6" />,
       title: "Frontend Development",
-      description: "Bouw snelle en aantrekkelijke interfaces met moderne technologieën.",
+      description: "Wij Bouwen snelle en aantrekkelijke interfaces met moderne technologieën.",
       href: "/frontend-development",  
     },
     {
       icon: <FontAwesomeIcon icon={faServer} className="h-6 w-6" />,
       title: "Backend Development",
-      description: "Ontwikkel robuuste en schaalbare backend-oplossingen voor elke toepassing.",
+      description: "Wij ontwikkelen robuuste en schaalbare backend-oplossingen voor elke toepassing.",
       href: "/backend-development",  
     },
     {
       icon: <FontAwesomeIcon icon={faChartLine} className="h-6 w-6" />,
       title: "Dashboard Ontwikkeling",
-      description: "Creëer maatwerk dashboards met data-inzichten en interactieve functionaliteiten.",
+      description: "Wij Creëeren maatwerk dashboards met data-inzichten en interactieve functionaliteiten.",
       href: "/dashboard-ontwikkeling", // placeholder link
     },
     {
@@ -59,19 +59,19 @@ export function MegaMenuDevelopment({ isOpen, onClose }: DevelopmentMenuProps) {
     {
       icon: <FontAwesomeIcon icon={faGlobe} className="h-6 w-6" />,
       title: "Webapplicaties",
-      description: "Ontwikkel moderne, responsieve webapplicaties die overal toegankelijk zijn.",
+      description: "Wij ontwikkelen moderne, responsieve webapplicaties die overal toegankelijk zijn.",
       href: "/webapplicaties", // placeholder link
     },
     {
       icon: <FontAwesomeIcon icon={faShoppingCart} className="h-6 w-6" />,
       title: "E-commerce Platformen",
-      description: "Bouw gebruiksvriendelijke en schaalbare e-commerce oplossingen.",
+      description: "Wij bouwen gebruiksvriendelijke en schaalbare e-commerce oplossingen.",
       href: "/e-commerce", // placeholder link
     },
     {
       icon: <FontAwesomeIcon icon={faCloud} className="h-6 w-6" />,
       title: "Portalen en Platformen",
-      description: "Ontwikkel portalen en platformen voor interne en externe samenwerking.",
+      description: "Wij ontwikkelen portalen en platformen voor interne en externe samenwerking.",
       href: "/portalen-platformen", // placeholder link
     },
     {
@@ -89,7 +89,7 @@ export function MegaMenuDevelopment({ isOpen, onClose }: DevelopmentMenuProps) {
     {
       icon: <FontAwesomeIcon icon={faCalendarAlt} className="h-6 w-6" />,
       title: "Planning en Rooster Systemen",
-      description: "Implementeer tools voor efficiënte planning en tijdbeheer.",
+      description: "Wij mplementeren tools voor efficiënte planning en tijdbeheer.",
       href: "/planning-rooster", // placeholder link
     },
   ];

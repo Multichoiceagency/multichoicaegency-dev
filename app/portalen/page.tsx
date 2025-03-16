@@ -2,7 +2,6 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import { motion } from "framer-motion"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import {
@@ -21,8 +20,7 @@ import {
   faDatabase,
 } from "@fortawesome/free-solid-svg-icons"
 import { Button } from "@/components/ui/button"
-import { NextSeo } from "next-seo"
-import { decodeHtml } from "@/utils/decodeHtml"
+import { BreadcrumbJsonLd, NextSeo } from "next-seo"
 import { faReact, faNodeJs, faPython, faPhp, faLaravel, faVuejs, faAngular, faJs, faAws } from "@fortawesome/free-brands-svg-icons"
 import Portfolio from "@/components/cases-display"
 import Oplossingen from "@/components/oplossingen"
@@ -155,28 +153,37 @@ export default function PortalenPage() {
 
   return (
     <>
-      <NextSeo
-        title={decodeHtml("Digitale Portalen op Maat | Multichoice Agency")}
-        description={decodeHtml(
-          "Verhoog efficiëntie en verbeter samenwerking met op maat gemaakte digitale portalen voor leden, klanten, medewerkers en partners."
-        )}
+<NextSeo
+        title="Digitale Portalen en systemen op Maat | Multichoiceagency"
+        description="Verhoog efficiëntie en verbeter samenwerking met op maat gemaakte digitale portalen voor leden, klanten, medewerkers en partners"
         canonical="https://www.multichoiceagency.nl/portalen"
         openGraph={{
-          type: "website",
-          url: "https://www.multichoiceagency.nl/portalen",
-          title: decodeHtml("Digitale Portalen op Maat | Multichoice Agency"),
-          description: decodeHtml(
-            "Verhoog efficiëntie en verbeter samenwerking met op maat gemaakte digitale portalen voor leden, klanten, medewerkers en partners."
-          ),
+          type: 'website',
+          url: 'https://www.multichoiceagency.nl/portalen',
+          title: 'Portalen en Platformen | Digitale Oplossingen op Maat',
+          description:
+            'Verhoog efficiëntie en verbeter samenwerking met op maat gemaakte digitale portalen voor leden, klanten, medewerkers en partners',
           images: [
             {
-              url: "/partners/portalen.png",
+              url: '/partners/portalen.png',
               width: 1200,
               height: 630,
-              alt: "Digitale Portalen",
+              alt: 'Portalen en Platformen',
             },
           ],
         }}
+        twitter={{
+          handle: '@jouwtwitterhandle',
+          site: '@jouwtwitterhandle',
+          cardType: 'summary_large_image',
+        }}
+      />
+
+      <BreadcrumbJsonLd
+        itemListElements={[
+          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
+          { position: 2, name: 'Portalen en Platformen', item: 'https://www.multichoiceagency.nl/portalen' },
+        ]}
       />
 
       {/* Hero Section */}

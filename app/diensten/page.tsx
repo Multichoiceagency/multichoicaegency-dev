@@ -60,24 +60,30 @@ const sections = [
     ],
   },
   {
-    title: "Ontwikkeling",
+    title: "Development",
     services: [
       {
         id: "frontend-development",
         title: "Frontend Development",
-        description: "Bouw snelle en aantrekkelijke interfaces met moderne technologieën.",
+        description: "Wij bouwen snelle en aantrekkelijke interfaces met moderne technologieën.",
         url: "/frontend-development",
       },
       {
         id: "backend-development",
         title: "Backend Development",
-        description: "Ontwikkel robuuste en schaalbare backend-oplossingen voor elke toepassing.",
+        description: "Wij ontwikkelen robuuste en schaalbare backend-oplossingen voor elke toepassing.",
         url: "/backend-development",
+      },
+      {
+        id: "app-development",
+        title: "App Development",
+        description: "Van website naar app development, wij kunnen uw website eenvoudig omzetten naar een app mits die gecodeerd is.",
+        url: "/app-development",
       },
       {
         id: "dashboard-ontwikkeling",
         title: "Dashboard Ontwikkeling",
-        description: "Creëer maatwerk dashboards met data-inzichten en interactieve functionaliteiten.",
+        description: "Wij Creëeren maatwerk dashboards met data-inzichten en interactieve functionaliteiten.",
         url: "/dashboard-ontwikkeling",
       },
       {
@@ -107,7 +113,7 @@ const sections = [
       {
         id: "webapplicaties",
         title: "Webapplicaties",
-        description: "Ontwikkel moderne, responsieve webapplicaties die overal toegankelijk zijn.",
+        description: "Wij ontwikkelen moderne, responsieve webapplicaties die overal toegankelijk zijn.",
         url: "/webapplicaties",
       },
       {
@@ -285,18 +291,15 @@ export default function DienstenPage() {
   return (
     <>
       <NextSeo
-        title={decodeHtml("Onze Diensten | Multichoice Agency")}
-        description={decodeHtml(
-          "Ontdek ons uitgebreide aanbod van digitale diensten, van webdesign en development tot portalen en branchespecifieke oplossingen.",
-        )}
+        title="Onze Diensten | Multichoice Agency"
+        description="Ontdek ons uitgebreide aanbod van digitale diensten, van webdesign en development tot portalen en branchespecifieke oplossingen."
         canonical="https://www.multichoiceagency.nl/diensten"
         openGraph={{
           type: "website",
           url: "https://www.multichoiceagency.nl/diensten",
-          title: decodeHtml("Onze Diensten | Multichoice Agency"),
-          description: decodeHtml(
+          title: "Onze Diensten | Multichoice Agency",
+          description:
             "Ontdek ons uitgebreide aanbod van digitale diensten, van webdesign en development tot portalen en branchespecifieke oplossingen.",
-          ),
           images: [
             {
               url: "/partners/diensten.png",
@@ -307,6 +310,7 @@ export default function DienstenPage() {
           ],
         }}
       />
+
 
       <section className="relative bg-[#FCF4EB] dark:bg-gray-900">
         <HeroNieuw

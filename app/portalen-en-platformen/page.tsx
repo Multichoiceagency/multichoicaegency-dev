@@ -38,8 +38,8 @@ export default function PortalenPlatformenPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      {/* SEO & Schema */}
+<>
+    {/* SEO & Schema */}
       <NextSeo
         title="Portalen en Platformen | Digitale Oplossingen op Maat"
         description="Ontdek hoe op maat gemaakte digitale portalen en platformen uw bedrijfsprocessen stroomlijnen en de klantbeleving optimaliseren. Wij ontwikkelen schaalbare en geïntegreerde oplossingen voor moderne organisaties."
@@ -400,6 +400,6 @@ export default function PortalenPlatformenPage() {
           </Link>
         </div>
       </section>
-    </div>
+</>
   )
 }

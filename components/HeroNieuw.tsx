@@ -63,7 +63,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({
         </div>
 
         {/* Black overlay */}
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-50"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-10"></div>
 
         {/* Content overlay */}
         <div className="relative z-10 container mx-auto px-4">

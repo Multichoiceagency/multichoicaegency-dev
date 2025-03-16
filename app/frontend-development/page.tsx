@@ -43,8 +43,8 @@ export default function FrontendDevelopmentPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      <NextSeo
+      <>
+    <NextSeo
         title="Frontend Development | Moderne, Responsive Webapplicaties"
         description="Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën."
         canonical="https://www.multichoiceagency.nl/frontend-development"
@@ -62,11 +62,6 @@ export default function FrontendDevelopmentPage() {
               alt: 'Frontend Development',
             },
           ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
         }}
       />
 
@@ -119,6 +114,7 @@ export default function FrontendDevelopmentPage() {
           "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
         }
       />
+      
 
       {/* Overige Sectie met Extra Informatie en Video */}
       <section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
@@ -432,6 +428,6 @@ export default function FrontendDevelopmentPage() {
           </Link>
         </div>
       </section>
-    </div>
+      </>
   )
 }

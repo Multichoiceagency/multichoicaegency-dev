@@ -1,7 +1,6 @@
 import { notFound } from "next/navigation"
 import type { Metadata } from "next"
 import CaseStudyContent, { type CaseStudyContentProps, type CaseStudy } from "./CaseStudyContent"
-//@ts-nocheck
 // Remove the Params type definition
 
 async function getCaseStudy(slug: string): Promise<CaseStudy> {
