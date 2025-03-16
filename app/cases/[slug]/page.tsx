@@ -1,7 +1,5 @@
 import { notFound } from "next/navigation"
-import type { Metadata } from "next"
 import CaseStudyContent, { type CaseStudyContentProps, type CaseStudy } from "./CaseStudyContent"
-// Remove the Params type definition
 
 async function getCaseStudy(slug: string): Promise<CaseStudy> {
   const res = await fetch(`https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases?slug=${slug}&_embed`, {
@@ -41,34 +39,13 @@ export async function generateStaticParams() {
   }))
 }
 
-export async function generateMetadata({ 
-  params 
-}: { 
-  params: { slug: string } 
-}): Promise<Metadata> {
-  const caseStudy = await getCaseStudy(params.slug)
-
-  return {
-    title: `${caseStudy.title.rendered} | MultiChoice Agency`,
-    description: caseStudy.excerpt.rendered.replace(/<[^>]*>/g, "").slice(0, 160),
-    openGraph: {
-      title: caseStudy.title.rendered,
-      description: caseStudy.excerpt.rendered.replace(/<[^>]*>/g, "").slice(0, 160),
-      images: caseStudy._embedded?.["wp:featuredmedia"]?.[0]?.source_url
-        ? [{ url: caseStudy._embedded["wp:featuredmedia"][0].source_url }]
-        : [],
-      type: "article",
-    },
-  }
+// Fix the type definition by using the correct interface
+type PageProps = {
+  params: { slug: string }
+  searchParams?: Record<string, string | string[] | undefined>
 }
 
-// Change the page component to use a different pattern
-export default function Page(props: any) {
-  return <PageContent {...props} />
-}
-
-// Move the async logic to a separate component
-async function PageContent({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: PageProps) {
   const caseStudy = await getCaseStudy(params.slug)
 
   if (!caseStudy) {
@@ -86,3 +63,4 @@ async function PageContent({ params }: { params: { slug: string } }) {
 }
 
 export const dynamic = "force-static"
+
