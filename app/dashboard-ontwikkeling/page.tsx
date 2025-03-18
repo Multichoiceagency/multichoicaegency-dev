@@ -63,8 +63,7 @@ export default function DashboardOntwikkeling() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Dashboard Ontwikkeling & Data Visualisatie"}
         description={
           "Transformeer uw ruwe data in overzichtelijke, interactieve dashboards die realtime analyses en rapportages mogelijk maken. Onze op maat gemaakte oplossingen ondersteunen uw besluitvormingsproces en versterken uw bedrijfsstrategie."
@@ -373,6 +372,6 @@ export default function DashboardOntwikkeling() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import Image from "next/image"
-import { PricingTable } from "@/components/pricing-table"
 
 export default function Salesportaal() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -63,8 +62,7 @@ export default function Salesportaal() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Salesportaal & Digitale Verkoopoptimalisatie"}
         description={
           "Versterk uw verkoopteam met een geïntegreerd salesportaal dat leadbeheer, ordertracking en realtime rapportages combineert. Transformeer uw verkoopproces met een platform dat ontworpen is om efficiëntie en prestaties te verhogen."
@@ -216,6 +214,6 @@ export default function Salesportaal() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

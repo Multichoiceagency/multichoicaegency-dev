@@ -64,8 +64,7 @@ export default function DocumentManagementSystemen() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Document Management Systemen & Custom Software"}
         description={
           "Beheer uw documenten centraal met op maat gemaakte DMS-oplossingen. Onze systemen optimaliseren uw documentstromen, verbeteren de beveiliging en stroomlijnen uw bedrijfsprocessen."
@@ -83,8 +82,7 @@ export default function DocumentManagementSystemen() {
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
                 <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
-                  Geavanceerde documentoplossingen voor uw organisatie
-                </h1>
+                  Geavanceerde documentoplossingen voor uw organisatie</h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
                   Onze Document Management Systemen centraliseren en beveiligen al uw documenten. Hierdoor creëert u efficiënte workflows en verbetert u de samenwerking binnen uw team.
                 </p>
@@ -500,6 +498,6 @@ export default function DocumentManagementSystemen() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

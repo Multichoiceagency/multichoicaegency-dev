@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
 export default function PortalenPlatformenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -43,70 +42,7 @@ export default function PortalenPlatformenPage() {
   ];
 
   return (
-<>
-    <NextSeo
-        title="Portalen en Platformen | Moderne, Responsive Weboplossingen"
-        description="Ontdek hoe portalen en platformen uw organisatie transformeren. Wij ontwikkelen moderne, veilige en gebruiksvriendelijke digitale omgevingen met de nieuwste technologieën."
-        canonical="https://www.multichoiceagency.nl/portalen-platformen"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/portalen-platformen',
-          title: 'Portalen en Platformen | Moderne, Responsive Weboplossingen',
-          description:
-            'Ontdek hoe portalen en platformen uw organisatie transformeren. Wij ontwikkelen moderne, veilige en gebruiksvriendelijke digitale omgevingen met de nieuwste technologieën.',
-          images: [
-            {
-              url: '/partners/portalen-platformen.png',
-              width: 1200,
-              height: 630,
-              alt: 'Portalen en Platformen',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Portalen en Platformen', item: 'https://www.multichoiceagency.nl/portalen-platformen' },
-        ]}
-      />
-
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom zijn portalen en platformen essentieel?',
-            acceptedAnswerText:
-              'Ze vormen de digitale ruggengraat van moderne organisaties, faciliteren samenwerking, centraliseren informatie en verbeteren de gebruikerservaring.',
-          },
-          {
-            questionName: 'Welke technologieën worden gebruikt?',
-            acceptedAnswerText:
-              'Wij gebruiken moderne tools en frameworks zoals React, Vue en Angular, in combinatie met HTML5, CSS3 en JavaScript voor het bouwen van dynamische en veilige omgevingen.',
-          },
-          {
-            questionName: 'Hoe lang duurt een project gemiddeld?',
-            acceptedAnswerText:
-              'Afhankelijk van de complexiteit en vereisten duurt een project gemiddeld tussen de 6 en 12 weken.',
-          },
-          {
-            questionName: 'Is mijn project volledig responsive?',
-            acceptedAnswerText:
-              'Ja, al onze projecten worden ontwikkeld met een focus op responsiviteit, zodat ze op elk apparaat optimaal functioneren.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning na lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudspakketten om de veiligheid en functionaliteit van uw project te waarborgen.',
-          },
-        ]}
-      />
-
+      <>
       {/* Hero Sectie */}
       <HeroNieuw
         title={"Portalen en Platformen"}

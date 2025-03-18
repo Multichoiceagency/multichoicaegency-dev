@@ -64,8 +64,8 @@ export default function Webapplicaties() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      
+<HeroNieuw
         title={"Webapplicaties & Custom Software"}
         description={
           "Transformeer uw online aanwezigheid met op maat gemaakte webapplicaties. Onze oplossingen verbeteren de interactie met klanten, verhogen de efficiëntie en stimuleren de groei van uw bedrijf."
@@ -503,6 +503,6 @@ export default function Webapplicaties() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

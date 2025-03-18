@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import Image from "next/image"
-import { PricingTable } from "@/components/pricing-table"
 
 export default function Medewerkersportaal() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -53,8 +52,7 @@ export default function Medewerkersportaal() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Medewerkersportaal & Digitale Werkomgeving"}
         description={
           "Versterk uw interne communicatie en HR-processen met een op maat gemaakt medewerkersportaal. Geef uw medewerkers 24/7 toegang tot persoonlijke gegevens, bedrijfsnieuws, en selfservice tools voor een efficiëntere en meer betrokken werkomgeving."
@@ -211,6 +209,6 @@ export default function Medewerkersportaal() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

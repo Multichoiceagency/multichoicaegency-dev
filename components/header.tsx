@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { JSX, useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
@@ -45,11 +45,11 @@ export function Header(): JSX.Element {
   // Ref die we koppelen aan het header-container-element.
   const headerRef = useRef<HTMLDivElement>(null);
 
-  // Gebruik useOutsideClick om menus te sluiten als er buiten de header wordt geklikt.
-  useOutsideClick(headerRef, () => {
-    setActiveMegaMenu(null);
-    setIsMobileMenuOpen(false);
-  });
+// Gebruik useOutsideClick om menus te sluiten als er buiten de header wordt geklikt.
+useOutsideClick(headerRef as React.RefObject<HTMLDivElement>, () => {
+  setActiveMegaMenu(null);
+  setIsMobileMenuOpen(false);
+});
 
   // Scroll-handling om de header te tonen/verbergen.
   useEffect(() => {

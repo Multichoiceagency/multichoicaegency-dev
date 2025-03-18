@@ -58,8 +58,7 @@ export default function LedenportaalVerenigingen() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Ledenportaal voor Verenigingen & Digitaal Lidbeheer"}
         description={
           "Optimaliseer uw ledenbeheer met een modern, gebruiksvriendelijk digitaal portaal. Uw leden hebben altijd toegang tot hun gegevens, kunnen abonnementen beheren en blijven op de hoogte van het laatste verenigingsnieuws."
@@ -249,6 +248,6 @@ export default function LedenportaalVerenigingen() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

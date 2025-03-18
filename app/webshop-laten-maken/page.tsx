@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from "next-seo"
 
 export default function WebshopLatenMaken() {
   const [showContent, setShowContent] = useState(false)
@@ -64,69 +63,6 @@ export default function WebshopLatenMaken() {
 
   return (
 <>
-<NextSeo
-        title="Webshop Laten Maken | Professionele E-commerce Oplossingen"
-        description="Wil je een webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe wij jouw online verkoop kunnen stimuleren. Vraag een offerte aan!"
-        canonical="https://www.multichoiceagency.nl/webshop-laten-maken"
-        openGraph={{
-          type: "website",
-          url: "https://www.multichoiceagency.nl/webshop-laten-maken",
-          title: "Webshop Laten Maken | Professionele E-commerce Oplossingen",
-          description:
-            "Wil je een webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe wij jouw online verkoop kunnen stimuleren. Vraag een offerte aan!",
-          images: [
-            {
-              url: "/partners/webshop-laten-maken.png",
-              width: 1200,
-              height: 630,
-              alt: "Webshop laten maken",
-            },
-          ],
-        }}
-        twitter={{
-          handle: "@jouwtwitterhandle",
-          site: "@jouwtwitterhandle",
-          cardType: "summary_large_image",
-        }}
-      />
-
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: "Home", item: "https://www.multichoiceagency.nl" },
-          { position: 2, name: "Webshop Laten Maken", item: "https://www.multichoiceagency.nl/webshop-laten-maken" },
-        ]}
-      />
-
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: "Waarom is een professionele webshop belangrijk?",
-            acceptedAnswerText:
-              "Een professionele webshop vergroot je online verkoopkansen, verbetert klantvertrouwen en verhoogt conversies. Het biedt een professionele uitstraling en helpt je beter gevonden te worden in zoekmachines.",
-          },
-          {
-            questionName: "Hoe lang duurt het om een webshop te laten maken?",
-            acceptedAnswerText:
-              "Een standaard webshop kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.",
-          },
-          {
-            questionName: "Is een mobiele versie van de webshop inbegrepen?",
-            acceptedAnswerText:
-              "Ja, alle webshops die wij ontwikkelen zijn 100% responsive en geoptimaliseerd voor mobiele apparaten, tablets en desktops.",
-          },
-          {
-            questionName: "Welke betaalmethoden kunnen worden geïntegreerd?",
-            acceptedAnswerText:
-              "We kunnen je webshop koppelen aan alle gangbare betaalsystemen zoals iDEAL, PayPal, creditcards en andere populaire betaalmethoden.",
-          },
-          {
-            questionName: "Bieden jullie onderhoud en support na de lancering?",
-            acceptedAnswerText:
-              "Ja, we bieden verschillende onderhoudspakketten, inclusief beveiligingsupdates, back-ups en technische ondersteuning.",
-          },
-        ]}
-      />
-
       <HeroNieuw
         title={"Webshop laten maken"}
         description={"Webshop laten maken? Bij Multichoiceagency vind je de webshop die bij jou past."}

@@ -64,8 +64,8 @@ export default function BackendDevelopment() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+        <>     
+        <HeroNieuw
         title={"Backend Development & Custom Software"}
         description={
           "Versterk uw digitale infrastructuur met krachtige backend oplossingen. Onze expertise in backend development en custom software zorgt voor schaalbare, veilige en efficiënte systemen die uw bedrijf naar het volgende niveau tillen. Ontdek hoe wij uw ideeën kunnen omzetten in robuuste digitale realiteit."
@@ -503,7 +503,7 @@ export default function BackendDevelopment() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 

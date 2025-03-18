@@ -3,15 +3,12 @@
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
-import Image from "next/image"
-import { PricingTable } from "@/components/pricing-table"
 
 export default function Leveranciersportaal() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Leveranciersportaal & Efficiënt Leveranciersmanagement"}
         description={
           "Optimaliseer uw supply chain met een centraal digitaal platform dat de samenwerking met uw leveranciers stroomlijnt. Beheer orders, deel cruciale documenten en houd realtime inzicht in de leveringsstatussen."
@@ -79,6 +76,6 @@ export default function Leveranciersportaal() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

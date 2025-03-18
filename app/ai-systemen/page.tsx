@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
 export default function AIGeoptimaliseerdeSystemenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -39,39 +38,6 @@ export default function AIGeoptimaliseerdeSystemenPage() {
 
   return (
     <>
-      <NextSeo
-        title="AI Geoptimaliseerde Systemen | Innovatieve AI-oplossingen voor uw Bedrijf"
-        description="Ontdek hoe AI-geoptimaliseerde systemen uw bedrijfsprocessen transformeren. Onze op maat gemaakte AI-oplossingen analyseren data, optimaliseren processen en verhogen de efficiëntie."
-        canonical="https://www.multichoiceagency.nl/ai-geoptimaliseerde-systemen"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/ai-geoptimaliseerde-systemen',
-          title: 'AI Geoptimaliseerde Systemen | Innovatieve AI-oplossingen voor uw Bedrijf',
-          description:
-            'Ontdek hoe AI-geoptimaliseerde systemen uw bedrijfsprocessen transformeren. Onze op maat gemaakte AI-oplossingen analyseren data, optimaliseren processen en verhogen de efficiëntie.',
-          images: [
-            {
-              url: '/partners/ai-geoptimaliseerde-systemen.png',
-              width: 1200,
-              height: 630,
-              alt: 'AI Geoptimaliseerde Systemen',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'AI Geoptimaliseerde Systemen', item: 'https://www.multichoiceagency.nl/ai-geoptimaliseerde-systemen' },
-        ]}
-      />
-
       {/* Hero Sectie met Video */}
       <HeroNieuw
         title={"AI Geoptimaliseerde Systemen"}

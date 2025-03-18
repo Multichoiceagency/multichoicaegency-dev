@@ -63,8 +63,7 @@ export default function EcommercePlatformen() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"E-commerce Platformen & Online Winkel Oplossingen"}
         description={
           "Versterk uw online verkoop met een op maat gemaakt e-commerce platform. Of u nu kiest voor Nuxt.js, Shopify, WooCommerce of Magento, onze oplossingen bieden een krachtige, veilige en schaalbare winkelervaring."
@@ -397,6 +396,6 @@ export default function EcommercePlatformen() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

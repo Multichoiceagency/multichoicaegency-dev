@@ -1,65 +1,39 @@
-const { createServer: createHttpServer } = require('http')
-const { createServer: createHttpsServer } = require('https')
+const { createServer } = require('http')
 const { parse } = require('url')
 const next = require('next')
-const fs = require('fs')
-const path = require('path')
-
+ 
 const dev = process.env.NODE_ENV !== 'production'
-// Correct hostname format - just the domain without protocol or trailing slash
+// Fix: Use just the domain name without protocol
 const hostname = dev ? 'localhost' : 'multichoiceagency.nl'
-const port = process.env.PORT || (dev ? 3000 : 443)
+const port = process.env.PORT || 3000
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
-
+ 
 app.prepare().then(() => {
-  let server
-
-  if (dev) {
-    // Use HTTP for development
-    server = createHttpServer(async (req, res) => {
-      try {
-        const parsedUrl = parse(req.url, true)
+  createServer(async (req, res) => {
+    try {
+      const parsedUrl = parse(req.url, true)
+      const { pathname, query } = parsedUrl
+ 
+      if (pathname === '/a') {
+        await app.render(req, res, '/a', query)
+      } else if (pathname === '/b') {
+        await app.render(req, res, '/b', query)
+      } else {
         await handle(req, res, parsedUrl)
-      } catch (err) {
-        console.error('Error occurred handling', req.url, err)
-        res.statusCode = 500
-        res.end('internal server error')
       }
-    })
-  } else {
-    // Use HTTPS for production with SSL certificates
-    const httpsOptions = {
-      key: fs.readFileSync(path.join(process.cwd(), 'certificates/privkey.pem')),
-      cert: fs.readFileSync(path.join(process.cwd(), 'certificates/fullchain.pem'))
+    } catch (err) {
+      console.error('Error occurred handling', req.url, err)
+      res.statusCode = 500
+      res.end('internal server error')
     }
-
-    server = createHttpsServer(httpsOptions, async (req, res) => {
-      try {
-        const parsedUrl = parse(req.url, true)
-        await handle(req, res, parsedUrl)
-      } catch (err) {
-        console.error('Error occurred handling', req.url, err)
-        res.statusCode = 500
-        res.end('internal server error')
-      }
+  })
+    .once('error', (err) => {
+      console.error(err)
+      process.exit(1)
     })
-
-    // Optional: Redirect HTTP to HTTPS
-    createHttpServer((req, res) => {
-      res.writeHead(301, { 
-        Location: `https://${hostname}${req.url}` 
-      })
-      res.end()
-    }).listen(80)
-  }
-
-  server.once('error', (err) => {
-    console.error(err)
-    process.exit(1)
-  })
-
-  server.listen(port, () => {
-    console.log(`> Ready on ${dev ? 'http' : 'https'}://${hostname}:${port}`)
-  })
+    .listen(port, () => {
+      // Fix: Use correct URL format in log
+      console.log(`> Ready on http://${hostname}:${port}`)
+    })
 })

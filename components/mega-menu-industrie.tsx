@@ -17,6 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { JSX } from "react";
 
 interface Direction {
   icon: JSX.Element;

@@ -63,8 +63,7 @@ export default function Klantenportaal() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Klantenportaal & Digitale Klantenservice"}
         description={
           "Verbeter de klanttevredenheid en optimaliseer uw serviceprocessen met een modern klantenportaal. Uw klanten krijgen 24/7 toegang tot hun account, bestellingen en support, waardoor u een efficiënte, transparante en persoonlijke service kunt bieden."
@@ -254,6 +253,6 @@ export default function Klantenportaal() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

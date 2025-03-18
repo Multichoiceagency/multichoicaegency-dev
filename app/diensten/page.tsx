@@ -2,8 +2,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
 import HeroNieuw from "@/components/HeroNieuw"
-import { NextSeo } from "next-seo"
-import { decodeHtml } from "@/utils/decodeHtml"
 
 const sections = [
   {
@@ -290,28 +288,6 @@ const sections = [
 export default function DienstenPage() {
   return (
     <>
-      <NextSeo
-        title="Onze Diensten | Multichoice Agency"
-        description="Ontdek ons uitgebreide aanbod van digitale diensten, van webdesign en development tot portalen en branchespecifieke oplossingen."
-        canonical="https://www.multichoiceagency.nl/diensten"
-        openGraph={{
-          type: "website",
-          url: "https://www.multichoiceagency.nl/diensten",
-          title: "Onze Diensten | Multichoice Agency",
-          description:
-            "Ontdek ons uitgebreide aanbod van digitale diensten, van webdesign en development tot portalen en branchespecifieke oplossingen.",
-          images: [
-            {
-              url: "/partners/diensten.png",
-              width: 1200,
-              height: 630,
-              alt: "Multichoice Agency Diensten",
-            },
-          ],
-        }}
-      />
-
-
       <section className="relative bg-[#FCF4EB] dark:bg-gray-900">
         <HeroNieuw
           title={"Bouw Samen Met Ons Aan Jouw Digitale Toekomst"}

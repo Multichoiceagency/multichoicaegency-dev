@@ -12,6 +12,7 @@ import {
   faChartBar,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "./ui/button";
+import { JSX } from "react";
 
 interface Portal {
   icon: JSX.Element;

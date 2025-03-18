@@ -63,8 +63,7 @@ export default function MarketingAutomatisering() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Marketing Automatisering & Geautomatiseerde Campagnes"}
         description={
           "Boost uw marketinginspanningen met geavanceerde automatiseringsoplossingen. Onze systemen stroomlijnen uw campagnes, verbeteren klantinteracties en optimaliseren uw ROI."
@@ -373,6 +372,6 @@ export default function MarketingAutomatisering() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

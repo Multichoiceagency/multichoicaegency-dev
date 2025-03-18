@@ -4,75 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
-
-const MaatwerkWebsitesSEO = () => {
-  return (
-    <>
-    <NextSeo
-      title="Maatwerk Websites: Op Maat Gemaakt voor Jouw Bedrijf"
-      description="Ontdek onze maatwerk websites, volledig afgestemd op de unieke behoeften van jouw bedrijf. Hoogwaardige, op maat gemaakte oplossingen die presteren."
-      canonical="https://www.multichoiceagency.nl/maatwerk-websites"
-      openGraph={{
-        type: "website",
-        url: "https://www.multichoiceagency.nl/maatwerk-websites",
-        title: "Maatwerk Websites: Op Maat Gemaakt voor Jouw Bedrijf",
-        description:
-          "Ontdek onze maatwerk websites, volledig afgestemd op de unieke behoeften van jouw bedrijf. Hoogwaardige, op maat gemaakte oplossingen die presteren.",
-
-        images: [
-          {
-            url: "/partners/maatwerk-websites.png",
-            width: 1200,
-            height: 630,
-            alt: "Maatwerk Websites",
-          },
-        ],
-      }}
-      twitter={{
-        handle: "@jouwtwitterhandle",
-        site: "@jouwtwitterhandle",
-        cardType: "summary_large_image",
-      }}
-    />
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Maatwerk Websites', item: 'https://www.multichoiceagency.nl/maatwerk-website-laten-maken' },
-        ]}
-      />
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Wat is een maatwerk website?',
-            acceptedAnswerText:
-              'Een maatwerk website is volledig ontworpen en ontwikkeld volgens de specifieke wensen van jouw bedrijf, zonder gebruik te maken van standaard templates.',
-          },
-          {
-            questionName: 'Waarom kiezen voor een maatwerk website?',
-            acceptedAnswerText:
-              'Maatwerk websites bieden volledige flexibiliteit, unieke ontwerpen en functionaliteiten die precies aansluiten op jouw bedrijfsdoelen, wat resulteert in een hogere gebruikerservaring en conversie.',
-          },
-          {
-            questionName: 'Hoe lang duurt het om een maatwerk website te ontwikkelen?',
-            acceptedAnswerText:
-              'De ontwikkeltijd varieert afhankelijk van de complexiteit, maar meestal duurt een maatwerk website tussen de 4 en 12 weken.',
-          },
-          {
-            questionName: 'Wat zijn de voordelen van een maatwerk website?',
-            acceptedAnswerText:
-              'Voordelen zijn onder andere een uniek design, optimale performance, verbeterde SEO en de mogelijkheid om precies de functionaliteiten te integreren die jouw bedrijf nodig heeft.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning en onderhoud na de lancering?',
-            acceptedAnswerText:
-              'Ja, we bieden diverse onderhouds- en supportpakketten om ervoor te zorgen dat jouw website veilig en up-to-date blijft.',
-          },
-        ]}
-      />
-    </>
-  );
-};
 
 export default function MaatwerkWebsitesPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -121,9 +52,7 @@ export default function MaatwerkWebsitesPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      <MaatwerkWebsitesSEO />
-      
+    <>      
       <HeroNieuw
         title={"Maatwerk Websites"}
         description={
@@ -433,6 +362,6 @@ export default function MaatwerkWebsitesPage() {
           </div>
         </div>
       </section>
-    </div>              
+    </>              
   )
 }

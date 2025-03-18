@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
 export default function PortalenPlatformenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -38,48 +37,7 @@ export default function PortalenPlatformenPage() {
   ];
 
   return (
-<>
-    {/* SEO & Schema */}
-      <NextSeo
-        title="Portalen en Platformen | Digitale Oplossingen op Maat"
-        description="Ontdek hoe op maat gemaakte digitale portalen en platformen uw bedrijfsprocessen stroomlijnen en de klantbeleving optimaliseren. Wij ontwikkelen schaalbare en geïntegreerde oplossingen voor moderne organisaties."
-        canonical="https://www.multichoiceagency.nl/portalen-en-platformen"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/portalen-en-platformen',
-          title: 'Portalen en Platformen | Digitale Oplossingen op Maat',
-          description:
-            'Ontdek hoe op maat gemaakte digitale portalen en platformen uw bedrijfsprocessen stroomlijnen en de klantbeleving optimaliseren. Wij ontwikkelen schaalbare en geïntegreerde oplossingen voor moderne organisaties.',
-          images: [
-            {
-              url: '/partners/portalen-en-platformen.png',
-              width: 1200,
-              height: 630,
-              alt: 'Portalen en Platformen',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Portalen en Platformen', item: 'https://www.multichoiceagency.nl/portalen-en-platformen' },
-        ]}
-      />
-
-      <FAQPageJsonLd
-        mainEntity={faqItems.map(item => ({
-          questionName: item.question,
-          acceptedAnswerText: item.answer,
-        }))}
-      />
-
+      <>
       {/* Hero Sectie met Video */}
       <HeroNieuw
         title={"Portalen en Platformen"}

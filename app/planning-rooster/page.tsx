@@ -1,10 +1,9 @@
-"use client";
+"use client"
 
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
 export default function PlanningRoosterSystemenPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -35,49 +34,12 @@ export default function PlanningRoosterSystemenPage() {
       answer:
         "Ja, we bieden uitgebreide support- en onderhoudpakketten om ervoor te zorgen dat uw planning en rooster systeem altijd up-to-date blijft en optimaal functioneert.",
     },
-  ];
+  ]
 
   return (
-<>
-    <NextSeo
-        title="Planning en Rooster Systemen | Efficiënte Personeelsplanning"
-        description="Optimaliseer uw organisatie met geavanceerde planning en rooster systemen. Onze op maat gemaakte oplossingen zorgen voor efficiënte personeelsplanning, resource allocatie en realtime roosters."
-        canonical="https://www.multichoiceagency.nl/planning-rooster-systemen"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/planning-rooster-systemen',
-          title: 'Planning en Rooster Systemen | Efficiënte Personeelsplanning',
-          description:
-            'Optimaliseer uw organisatie met geavanceerde planning en rooster systemen. Onze op maat gemaakte oplossingen zorgen voor efficiënte personeelsplanning, resource allocatie en realtime roosters.',
-          images: [
-            {
-              url: '/partners/planning-rooster-systemen.png',
-              width: 1200,
-              height: 630,
-              alt: 'Planning en Rooster Systemen',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Planning en Rooster Systemen', item: 'https://www.multichoiceagency.nl/planning-rooster-systemen' },
-        ]}
-      />
-
-      <FAQPageJsonLd
-        mainEntity={faqItems.map(item => ({
-          questionName: item.question,
-          acceptedAnswerText: item.answer,
-        }))}
-      />
+    <>
+      {/* Remove NextSeo, BreadcrumbJsonLd, and FAQPageJsonLd components */}
+      {/* Instead, use metadata in layout.tsx or add a separate metadata.ts file */}
 
       {/* Hero Sectie met Video */}
       <HeroNieuw
@@ -100,7 +62,10 @@ export default function PlanningRoosterSystemenPage() {
                 Waarom kiezen voor een planning- en rooster systeem?
               </h2>
               <p className="text-lg text-gray-700 mb-6 dark:text-white">
-                Een efficiënt planningssysteem helpt organisaties om medewerkers, taken en resources optimaal in te plannen. Dit vermindert administratieve lasten, verhoogt de productiviteit en zorgt voor een betere afstemming tussen werk en capaciteit. Met realtime updates en geautomatiseerde processen bespaart u tijd en voorkomt u fouten.
+                Een efficiënt planningssysteem helpt organisaties om medewerkers, taken en resources optimaal in te
+                plannen. Dit vermindert administratieve lasten, verhoogt de productiviteit en zorgt voor een betere
+                afstemming tussen werk en capaciteit. Met realtime updates en geautomatiseerde processen bespaart u tijd
+                en voorkomt u fouten.
               </p>
               <Link
                 href="/offerte-aanvragen"
@@ -111,13 +76,7 @@ export default function PlanningRoosterSystemenPage() {
             </div>
             {/* Video Kolom */}
             <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
-              <video
-                className="w-full h-full object-contain rounded-md"
-                autoPlay
-                loop
-                muted
-                playsInline
-              >
+              <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                 <source
                   src="https://cdn.dribbble.com/userupload/36847666/file/large-a9fa4720103b422627a0028f8083160e.mp4"
                   type="video/mp4"
@@ -137,31 +96,68 @@ export default function PlanningRoosterSystemenPage() {
           </h2>
           <div className="text-lg text-gray-700 dark:text-gray-300 space-y-6">
             <p>
-              In een dynamische en snel veranderende markt is een goed georganiseerd rooster van cruciaal belang voor elk bedrijf. Planning en rooster systemen stellen organisaties in staat om de inzet van personeel en resources nauwkeurig te beheren. Deze systemen bieden niet alleen overzicht, maar maken het ook mogelijk om snel in te spelen op onverwachte veranderingen, zoals ziekte of piekdrukte. Hierdoor kunnen bedrijven efficiënter werken en blijven zij wendbaar in een concurrerende omgeving.
+              In een dynamische en snel veranderende markt is een goed georganiseerd rooster van cruciaal belang voor
+              elk bedrijf. Planning en rooster systemen stellen organisaties in staat om de inzet van personeel en
+              resources nauwkeurig te beheren. Deze systemen bieden niet alleen overzicht, maar maken het ook mogelijk
+              om snel in te spelen op onverwachte veranderingen, zoals ziekte of piekdrukte. Hierdoor kunnen bedrijven
+              efficiënter werken en blijven zij wendbaar in een concurrerende omgeving.
             </p>
             <p>
-              Een belangrijk aspect van deze systemen is de mogelijkheid om alle planning centraal te beheren. In plaats van gebruik te maken van losse spreadsheets of handmatige processen, bundelt een modern planningssysteem alle relevante informatie op één plek. Dit zorgt voor een helder overzicht van de beschikbaarheid van medewerkers, geplande diensten en de verdeling van taken. Door deze centralisatie worden fouten verminderd en kan er snel worden bijgestuurd wanneer dat nodig is.
+              Een belangrijk aspect van deze systemen is de mogelijkheid om alle planning centraal te beheren. In plaats
+              van gebruik te maken van losse spreadsheets of handmatige processen, bundelt een modern planningssysteem
+              alle relevante informatie op één plek. Dit zorgt voor een helder overzicht van de beschikbaarheid van
+              medewerkers, geplande diensten en de verdeling van taken. Door deze centralisatie worden fouten verminderd
+              en kan er snel worden bijgestuurd wanneer dat nodig is.
             </p>
             <p>
-              Automatisering speelt een sleutelrol in planning en rooster systemen. Door routinetaken te automatiseren, zoals het genereren van roosters en het versturen van meldingen, kunnen managers zich richten op strategische beslissingen. Automatisering helpt ook bij het minimaliseren van menselijke fouten, wat leidt tot een efficiënter en betrouwbaarder planningsproces. Met behulp van algoritmes en machine learning kunnen deze systemen voorspellingen doen over de benodigde personeelsbezetting, gebaseerd op historische data en actuele trends.
+              Automatisering speelt een sleutelrol in planning en rooster systemen. Door routinetaken te automatiseren,
+              zoals het genereren van roosters en het versturen van meldingen, kunnen managers zich richten op
+              strategische beslissingen. Automatisering helpt ook bij het minimaliseren van menselijke fouten, wat leidt
+              tot een efficiënter en betrouwbaarder planningsproces. Met behulp van algoritmes en machine learning
+              kunnen deze systemen voorspellingen doen over de benodigde personeelsbezetting, gebaseerd op historische
+              data en actuele trends.
             </p>
             <p>
-              Daarnaast bieden moderne planningssystemen de mogelijkheid tot integratie met andere bedrijfsprocessen. Zo kunnen ze gekoppeld worden aan HR-systemen, zodat verlofaanvragen en ziekteverzuim automatisch in het rooster worden verwerkt. Ook integratie met ERP-systemen maakt het mogelijk om resourceallocatie en productieplanning te optimaliseren. Dit resulteert in een naadloze workflow waarbij alle afdelingen binnen het bedrijf profiteren van de inzichten en automatiseringen die het systeem biedt.
+              Daarnaast bieden moderne planningssystemen de mogelijkheid tot integratie met andere bedrijfsprocessen. Zo
+              kunnen ze gekoppeld worden aan HR-systemen, zodat verlofaanvragen en ziekteverzuim automatisch in het
+              rooster worden verwerkt. Ook integratie met ERP-systemen maakt het mogelijk om resourceallocatie en
+              productieplanning te optimaliseren. Dit resulteert in een naadloze workflow waarbij alle afdelingen binnen
+              het bedrijf profiteren van de inzichten en automatiseringen die het systeem biedt.
             </p>
             <p>
-              Veiligheid en privacy zijn eveneens van groot belang in planning en rooster systemen. Omdat deze systemen vaak gevoelige gegevens bevatten, zoals persoonlijke informatie van medewerkers en bedrijfsdata, is het essentieel dat zij voldoen aan de strengste beveiligingsnormen. Geavanceerde encryptietechnieken, regelmatige updates en strikte toegangscontroles zorgen ervoor dat uw data veilig is en dat alleen bevoegde personen toegang hebben tot de informatie.
+              Veiligheid en privacy zijn eveneens van groot belang in planning en rooster systemen. Omdat deze systemen
+              vaak gevoelige gegevens bevatten, zoals persoonlijke informatie van medewerkers en bedrijfsdata, is het
+              essentieel dat zij voldoen aan de strengste beveiligingsnormen. Geavanceerde encryptietechnieken,
+              regelmatige updates en strikte toegangscontroles zorgen ervoor dat uw data veilig is en dat alleen
+              bevoegde personen toegang hebben tot de informatie.
             </p>
             <p>
-              Een ander voordeel van een modern planningssysteem is de flexibiliteit en schaalbaarheid. Organisaties groeien en veranderen voortdurend, en een systeem dat vandaag perfect werkt, moet morgen nog steeds mee kunnen groeien. Met een schaalbaar systeem kunt u eenvoudig extra functionaliteiten toevoegen of bestaande processen aanpassen naarmate uw bedrijfsbehoeften evolueren. Dit maakt het systeem niet alleen een investering voor de korte termijn, maar ook een duurzame oplossing voor de toekomst.
+              Een ander voordeel van een modern planningssysteem is de flexibiliteit en schaalbaarheid. Organisaties
+              groeien en veranderen voortdurend, en een systeem dat vandaag perfect werkt, moet morgen nog steeds mee
+              kunnen groeien. Met een schaalbaar systeem kunt u eenvoudig extra functionaliteiten toevoegen of bestaande
+              processen aanpassen naarmate uw bedrijfsbehoeften evolueren. Dit maakt het systeem niet alleen een
+              investering voor de korte termijn, maar ook een duurzame oplossing voor de toekomst.
             </p>
             <p>
-              De impact van een efficiënt planningssysteem reikt verder dan alleen de operationele efficiëntie. Het verbetert de tevredenheid en motivatie van medewerkers doordat zij altijd inzicht hebben in hun roosters en snel kunnen reageren op wijzigingen. Dit zorgt voor een betere balans tussen werk en privé, wat op zijn beurt leidt tot een hogere productiviteit en een positieve bedrijfscultuur.
+              De impact van een efficiënt planningssysteem reikt verder dan alleen de operationele efficiëntie. Het
+              verbetert de tevredenheid en motivatie van medewerkers doordat zij altijd inzicht hebben in hun roosters
+              en snel kunnen reageren op wijzigingen. Dit zorgt voor een betere balans tussen werk en privé, wat op zijn
+              beurt leidt tot een hogere productiviteit en een positieve bedrijfscultuur.
             </p>
             <p>
-              Innovatie speelt eveneens een belangrijke rol in de ontwikkeling van planning en rooster systemen. Met de opkomst van cloud computing en mobiele technologieën hebben deze systemen een geheel nieuwe dimensie gekregen. Medewerkers kunnen nu via mobiele apps hun roosters inzien, verlof aanvragen en zelfs in realtime communiceren met hun team. Dit verhoogt de toegankelijkheid en gebruiksvriendelijkheid van het systeem en zorgt voor een meer flexibele en moderne werkomgeving.
+              Innovatie speelt eveneens een belangrijke rol in de ontwikkeling van planning en rooster systemen. Met de
+              opkomst van cloud computing en mobiele technologieën hebben deze systemen een geheel nieuwe dimensie
+              gekregen. Medewerkers kunnen nu via mobiele apps hun roosters inzien, verlof aanvragen en zelfs in
+              realtime communiceren met hun team. Dit verhoogt de toegankelijkheid en gebruiksvriendelijkheid van het
+              systeem en zorgt voor een meer flexibele en moderne werkomgeving.
             </p>
             <p>
-              Samengevat bieden planning en rooster systemen een krachtige oplossing voor de uitdagingen van moderne bedrijfsvoering. Ze centraliseren data, automatiseren repetitieve taken en bieden realtime inzichten, waardoor organisaties beter kunnen plannen, sneller kunnen reageren en efficiënter kunnen werken. Door te investeren in een geavanceerd planningssysteem creëert u niet alleen meer overzicht en efficiëntie, maar versterkt u ook de betrokkenheid en tevredenheid van uw medewerkers. Dit alles resulteert in een robuuste en toekomstbestendige organisatie die klaar is om de uitdagingen van morgen aan te gaan.
+              Samengevat bieden planning en rooster systemen een krachtige oplossing voor de uitdagingen van moderne
+              bedrijfsvoering. Ze centraliseren data, automatiseren repetitieve taken en bieden realtime inzichten,
+              waardoor organisaties beter kunnen plannen, sneller kunnen reageren en efficiënter kunnen werken. Door te
+              investeren in een geavanceerd planningssysteem creëert u niet alleen meer overzicht en efficiëntie, maar
+              versterkt u ook de betrokkenheid en tevredenheid van uw medewerkers. Dit alles resulteert in een robuuste
+              en toekomstbestendige organisatie die klaar is om de uitdagingen van morgen aan te gaan.
             </p>
           </div>
         </div>
@@ -218,9 +214,7 @@ export default function PlanningRoosterSystemenPage() {
                 ].map((service, index) => (
                   <div key={index} className="w-full sm:w-1/2 lg:w-1/3 px-4 mb-12 lg:mb-0">
                     <div className="flex flex-col h-full">
-                      <h5 className="text-2xl font-medium text-white mt-6 mb-3">
-                        {service.title}
-                      </h5>
+                      <h5 className="text-2xl font-medium text-white mt-6 mb-3">{service.title}</h5>
                       <p className="text-gray-400 mb-6">{service.description}</p>
                     </div>
                   </div>
@@ -255,7 +249,9 @@ export default function PlanningRoosterSystemenPage() {
                   >
                     <div className="pr-5">
                       <h5 className="text-lg font-medium">{item.question}</h5>
-                      <div className={`overflow-hidden transition-all duration-300 ${openAccordion === index ? "max-h-96" : "max-h-0"}`}>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${openAccordion === index ? "max-h-96" : "max-h-0"}`}
+                      >
                         <p className="text-gray-700 mt-4">{item.answer}</p>
                       </div>
                     </div>
@@ -301,7 +297,9 @@ export default function PlanningRoosterSystemenPage() {
                   >
                     <div className="pr-5">
                       <h5 className="text-lg font-medium">{item.question}</h5>
-                      <div className={`overflow-hidden transition-all duration-300 ${openAccordion === index + 3 ? "max-h-96" : "max-h-0"}`}>
+                      <div
+                        className={`overflow-hidden transition-all duration-300 ${openAccordion === index + 3 ? "max-h-96" : "max-h-0"}`}
+                      >
                         <p className="text-gray-700 mt-4">{item.answer}</p>
                       </div>
                     </div>
@@ -370,8 +368,7 @@ export default function PlanningRoosterSystemenPage() {
                 <Link href="/contact" className="inline-block text-black font-medium underline">
                   Contactpagina
                 </Link>{" "}
-                bezoeken of bel onze klantenservice op{" "}
-                <span className="text-black font-medium">010 322 04 10</span>.
+                bezoeken of bel onze klantenservice op <span className="text-black font-medium">010 322 04 10</span>.
               </p>
             </div>
           </div>
@@ -383,7 +380,8 @@ export default function PlanningRoosterSystemenPage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-4xl font-bold mb-8">Klaar om uw planning en rooster systemen te optimaliseren?</h2>
           <p className="text-xl mb-12">
-            Ontwikkel een geïntegreerd planningssysteem dat uw organisatie stroomlijnt, uw medewerkers efficiënt inzet en uw bedrijfsprocessen optimaliseert.
+            Ontwikkel een geïntegreerd planningssysteem dat uw organisatie stroomlijnt, uw medewerkers efficiënt inzet
+            en uw bedrijfsprocessen optimaliseert.
           </p>
           <Link
             href="/offerte-aanvragen"
@@ -396,3 +394,4 @@ export default function PlanningRoosterSystemenPage() {
     </>
   )
 }
+

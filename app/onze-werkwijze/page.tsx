@@ -10,8 +10,7 @@ export default function OnzeWerkwijze() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw 
+<>      <HeroNieuw 
         title={"Onze Werkwijze - Het Slimme Stappenplan van Multichoiceagency"}
         description={
           "Ontdek hoe Multichoiceagency uw digitale ambities omzet in realiteit via een gestructureerd en resultaatgericht stappenplan. Wij begeleiden u van de eerste analyse tot aan een succesvolle lancering en nazorg, zodat uw project vanaf de basis solide staat."
@@ -145,6 +144,6 @@ export default function OnzeWerkwijze() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

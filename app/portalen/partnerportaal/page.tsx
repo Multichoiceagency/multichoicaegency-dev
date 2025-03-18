@@ -3,15 +3,12 @@
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
-import Image from "next/image"
-import { PricingTable } from "@/components/pricing-table"
 
 export default function Partnerportaal() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw 
+<>      <HeroNieuw 
         title="Partnerportaal & Strategische Samenwerking" 
         description="Optimaliseer de samenwerking met uw partners via ons geavanceerde digitale portaal. Ontvang realtime updates, deel belangrijke documenten en versterk uw zakelijke relaties met één centrale hub."
         buttonText="Vraag een demo aan"
@@ -77,6 +74,6 @@ export default function Partnerportaal() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

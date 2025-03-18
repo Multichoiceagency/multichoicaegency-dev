@@ -4,78 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
-
-const WebsiteLatenMakenVoorGezondheidszorg = () => {
-  return (
-    <>
-      <NextSeo
-        title="Website Laten Maken voor Gezondheidszorg | Professioneel Webdesign"
-        description="Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en vertrouwen wekt. Vraag een offerte aan!"
-        canonical="https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg',
-          title: 'Website Laten Maken voor Gezondheidszorg | Professioneel Webdesign',
-          description:
-            'Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en vertrouwen wekt. Vraag een offerte aan!',
-          images: [
-            {
-              url: '/partners/website-laten-maken-voor-gezondheidszorg.png',
-              width: 1200,
-              height: 630,
-              alt: 'Website laten maken voor gezondheidszorg',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Website Laten Maken voor Gezondheidszorg', item: 'https://www.multichoiceagency.nl/website-laten-maken-voor-gezondheidszorg' },
-        ]}
-      />
-
-      {/* FAQ Schema */}
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom is een professionele website belangrijk voor de gezondheidszorg?',
-            acceptedAnswerText:
-              'Een professionele website voor gezondheidszorg versterkt de communicatie tussen zorgverleners en patiënten, vergroot het vertrouwen en verbetert de toegankelijkheid van zorginformatie.',
-          },
-          {
-            questionName: 'Hoeveel kost een website laten maken voor gezondheidszorg?',
-            acceptedAnswerText:
-              'De kosten variëren, maar doorgaans liggen de prijzen tussen de €1.499 voor een eenvoudige website tot €10.000+ voor maatwerk, afhankelijk van design, functionaliteiten en integraties.',
-          },
-          {
-            questionName: 'Hoe lang duurt het om een website voor gezondheidszorg te laten maken?',
-            acceptedAnswerText:
-              'Een standaard website kan binnen 2 tot 4 weken worden opgeleverd. Voor complexe maatwerkprojecten kan de ontwikkeling 6 tot 12 weken duren.',
-          },
-          {
-            questionName: 'Is een mobiele versie van de website inbegrepen?',
-            acceptedAnswerText:
-              'Ja, alle websites die wij ontwikkelen, inclusief die voor de gezondheidszorg, zijn 100% responsive en geoptimaliseerd voor alle apparaten.',
-          },
-          {
-            questionName: 'Bieden jullie onderhoud en support na de lancering?',
-            acceptedAnswerText:
-              'Ja, we bieden diverse onderhoudspakketten met beveiligingsupdates, back-ups en technische ondersteuning, zodat uw website altijd optimaal functioneert.',
-          },
-        ]}
-      />      
-    </>
-  );
-};
 
 export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -135,8 +63,7 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
   
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Website laten maken voor gezondheidszorg"}
         description={
           "Wilt u een website laten maken voor gezondheidszorg? Ontdek hoe een professionele website uw zorginstelling versterkt, patiënten beter bedient en het vertrouwen vergroot."
@@ -630,6 +557,6 @@ export default function WebsiteLatenMakenVoorGezondheidszorgPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

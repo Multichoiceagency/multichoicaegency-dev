@@ -4,97 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from "next-seo"
-
-const WooCommerceWebshopSEO = () => {
-  return (
-    <>
-      <NextSeo
-        title="WooCommerce Webshop Laten Maken: Bouw Jouw Online Winkel op WordPress"
-        description="Laat jouw WooCommerce webshop op maat maken. Profiteer van de kracht van WordPress en WooCommerce voor een flexibele, schaalbare en converterende online winkel."
-        canonical="https://www.multichoiceagency.nl/woocommerce-webshop-laten-maken"
-        openGraph={{
-          type: "website",
-          url: "https://www.multichoiceagency.nl/woocommerce-webshop-laten-maken",
-          title: "WooCommerce Webshop Laten Maken: Bouw Jouw Online Winkel op WordPress",
-          description:
-            "Laat jouw WooCommerce webshop op maat maken. Profiteer van de kracht van WordPress en WooCommerce voor een flexibele, schaalbare en converterende online winkel.",
-          images: [
-            {
-              url: "/partners/woocommerce-webshop.png",
-              width: 1200,
-              height: 630,
-              alt: "WooCommerce Webshop Laten Maken",
-            },
-          ],
-        }}
-        twitter={{
-          handle: "@jouwtwitterhandle",
-          site: "@jouwtwitterhandle",
-          cardType: "summary_large_image",
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: "Home", item: "https://www.multichoiceagency.nl" },
-          {
-            position: 2,
-            name: "WooCommerce Webshop Laten Maken",
-            item: "https://www.multichoiceagency.nl/woocommerce-webshop-laten-maken",
-          },
-        ]}
-      />
-
-      {/* FAQ Schema */}
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: "Wat is een WooCommerce webshop?",
-            acceptedAnswerText:
-              "Een WooCommerce webshop is een online winkel gebouwd op WordPress met de WooCommerce plugin, die krachtige e-commerce functionaliteiten biedt.",
-          },
-          {
-            questionName: "Waarom kiezen voor WooCommerce?",
-            acceptedAnswerText:
-              "WooCommerce is flexibel, schaalbaar en volledig geïntegreerd met WordPress, waardoor het een ideale keuze is voor bedrijven die op zoek zijn naar maatwerk en uitgebreide functionaliteiten.",
-          },
-          {
-            questionName: "Hoe lang duurt het om een WooCommerce webshop te laten maken?",
-            acceptedAnswerText:
-              "De ontwikkelingstijd varieert per project, maar gemiddeld duurt een WooCommerce webshop tussen de 6 en 12 weken.",
-          },
-          {
-            questionName: "Kan ik na de lancering zelf de content beheren?",
-            acceptedAnswerText:
-              "Ja, omdat WooCommerce onderdeel is van WordPress, kun je gemakkelijk producten, content en andere elementen zelf beheren.",
-          },
-          {
-            questionName: "Bieden jullie ondersteuning en onderhoud na de lancering?",
-            acceptedAnswerText:
-              "Ja, wij bieden diverse support- en onderhoudpakketten aan om jouw WooCommerce webshop veilig en up-to-date te houden.",
-          },
-          {
-            questionName: "Welke extra functionaliteiten kunnen worden geïntegreerd?",
-            acceptedAnswerText:
-              "Wij kunnen extra integraties realiseren, zoals betalingssystemen, CRM, marketingtools en logistieke oplossingen, zodat jouw webshop volledig op maat wordt gemaakt.",
-          },
-          {
-            questionName: "Hoe zit het met SEO en performance?",
-            acceptedAnswerText:
-              "Onze WooCommerce webshops worden gebouwd met de nieuwste SEO-technieken en optimalisaties voor snelle laadtijden en hoge vindbaarheid in zoekmachines.",
-          },
-          {
-            questionName: "Wat zijn de kosten voor een WooCommerce webshop?",
-            acceptedAnswerText:
-              "De kosten variëren afhankelijk van de complexiteit en jouw wensen. Neem contact met ons op voor een vrijblijvende offerte op maat.",
-          },
-        ]}
-      />
-    </>
-  )
-}
 
 export default function WooCommerceWebshopPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -153,9 +62,7 @@ export default function WooCommerceWebshopPage() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <WooCommerceWebshopSEO />
-
+      <> 
       <HeroNieuw
         title={"WooCommerce Webshop Laten Maken"}
         description={
@@ -669,7 +576,7 @@ export default function WooCommerceWebshopPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 

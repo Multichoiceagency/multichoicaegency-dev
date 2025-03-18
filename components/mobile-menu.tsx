@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { JSX, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
 import { motion, AnimatePresence } from "framer-motion"

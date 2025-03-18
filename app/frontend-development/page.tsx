@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
 export default function FrontendDevelopmentPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -43,65 +42,7 @@ export default function FrontendDevelopmentPage() {
   ];
 
   return (
-      <>
-    <NextSeo
-        title="Frontend Development | Moderne, Responsive Webapplicaties"
-        description="Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën."
-        canonical="https://www.multichoiceagency.nl/frontend-development"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/frontend-development',
-          title: 'Frontend Development | Moderne, Responsive Webapplicaties',
-          description:
-            'Ontdek hoe frontend development uw website transformeert. Wij bouwen moderne, snelle en visueel aantrekkelijke interfaces met de nieuwste technologieën.',
-          images: [
-            {
-              url: '/partners/frontend-development.png',
-              width: 1200,
-              height: 630,
-              alt: 'Frontend Development',
-            },
-          ],
-        }}
-      />
-
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Frontend Development', item: 'https://www.multichoiceagency.nl/frontend-development' },
-        ]}
-      />
-
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom is frontend development belangrijk?',
-            acceptedAnswerText:
-              'De frontend is het visitekaartje van uw website en bepaalt de eerste indruk en gebruikservaring. Een goed ontwikkelde frontend zorgt voor een optimale gebruikerservaring en stimuleert conversies.',
-          },
-          {
-            questionName: 'Welke technologieën worden er gebruikt?',
-            acceptedAnswerText:
-              'Wij werken met moderne tools en frameworks zoals React, Vue en Angular, gecombineerd met HTML5, CSS3 en JavaScript om dynamische en responsive interfaces te bouwen.',
-          },
-          {
-            questionName: 'Hoe lang duurt een frontend project?',
-            acceptedAnswerText:
-              'Afhankelijk van de complexiteit en functionaliteiten duurt een project gemiddeld tussen de 4 en 8 weken.',
-          },
-          {
-            questionName: 'Is mijn website volledig responsive?',
-            acceptedAnswerText:
-              'Ja, wij zorgen ervoor dat al onze frontend projecten volledig responsive zijn en op elk apparaat optimaal functioneren.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning na de lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudpakketten zodat uw website altijd up-to-date blijft en goed presteert.',
-          },
-        ]}
-      />
-
+      <> 
       {/* Hero Sectie */}
       <HeroNieuw
         title={"Frontend Development"}

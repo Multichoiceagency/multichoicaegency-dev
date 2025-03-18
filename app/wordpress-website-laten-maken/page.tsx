@@ -3,7 +3,6 @@
 import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
 export default function WordPressWebsitePage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
@@ -37,48 +36,7 @@ export default function WordPressWebsitePage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      {/* SEO Meta tags */}
-      <NextSeo
-        title="WordPress Website Laten Maken | Professionele WordPress Websites"
-        description="Laat een professionele WordPress website maken, volledig op maat en geoptimaliseerd voor jouw bedrijf. Ontdek de voordelen van een WordPress website."
-        canonical="https://www.multichoiceagency.nl/wordpress-website-laten-maken"
-        openGraph={{
-          url: "https://www.multichoiceagency.nl/wordpress-website-laten-maken",
-          title: "WordPress Website Laten Maken | Professionele WordPress Websites",
-          description:
-            "Laat een professionele WordPress website maken, volledig op maat en geoptimaliseerd voor jouw bedrijf. Ontdek de voordelen van een WordPress website.",
-          images: [
-            {
-              url: "/partners/wordpress-website.png",
-              width: 1200,
-              height: 630,
-              alt: "WordPress Website Laten Maken",
-            },
-          ],
-        }}
-        twitter={{
-          handle: "@jouwtwitterhandle",
-          site: "@jouwtwitterhandle",
-          cardType: "summary_large_image",
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'WordPress Website Laten Maken', item: 'https://www.multichoiceagency.nl/wordpress-website-laten-maken' },
-        ]}
-      />
-
-      {/* FAQ Schema */}
-      <FAQPageJsonLd
-        mainEntity={faqItems.map(item => ({
-          questionName: item.question,
-          acceptedAnswerText: item.answer
-        }))}
-      />
+<>
 
       {/* Hero Sectie */}
       <HeroNieuw
@@ -225,6 +183,6 @@ export default function WordPressWebsitePage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

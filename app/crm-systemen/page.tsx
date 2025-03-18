@@ -4,7 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
 
 export default function CRMDevelopmentPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -38,69 +37,7 @@ export default function CRMDevelopmentPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      <NextSeo
-        title="CRM Development | Ontwikkeling van Klantrelatiebeheer Software"
-        description="Ontwikkel een op maat gemaakt CRM systeem dat uw klantrelaties optimaliseert. Onze CRM Development oplossingen helpen u klantdata centraal te beheren, processen te automatiseren en de omzet te verhogen."
-        canonical="https://www.multichoiceagency.nl/crm-development"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/crm-development',
-          title: 'CRM Development | Ontwikkeling van Klantrelatiebeheer Software',
-          description:
-            'Ontwikkel een op maat gemaakt CRM systeem dat uw klantrelaties optimaliseert. Onze CRM Development oplossingen helpen u klantdata centraal te beheren, processen te automatiseren en de omzet te verhogen.',
-          images: [
-            {
-              url: '/partners/crm-development.png',
-              width: 1200,
-              height: 630,
-              alt: 'CRM Development',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'CRM Development', item: 'https://www.multichoiceagency.nl/crm-development' },
-        ]}
-      />
-
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Wat is CRM Development?',
-            acceptedAnswerText:
-              'CRM Development omvat het ontwerpen, ontwikkelen en implementeren van op maat gemaakte CRM systemen die klantgegevens centraliseren en bedrijfsprocessen automatiseren.',
-          },
-          {
-            questionName: 'Waarom is een CRM systeem belangrijk?',
-            acceptedAnswerText:
-              'Een effectief CRM systeem verbetert de klantrelaties, stroomlijnt de sales- en marketingprocessen en zorgt voor een hogere omzet door waardevolle inzichten in klantgedrag te bieden.',
-          },
-          {
-            questionName: 'Hoe lang duurt de ontwikkeling van een CRM systeem?',
-            acceptedAnswerText:
-              'Afhankelijk van de complexiteit en gewenste functionaliteiten duurt het ontwikkelen van een CRM systeem gemiddeld tussen de 8 en 16 weken.',
-          },
-          {
-            questionName: 'Kan het CRM systeem volledig op maat worden gemaakt?',
-            acceptedAnswerText:
-              'Ja, onze CRM Development oplossingen worden volledig afgestemd op uw bedrijfsprocessen, zodat u een systeem krijgt dat perfect aansluit bij uw unieke behoeften.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning na de lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudspakketten, zodat uw CRM systeem altijd up-to-date en optimaal functioneert.',
-          },
-        ]}
-      />
+<>     
 
       {/* Hero Sectie */}
       <HeroNieuw
@@ -428,6 +365,6 @@ export default function CRMDevelopmentPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

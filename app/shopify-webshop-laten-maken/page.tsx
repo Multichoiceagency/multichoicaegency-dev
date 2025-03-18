@@ -4,78 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
-
-const ShopifyWebshopSEO = () => {
-  return (
-    <>
-      <NextSeo
-        title="Shopify Webshop Laten Maken: Bouw Jouw Online Winkel"
-        description="Laat jouw Shopify webshop maken door experts. Wij bouwen een gebruiksvriendelijke en converterende Shopify webshop die perfect aansluit bij jouw merk en groeidoelstellingen."
-        canonical="https://www.multichoiceagency.nl/shopify-webshop-laten-maken"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/shopify-webshop-laten-maken',
-          title: 'Shopify Webshop Laten Maken: Bouw Jouw Online Winkel',
-          description:
-            'Laat jouw Shopify webshop maken door experts. Wij bouwen een gebruiksvriendelijke en converterende Shopify webshop die perfect aansluit bij jouw merk en groeidoelstellingen.',
-          images: [
-            {
-              url: '/partners/shopify-webshop.png',
-              width: 1200,
-              height: 630,
-              alt: 'Shopify Webshop Laten Maken',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Shopify Webshop Laten Maken', item: 'https://www.multichoiceagency.nl/shopify-webshop-laten-maken' },
-        ]}
-      />
-
-      {/* FAQ Schema */}
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Wat is een Shopify webshop?',
-            acceptedAnswerText:
-              'Een Shopify webshop is een online winkel gebouwd op het Shopify platform, dat bekend staat om zijn gebruiksvriendelijkheid en krachtige e-commerce functies.',
-          },
-          {
-            questionName: 'Waarom kiezen voor Shopify?',
-            acceptedAnswerText:
-              'Shopify biedt een complete en schaalbare oplossing voor e-commerce, met gemakkelijke integraties, betrouwbare hosting en tal van apps voor extra functionaliteit.',
-          },
-          {
-            questionName: 'Hoe lang duurt het om een Shopify webshop te laten maken?',
-            acceptedAnswerText:
-              'De ontwikkeling van een Shopify webshop duurt meestal tussen de 2 en 6 weken, afhankelijk van de complexiteit en specifieke wensen.',
-          },
-          {
-            questionName: 'Kan ik na oplevering zelf aanpassingen doen?',
-            acceptedAnswerText:
-              'Ja, Shopify is zeer gebruiksvriendelijk en biedt een intuïtief CMS waarmee je gemakkelijk producten en content kunt beheren.',
-          },
-          {
-            questionName: 'Bieden jullie ondersteuning na de lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden uitgebreide support- en onderhoudspakketten om ervoor te zorgen dat jouw webshop altijd up-to-date en veilig is.',
-          },
-        ]}
-      />
-    </>
-  );
-};
 
 export default function ShopifyWebshopPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
@@ -124,20 +52,7 @@ export default function ShopifyWebshopPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      <ShopifyWebshopSEO />
-      
-      <HeroNieuw
-        title={"Shopify Webshop Laten Maken"}
-        description={
-          "Laat jouw online winkel groeien met een professionele Shopify webshop, gebouwd op maat voor jouw bedrijf."
-        }
-        buttonText={"Vraag een offerte aan"}
-        buttonLink={"/offerte-aanvragen"}
-        videoSrc={
-          "https://cdn.dribbble.com/userupload/17063963/file/original-3ffbb3e25cbbfd8da5bb893f65b04a12.mp4"
-        }
-      />
+<>  
 
       {/* About Section */}
       <section className="py-12 lg:py-24 dark:bg-gray-900">
@@ -436,6 +351,6 @@ export default function ShopifyWebshopPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

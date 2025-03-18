@@ -4,78 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
-
-const UXUIDesign = () => {
-  return (
-    <>
-      <NextSeo
-        title="Wat is UX en UI Design? | Verbeter Je Digitale Ervaring"
-        description="Ontdek wat UX en UI design inhoudt en hoe het bijdraagt aan een optimale gebruikerservaring en een aantrekkelijk visueel ontwerp."
-        canonical="https://www.multichoiceagency.nl/ux-ui-design"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/ux-ui-design',
-          title: 'Wat is UX en UI Design? | Verbeter Je Digitale Ervaring',
-          description:
-            'Ontdek wat UX en UI design inhoudt en hoe het bijdraagt aan een optimale gebruikerservaring en een aantrekkelijk visueel ontwerp.',
-          images: [
-            {
-              url: '/partners/ux-ui-design.png',
-              width: 1200,
-              height: 630,
-              alt: 'UX en UI Design',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'UX en UI Design', item: 'https://www.multichoiceagency.nl/ux-ui-design' },
-        ]}
-      />
-
-      {/* FAQ Schema */}
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Wat is UX design?',
-            acceptedAnswerText:
-              'UX design richt zich op de gebruikerservaring en optimaliseert de interactie tussen gebruiker en product.',
-          },
-          {
-            questionName: 'Wat is UI design?',
-            acceptedAnswerText:
-              'UI design gaat over het visuele aspect, waaronder kleurgebruik, typografie en layout, die samen zorgen voor een consistente merkbeleving.',
-          },
-          {
-            questionName: 'Waarom zijn UX en UI design belangrijk?',
-            acceptedAnswerText:
-              'Een goed UX en UI design zorgt voor een optimale gebruikerservaring, verhoogt conversies en versterkt de merkidentiteit.',
-          },
-          {
-            questionName: 'Hoe verloopt het UX/UI designproces?',
-            acceptedAnswerText:
-              'Het proces omvat onderzoek, wireframing, prototyping, visueel ontwerp, testen en optimalisatie.',
-          },
-          {
-            questionName: 'Wat zijn veelgemaakte fouten in UX en UI design?',
-            acceptedAnswerText:
-              'Veelgemaakte fouten zijn onder andere onvoldoende gebruikerstesten, inconsistente visuele elementen en gebrek aan responsiviteit.',
-          },
-        ]}
-      />      
-    </>
-  );
-};
 
 export default function UXUIDesignPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -135,8 +63,7 @@ export default function UXUIDesignPage() {
   
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Wat is UX en UI Design?"}
         description={
           "Ontdek hoe een doordacht ontwerp de gebruikerservaring optimaliseert en jouw merk versterkt."
@@ -588,6 +515,6 @@ export default function UXUIDesignPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }

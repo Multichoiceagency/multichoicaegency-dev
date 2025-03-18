@@ -27,7 +27,6 @@ import {
   faArrowRight,
 } from "@fortawesome/free-solid-svg-icons"
 import { Button } from "@/components/ui/button"
-import { NextSeo } from "next-seo"
 import Oplossingen from "@/components/oplossingen"
 import Portfolio from "@/components/cases-display"
 import { faAngular, faAws, faJs, faLaravel, faNodeJs, faPhp, faPython, faReact, faVuejs } from "@fortawesome/free-brands-svg-icons"
@@ -182,28 +181,6 @@ export default function DevelopmentPage() {
 
   return (
     <>
-<NextSeo
-  title="Software Development op Maat | Multichoice Agency"
-  description="Professionele software development diensten voor web, mobiel en desktop. Van frontend tot backend, wij bouwen oplossingen die uw bedrijf vooruit helpen."
-  canonical="https://www.multichoiceagency.nl/development"
-  openGraph={{
-    type: "website",
-    url: "https://www.multichoiceagency.nl/development",
-    title: "Software Development op Maat | Multichoice Agency",
-    description:
-      "Professionele software development diensten voor web, mobiel en desktop. Van frontend tot backend, wij bouwen oplossingen die uw bedrijf vooruit helpen.",
-    images: [
-      {
-        url: "/partners/development.png",
-        width: 1200,
-        height: 630,
-        alt: "Software Development",
-      },
-    ],
-  }}
-/>
-
-
       {/* Hero Section */}
       <section className="relative bg-gradient-to-r from-green-900 to-green-700 text-white overflow-hidden pt-36">
         <div className="absolute inset-0 opacity-20">

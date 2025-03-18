@@ -1,9 +1,10 @@
-import path from 'path';
+const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
-    ignoreDuringBuilds: true,
+    reactStrictMode: true,
+    swcMinify: true
   },
   images: {
     remotePatterns: [
@@ -27,4 +28,4 @@ const nextConfig = {
   },
 };
 
-export default nextConfig;
+module.exports = nextConfig;

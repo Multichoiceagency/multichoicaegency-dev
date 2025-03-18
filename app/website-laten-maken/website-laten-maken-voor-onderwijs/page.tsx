@@ -4,78 +4,6 @@ import { useState } from "react"
 import Link from "next/link"
 import HeroNieuw from "@/components/HeroNieuw"
 import { PricingTable } from "@/components/pricing-table"
-import { NextSeo, BreadcrumbJsonLd, FAQPageJsonLd } from 'next-seo';
-
-const WebsiteLatenMakenVoorOnderwijs = () => {
-  return (
-    <>
-      <NextSeo
-        title="Website Laten Maken voor Onderwijs | Professioneel Webdesign"
-        description="Wilt u een website laten maken voor onderwijs? Ontdek hoe een professionele onderwijswebsite interactief leren ondersteunt, studenten helpt en de communicatie verbetert. Vraag een offerte aan!"
-        canonical="https://www.multichoiceagency.nl/website-laten-maken-voor-onderwijs"
-        openGraph={{
-          type: 'website',
-          url: 'https://www.multichoiceagency.nl/website-laten-maken-voor-onderwijs',
-          title: 'Website Laten Maken voor Onderwijs | Professioneel Webdesign',
-          description:
-            'Wilt u een website laten maken voor onderwijs? Ontdek hoe een professionele onderwijswebsite interactief leren ondersteunt, studenten helpt en de communicatie verbetert. Vraag een offerte aan!',
-          images: [
-            {
-              url: '/partners/website-laten-maken-voor-onderwijs.png',
-              width: 1200,
-              height: 630,
-              alt: 'Website laten maken voor onderwijs',
-            },
-          ],
-        }}
-        twitter={{
-          handle: '@jouwtwitterhandle',
-          site: '@jouwtwitterhandle',
-          cardType: 'summary_large_image',
-        }}
-      />
-
-      {/* Breadcrumb Schema */}
-      <BreadcrumbJsonLd
-        itemListElements={[
-          { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
-          { position: 2, name: 'Website Laten Maken voor Onderwijs', item: 'https://www.multichoiceagency.nl/website-laten-maken-voor-onderwijs' },
-        ]}
-      />
-
-      {/* FAQ Schema */}
-      <FAQPageJsonLd
-        mainEntity={[
-          {
-            questionName: 'Waarom is een website belangrijk voor het onderwijs?',
-            acceptedAnswerText:
-              'Een onderwijswebsite biedt een centraal platform voor communicatie, e-learning en studentenbeheer. Het maakt interactief leren mogelijk en zorgt voor een betere connectie tussen studenten, docenten en ouders.',
-          },
-          {
-            questionName: 'Hoeveel kost een website laten maken voor onderwijs?',
-            acceptedAnswerText:
-              'De kosten variëren, maar doorgaans liggen de prijzen tussen de €1.499 voor een eenvoudige schoolwebsite tot €10.000+ voor een uitgebreid e-learning platform.',
-          },
-          {
-            questionName: 'Hoe lang duurt het om een onderwijswebsite te laten maken?',
-            acceptedAnswerText:
-              'Een standaard onderwijswebsite kan binnen 2 tot 4 weken worden opgeleverd. Voor maatwerk en complexe leerplatforms kan de ontwikkeling 6 tot 12 weken duren.',
-          },
-          {
-            questionName: 'Is een mobiele versie van de website inbegrepen?',
-            acceptedAnswerText:
-              'Ja, alle websites die wij ontwikkelen zijn volledig responsive en geoptimaliseerd voor alle apparaten.',
-          },
-          {
-            questionName: 'Bieden jullie onderhoud en support na de lancering?',
-            acceptedAnswerText:
-              'Ja, wij bieden onderhoudspakketten met beveiligingsupdates, back-ups en technische ondersteuning, zodat uw onderwijsplatform altijd optimaal functioneert.',
-          },
-        ]}
-      />      
-    </>
-  );
-};
 
 export default function WebsiteLatenMakenVoorOnderwijsPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null)
@@ -135,8 +63,7 @@ export default function WebsiteLatenMakenVoorOnderwijsPage() {
   
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Website laten maken voor onderwijs"}
         description={
           "Wilt u een website laten maken voor onderwijs? Ontdek hoe een professioneel onderwijsplatform e-learning, studentenbeheer en communicatie optimaliseert."
@@ -204,6 +131,6 @@ export default function WebsiteLatenMakenVoorOnderwijsPage() {
       </section>
 
       <PricingTable />
-    </div>
+    </>
   )
 }

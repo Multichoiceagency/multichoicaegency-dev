@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { JSX } from "react";
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { cn } from "@/lib/utils";

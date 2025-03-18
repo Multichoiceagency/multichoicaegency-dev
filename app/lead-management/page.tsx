@@ -64,8 +64,7 @@ export default function LeadManagementSystem() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <HeroNieuw
+<>      <HeroNieuw
         title={"Lead Management Systeem & CRM Oplossingen"}
         description={
           "Optimaliseer uw verkoopproces met een geavanceerd lead management systeem dat potentiële klanten efficiënt beheert en omzet in loyale klanten. Ontdek hoe onze oplossing u realtime inzichten en naadloze integraties biedt."
@@ -503,6 +502,6 @@ export default function LeadManagementSystem() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }
