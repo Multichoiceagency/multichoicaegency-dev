@@ -133,7 +133,7 @@ export default function UXUIDesignPage() {
                               strokeLinejoin="round"
                             ></path>
                           </svg>
-                          <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
+                          <span className="ml-3 text-sm text-black hover:text-green-600 font-black dark:text-white">
                             {item}
                           </span>
                         </li>
@@ -178,15 +178,14 @@ export default function UXUIDesignPage() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start jouw rebranding vandaag nog
                 </Link>
@@ -334,7 +333,7 @@ export default function UXUIDesignPage() {
                               strokeLinejoin="round"
                             ></path>
                           </svg>
-                          <span className="ml-3 text-lg text-gray-700 font-black dark:text-white">
+                          <span className="ml-3 text-sm text-black hover:text-green-600 font-black dark:text-white">
                             {item}
                           </span>
                         </li>
@@ -369,41 +368,57 @@ export default function UXUIDesignPage() {
                 <h3 className="dark:text-white"></h3>
                   <div className="max-w-xl">
                     <p className="text-lg text-gray-700 mb-10 dark:text-white">
-                      De kosten van een UX/UI design project variëren sterk afhankelijk van de complexiteit en scope. Hieronder een indicatie van de mogelijke investeringen:
+                        De kosten van een UX/UI design project variëren sterk afhankelijk van de complexiteit en scope. Hieronder een indicatie van de mogelijke investeringen:
                     </p>
-                    <section className="dark:bg-white">
-                      <table style={{ width: "100%", borderCollapse: "collapse", border: "1px solid #ddd" }}>
-                        <thead>
-                          <tr style={{ backgroundColor: "#f4f4f4", textAlign: "left" }}>
-                            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Type Project</th>
-                            <th style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Kostenindicatie</th>
-                          </tr>
-                        </thead>
-                        <tbody>
-                          <tr>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Basis UX/UI Pakket</td>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€1.000 - €3.000</td>
-                          </tr>
-                          <tr>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Standaard UX/UI Design</td>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€3.000 - €7.000</td>
-                          </tr>
-                          <tr>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Complex UX/UI Project</td>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€7.000 - €15.000</td>
-                          </tr>
-                          <tr>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>Enterprise UX/UI Oplossing</td>
-                            <td style={{ padding: "10px", borderBottom: "1px solid #ddd" }}>€15.000+</td>
-                          </tr>
-                        </tbody>
-                      </table>
-                    </section>
+
+                    <h2 className="text-xl font-semibold mt-6">Factoren die de kosten beïnvloeden</h2>
+                    <ul className="list-disc pl-5">
+                        <li>Complexiteit van het ontwerp: Simpele websites of apps kosten minder dan complexe platforms met interactieve elementen.</li>
+                        <li>Aantal schermen/pagina’s: Hoe meer schermen of pagina’s, hoe hoger de ontwerpkosten.</li>
+                        <li>Maatwerk vs. standaard templates: Een op maat gemaakt ontwerp is duurder dan een ontwerp gebaseerd op bestaande sjablonen.</li>
+                        <li>Onderzoek en testing: Gebruikersonderzoek, A/B-testing en prototyping kunnen de kosten verhogen, maar zorgen voor een beter eindproduct.</li>
+                        <li>Ervaring van de ontwerper of bureau: Een ervaren UX/UI designer of een gespecialiseerd bureau vraagt vaak een hoger tarief dan een freelancer met minder ervaring.</li>
+                    </ul>
+
+                    <h2 className="text-xl font-semibold mt-6">Typen projecten</h2>
+                    <ul className="list-disc pl-5">
+                        <li>Basis website/app met een beperkt aantal schermen.</li>
+                        <li>Gemiddeld project met meerdere schermen en interactieve elementen.</li>
+                        <li>Complex platform met uitgebreide functionaliteiten en maatwerkoplossingen.</li>
+                        <li>UX/UI Redesign van een bestaande applicatie.</li>
+                        <li>Enterprise-oplossingen met geavanceerde functies.</li>
+                    </ul>
+
+                    <h2 className="text-xl font-semibold mt-6">Extra kosten om rekening mee te houden</h2>
+                    <ul className="list-disc pl-5">
+                        <li>Wireframing en prototyping om het ontwerp visueel te maken.</li>
+                        <li>Gebruikersonderzoek en testen om de gebruikerservaring te optimaliseren.</li>
+                        <li>Iteraties en revisies afhankelijk van het aantal correctierondes.</li>
+                    </ul>
+
+                    <h2 className="text-xl font-semibold mt-6">Hoe bespaar je op UX/UI design kosten?</h2>
+                    <ul className="list-disc pl-5">
+                        <li>Duidelijke briefing: Een gedetailleerde briefing helpt het proces efficiënter te maken.</li>
+                        <li>Gebruik van design libraries zoals Material UI of Bootstrap.</li>
+                        <li>MVP-aanpak: Begin met een minimale versie en breid later uit.</li>
+                    </ul>
+
+                    <p className="mt-6">
+                        Wil je een UX/UI designproject starten en ben je benieuwd naar de exacte kosten? Neem contact met ons op voor een op maat gemaakte offerte. 🚀
+                    </p>
+                    <div className="py-5">
+                    <Link
+                  href="/offerte-aanvragen"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                >
+                  Start jouw rebranding vandaag nog
+                </Link>
+                </div>
                   </div>
                 </div>
                 <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
                   <div className="visible">
-                    <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                    <video className="w-full h-full object-cover rounded-md" autoPlay loop muted playsInline>
                       <source
                         src="https://cdn.dribbble.com/userupload/34757330/file/large-ffae5f4b8eaa7b28420b21ff00ad5dbf.mp4"
                         type="video/mp4"

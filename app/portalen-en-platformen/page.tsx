@@ -336,7 +336,9 @@ export default function PortalenPlatformenPage() {
                   Contactpagina
                 </Link>{" "}
                 bezoeken of bel onze klantenservice op{" "}
-                <span className="text-black font-medium">010 322 04 10</span>.
+                                <Link href="tel:0103220410"> 
+                <span className="text-lime-500 font-medium underline">010 322 04 10</span>. Ons deskundige team staat klaar om u te ondersteunen bij het realiseren van uw datavisualisatieprojecten.
+                </Link>
               </p>
             </div>
           </div>

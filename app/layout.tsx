@@ -10,7 +10,6 @@ import ScrollToTop from "@/components/ScrollToTop"
 import QuoteButton from "@/components/OfferteAanvraagKnop"
 import FloatingSocialIcons from "@/components/FloatingSocialicons"
 import LiveChat from "@/components/livechat"
-// Remove the SmoothScroll import
 
 const unbounded = Unbounded({
   subsets: ["latin"],

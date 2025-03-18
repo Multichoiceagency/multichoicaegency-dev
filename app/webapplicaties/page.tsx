@@ -72,7 +72,7 @@ export default function Webapplicaties() {
         }
         buttonText={"Vraag een demo aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://videos.pexels.com/video-files/29458457/12680994_1920_1080_25fps.mp4"}
+        videoSrc={"https://cdn.dribbble.com/userupload/17448884/file/original-62ccb95f7f6d1d57446f4b5e8e153cb1.mp4"}
       />
 
       {/* Webapplicaties Section */}
@@ -113,15 +113,14 @@ export default function Webapplicaties() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw webapplicatie project vandaag nog!
                 </Link>
@@ -187,15 +186,14 @@ export default function Webapplicaties() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw webapplicatie project vandaag nog!
                 </Link>
@@ -213,7 +211,7 @@ export default function Webapplicaties() {
                   playsInline
                 >
                   <source
-                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
+                    src="https://cdn.dribbble.com/userupload/41555350/file/original-9ed293a332f67c9d41ea3c93675999ef.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -299,7 +297,7 @@ export default function Webapplicaties() {
                   <div className="visible">
                     <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
                       <source
-                        src="https://videos.pexels.com/video-files/29458457/12680994_1920_1080_25fps.mp4"
+                        src="https://cdn.dribbble.com/userupload/16483405/file/original-2215d7626d5feef90208a4e3d1123858.mp4"
                         type="video/mp4"
                       />
                       Your browser does not support the video tag.
@@ -339,7 +337,7 @@ export default function Webapplicaties() {
                               strokeLinejoin="round"
                             ></path>
                           </svg>
-                          <span className="ml-3 text-lg text-gray-700 font-black">{item}</span>
+                          <span className="ml-3 text-sm text-black hover:text-green-700 font-black">{item}</span>
                         </li>
                       ))}
                     </ul>

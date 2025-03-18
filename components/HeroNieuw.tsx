@@ -67,11 +67,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({
 
         {/* Content overlay */}
         <div className="relative z-10 container mx-auto px-4">
-          <div className="flex flex-col items-center text-center text-white">
-            <h1 className="font-heading text-4xl sm:text-5xl md:text-7xl xl:text-8xl tracking-tight mb-6 sm:mb-8">
+          <div className="flex flex-col items-center text-center dark:bg-green-700/40 py-10 dark:rounded-xl text-white">
+            <h1 className="font-heading dark:text-white text-4xl sm:text-5xl md:text-7xl xl:text-8xl tracking-tight mb-6 sm:mb-8">
               {title}
             </h1>
-            <p className="max-w-sm sm:max-w-md xl:max-w-3xl text-base sm:text-lg md:text-xl text-gray-200 mb-8 sm:mb-10">
+            <p className="max-w-sm sm:max-w-md xl:max-w-3xl text-base sm:text-lg md:text-xl dark:text-white text-gray-200 mb-8 sm:mb-10">
               {description}
             </p>
             <Link

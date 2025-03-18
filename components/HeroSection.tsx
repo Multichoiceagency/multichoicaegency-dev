@@ -57,21 +57,21 @@ export default function PartnersServicesSection() {
       title: "Inclusieve webomgevingen",
       description:
         "Sommige organisaties werken al jaren aan digitale inclusiviteit, terwijl anderen net beginnen. Bij Multichoiceagency hebben we jarenlange expertise op dit gebied. We zijn opgeleid door toonaangevende certificeringsinstanties in Nederland en hebben toegankelijkheid volledig geïntegreerd in onze werkwijze, van concept tot realisatie.",
-      link: "toegankelijkheid",
+      link: "/diensten",
     },
     {
       icon: <Gauge className="h-6 w-6" />,
       title: "Snelheid en efficiëntie",
       description:
         "Een snelle website is meer dan alleen gebruikersgemak. Het verbetert je positie in zoekmachines en zorgt voor efficiënte code die minder serverruimte verbruikt. Als ervaren webontwikkelaars weten we precies welke optimalisaties het grootste verschil maken voor jouw specifieke situatie.",
-      link: "performance",
+      link: "diensten",
     },
     {
       icon: <Shield className="h-6 w-6" />,
       title: "Veilige digitale omgeving",
       description:
         "Beveiliging is geen optie maar een standaard onderdeel van elk project dat we uitvoeren. We werken samen met vooraanstaande hostingpartners en zorgen voor een perfecte afstemming tussen je website en serveromgeving, wat resulteert in maximale bescherming tegen online bedreigingen.",
-      link: "beveiliging",
+      link: "diensten",
     },
   ]
 
@@ -181,7 +181,7 @@ export default function PartnersServicesSection() {
                 <h3 className="text-xl font-bold mb-4 text-green-800">{service.title}</h3>
                 <p className="text-gray-700 mb-6">{service.description}</p>
                 <Link
-                  href={`/diensten/${service.link}`}
+                  href={`${service.link}`}
                   className="text-green-600 font-medium hover:text-green-700 hover:underline inline-flex items-center"
                 >
                   Ontdek meer over {service.title.toLowerCase()}

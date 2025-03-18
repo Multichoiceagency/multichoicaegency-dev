@@ -305,7 +305,7 @@ export default function DienstenPage() {
           <div className="container mx-auto px-4">
             {sections.map((section) => (
               <div key={section.title} className="mb-16">
-                <h2 className="tracking-tight text-white bg-teal-900 font-heading text-4xl md:text-5xl font-medium mb-8 text-center rounded-xl">
+                <h2 className="tracking-tight text-white py-6 bg-teal-900 font-heading text-4xl md:text-5xl mb-8 text-center rounded-xl">
                   {section.title}
                 </h2>
                 <div className="flex flex-wrap -m-4">

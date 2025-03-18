@@ -1,4 +1,3 @@
-import Oplossingen from "@/components/oplossingen"
 import { Testimonials } from "@/components/testimonials"
 import Portfolio from "@/components/cases-display"
 import HeroNieuw from "@/components/HeroNieuw"

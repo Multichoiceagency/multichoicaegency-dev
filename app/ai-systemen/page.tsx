@@ -78,7 +78,7 @@ export default function AIGeoptimaliseerdeSystemenPage() {
                 playsInline
               >
                 <source
-                  src="https://cdn.dribbble.com/userupload/15641581/file/original-4811c61d374900ed4785a5785c9272ba.mp4"
+                  src="https://cdn.dribbble.com/userupload/6069045/file/original-9515717fb9a29e1ddc523294d45eae73.mp4"
                   type="video/mp4"
                 />
                 Your browser does not support the video tag.
@@ -329,14 +329,16 @@ export default function AIGeoptimaliseerdeSystemenPage() {
                   ></path>
                 </svg>
               </span>
-              <h5 className="text-xl font-medium mb-4">Nog vragen?</h5>
+              <h5 className="text-xl font-medium mb-4">heeft u nog vragen?</h5>
               <p className="text-gray-700">
-                Voor meer informatie over onze frontend development diensten kunt u onze{" "}
+                Voor meer informatie over onze deze dienst kunt u ons een bericht sturen via de livechat of{" "}
                 <Link href="/contact" className="inline-block text-black font-medium underline">
                   Contactpagina
                 </Link>{" "}
                 bezoeken of bel onze klantenservice op{" "}
-                <span className="text-black font-medium">010 322 04 10</span>.
+                                <Link href="tel:0103220410"> 
+                <span className="text-lime-500 font-medium underline">010 322 04 10</span>. Ons deskundige team staat klaar om u te ondersteunen bij het realiseren van uw datavisualisatieprojecten.
+                </Link>
               </p>
             </div>
           </div>

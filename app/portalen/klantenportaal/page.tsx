@@ -70,7 +70,7 @@ export default function Klantenportaal() {
         }
         buttonText={"Vraag een demo aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"}
+        videoSrc={"https://cdn.dribbble.com/userupload/4386932/file/original-4f6a56440006d0239f058b7cdee5d9fe.mp4"}
       />
 
       {/* Klantenportaal Sectie */}
@@ -111,15 +111,14 @@ export default function Klantenportaal() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw klantenportaal project vandaag nog!
                 </Link>
@@ -137,7 +136,7 @@ export default function Klantenportaal() {
                   playsInline
                 >
                   <source
-                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
+                    src="https://cdn.dribbble.com/userupload/17947050/file/original-72b0654039123e163baaa8f059033d1b.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

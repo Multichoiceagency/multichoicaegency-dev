@@ -70,7 +70,7 @@ export default function EcommercePlatformen() {
         }
         buttonText={"Vraag een demo aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"}
+        videoSrc={"https://cdn.dribbble.com/userupload/41516043/file/original-fb8d802ce2d2fb160477bdc283e9b63e.mp4"}
       />
 
       {/* E-commerce Platformen Sectie */}
@@ -111,15 +111,14 @@ export default function EcommercePlatformen() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw e-commerce project vandaag nog!
                 </Link>
@@ -137,7 +136,7 @@ export default function EcommercePlatformen() {
                   playsInline
                 >
                   <source
-                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
+                    src="https://cdn.dribbble.com/userupload/41516042/file/original-c84e83565929160deea765ae0e581809.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -186,15 +185,14 @@ export default function EcommercePlatformen() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw e-commerce project vandaag nog!
                 </Link>
@@ -212,7 +210,7 @@ export default function EcommercePlatformen() {
                   playsInline
                 >
                   <source
-                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
+                    src="https://cdn.dribbble.com/userupload/18471050/file/original-7d23da3c1c3cb3b5a46cd2615f64d109.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

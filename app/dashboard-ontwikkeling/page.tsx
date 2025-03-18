@@ -70,7 +70,7 @@ export default function DashboardOntwikkeling() {
         }
         buttonText={"Vraag een demo aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"}
+        videoSrc={"https://cdn.dribbble.com/userupload/36770828/file/original-99a870c8cab71f266a57e85f35a72e83.mp4"}
       />
 
       {/* Dashboard Sectie */}
@@ -111,15 +111,14 @@ export default function DashboardOntwikkeling() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw dashboard project vandaag nog!
                 </Link>
@@ -137,7 +136,7 @@ export default function DashboardOntwikkeling() {
                   playsInline
                 >
                   <source
-                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
+                    src="https://cdn.dribbble.com/userupload/36543224/file/original-89f649e87ced79e060531ee9c3aa7d22.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -186,15 +185,14 @@ export default function DashboardOntwikkeling() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw dashboard project vandaag nog!
                 </Link>
@@ -212,7 +210,7 @@ export default function DashboardOntwikkeling() {
                   playsInline
                 >
                   <source
-                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
+                    src="https://cdn.dribbble.com/userupload/24541894/file/original-cfc19800350bfe01bc5621d50c052559.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.
@@ -350,7 +348,9 @@ export default function DashboardOntwikkeling() {
                   Contactpagina
                 </Link>{" "}
                 bezoeken of bel onze klantenservice op{" "}
-                <span className="text-lime-500 font-medium">010 322 04 10</span>. Ons deskundige team staat klaar om u te ondersteunen bij het realiseren van uw datavisualisatieprojecten.
+                <Link href="tel:0103220410"> 
+                <span className="text-lime-500 font-medium underline">010 322 04 10</span>. Ons deskundige team staat klaar om u te ondersteunen bij het realiseren van uw datavisualisatieprojecten.
+                </Link>
               </p>
             </div>
           </div>

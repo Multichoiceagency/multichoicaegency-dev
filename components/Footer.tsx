@@ -218,7 +218,7 @@ export function Footer() {
                 >
                   <FontAwesomeIcon
                     icon={faArrowRight}
-                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="w-3 h-3 text-black group-hover:opacity-100 transition-opacity"
                   />
                   {link.name}
                 </Link>
@@ -267,7 +267,7 @@ export function Footer() {
                 >
                   <FontAwesomeIcon
                     icon={faArrowRight}
-                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="w-3 h-3 text-black group-hover:opacity-100 transition-opacity"
                   />
                   {link.name}
                 </Link>
@@ -303,7 +303,7 @@ export function Footer() {
                 >
                   <FontAwesomeIcon
                     icon={faArrowRight}
-                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="w-3 h-3 text-black group-hover:opacity-100 transition-opacity"
                   />
                   {link.name}
                 </Link>
@@ -327,7 +327,7 @@ export function Footer() {
                 >
                   <FontAwesomeIcon
                     icon={faArrowRight}
-                    className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                    className="w-3 h-3 text-black group-hover:opacity-100 transition-opacity"
                   />
                   {link.name}
                 </Link>

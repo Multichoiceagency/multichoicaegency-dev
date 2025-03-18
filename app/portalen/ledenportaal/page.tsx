@@ -65,7 +65,7 @@ export default function LedenportaalVerenigingen() {
         }
         buttonText={"Vraag een demo aan"}
         buttonLink={"/offerte-aanvragen"}
-        videoSrc={"https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"}
+        videoSrc={"https://cdn.dribbble.com/userupload/14449969/file/original-104b2aadd44576bba88eba9d634cfcd8.mp4"}
       />
 
       {/* Ledenportaal Sectie */}
@@ -75,7 +75,7 @@ export default function LedenportaalVerenigingen() {
             {/* Linker kolom */}
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-xl">
-                <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                <h1 className="font-heading text-3xl sm:text-3xl md:text-3xl mb-6 dark:text-white">
                   Vereenvoudig uw Ledenbeheer
                 </h1>
                 <p className="text-lg text-gray-700 mb-1 dark:text-white">
@@ -106,15 +106,14 @@ export default function LedenportaalVerenigingen() {
                           strokeLinejoin="round"
                         ></path>
                       </svg>
-                      <span className="ml-3 text-lg text-gray-700 font-600 hover:font-bold dark:hover:text-green-700 dark:text-white hover:text-green-700">
-                        {item}
+                      <span className="ml-3 text-sm text-black font-600 font-black dark:hover:text-green-700 dark:text-white hover:text-green-700">                        {item}
                       </span>
                     </li>
                   ))}
                 </ul>
                 <Link
                   href="/offerte-aanvragen"
-                  className="inline-flex py-4 px-6 items-center justify-center text-lg font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-medium text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
                 >
                   Start uw ledenportaal project vandaag nog!
                 </Link>
@@ -132,7 +131,7 @@ export default function LedenportaalVerenigingen() {
                   playsInline
                 >
                   <source
-                    src="https://videos.pexels.com/video-files/5527832/pexels-artem-podrez-5527832.mp4"
+                    src="https://cdn.dribbble.com/userupload/24545465/file/original-5468729f61204f8d463d7f0b25922722.mp4"
                     type="video/mp4"
                   />
                   Your browser does not support the video tag.

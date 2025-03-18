@@ -52,7 +52,7 @@ export default function FrontendDevelopmentPage() {
         buttonText={"Vraag een offerte aan"}
         buttonLink={"/offerte-aanvragen"}
         videoSrc={
-          "https://cdn.dribbble.com/userupload/20585023/file/original-f77ab4e11e45439d6a0c173d8ad2c6cb.mp4"
+          "https://cdn.dribbble.com/userupload/16036047/file/original-3d8c7117879ff2d2e9c9635c764b1f7b.mp4"
         }
       />
       
@@ -96,46 +96,84 @@ export default function FrontendDevelopmentPage() {
         </div>
       </section>
 
-      {/* In-Depth Sectie: Uitgebreide Uitleg over Frontend Development (700+ woorden) */}
-      <section className="py-12 lg:py-24 bg-gray-100 dark:bg-gray-800">
-        <div className="container mx-auto px-4">
-          <h2 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 text-gray-900 dark:text-white">
-            In-Depth: De Kracht van Frontend Development
-          </h2>
-          <div className="text-lg text-gray-700 dark:text-gray-300 space-y-6">
-            <p>
-              Frontend development is de kunst en wetenschap van het ontwikkelen van de gebruikersinterface van een website. Het vormt de brug tussen de technologie en de gebruiker, en speelt een cruciale rol in hoe informatie wordt gepresenteerd en ervaren. Een goed ontworpen frontend zorgt voor een aantrekkelijke en intuïtieve interface, die de gebruiker niet alleen visueel aanspreekt maar ook functioneel ondersteunt.
-            </p>
-            <p>
-              Een essentieel aspect van frontend development is het realiseren van een responsive design. In een tijd waarin consumenten toegang hebben tot internet via allerlei apparaten – van desktops tot tablets en smartphones – is het van vitaal belang dat een website zich aanpast aan verschillende schermformaten. Responsive design zorgt ervoor dat de inhoud en navigatie op elk apparaat duidelijk en toegankelijk blijven, wat de gebruikerservaring aanzienlijk verbetert en bijdraagt aan een hogere klanttevredenheid.
-            </p>
-            <p>
-              Daarnaast is snelheid een kritieke factor in frontend development. Gebruikers hebben weinig geduld en verwachten dat een website snel laadt. Door technieken zoals code splitting, lazy loading en het optimaliseren van afbeeldingen en scripts, kunnen ontwikkelaars de prestaties van een website aanzienlijk verbeteren. Dit zorgt niet alleen voor een betere gebruikerservaring, maar heeft ook een positief effect op de zoekmachineoptimalisatie (SEO) van de site, aangezien zoekmachines snellere websites vaak hoger waarderen.
-            </p>
-            <p>
-              Een andere belangrijke component is toegankelijkheid. Toegankelijkheid betekent dat een website bruikbaar is voor iedereen, inclusief mensen met beperkingen. Dit omvat het gebruik van semantische HTML, ARIA-labels en andere best practices om ervoor te zorgen dat alle gebruikers, ongeacht hun fysieke of technologische beperkingen, de website kunnen gebruiken. Door toegankelijkheid te integreren in het ontwikkelproces, creëert men een inclusieve ervaring die de reikwijdte van de website vergroot.
-            </p>
-            <p>
-              Naast technische optimalisaties speelt ook design een grote rol in frontend development. Het visuele aspect van een website is vaak het eerste wat opvalt bij een bezoeker. Door gebruik te maken van aantrekkelijke kleurenschema’s, consistente typografie en een goed doordachte lay-out, kan een website niet alleen informatie overbrengen, maar ook een positieve emotionele reactie oproepen bij de gebruiker. Een goed design ondersteunt de merkidentiteit en zorgt ervoor dat de website er professioneel uitziet.
-            </p>
-            <p>
-              De rol van moderne frontend frameworks en libraries kan niet worden onderschat. Tools zoals React, Vue en Angular bieden ontwikkelaars krachtige middelen om dynamische en interactieve webapplicaties te bouwen. Deze frameworks maken het mogelijk om complexe UI-componenten te creëren die gemakkelijk herbruikbaar zijn en snel kunnen worden aangepast aan veranderende eisen. Door gebruik te maken van deze technologieën kunnen we efficiënter werken en innovatiever ontwerpen, wat leidt tot betere en meer schaalbare webapplicaties.
-            </p>
-            <p>
-              Naast de technische en visuele aspecten van frontend development is de gebruikerservaring (UX) van groot belang. UX design richt zich op het optimaliseren van de interactie tussen de gebruiker en de website. Dit omvat het analyseren van gebruikersgedrag, het testen van de interface en het continu verbeteren van de navigatie en functionaliteit. Een goede UX zorgt ervoor dat bezoekers gemakkelijk vinden wat ze zoeken, wat leidt tot hogere conversieratio’s en een sterkere klantloyaliteit.
-            </p>
-            <p>
-              Innovatie in frontend development stopt niet bij de technologieën die we vandaag gebruiken. De digitale wereld evolueert continu, en daarmee ook de verwachtingen van de gebruiker. Ontwikkelaars moeten constant op de hoogte blijven van de nieuwste trends, zoals Progressive Web Apps (PWA’s), motion design en micro-interacties. Deze innovaties dragen bij aan een nog rijkere gebruikerservaring en helpen bedrijven om zich te onderscheiden in een concurrerende markt.
-            </p>
-            <p>
-              Tot slot is samenwerking tussen verschillende disciplines essentieel voor succesvol frontend development. Designers, ontwikkelaars, marketeers en SEO-specialisten werken samen om een geïntegreerde digitale strategie te realiseren. Deze samenwerking zorgt ervoor dat alle aspecten van een website – van het visuele ontwerp tot de technische implementatie en optimalisatie – naadloos op elkaar aansluiten en bijdragen aan de algehele prestaties van de website.
-            </p>
-            <p>
-              Samengevat, frontend development is veel meer dan alleen het bouwen van een mooie website. Het is een multidisciplinaire aanpak die design, technologie, performance en gebruikerservaring combineert om een digitale omgeving te creëren die zowel functioneel als visueel indrukwekkend is. Door te investeren in hoogwaardige frontend development kunnen bedrijven hun online aanwezigheid versterken, de gebruikerservaring optimaliseren en uiteindelijk hun bedrijfsresultaten verbeteren. Onze expertise in frontend development stelt ons in staat om innovatieve en toekomstbestendige webapplicaties te bouwen die de verwachtingen van vandaag overtreffen en klaar zijn voor de uitdagingen van morgen.
-            </p>
+{/* About Section */}
+<section className="py-12 lg:py-24 dark:bg-gray-900">
+  <div className="container mx-auto px-4">
+    <div className="flex mb-4 items-center">
+      <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+      </svg>
+      <span className="inline-block ml-2 text-sm font-medium text-lime-500">
+        Frontend Development Experts
+      </span>
+    </div>
+    <div className="border-t border-gray-800 pt-16">
+      <div className="max-w-lg mx-auto lg:max-w-none">
+        <div className="flex flex-wrap lg:items-center lg:flex-row-reverse -mx-4">
+          {/* Video Column */}
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                <source
+                  src="https://cdn.dribbble.com/userupload/18427213/file/original-8ef1e6e4f7a2df1fcdfa7346ebbef47b.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          {/* Text Column */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-xl">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                Frontend Development: De Sleutel tot een Sterke Digitale Ervaring
+              </h1>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                Een snelle, aantrekkelijke en gebruiksvriendelijke interface is essentieel voor het succes van elk digitaal product. Frontend development richt zich op de visuele en interactieve elementen die de gebruikerservaring bepalen.
+              </p>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                Bij MultiChoiceAgency zorgen we ervoor dat jouw website of applicatie niet alleen technisch geoptimaliseerd is, maar ook visueel en functioneel perfect aansluit bij je doelgroep. Wij bouwen responsieve en intuïtieve interfaces die conversies verhogen en de gebruikerservaring verbeteren.
+              </p>
+
+              <ul className="text-black">
+                {[
+                  "Schaalbare en Responsieve Webapplicaties",
+                  "Pixel-Perfect UI Implementatie",
+                  "Optimale Laadtijden en Prestaties",
+                  "SEO-vriendelijke Structuren",
+                  "Iteratieve Ontwikkeling en Continue Optimalisatie",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                      <path
+                        d="M14.8 6.40002L8.19995 13L5.19995 10"
+                        stroke="#022C22"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                    <span className="ml-3 text-sm text-black hover:text-green-600 font-black dark:text-white">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <Link
+                  href="/offerte-aanvragen"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-bold text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                >
+                  Start jouw development proces
+                </Link>
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </div>
+</section>
+
 
       {/* Process / Services Sectie */}
       <section className="p-4 bg-white">
@@ -209,6 +247,158 @@ export default function FrontendDevelopmentPage() {
 
       <PricingTable />
 
+      {/* Veelgemaakte Fouten Section */}
+<section className="py-12 lg:py-24 dark:bg-gray-900">
+  <div className="container mx-auto px-4">
+    <div className="flex mb-4 items-center">
+      <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+      </svg>
+      <span className="inline-block ml-2 text-sm font-medium text-lime-500">
+        Frontend Development Best Practices
+      </span>
+    </div>
+    <div className="border-t border-gray-800 pt-16">
+      <div className="max-w-lg mx-auto lg:max-w-none">
+        <div className="flex flex-wrap lg:items-center -mx-4">
+          {/* Video Kolom */}
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video className="w-full h-full object-contain rounded-md" autoPlay loop muted playsInline>
+                <source
+                  src="https://cdn.dribbble.com/userupload/15015906/file/original-6c66e9a715a4a163b1c89a764208494c.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+          {/* Tekst Kolom */}
+          <div className="w-full lg:w-1/2 px-4">
+            <div className="max-w-xl">
+              <h1 className="font-heading text-4xl sm:text-5xl md:text-6xl mb-6 dark:text-white">
+                Veelgemaakte Fouten in Frontend Development
+              </h1>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                Bij het ontwikkelen van een website of applicatie kunnen er fouten ontstaan die de prestaties en gebruikerservaring negatief beïnvloeden. Vaak wordt er onvoldoende aandacht besteed aan optimalisatie, toegankelijkheid en schaalbaarheid.
+              </p>
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                Door deze valkuilen te vermijden en een strategische aanpak te hanteren, zorgen wij bij **MultiChoiceAgency** voor snelle, responsieve en gebruiksvriendelijke digitale producten die conversies verhogen en de betrokkenheid van gebruikers stimuleren.
+              </p>
+
+              <ul className="text-black">
+                <h3 className="text-lg py-3 font-bold dark:text-white">Cruciale Elementen van Sterk Frontend Development</h3>
+                {[
+                  "Snel en geoptimaliseerd laden voor betere prestaties",
+                  "Responsieve ontwerpen die op elk apparaat werken",
+                  "Duidelijke en intuïtieve navigatiestructuur",
+                  "SEO-vriendelijke code en semantische HTML",
+                  "Continue optimalisatie en iteratieve verbeteringen",
+                ].map((item, index) => (
+                  <li key={index} className="flex items-center mb-4">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <rect width="20" height="20" rx="10" fill="#BEF264"></rect>
+                      <path
+                        d="M14.8 6.40002L8.19995 13L5.19995 10"
+                        stroke="#022C22"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      ></path>
+                    </svg>
+                    <span className="ml-3 text-sm text-black hover:text-green-700 font-black dark:text-white">
+                      {item}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{/* Kosten Frontend Development */}
+<section className="py-12 lg:py-24 dark:bg-gray-900">
+  <div className="container mx-auto px-4">
+    <div className="flex mb-4 items-center">
+      <svg width="8" height="8" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="4" cy="4" r="4" fill="#BEF264"></circle>
+      </svg>
+      <span className="inline-block ml-2 text-sm font-medium text-lime-500">
+        Wat Kost Professioneel Frontend Development?
+      </span>
+    </div>
+    <div className="border-t border-gray-800 pt-16">
+      <div className="max-w-lg mx-auto lg:max-w-none">
+        <div className="flex flex-wrap lg:items-center -mx-4">
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <h3 className="font-heading text-2xl sm:text-2xl md:text-3xl mb-6 dark:text-white">
+              Kosten van Frontend Development
+            </h3>
+            <div className="max-w-xl">
+              <p className="text-lg text-gray-700 mb-10 dark:text-white">
+                De kosten voor frontend development hangen af van de omvang en complexiteit van het project. Hieronder enkele belangrijke factoren die de investering bepalen:
+              </p>
+
+              <h2 className="text-xl font-semibold mt-6">Factoren die de kosten beïnvloeden</h2>
+              <ul className="list-disc pl-5">
+                <li>Schaal en complexiteit van de applicatie</li>
+                <li>Gebruik van maatwerk versus bestaande componenten</li>
+                <li>Performance-optimalisatie en SEO-instellingen</li>
+                <li>Responsiviteit en compatibiliteit met verschillende apparaten</li>
+                <li>Onderhoud, updates en doorlopende optimalisatie</li>
+              </ul>
+
+              <h2 className="text-xl font-semibold mt-6">Diensten die wij aanbieden</h2>
+              <ul className="list-disc pl-5">
+                <li>Ontwikkeling van snelle en schaalbare frontend-oplossingen</li>
+                <li>UX/UI implementatie op basis van moderne frameworks</li>
+                <li>SEO-geoptimaliseerde websites en webapplicaties</li>
+                <li>Performance tuning en laadtijdoptimalisatie</li>
+                <li>Langdurig onderhoud en updates voor doorlopende verbetering</li>
+              </ul>
+
+              <h2 className="text-xl font-semibold mt-6">Slim besparen op frontend development</h2>
+              <ul className="list-disc pl-5">
+                <li>Een duidelijke roadmap voorkomt onnodige aanpassingen</li>
+                <li>Gebruik van bewezen technologieën en frameworks</li>
+                <li>Iteratieve ontwikkeling voor continue verbetering</li>
+              </ul>
+
+              <p className="mt-6">
+                Wil je weten wat frontend development voor jouw bedrijf kan betekenen? Neem contact met ons op voor een offerte op maat! 🚀
+              </p>
+              <div className="py-5">
+                <Link
+                  href="/offerte-aanvragen"
+                  className="inline-flex py-4 px-6 items-center justify-center text-sm font-black text-white hover:text-white hover:border-white bg-green-900 hover:bg-green-500 rounded-full transition duration-200"
+                >
+                  Start jouw digitale transformatie vandaag nog
+                </Link>
+              </div>
+            </div>
+          </div>
+          <div className="w-full lg:w-1/2 px-4 mb-12 lg:mb-0">
+            <div className="visible">
+              <video className="w-full h-full object-cover rounded-md" autoPlay loop muted playsInline>
+                <source
+                  src="https://cdn.dribbble.com/userupload/34757330/file/large-ffae5f4b8eaa7b28420b21ff00ad5dbf.mp4"
+                  type="video/mp4"
+                />
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
       {/* FAQ Sectie */}
       <section className="py-12 lg:py-24 bg-white dark:bg-gray-900">
         <div className="container mx-auto px-4">
@@ -227,12 +417,12 @@ export default function FrontendDevelopmentPage() {
                   <button
                     key={index}
                     onClick={() => setOpenAccordion(openAccordion === index ? null : index)}
-                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-white shadow-md rounded-2xl"
+                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left dark:bg-green-900/10 bg-white shadow-md rounded-2xl"
                   >
                     <div className="pr-5">
                       <h5 className="text-lg font-medium">{item.question}</h5>
                       <div className={`overflow-hidden transition-all duration-300 ${openAccordion === index ? "max-h-96" : "max-h-0"}`}>
-                        <p className="text-gray-700 mt-4">{item.answer}</p>
+                        <p className="text-gray-700 mt-4 dark:text-white">{item.answer}</p>
                       </div>
                     </div>
                     <span className="flex-shrink-0">
@@ -273,12 +463,12 @@ export default function FrontendDevelopmentPage() {
                   <button
                     key={index + 3}
                     onClick={() => setOpenAccordion(openAccordion === index + 3 ? null : index + 3)}
-                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left bg-white shadow-md rounded-2xl"
+                    className="flex w-full py-4 px-8 mb-4 items-start justify-between text-left dark:bg-green-900/10 bg-white shadow-md rounded-2xl"
                   >
                     <div className="pr-5">
-                      <h5 className="text-lg font-medium">{item.question}</h5>
+                      <h5 className="text-lg font-medium dark:text-white">{item.question}</h5>
                       <div className={`overflow-hidden transition-all duration-300 ${openAccordion === index + 3 ? "max-h-96" : "max-h-0"}`}>
-                        <p className="text-gray-700 mt-4">{item.answer}</p>
+                        <p className="text-gray-700 dark:text-white mt-4">{item.answer}</p>
                       </div>
                     </div>
                     <span className="flex-shrink-0">
@@ -340,14 +530,16 @@ export default function FrontendDevelopmentPage() {
                   ></path>
                 </svg>
               </span>
-              <h5 className="text-xl font-medium mb-4">Nog vragen?</h5>
-              <p className="text-gray-700">
+              <h5 className="text-xl font-medium mb-4 dark:text-white">Nog vragen?</h5>
+              <p className="text-gray-700 dark:text-white">
                 Voor meer informatie over onze frontend development diensten kunt u onze{" "}
-                <Link href="/contact" className="inline-block text-black font-medium underline">
+                <Link href="/contact" className="inline-block dark:text-white text-black font-medium underline">
                   Contactpagina
                 </Link>{" "}
-                bezoeken of bel onze klantenservice op{" "}
-                <span className="text-black font-medium">010 322 04 10</span>.
+                bezoeken of bel onze klantenservice op{""}
+                <Link href="tel:0103220410">
+                <span className="text-black font-medium dark:text-white underline"> 010 322 04 10</span>.
+                </Link>
               </p>
             </div>
           </div>

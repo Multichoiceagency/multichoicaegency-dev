@@ -59,7 +59,7 @@ export default function AboutUsSection() {
                 We zijn meer dan alleen webontwikkelaars, we creëren maatwerk websites, technisch sterke backends &
                 effectieve digitale strategieën.
               </motion.h1>
-              <motion.p className="max-w-[700px] text-muted-foreground md:text-xl/relaxed" variants={itemVariants}>
+              <motion.p className="max-w-[700px] text-black md:text-xl/relaxed" variants={itemVariants}>
                 Bij Multichoiceagency geloven we dat een sterke online aanwezigheid essentieel is voor het succes van
                 moderne bedrijven. Met onze expertise in maatwerk webdesign, backend development en digitale
                 strategieën, helpen we bedrijven en ondernemers om hun online doelen te realiseren.
