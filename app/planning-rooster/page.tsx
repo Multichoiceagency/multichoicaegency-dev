@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { useState } from "react"
 import Link from "next/link"
@@ -38,8 +38,8 @@ export default function PlanningRoosterSystemenPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      <NextSeo
+<>
+    <NextSeo
         title="Planning en Rooster Systemen | Efficiënte Personeelsplanning"
         description="Optimaliseer uw organisatie met geavanceerde planning en rooster systemen. Onze op maat gemaakte oplossingen zorgen voor efficiënte personeelsplanning, resource allocatie en realtime roosters."
         canonical="https://www.multichoiceagency.nl/planning-rooster-systemen"
@@ -393,6 +393,6 @@ export default function PlanningRoosterSystemenPage() {
           </Link>
         </div>
       </section>
-    </div>
+    </>
   )
 }

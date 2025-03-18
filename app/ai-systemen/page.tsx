@@ -38,8 +38,7 @@ export default function AIGeoptimaliseerdeSystemenPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      {/* SEO & Schema */}
+    <>
       <NextSeo
         title="AI Geoptimaliseerde Systemen | Innovatieve AI-oplossingen voor uw Bedrijf"
         description="Ontdek hoe AI-geoptimaliseerde systemen uw bedrijfsprocessen transformeren. Onze op maat gemaakte AI-oplossingen analyseren data, optimaliseren processen en verhogen de efficiëntie."
@@ -71,13 +70,6 @@ export default function AIGeoptimaliseerdeSystemenPage() {
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
           { position: 2, name: 'AI Geoptimaliseerde Systemen', item: 'https://www.multichoiceagency.nl/ai-geoptimaliseerde-systemen' },
         ]}
-      />
-
-      <FAQPageJsonLd
-        mainEntity={faqItems.map(item => ({
-          questionName: item.question,
-          acceptedAnswerText: item.answer,
-        }))}
       />
 
       {/* Hero Sectie met Video */}
@@ -400,6 +392,6 @@ export default function AIGeoptimaliseerdeSystemenPage() {
           </Link>
         </div>
       </section>
-    </div>
+      </>
   )
 }

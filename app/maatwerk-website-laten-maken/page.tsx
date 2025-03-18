@@ -35,16 +35,12 @@ const MaatwerkWebsitesSEO = () => {
         cardType: "summary_large_image",
       }}
     />
-
-      {/* Breadcrumb Schema */}
       <BreadcrumbJsonLd
         itemListElements={[
           { position: 1, name: 'Home', item: 'https://www.multichoiceagency.nl' },
           { position: 2, name: 'Maatwerk Websites', item: 'https://www.multichoiceagency.nl/maatwerk-website-laten-maken' },
         ]}
       />
-
-      {/* FAQ Schema */}
       <FAQPageJsonLd
         mainEntity={[
           {
@@ -437,6 +433,6 @@ export default function MaatwerkWebsitesPage() {
           </div>
         </div>
       </section>
-    </div>
+    </div>              
   )
 }

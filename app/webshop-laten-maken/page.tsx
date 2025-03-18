@@ -63,8 +63,8 @@ export default function WebshopLatenMaken() {
   ]
 
   return (
-    <div className="bg-white text-black">
-      <NextSeo
+<>
+<NextSeo
         title="Webshop Laten Maken | Professionele E-commerce Oplossingen"
         description="Wil je een webshop laten maken? Ontdek de voordelen van een professionele webshop en hoe wij jouw online verkoop kunnen stimuleren. Vraag een offerte aan!"
         canonical="https://www.multichoiceagency.nl/webshop-laten-maken"
@@ -615,7 +615,7 @@ export default function WebshopLatenMaken() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   )
 }
 

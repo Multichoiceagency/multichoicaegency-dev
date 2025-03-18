@@ -43,8 +43,8 @@ export default function PortalenPlatformenPage() {
   ];
 
   return (
-    <div className="bg-white text-black">
-      <NextSeo
+<>
+    <NextSeo
         title="Portalen en Platformen | Moderne, Responsive Weboplossingen"
         description="Ontdek hoe portalen en platformen uw organisatie transformeren. Wij ontwikkelen moderne, veilige en gebruiksvriendelijke digitale omgevingen met de nieuwste technologieën."
         canonical="https://www.multichoiceagency.nl/portalen-platformen"
@@ -441,6 +441,8 @@ export default function PortalenPlatformenPage() {
           </Link>
         </div>
       </section>
-    </div>
+      </>
+      
+    
   )
 }
