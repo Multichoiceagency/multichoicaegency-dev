@@ -3,7 +3,7 @@ const { parse } = require('url')
 const next = require('next')
  
 const dev = process.env.NODE_ENV !== 'production'
-const hostname = process.env.NODE_ENV !== 'production' ? 'localhost': 'https://multichoiceagency.nl'
+const hostname = process.env.NODE_ENV !== 'production' ? 'localhost': 'multichoiceagency.nl'
 const port = process.env.PORT || 3000
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
@@ -32,6 +32,6 @@ app.prepare().then(() => {
       process.exit(1)
     })
     .listen(port, () => {
-      console.log(`> Ready on https://${hostname}:${port}`)
+      console.log(`> Ready on http://${hostname}:${port}`)
     })
 })
