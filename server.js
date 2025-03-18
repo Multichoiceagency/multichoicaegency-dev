@@ -3,8 +3,7 @@ const { parse } = require('url')
 const next = require('next')
  
 const dev = process.env.NODE_ENV !== 'production'
-// Fix: Use just the domain name without protocol
-const hostname = dev ? 'localhost' : 'multichoiceagency.nl'
+const hostname = process.env.NODE_ENV !== 'production' ? 'localhost': 'https://multichoiceagency.nl'
 const port = process.env.PORT || 3000
 const app = next({ dev, hostname, port })
 const handle = app.getRequestHandler()
@@ -33,7 +32,6 @@ app.prepare().then(() => {
       process.exit(1)
     })
     .listen(port, () => {
-      // Fix: Use correct URL format in log
-      console.log(`> Ready on http://${hostname}:${port}`)
+      console.log(`> Ready on https://${hostname}:${port}`)
     })
 })

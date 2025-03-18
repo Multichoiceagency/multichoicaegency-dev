@@ -17,7 +17,7 @@ export default function Home() {
       description={"Ontdek innovatieve oplossingen die jouw bedrijf naar nieuwe hoogten brengen. Wij creëren digitale ervaringen op maat, volledig afgestemd op jouw visie."} 
       buttonText={"Onze expertises"} 
       buttonLink={"/diensten"} 
-      videoSrc={"/partners/UI-UX-Design-SHOWREEL-2023-｜-Musemind.mp4"} />
+      videoSrc={"/partners/ui.mp4"} />
       <BentoGridDemo />
       <AboutUsSection />
       <TeamSection />
