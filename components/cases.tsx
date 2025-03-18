@@ -217,6 +217,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
 
               {/* View Mode Toggle */}
               <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
+                <span className="px-4 hover:text-green-600">layout aanpassen</span>
                 <button
                   onClick={() => setViewMode("list")}
                   className={`p-2 ${viewMode === "list" ? "bg-gray-100" : "bg-white"}`}
@@ -291,7 +292,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
                 Alle cases bekijken
               </button>
             </div>
-          ) : viewMode === "list" ? (
+          ) : viewMode === "grid" ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Left Column: Case List */}
               <div>

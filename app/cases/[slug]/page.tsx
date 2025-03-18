@@ -40,11 +40,12 @@ export async function generateStaticParams(): Promise<{ slug: string }[]> {
 }
 
 interface PageProps {
-  params: { slug: string };
-  searchParams?: Record<string, string | string[] | undefined>;
+  params: Promise<{ slug: string }>;
+  searchParams?: Promise<Record<string, string | string[] | undefined>>;
 }
 
-export default async function Page({ params }: PageProps) {
+export default async function Page(props0: PageProps) {
+  const params = await props0.params;
   const caseStudy = await getCaseStudy(params.slug).catch(() => null);
 
   if (!caseStudy) {
