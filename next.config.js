@@ -2,10 +2,6 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    reactStrictMode: true,
-    swcMinify: true
-  },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'cloud.multichoiceagency.nl', pathname: '/**' },
