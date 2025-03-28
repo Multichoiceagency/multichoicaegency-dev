@@ -46,7 +46,7 @@ export function Header(): JSX.Element {
   const headerRef = useRef<HTMLDivElement>(null);
 
 // Gebruik useOutsideClick om menus te sluiten als er buiten de header wordt geklikt.
-useOutsideClick(headerRef as React.RefObject<HTMLDivElement>, () => {
+useOutsideClick(headerRef as React.RefObject<HTMLDivElement | null>, () => {
   setActiveMegaMenu(null);
   setIsMobileMenuOpen(false);
 });

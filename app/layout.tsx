@@ -26,12 +26,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nl" suppressHydrationWarning>
       <body className={`${unbounded.className} smooth-scroll`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="auto" enableSystem>
-            <ScrollToTop />
             <FloatingSocialIcons />
             <LiveChat />
             <Header />
             {children}
             <Footer />
+            <ScrollToTop />
             <GoogleCalendarButton />
             <QuoteButton />
         </ThemeProvider>

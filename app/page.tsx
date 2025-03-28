@@ -6,6 +6,7 @@ import TeamSection from "@/components/team-section"
 import { BentoGridDemo } from "@/components/BentoGridDemo"
 import AboutUsSection from "@/components/About-us-section"
 import HeroSection from "@/components/HeroSection"
+import { Typewriter } from "@/components/typewriter"
 
 
 export default function Home() {
@@ -17,6 +18,7 @@ export default function Home() {
       buttonText={"Onze expertises"} 
       buttonLink={"/diensten"} 
       videoSrc={"/partners/ui.mp4"} />
+      <Typewriter />
       <BentoGridDemo />
       <AboutUsSection />
       <TeamSection />

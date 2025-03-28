@@ -15,10 +15,14 @@ const nextConfig = {
     deviceSizes: [320, 420, 768, 1024, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
+  // Enable Turbopack for development
+  experimental: {
+    webVitalsAttribution: ['CLS', 'LCP'],
+  },
   webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
-      '@': path.resolve(process.cwd()), // Gebruik process.cwd() voor de juiste root-directory
+      '@': path.resolve(process.cwd()), // Use process.cwd() for the correct root directory
     };
     return config;
   },

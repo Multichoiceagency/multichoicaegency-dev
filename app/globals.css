@@ -2,40 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer utilities {
-  .border-border {
-    border-color: hsl(var(--border));
-  }
-}
 
-html.has-scroll-smooth {
-  overflow: hidden;
-}
-
-html.has-scroll-dragging {
-  user-select: none;
-}
-
-.has-scroll-smooth body {
-  overflow: hidden;
-}
-
-/* Hide scrollbar for Chrome, Safari and Opera */
-.has-scroll-smooth::-webkit-scrollbar {
-  display: none;
-}
-
-/* Hide scrollbar for IE, Edge and Firefox */
-.has-scroll-smooth {
-  -ms-overflow-style: none; /* IE and Edge */
-  scrollbar-width: none; /* Firefox */
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -82,10 +49,6 @@ html.has-scroll-dragging {
     --ring: 142 59% 50%;
   }
 
-  * {
-    @layer border-border;
-  }
-
   body {
     overflow-x: hidden; /* Prevents horizontal scrolling */
   }
@@ -112,6 +75,40 @@ html {
 
 .text-orientation-upright {
   text-orientation: upright;
+}
+
+html.has-scroll-smooth {
+  overflow: hidden;
+}
+
+html.has-scroll-dragging {
+  user-select: none;
+}
+
+.has-scroll-smooth body {
+  overflow: hidden;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.has-scroll-smooth::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.has-scroll-smooth {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+@layer utilities {
+  .border-border {
+    border-color: hsl(var(--border));
+  }
 }
 
 @keyframes pulseBg {
