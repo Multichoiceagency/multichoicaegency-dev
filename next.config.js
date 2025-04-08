@@ -10,6 +10,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'cdn.pixabay.com', pathname: '/**' },
       { protocol: 'https', hostname: 'source.unsplash.com', pathname: '/**' },
       { protocol: 'https', hostname: 'images.pexels.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'images.unsplash.com', pathname: '/**' },
     ],
     formats: ['image/avif', 'image/webp'],
     deviceSizes: [320, 420, 768, 1024, 1200],

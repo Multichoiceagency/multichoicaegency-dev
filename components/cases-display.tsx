@@ -1,11 +1,9 @@
 "use client"
 
-import { useEffect, useState, useRef } from "react"
-import "flickity/css/flickity.css"
+import { useEffect, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, ArrowLeft } from "lucide-react"
-import { decodeHtml } from "@/utils/decodeHtml"
+import { motion } from "framer-motion"
 
 interface Case {
   id: number
@@ -21,15 +19,29 @@ interface Case {
       source_url: string
     }>
   }
+  excerpt?: {
+    rendered: string
+  }
+}
+
+// Helper function to decode HTML entities
+const decodeHtml = (html: string) => {
+  const txt = document.createElement("textarea")
+  txt.innerHTML = html
+  return txt.value
+}
+
+// Helper function to strip HTML tags
+const stripHtml = (html: string) => {
+  return html.replace(/<\/?[^>]+(>|$)/g, "")
 }
 
 export default function Portfolio() {
   const [cases, setCases] = useState<Case[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const flickityRef = useRef<any>(null)
-  const flickityContainerRef = useRef<HTMLDivElement>(null)
 
+  // Fetch cases from WordPress API
   useEffect(() => {
     async function fetchCases() {
       try {
@@ -46,153 +58,153 @@ export default function Portfolio() {
     fetchCases()
   }, [])
 
-  useEffect(() => {
-    let flkty: any = null
-
-    async function loadFlickity() {
-      if (typeof window !== "undefined" && cases.length > 0 && flickityContainerRef.current) {
-        try {
-          const FlickityModule = await import("flickity")
-          const FlickityInstance = FlickityModule.default
-
-          if (!flickityRef.current && flickityContainerRef.current) {
-            flkty = new FlickityInstance(flickityContainerRef.current, {
-              cellAlign: "left",
-              contain: true,
-              groupCells: 2,
-              wrapAround: false,
-              freeScroll: true,
-              pageDots: false,
-              prevNextButtons: false,
-              draggable: true,
-              friction: 0.15,
-            })
-
-            flickityRef.current = flkty
-          }
-        } catch (error) {
-          console.error("Error initializing Flickity:", error)
-        }
-      }
-    }
-
-    loadFlickity()
-
-    return () => {
-      if (flickityRef.current) {
-        try {
-          flickityRef.current.destroy()
-        } catch (error) {
-          console.error("Error destroying Flickity:", error)
-        }
-        flickityRef.current = null
-      }
-    }
-  }, [cases])
-
-  const handlePrevClick = () => {
-    if (flickityRef.current) {
-      flickityRef.current.previous()
-    }
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+      },
+    },
   }
 
-  const handleNextClick = () => {
-    if (flickityRef.current) {
-      flickityRef.current.next()
-    }
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 },
+    },
   }
 
+  // Sample service tags for each case
+  const serviceTags = [
+    ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
+    ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
+    ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
+    ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
+  ]
+
+  // Loading state
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-64">
-        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-black"></div>
+      <div className="w-full flex justify-center items-center h-64">
+        <div className="animate-spin rounded-full h-16 w-16 border-t-2 border-b-2 border-[#1b7935]"></div>
       </div>
     )
   }
 
+  // Error state
   if (error) {
-    return <div className="text-center py-12 text-red-500">Error: {error}</div>
+    return <div className="w-full text-center py-12 text-red-500">Error: {error}</div>
   }
 
   return (
-    <section className="py-16 bg-white dark:text-white dark:bg-gray-800">
-      <div className="container mx-auto px-4 md:px-8 lg:px-16">
-        <div className="mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white">Onze Cases</h2>
-        </div>
+    <section className="w-full py-16 bg-[#d9f2f2] relative overflow-hidden">
+      {/* Background text decoration */}
+      <div className="absolute top-0 left-0 text-[20rem] font-bold text-[#c1e8e8] opacity-50 select-none pointer-events-none z-0">
+        Cases
+      </div>
+      <div className="absolute bottom-0 right-0 text-[20rem] font-bold text-[#c1e8e8] opacity-50 select-none pointer-events-none z-0">
+        Cases
+      </div>
 
-        {/* Flickity Slider */}
-        <div className="relative">
-          <div ref={flickityContainerRef} className="overflow-hidden">
-            {cases.map((caseItem) => {
-              const title = decodeHtml(caseItem.title.rendered)
-              const industry = caseItem.acf?.industry || ""
-              const stats = caseItem.acf?.stats || ""
-              const imageSrc = caseItem._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
+      <div className="container mx-auto px-4 md:px-8 relative z-10">
+        {/* Full-width header with paraphrased text */}
+        <motion.div
+          className="w-full mb-16 text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+        >
+          <h2 className="w-full text-3xl md:text-5xl font-bold text-[#1b7935] mb-6 leading-tight">
+            Wij verbinden jouw merk met de digitale wereld
+          </h2>
+          <p className="w-full text-xl md:text-2xl text-gray-700 max-w-5xl mx-auto">
+            Samen creëren we de brug tussen jouw merk en de online omgeving. In het digitale landschap is het essentieel
+            om op een authentieke en impactvolle manier op te vallen.
+          </p>
+        </motion.div>
 
-              return (
-                <div key={caseItem.id} className="w-full md:w-[calc(50%-20px)] px-2 md:px-4">
-                  <div className="mb-8">
-                    {/* Laptop mockup with image */}
-                    <div className="relative mb-6 bg-gray-900 rounded-md overflow-hidden">
-                      <div className="pt-8 pb-12 px-12">
-                        <div className="relative w-full h-[280px] rounded-t-md overflow-hidden border-t-8 border-x-8 border-gray-800 bg-white">
-                          <Image src={imageSrc} alt={title} fill className="object-cover" />
-                        </div>
-                        <div className="h-4 bg-gray-800 rounded-b-md"></div>
-                      </div>
-                    </div>
+        {/* Masonry grid layout */}
+        <motion.div
+          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
+        >
+          {cases.slice(0, 4).map((caseItem, index) => {
+            const title = decodeHtml(caseItem.title.rendered)
+            const industry = caseItem.acf?.industry || ""
+            const imageSrc = caseItem._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
 
-                    {/* Text content */}
-                    <div>
-                      <div className="flex items-center mb-2">
-                        <p className="text-sm font-bold text-gray-900 dark:text-white">{industry}</p>
-                        {stats && (
-                          <>
-                            <div className="mx-2 w-6 h-6 rounded-full bg-green-100 flex items-center justify-center text-xs text-green-800 font-bold">
-                              1
-                            </div>
-                            <p className="text-sm text-gray-700">{stats}</p>
-                          </>
-                        )}
-                      </div>
+            // Determine card height based on position
+            const cardHeight = index === 0 || index === 3 ? "h-[800px]" : "h-[900px]"
 
-                      {/* ✅ Case Titel met Link en Hover-effect */}
-                      <Link href={`/cases/${caseItem.slug}`}>
-                        <h3 className="text-2xl font-bold text-gray-900 dark:text-white transition-transform transform hover:scale-105 hover:text-green-700 hover:shadow-md hover:shadow-green-300 dark:hover:shadow-green-500 mb-2 cursor-pointer">
-                          {title}
-                        </h3>
-                      </Link>
-                    </div>
+            return (
+              <motion.div
+                key={caseItem.id}
+                className={`relative overflow-hidden rounded-lg ${cardHeight}`}
+                variants={itemVariants}
+              >
+                {/* Company/Industry name */}
+                <div className="absolute top-4 left-4 z-20">
+                  <h3 className="text-white text-lg font-bold bg-black/50 px-3 py-1 rounded-md backdrop-blur-sm">
+                    {industry}
+                  </h3>
+                </div>
+
+                {/* Full-width image */}
+                <div className="relative w-full h-full">
+                  <Image
+                    src={imageSrc || "/placeholder.svg"}
+                    alt={title}
+                    fill
+                    className="object-contain"
+                    priority={index < 2}
+                  />
+
+                  {/* Gradient overlay for text readability */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                </div>
+
+                {/* Title and service tags */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                  <h4 className="text-white text-xl font-bold mb-3">{title}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {serviceTags[index % serviceTags.length].slice(0, 5).map((tag, tagIndex) => (
+                      <span
+                        key={tagIndex}
+                        className="text-white text-xs bg-black/30 backdrop-blur-sm px-2 py-1 rounded"
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
-              )
-            })}
-          </div>
+              </motion.div>
+            )
+          })}
+        </motion.div>
 
-          {/* Navigatie */}
-          <div className="flex justify-end mt-4">
-            <Link
-              href="/cases"
-              className="mr-auto bg-black text-white px-6 py-3 font-medium hover:bg-gray-800 transition-colors"
+        {/* View all cases button */}
+        <div className="w-full mt-12 text-center">
+          <Link
+            href="/cases"
+            className="inline-flex items-center px-6 py-3 bg-[#1b7935] hover:bg-[#145a28] text-white font-medium rounded-md transition-colors"
+          >
+            Bekijk alle cases
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              className="h-5 w-5 ml-2"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
             >
-              Alle cases
-            </Link>
-            <button
-              onClick={handlePrevClick}
-              className="w-12 h-12 border border-gray-300 flex items-center justify-center mr-2 hover:bg-gray-100"
-              aria-label="Previous"
-            >
-              <ArrowLeft size={20} />
-            </button>
-            <button
-              onClick={handleNextClick}
-              className="w-12 h-12 border border-gray-300 flex items-center justify-center hover:bg-gray-100"
-              aria-label="Next"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </Link>
         </div>
       </div>
     </section>
