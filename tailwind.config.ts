@@ -11,8 +11,8 @@ const config: Config = {
   theme: {
     extend: {
       screens: {
-        xl: '1600px', // Large screens
-        lg: '1400px', // Medium screens
+        xl: '1900px', // Large screens
+        lg: '1800px', // Medium screens
         md: '1024px', // Tablet screens
         sm: '768px',  // Phone screens
         xs: '480px',  // Small phone screens

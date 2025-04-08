@@ -7,6 +7,7 @@ import { BentoGridDemo } from "@/components/BentoGridDemo"
 import AboutUsSection from "@/components/About-us-section"
 import HeroSection from "@/components/HeroSection"
 import { Typewriter } from "@/components/typewriter"
+import ServicesCarousel from "@/components/services-carousel"
 
 
 export default function Home() {
@@ -19,7 +20,7 @@ export default function Home() {
       buttonLink={"/diensten"} 
       videoSrc={"/partners/ui.mp4"} />
       <Typewriter />
-      <BentoGridDemo />
+      <ServicesCarousel />
       <AboutUsSection />
       <TeamSection />
       <Portfolio />

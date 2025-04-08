@@ -1,22 +1,16 @@
 "use client"
 
 import type React from "react"
-import { useEffect, useState, useRef, type ReactNode } from "react"
+import { useRef } from "react"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { useTheme } from "next-themes"
 
-interface WordSegment {
-  text: string
-  className?: string
-}
-
 interface TypewriterProps {
   className?: string
-  cursorClassName?: string
 }
 
-export const Typewriter: React.FC<TypewriterProps> = ({ className, cursorClassName }: TypewriterProps) => {
+export const Typewriter: React.FC<TypewriterProps> = ({ className }: TypewriterProps) => {
   const { theme, setTheme } = useTheme()
   const containerRef = useRef<HTMLDivElement>(null)
 
@@ -29,153 +23,128 @@ export const Typewriter: React.FC<TypewriterProps> = ({ className, cursorClassNa
   // Transform values based on scroll position
   const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [15, 0, -15])
   const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [15, 0, -15])
-  const scale = useTransform(scrollYProgress, [0, 0.5, 1], [0.9, 1, 0.9])
-  const opacity = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [0.6, 1, 1, 0.6])
-  const y = useTransform(scrollYProgress, [0, 0.5, 1], [50, 0, -50])
+  const scale = useTransform(scrollYProgress, [0, 0.2, 0.5, 0.8, 1], [0.8, 0.9, 1, 0.9, 0.8])
 
-  // New transformations for height and font size
+  // Enhanced opacity for stronger fade-in and fade-out effect
+  const opacity = useTransform(scrollYProgress, [0, 0.15, 0.5, 0.85, 1], [0, 1, 1, 1, 0])
+
+  const y = useTransform(scrollYProgress, [0, 0.2, 0.8, 1], [100, 0, 0, -100])
+
+  // Slower background color transformation with more keyframes for smoother transition
+  const bgColor = useTransform(
+    scrollYProgress,
+    [0, 0.35, 0.4, 0.45, 0.55, 0.6, 0.65, 1],
+    [
+      "rgba(249, 249, 249, 0.8)",
+      "rgba(249, 249, 249, 0.8)",
+      "rgba(27, 121, 53, 0.1)",
+      "rgba(27, 121, 53, 0.7)",
+      "rgba(27, 121, 53, 0.7)",
+      "rgba(27, 121, 53, 0.1)",
+      "rgba(249, 249, 249, 0.8)",
+      "rgba(249, 249, 249, 0.8)",
+    ],
+  )
+
+  // Gradient background for the inset container
+  const gradientBg = useTransform(
+    scrollYProgress,
+    [0, 0.35, 0.4, 0.45, 0.55, 0.6, 0.65, 1],
+    [
+      "linear-gradient(135deg, rgba(249, 249, 249, 0.5), rgba(249, 249, 249, 0.5))",
+      "linear-gradient(135deg, rgba(249, 249, 249, 0.5), rgba(249, 249, 249, 0.5))",
+      "linear-gradient(135deg, rgba(27, 121, 53, 0.2), rgba(166, 226, 103, 0.2))",
+      "linear-gradient(135deg, rgba(27, 121, 53, 0.9), rgba(166, 226, 103, 0.8))",
+      "linear-gradient(135deg, rgba(27, 121, 53, 0.9), rgba(166, 226, 103, 0.8))",
+      "linear-gradient(135deg, rgba(27, 121, 53, 0.2), rgba(166, 226, 103, 0.2))",
+      "linear-gradient(135deg, rgba(249, 249, 249, 0.5), rgba(249, 249, 249, 0.5))",
+      "linear-gradient(135deg, rgba(249, 249, 249, 0.5), rgba(249, 249, 249, 0.5))",
+    ],
+  )
+
+  // Text color transformation based on scroll - slower transition
+  const textColor = useTransform(
+    scrollYProgress,
+    [0, 0.35, 0.45, 0.55, 0.65, 1],
+    ["#000000", "#000000", "#ffffff", "#ffffff", "#000000", "#000000"],
+  )
+
+  // New transformations for height and font size with responsive values
   const height = useTransform(scrollYProgress, [0, 1], ["100vh", "70vh"])
-  // Changed font size to start at 48px and grow to 72px when scrolling down
-  const fontSize = useTransform(scrollYProgress, [0, 0.5, 1], ["48px", "72px", "48px"])
 
-  // Hardcoded text content directly in the component
-  const words: WordSegment[][] = [
-    [{ text: "WIJ CREËREN DESIGNS OP MAAT" }],
-    [{ text: "DIGITAAL ONTWERP", className: "text-green-400" }, { text: ", CODE" }],
-    [{ text: "& VORMEN MERKEN." }],
-    [{ text: "GROOT OF KLEIN." }],
-  ]
+  // Responsive font size based on screen size and scroll position
+  const fontSize = useTransform(
+    scrollYProgress,
+    [0, 0.5, 1],
+    ["clamp(24px, 5vw, 48px)", "clamp(32px, 7vw, 72px)", "clamp(24px, 5vw, 48px)"],
+  )
 
-  const [currentWordIndex, setCurrentWordIndex] = useState<number>(0)
-  const [currentText, setCurrentText] = useState<string>("")
-  const [isDeleting, setIsDeleting] = useState<boolean>(false)
-  const [isLineComplete, setIsLineComplete] = useState<boolean>(false)
-  const [displayedLines, setDisplayedLines] = useState<ReactNode[]>([])
-
-  useEffect(() => {
-    const currentLine: WordSegment[] = words[currentWordIndex]
-    const fullText: string = currentLine.map((word) => word.text).join("")
-
-    const type = (): void => {
-      if (!isDeleting && !isLineComplete) {
-        if (currentText.length < fullText.length) {
-          setCurrentText(fullText.substring(0, currentText.length + 1))
-        } else {
-          setIsLineComplete(true)
-
-          // Create the completed line with proper styling
-          const lineElements: ReactNode[] = []
-          let charIndex = 0
-
-          for (const word of currentLine) {
-            const wordLength: number = word.text.length
-            const wordText: string = fullText.substring(charIndex, charIndex + wordLength)
-
-            lineElements.push(
-              <span
-                key={charIndex}
-                className={cn(
-                  "transition-colors duration-300 hover:text-green-900 dark:hover:text-green-400",
-                  word.className,
-                  word.className?.includes("text-green-400") && theme === "dark" ? "text-green-300" : "",
-                )}
-              >
-                {wordText}
-              </span>,
-            )
-
-            charIndex += wordLength
-          }
-
-          setDisplayedLines((prev) => [
-            ...prev,
-            <div key={currentWordIndex} className="flex flex-wrap">
-              {lineElements}
-            </div>,
-          ])
-
-          // Move to the next line
-          if (currentWordIndex < words.length - 1) {
-            setTimeout(() => {
-              setCurrentWordIndex(currentWordIndex + 1)
-              setCurrentText("")
-              setIsLineComplete(false)
-            }, 500)
-          }
-        }
-      }
-    }
-
-    const typingDelay: number = 50 // Adjust typing speed
-    const timer: NodeJS.Timeout = setTimeout(type, typingDelay)
-
-    return () => clearTimeout(timer)
-  }, [currentText, currentWordIndex, isDeleting, isLineComplete, words, theme])
-
-  // Render the current typing line
-  const renderCurrentLine = (): ReactNode => {
-    if (isLineComplete) return null
-
-    const currentLine: WordSegment[] = words[currentWordIndex]
-    const fullLineText: string = currentLine.map((word) => word.text).join("")
-
-    // Calculate which parts of the text are visible
-    const visibleText: string = currentText
-
-    const lineElements: ReactNode[] = []
-    let charIndex = 0
-
-    for (const word of currentLine) {
-      const wordLength: number = word.text.length
-      const startIndex: number = charIndex
-      const endIndex: number = charIndex + wordLength
-
-      // Get the visible portion of this word
-      const visiblePortion: string = visibleText.substring(
-        Math.max(startIndex, 0),
-        Math.min(endIndex, visibleText.length),
-      )
-
-      if (visiblePortion.length > 0) {
-        lineElements.push(
-          <span
-            key={charIndex}
-            className={cn(
-              "transition-colors duration-300 hover:text-green-900 dark:hover:text-green-400",
-              word.className,
-              word.className?.includes("text-green-600") && theme === "dark" ? "text-green-700" : "",
-            )}
-          >
-            {visiblePortion}
-          </span>,
-        )
-      }
-
-      charIndex += wordLength
-    }
-
-    return (
+  // Static content instead of typewriter effect
+  const content = (
+    <>
       <div className="flex flex-wrap">
-        {lineElements}
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 0.5, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-          className={cn("ml-1 inline-block h-full w-[3px] bg-black dark:bg-white", cursorClassName)}
-        />
+        <span className="transition-colors duration-300 hover:text-green-900 dark:hover:text-green-400">
+          WIJ CREËREN DESIGNS OP MAAT
+        </span>
       </div>
-    )
-  }
+      <div className="flex flex-wrap">
+        <span
+          className={cn(
+            "transition-colors duration-300 hover:text-green-900 dark:hover:text-green-400",
+            "text-green-400",
+            theme === "dark" ? "text-green-300" : "",
+          )}
+        >
+          DIGITAAL ONTWERP
+        </span>
+        <span className="transition-colors duration-300 hover:text-green-900 dark:hover:text-green-400">, CODE</span>
+      </div>
+      <div className="flex flex-wrap">
+        <span className="transition-colors duration-300 hover:text-green-900 dark:hover:text-green-400">
+          & VORMEN MERKEN.
+        </span>
+      </div>
+      <div className="flex flex-wrap">
+        <span className="transition-colors duration-300 hover:text-green-900 dark:hover:text-green-400">
+          GROOT OF KLEIN.
+        </span>
+      </div>
+    </>
+  )
 
   return (
     <motion.main
       ref={containerRef}
-      className="flex flex-col items-center justify-center p-8 bg-[#F9F9F9] dark:bg-gray-900 relative overflow-hidden"
-      style={{ height }}
-      transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      className="flex flex-col items-center justify-center p-4 sm:p-8 relative overflow-hidden bg-[#F9F9F9] dark:bg-gray-900"
+      style={{
+        height,
+      }}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ type: "spring", stiffness: 800, damping: 30 }}
     >
+      {/* Inset background with rounded corners */}
       <motion.div
-        className="w-[80%] mx-auto perspective-[1200px]"
+        className="absolute inset-4 sm:inset-8 rounded-xl shadow-lg"
+        style={{
+          background: gradientBg,
+          boxShadow: useTransform(
+            scrollYProgress,
+            [0, 0.4, 0.5, 0.6, 1],
+            [
+              "0 4px 6px rgba(0, 0, 0, 0.05)",
+              "0 4px 6px rgba(0, 0, 0, 0.05)",
+              "0 10px 25px rgba(27, 121, 53, 0.2)",
+              "0 4px 6px rgba(0, 0, 0, 0.05)",
+              "0 4px 6px rgba(0, 0, 0, 0.05)",
+            ],
+          ),
+        }}
+      />
+
+      <motion.div
+        className="w-[95%] sm:w-[90%] md:w-[80%] mx-auto perspective-[1400px] z-10"
         style={{
           rotateX,
           rotateY,
@@ -183,21 +152,38 @@ export const Typewriter: React.FC<TypewriterProps> = ({ className, cursorClassNa
           opacity,
           y,
           transformStyle: "preserve-3d",
+          color: textColor,
         }}
         transition={{ type: "spring", stiffness: 400, damping: 30 }}
       >
         <motion.div
-          className={cn("font-bold tracking-tight leading-tight text-black dark:text-white", className)}
+          className={cn("font-bold tracking-tight leading-tight text-balance break-words", className)}
           style={{ fontSize }}
         >
-          {displayedLines}
-          {renderCurrentLine()}
+          {content}
         </motion.div>
       </motion.div>
 
+      {/* Animated gradient overlay for enhanced fade effect */}
+      <motion.div
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          background: useTransform(
+            scrollYProgress,
+            [0, 0.1, 0.9, 1],
+            [
+              "linear-gradient(to bottom, rgba(249, 249, 249, 1), rgba(249, 249, 249, 0))",
+              "linear-gradient(to bottom, rgba(249, 249, 249, 0), rgba(249, 249, 249, 0))",
+              "linear-gradient(to bottom, rgba(249, 249, 249, 0), rgba(249, 249, 249, 0))",
+              "linear-gradient(to bottom, rgba(249, 249, 249, 0), rgba(249, 249, 249, 1))",
+            ],
+          ),
+        }}
+      />
+
       <button
         onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-        className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700"
+        className="absolute top-4 right-4 p-2 rounded-full bg-gray-200 dark:bg-gray-700 z-20"
       >
         {theme === "dark" ? "🌞" : "🌙"}
       </button>
@@ -205,3 +191,4 @@ export const Typewriter: React.FC<TypewriterProps> = ({ className, cursorClassNa
   )
 }
 
+export default Typewriter

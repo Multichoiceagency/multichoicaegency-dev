@@ -1,181 +1,132 @@
 "use client"
 
 import type React from "react"
-import { useEffect, useRef, useState } from "react"
-import { usePathname } from "next/navigation"
-import LocomotiveScroll from "locomotive-scroll"
-import "locomotive-scroll/dist/locomotive-scroll.css"
+import { useEffect, useRef, useState, type ReactNode } from "react"
+import { motion, useSpring } from "framer-motion"
 
 interface SmoothScrollProps {
-  children: React.ReactNode
+  children: ReactNode
+  speed?: number
+  className?: string
 }
 
-// Define a type for the internal structure we need to access
-interface LocomotiveScrollInstance extends LocomotiveScroll {
-  scroll: {
-    instance: {
-      scroll: {
-        y: number
-      }
-    }
-  }
-}
-
-export default function SmoothScroll({ children }: SmoothScrollProps) {
+const SmoothScroll: React.FC<SmoothScrollProps> = ({ children, speed = 1.0, className = "" }) => {
   const scrollRef = useRef<HTMLDivElement>(null)
-  const locomotiveScrollRef = useRef<LocomotiveScroll | null>(null)
-  const pathname = usePathname()
+  const [isMobile, setIsMobile] = useState(false)
+  const [transformValue, setTransformValue] = useState(0)
+  const [contentHeight, setContentHeight] = useState(0)
+  const resizeObserverRef = useRef<ResizeObserver | null>(null)
 
+  // More responsive spring configuration
+  const springConfig = {
+    damping: 30,
+    stiffness: 200,
+    mass: 0.2,
+  }
+
+  const y = useSpring(0, springConfig)
+
+  // Check if device is mobile
   useEffect(() => {
-    if (!scrollRef.current) return
-
-    // Initialize Locomotive Scroll with optimized settings
-    locomotiveScrollRef.current = new LocomotiveScroll({
-      el: scrollRef.current,
-      smooth: true,
-      smartphone: { smooth: true } as any,
-      tablet: { smooth: true } as any,
-      lerp: 0.07,
-      multiplier: 1.0,
-      scrollFromAnywhere: true,
-      touchMultiplier: 2.5,
-    })
-
-    // Initial update
-    if (locomotiveScrollRef.current) {
-      locomotiveScrollRef.current.update()
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768)
     }
 
-    // Use ResizeObserver to detect content size changes
-    const resizeObserver = new ResizeObserver(() => {
-      if (locomotiveScrollRef.current) {
-        locomotiveScrollRef.current.update()
+    checkMobile()
+    window.addEventListener("resize", checkMobile)
+
+    return () => {
+      window.removeEventListener("resize", checkMobile)
+    }
+  }, [])
+
+  // Set up content height monitoring and scrolling
+  useEffect(() => {
+    const scrollContainer = scrollRef.current
+    if (!scrollContainer) return
+
+    // Function to update content height
+    const updateHeight = () => {
+      if (scrollContainer) {
+        const height = scrollContainer.scrollHeight
+        setContentHeight(height)
+        // Set body height to match content + small buffer
+        document.body.style.height = `${height}px`
       }
-    })
-
-    if (scrollRef.current) {
-      resizeObserver.observe(scrollRef.current)
     }
 
-    // Update after images and other resources are loaded
-    const handleLoad = () => {
-      setTimeout(() => {
-        if (locomotiveScrollRef.current) {
-          locomotiveScrollRef.current.update()
+    // Initial height update
+    updateHeight()
+
+    // Set up ResizeObserver to monitor content height changes
+    resizeObserverRef.current = new ResizeObserver(() => {
+      updateHeight()
+    })
+
+    resizeObserverRef.current.observe(scrollContainer)
+
+    // Scroll handler
+    const handleScroll = () => {
+      requestAnimationFrame(() => {
+        const scrollTop = window.scrollY
+
+        // If mobile, use direct transform
+        if (isMobile) {
+          setTransformValue(-scrollTop)
+        } else {
+          // For desktop, use spring physics
+          y.set(scrollTop * speed)
         }
-      }, 200)
+      })
     }
 
-    window.addEventListener('load', handleLoad)
+    // Add scroll event listener
+    window.addEventListener("scroll", handleScroll, { passive: true })
 
-    // Additional update after a delay to catch any late-loading content
-    const timer = setTimeout(() => {
-      if (locomotiveScrollRef.current) {
-        locomotiveScrollRef.current.update()
-      }
-    }, 1000)
-
-    // Cleanup function
+    // Cleanup
     return () => {
-      window.removeEventListener('load', handleLoad)
-      resizeObserver.disconnect()
-      clearTimeout(timer)
-      
-      if (locomotiveScrollRef.current) {
-        locomotiveScrollRef.current.destroy()
+      window.removeEventListener("resize", updateHeight)
+      window.removeEventListener("scroll", handleScroll)
+      if (resizeObserverRef.current) {
+        resizeObserverRef.current.disconnect()
       }
+      document.body.style.height = ""
     }
-  }, [pathname])
+  }, [speed, y, isMobile])
 
-  // Update scroll when window is resized
+  // Update transform value when spring value changes
   useEffect(() => {
-    const handleResize = () => {
-      if (locomotiveScrollRef.current) {
-        locomotiveScrollRef.current.update()
-      }
+    if (!isMobile) {
+      return y.onChange((value) => {
+        setTransformValue(-value)
+      })
     }
-
-    window.addEventListener("resize", handleResize)
-    return () => window.removeEventListener("resize", handleResize)
-  }, [])
-
-  // Handle scroll to bottom edge case
-  useEffect(() => {
-    const handleScrollToBottom = () => {
-      if (!locomotiveScrollRef.current || !scrollRef.current) return
-      
-      // Use type assertion to access internal properties
-      const scrollInstance = locomotiveScrollRef.current as any
-      let currentY = 0
-      
-      try {
-        // Try to access the scroll position safely
-        currentY = scrollInstance.scroll?.instance?.scroll?.y || 0
-      } catch (e) {
-        console.warn("Could not access scroll position", e)
-      }
-      
-      const maxY = scrollRef.current.scrollHeight - window.innerHeight
-      
-      // If we're trying to scroll past the bottom, force an update
-      if (currentY >= maxY - 50) {
-        setTimeout(() => {
-          if (locomotiveScrollRef.current) {
-            locomotiveScrollRef.current.update()
-            
-            // Force scroll to bottom if needed
-            if (currentY >= maxY - 10) {
-              locomotiveScrollRef.current.scrollTo(document.body.scrollHeight)
-            }
-          }
-        }, 100)
-      }
-    }
-    
-    // Add event listener to the locomotive-scroll instance
-    if (locomotiveScrollRef.current) {
-      // Use type assertion to access the 'on' method if it's not in the type definitions
-      (locomotiveScrollRef.current as any).on?.('scroll', handleScrollToBottom)
-    }
-    
-    return () => {
-      if (locomotiveScrollRef.current) {
-        // Use type assertion to access the 'off' method if it's not in the type definitions
-        (locomotiveScrollRef.current as any).off?.('scroll', handleScrollToBottom)
-      }
-    }
-  }, [])
-
-  // Force update when DOM mutations occur (for dynamic content)
-  useEffect(() => {
-    if (!scrollRef.current) return
-    
-    const mutationObserver = new MutationObserver(() => {
-      if (locomotiveScrollRef.current) {
-        setTimeout(() => {
-          if (locomotiveScrollRef.current) {
-            locomotiveScrollRef.current.update()
-          }
-        }, 100)
-      }
-    })
-    
-    mutationObserver.observe(scrollRef.current, {
-      childList: true,
-      subtree: true
-    })
-    
-    return () => mutationObserver.disconnect()
-  }, [])
+  }, [y, isMobile])
 
   return (
-    <div 
-      ref={scrollRef} 
-      data-scroll-container
-      className="min-h-screen"
-      style={{ paddingBottom: '50px' }} // Add padding to ensure scrolling to the very end
+    <div
+      className="smooth-scroll-container fixed top-0 left-0 w-full min-h-screen overflow-hidden"
+      style={{ zIndex: 1 }}
     >
-      {children}
+      <motion.div
+        ref={scrollRef}
+        className={`smooth-scroll-content ${className}`}
+        style={{
+          y: transformValue,
+          position: "absolute",
+          width: "100%",
+          willChange: "transform",
+        }}
+        transition={{
+          type: "spring",
+          bounce: 0,
+          duration: 0.3,
+        }}
+      >
+        {children}
+      </motion.div>
     </div>
   )
 }
+
+export default SmoothScroll
