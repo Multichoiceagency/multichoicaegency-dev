@@ -33,8 +33,8 @@ export default function AboutUsSection() {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
+        delayChildren: 1.0,
+        staggerChildren: 1.0,
       },
     },
   }
@@ -59,37 +59,44 @@ export default function AboutUsSection() {
       {/* Background with color fade effect */}
       <motion.div className="absolute inset-0 -z-10" style={{ background: backgroundColor }} />
 
-      <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+      <div className="container max-w-7xl mx-auto dark:bg-black/50 py-10 rounded-xl px-8 md:px-6 relative z-10 dark:text-white">
         {/* Heading with brand color accent */}
         <motion.h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6" variants={itemVariants}>
-          <span className="text-[#1b7935]">Internetbureau</span> Van Ons, een webdevelopment agency uit Amsterdam
+          <span className="text-[#1b7935]">Internetbureau</span> Multichoice, een webdevelopment agency uit Rotterdam
         </motion.h1>
 
         {/* Intro paragraph */}
         <motion.p className="text-lg mb-12 max-w-4xl" variants={itemVariants}>
-          Van Ons is opgericht in 2006. Vanaf de start ligt de focus van onze digital agency op het maken van websites
-          met open source software. In een sterk partnership met onze klanten bouwen we met elkaar websites, webshops,
-          apps en Mijn-Omgevingen.
+          Multichoiceagency is opgericht in 2015. Vanaf de start ligt de focus van onze digital agency op het maken van
+          websites met open source software. In een sterk partnership met onze klanten bouwen we met elkaar websites,
+          webshops, apps en Mijn-Omgevingen.
         </motion.p>
 
         {/* Two-column layout */}
         <div className="grid md:grid-cols-12 gap-8 items-center">
-          {/* Left column - Square Image (6 columns) */}
+          {/* Left column - Square Video (6 columns) */}
           <motion.div className="md:col-span-6" variants={itemVariants}>
-            <div className="aspect-square rounded-lg overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
-                alt="Developer working on a laptop"
+            <div className="aspect-square rounded-lg overflow-hidden bg-gray-100">
+              <video
+                src="https://cdn.dribbble.com/userupload/16909015/file/original-48cccd4aa2194f5d6799dfd3b035d124.mp4"
                 className="w-full h-full object-cover rounded-lg"
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
               />
             </div>
           </motion.div>
 
           {/* Right column - Card with content (6 columns) */}
-          <motion.div className="md:col-span-6 bg-gray-50 p-8 md:p-10 rounded-lg" variants={itemVariants}>
-            <h2 className="text-2xl md:text-3xl font-bold mb-6">Jouw website in goede handen</h2>
+          <motion.div
+            className="md:col-span-6 bg-gray-50 p-8 md:p-10 rounded-lg dark:text-foreground"
+            variants={itemVariants}
+          >
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 dark:text-black">Jouw website in goede handen</h2>
 
-            <p className="mb-4">
+            <p className="mb-4 dark:text-black">
               Jij wilt de volgende stap zetten met je website. Je wilt <span className="font-semibold">meer leads</span>{" "}
               genereren, meer verkopen in je webshop of jouw informatievoorziening voor de gebruiker beter op orde
               brengen. Je werkt graag met <span className="font-semibold">standaardoplossingen</span> maar zoekt
@@ -97,7 +104,7 @@ export default function AboutUsSection() {
               webspecialisten van ons bureau kunnen jou dan perfect helpen.
             </p>
 
-            <p className="mb-6">
+            <p className="mb-6 dark:text-black">
               Ons internetbureau helpt jou met <span className="text-[#1b7935] font-medium">webdevelopment</span>,{" "}
               <span className="text-[#1b7935] font-medium">webdesign</span> en het bedenken van slimme online
               oplossingen die zorgen voor een betere ervaring voor de eindgebruiker en kostenbesparende processen aan de

@@ -141,7 +141,7 @@ const ServicesCarousel = () => {
 
   return (
     <div
-      className="relative bg-[#f8f8f3] py-16 px-4 sm:px-6 lg:px-8 custom-cursor-container"
+      className="relative dark:bg-background bg-[#f8f8f3] py-16 px-4 sm:px-6 lg:px-8 custom-cursor-container"
       onMouseEnter={() => setIsHoveringCarousel(true)}
       onMouseLeave={() => setIsHoveringCarousel(false)}
     >
@@ -164,10 +164,10 @@ const ServicesCarousel = () => {
 
       <div className="w-full">
         <div className="flex justify-between items-center mb-12 px-4 w-full mx-auto">
-          <h2 className="text-4xl md:text-5xl font-[400] text-[#1b7935] services-heading">Onze diensten</h2>
+          <h2 className="text-4xl md:text-5xl font-[400] text-[#1b7935] services-heading dark:text-white">Onze diensten</h2>
           <Link
             href="/diensten"
-            className="inline-flex items-center px-6 py-3 bg-[#a6e267] hover:bg-[#8bc74c] text-black font-medium rounded-full transition-colors duration-300"
+            className="inline-flex items-center px-6 py-3  bg-[#a6e267] hover:bg-[#8bc74c] text-black font-medium rounded-full transition-colors duration-300"
           >
             Naar alle diensten
             <IconArrowRight className="ml-2 h-5 w-5" />

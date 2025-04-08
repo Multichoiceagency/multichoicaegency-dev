@@ -1,9 +1,9 @@
 "use client"
 
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
-import { motion } from "framer-motion"
+import { motion, useScroll } from "framer-motion"
 
 interface Case {
   id: number
@@ -40,6 +40,32 @@ export default function Portfolio() {
   const [cases, setCases] = useState<Case[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const sectionRef = useRef<HTMLElement>(null)
+
+  // Scroll animation setup
+  const { scrollYProgress } = useScroll({
+    target: sectionRef,
+    offset: ["start end", "end start"],
+  })
+
+  // Create background text elements data
+  const backgroundTexts = Array.from({ length: 20 }, (_, i) => {
+    // Alternate between "Cases" and "Portfolio"
+    const text = i % 2 === 0 ? "Cases" : "Portfolio"
+    // Calculate position
+    const row = Math.floor(i / 5)
+    const col = i % 5
+    // Alternate direction for each row
+    const isEvenRow = row % 2 === 0
+
+    return {
+      text,
+      x: `${col * 25}%`,
+      y: `${row * 25}%`,
+      delay: i * 0.1,
+      direction: isEvenRow ? 1 : -1,
+    }
+  })
 
   // Fetch cases from WordPress API
   useEffect(() => {
@@ -101,15 +127,37 @@ export default function Portfolio() {
   }
 
   return (
-    <section className="w-full py-16 bg-[#d9f2f2] relative overflow-hidden">
-      {/* Background text decoration */}
-      <div className="absolute top-0 left-0 text-[20rem] font-bold text-[#c1e8e8] opacity-50 select-none pointer-events-none z-0">
-        Cases
-      </div>
-      <div className="absolute bottom-0 right-0 text-[20rem] font-bold text-[#c1e8e8] opacity-50 select-none pointer-events-none z-0">
-        Cases
+    <section ref={sectionRef} className="w-full py-16 bg-[#d9f2f2] dark:bg-background relative overflow-hidden">
+      {/* Animated background text decoration */}
+      <div className="absolute inset-0 overflow-hidden">
+        {backgroundTexts.map((item, index) => (
+          <motion.div
+            key={index}
+            className="absolute text-[8rem] md:text-[12rem] font-bold text-[#c1e8e8] dark:text-green-900/30 opacity-30 select-none pointer-events-none"
+            style={{
+              left: item.x,
+              top: item.y,
+            }}
+            initial={{ opacity: 0 }}
+            animate={{
+              opacity: 0.3,
+              x: [0, item.direction * 50, 0],
+              y: [0, item.direction * 20, 0],
+            }}
+            transition={{
+              duration: 20,
+              repeat: Number.POSITIVE_INFINITY,
+              repeatType: "reverse",
+              delay: item.delay,
+              ease: "easeInOut",
+            }}
+          >
+            {item.text}
+          </motion.div>
+        ))}
       </div>
 
+      {/* Main content */}
       <div className="container mx-auto px-4 md:px-8 relative z-10">
         {/* Full-width header with paraphrased text */}
         <motion.div
@@ -118,10 +166,10 @@ export default function Portfolio() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="w-full text-3xl md:text-5xl font-bold text-[#1b7935] mb-6 leading-tight">
+          <h2 className="w-full text-3xl md:text-5xl font-bold text-[#1b7935] dark:text-white mb-6 leading-tight">
             Wij verbinden jouw merk met de digitale wereld
           </h2>
-          <p className="w-full text-xl md:text-2xl text-gray-700 max-w-5xl mx-auto">
+          <p className="w-full text-xl md:text-2xl text-gray-700 dark:text-white max-w-5xl mx-auto">
             Samen creëren we de brug tussen jouw merk en de online omgeving. In het digitale landschap is het essentieel
             om op een authentieke en impactvolle manier op te vallen.
           </p>
@@ -140,7 +188,7 @@ export default function Portfolio() {
             const imageSrc = caseItem._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
 
             // Determine card height based on position
-            const cardHeight = index === 0 || index === 3 ? "h-[800px]" : "h-[900px]"
+            const cardHeight = index === 0 || index === 3 ? "h-[500px]" : "h-[450px]"
 
             return (
               <motion.div
@@ -161,7 +209,7 @@ export default function Portfolio() {
                     src={imageSrc || "/placeholder.svg"}
                     alt={title}
                     fill
-                    className="object-fit"
+                    className="object-cover"
                     priority={index < 2}
                   />
 
@@ -188,8 +236,39 @@ export default function Portfolio() {
           })}
         </motion.div>
 
-        {/* View all cases button */}
-        <div className="w-full mt-12 text-center">
+        {/* Spinning icon in the exact middle */}
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
+          <Link href="/cases" className="block">
+            <div className="relative group">
+              <motion.div
+                className="w-24 h-24 bg-[#1b7935] rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#a6e267] transition-colors duration-300"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+              >
+                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-[#1b7935] font-bold text-sm">
+                  Bekijk alle cases
+                </div>
+              </motion.div>
+              <motion.svg
+                className="absolute -inset-2 w-28 h-28 text-[#1b7935] opacity-70"
+                viewBox="0 0 100 100"
+                animate={{ rotate: 360 }}
+                transition={{ duration: 8, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
+              >
+                <path
+                  d="M 50,50 m -40,0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1"
+                  strokeDasharray="5,5"
+                />
+              </motion.svg>
+            </div>
+          </Link>
+        </div>
+
+        {/* View all cases button (now hidden on desktop as we have the spinning button) */}
+        <div className="w-full mt-12 text-center md:hidden">
           <Link
             href="/cases"
             className="inline-flex items-center px-6 py-3 bg-[#1b7935] hover:bg-[#145a28] text-white font-medium rounded-md transition-colors"
