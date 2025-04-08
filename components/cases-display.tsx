@@ -161,7 +161,7 @@ export default function Portfolio() {
                     src={imageSrc || "/placeholder.svg"}
                     alt={title}
                     fill
-                    className="object-contain"
+                    className="object-fit"
                     priority={index < 2}
                   />
 
