@@ -1,15 +1,13 @@
 "use client"
 
 import type React from "react"
-
-import { useRef, useEffect, useState } from "react"
+import { useRef, useState } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { motion, useInView, AnimatePresence } from "framer-motion"
-import { useTheme } from "next-themes"
+import { motion, AnimatePresence } from "framer-motion"
 import { ArrowUpRight, ArrowRight, ChevronDown, Code, Pencil, Users, Info, Mail, Phone } from "lucide-react"
 
-// Navigation sections
+// Navigation sections from your data
 const navSections = [
   {
     title: "Web Development",
@@ -62,7 +60,7 @@ const navSections = [
   },
 ]
 
-// Contact sections
+// Contact sections from your data
 const contactSections = [
   {
     title: "Contact",
@@ -86,7 +84,7 @@ const contactSections = [
   },
 ]
 
-// Social links
+// Social links from your data
 const socialLinks = [
   { icon: "Facebook", text: "Volg ons op Facebook", href: "https://facebook.com/multichoiceagency" },
   { icon: "Instagram", text: "Volg ons op Instagram", href: "https://instagram.com/multichoiceagency" },
@@ -216,88 +214,7 @@ const AccordionItem = ({ title, children, isOpen, onToggle, icon }: AccordionIte
 
 export function Footer() {
   const topSectionRef = useRef<HTMLDivElement>(null)
-  const gridRef = useRef<HTMLDivElement>(null)
-  const isInView = useInView(topSectionRef, { once: true, amount: 0.3 })
-  const { theme, setTheme } = useTheme()
   const [openSection, setOpenSection] = useState<string | null>(null)
-
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 0.6,
-        staggerChildren: 0.1,
-      },
-    },
-  }
-
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
-  }
-
-  // Grid animation effect
-  useEffect(() => {
-    const gridElement = gridRef.current
-    if (!gridElement) return
-
-    // Create grid lines
-    const createGridLines = () => {
-      gridElement.innerHTML = ""
-      const isDark = theme === "dark"
-
-      // Horizontal lines
-      for (let i = 0; i < 10; i++) {
-        const line = document.createElement("div")
-        line.className = `absolute left-0 right-0 h-px ${
-          isDark ? "bg-white/5" : "bg-black/5"
-        } transition-colors duration-500`
-        line.style.top = `${(i + 1) * 10}%`
-        gridElement.appendChild(line)
-      }
-
-      // Vertical lines
-      for (let i = 0; i < 10; i++) {
-        const line = document.createElement("div")
-        line.className = `absolute top-0 bottom-0 w-px ${
-          isDark ? "bg-white/5" : "bg-black/5"
-        } transition-colors duration-500`
-        line.style.left = `${(i + 1) * 10}%`
-        gridElement.appendChild(line)
-      }
-    }
-
-    createGridLines()
-
-    // Update grid on theme change
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
-        if (
-          mutation.type === "attributes" &&
-          mutation.attributeName === "class" &&
-          document.documentElement.classList.contains("dark") !== (theme === "dark")
-        ) {
-          createGridLines()
-        }
-      })
-    })
-
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    })
-
-    return () => {
-      observer.disconnect()
-    }
-  }, [theme])
 
   const toggleSection = (title: string) => {
     setOpenSection(openSection === title ? null : title)
@@ -305,126 +222,32 @@ export function Footer() {
 
   return (
     <footer className="w-full relative mt-24" id="footer">
-      {/* Hero CTA Section */}
-      <div className={`container mx-auto px-4 py-24 relative ${theme === "dark" ? "bg-gray-900" : "bg-green-50"}`}>
-        <div className="max-w-2xl relative z-10">
-          <h2 className={`${theme === "dark" ? "text-white" : "text-green-900"} text-5xl md:text-6xl font-bold mb-4`}>
-            Laten we jouw project bespreken.
-          </h2>
-          <p className={`${theme === "dark" ? "text-gray-300" : "text-black"} mb-8`}>
-            Neem contact met ons op. We helpen je graag verder.
-          </p>
-          <Link
-            href="/offerte-aanvragen"
-            className="inline-block bg-[#1b7935] hover:bg-black rounded-md transition-colors px-8 py-4 text-white font-medium relative"
-          >
-            Offerte aanvragen
-          </Link>
-        </div>
+      {/* Top section - Dark green background */}
+      <div className="bg-[#3a582f] py-12">
+        <div className="container mx-auto px-4 md:px-6">
+          {/* Main heading */}
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-8">We horen graag van je</h2>
 
-        {/* Spline 3D-object (hidden on mobile) */}
-        <div className="absolute top-0 right-0 w-1/2 h-full pointer-events-none hidden sm:block">
-          <iframe
-            src="https://my.spline.design/robotfollowcursorforlandingpage-a92834220e6cf3d5f95aca1004f6e5dd/"
-            frameBorder="0"
-            width="100%"
-            height="100%"
-            className={`w-full h-full ${theme === "dark" ? "bg-gray-900" : "bg-green-50"}`}
-          ></iframe>
-        </div>
-      </div>
-
-      {/* Top section with animation - positioned to overlap with bottom section */}
-      <motion.div
-        ref={topSectionRef}
-        className={`${
-          theme === "dark" ? "bg-primary/80" : "bg-primary"
-        } py-12 md:py-16 relative z-20 rounded-t-3xl -mb-8`}
-        initial="hidden"
-        animate={isInView ? "visible" : "hidden"}
-        variants={containerVariants}
-      >
-        {/* Background inset with Tailwind classes */}
-        <div
-          className={`absolute inset-4 ${
-            theme === "dark" ? "bg-white/10 border-white/20" : "bg-white/5 border-white/10"
-          } rounded-xl border overflow-hidden`}
-        >
-          {/* Subtle animated grid */}
-          <div ref={gridRef} className="absolute inset-0 opacity-30"></div>
-        </div>
-
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
-          <div className="flex justify-between items-center mb-8">
-            <motion.h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-0" variants={itemVariants}>
-              We horen graag van je
-            </motion.h2>
-
-            {/* Dark mode toggle */}
-            <motion.button
-              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-              className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition-colors duration-300"
-              variants={itemVariants}
-              aria-label="Toggle dark mode"
-            >
-              {theme === "dark" ? (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-white"
-                >
-                  <circle cx="12" cy="12" r="5" />
-                  <line x1="12" y1="1" x2="12" y2="3" />
-                  <line x1="12" y1="21" x2="12" y2="23" />
-                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64" />
-                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78" />
-                  <line x1="1" y1="12" x2="3" y2="12" />
-                  <line x1="21" y1="12" x2="23" y2="12" />
-                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36" />
-                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22" />
-                </svg>
-              ) : (
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="text-white"
-                >
-                  <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
-                </svg>
-              )}
-            </motion.button>
-          </div>
-
+          {/* Contact info grid */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Contact info */}
-            <motion.div variants={itemVariants}>
-              <Link
-                href="tel:0103220410"
-                className="text-white text-xl md:text-2xl font-medium flex items-center hover:underline"
-              >
-                +31(0)10 322 0410 <ArrowUpRight className="ml-2 h-5 w-5" />
+            {/* Phone and email */}
+            <div className="flex flex-col">
+              <Link href="tel:0103220410" className="text-white text-xl flex items-center hover:underline mb-2">
+                0103220410 <ArrowUpRight className="ml-2 h-5 w-5" />
               </Link>
-            </motion.div>
+              <Link
+                href="mailto:sales@multichoiceagency.nl"
+                className="text-white text-xl flex items-center hover:underline"
+              >
+                sales@multichoiceagency.nl <ArrowUpRight className="ml-2 h-5 w-5" />
+              </Link>
+            </div>
 
-            {/* Project section */}
-            <motion.div variants={itemVariants}>
+            {/* Start a project section */}
+            <div>
               <h3 className="text-white text-lg font-medium mb-4">Een project starten</h3>
               <div className="flex items-center">
-                <div className="w-10 h-10 rounded-full overflow-hidden mr-3 bg-white/20">
+                <div className="w-8 h-8 rounded-full overflow-hidden mr-3 bg-white/20">
                   <Image
                     src="/placeholder.svg?height=40&width=40"
                     alt="Team member"
@@ -438,40 +261,30 @@ export function Footer() {
                   <p className="text-white text-sm">sales@multichoiceagency.nl</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
 
             {/* Support section */}
-            <motion.div variants={itemVariants}>
+            <div>
               <h3 className="text-white text-lg font-medium mb-4">Support</h3>
               <div className="flex items-center">
-                <div className="w-10 h-10 bg-[#a6e267] rounded-full flex items-center justify-center mr-3">
-                  <span className="text-black font-bold">?</span>
+                <div className="w-8 h-8 bg-[#a6e267] rounded-full flex items-center justify-center mr-3">
+                  <span className="text-black font-bold">S</span>
                 </div>
                 <div>
                   <p className="text-white font-medium">Supportteam</p>
                   <p className="text-white text-sm">service@multichoiceagency.nl</p>
                 </div>
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
-      </motion.div>
+      </div>
 
-      {/* Bottom section with menu - with inset background and rounded corners */}
-      <div className={`${theme === "dark" ? "bg-gray-900" : "bg-[#0e3e1c]"} py-12 pt-16 relative z-10 rounded-3xl`}>
-        {/* Background inset with Tailwind classes */}
-        <div
-          className={`absolute inset-4 ${
-            theme === "dark" ? "bg-white/5 border-white/10" : "bg-black/5 border-black/5"
-          } rounded-xl border overflow-hidden`}
-        >
-          {/* Subtle animated grid - created via JS */}
-          <div className="absolute inset-0 opacity-20"></div>
-        </div>
-
-        <div className="container mx-auto px-4 md:px-6 relative z-10">
+      {/* Bottom section - Darker green background */}
+      <div className="bg-[#2d4423] py-12">
+        <div className="container mx-auto px-4 md:px-6">
           {/* Navigation Grid - Desktop */}
-          <div className="hidden md:grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="hidden md:grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
             {navSections.map((section, idx) => (
               <div key={idx}>
                 <h3 className="text-white text-lg font-bold mb-6 flex items-center gap-2">
@@ -579,7 +392,7 @@ export function Footer() {
                     <li key={linkIdx}>
                       <Link
                         href={link.href}
-                        className={`${theme === "dark" ? "text-white" : "text-black"} hover:text-[#a6e267] transition-colors flex items-center gap-2`}
+                        className="text-white hover:text-[#a6e267] transition-colors flex items-center gap-2"
                       >
                         <ArrowRight className="w-3 h-3" />
                         {link.name}
@@ -593,7 +406,7 @@ export function Footer() {
                   <div className="mt-6 pt-4 border-t border-gray-200">
                     <h4 className="font-bold mb-2">{contactSections[1].title}</h4>
                     {contactSections[1].info.map((line, i) => (
-                      <p key={i} className={`${theme === "dark" ? "text-white" : "text-black"} text-sm`}>
+                      <p key={i} className="text-white text-sm">
                         {line}
                       </p>
                     ))}
@@ -602,7 +415,7 @@ export function Footer() {
                         <li key={i}>
                           <Link
                             href={link.href}
-                            className={`${theme === "dark" ? "text-white" : "text-black"} hover:text-[#a6e267] text-sm flex items-center gap-2`}
+                            className="text-white hover:text-[#a6e267] text-sm flex items-center gap-2"
                           >
                             {getIcon(link.icon, "w-3 h-3")}
                             {link.text}
@@ -617,7 +430,7 @@ export function Footer() {
                   <div className="mt-6 pt-4 border-t border-gray-200">
                     <h4 className="font-bold mb-2">{contactSections[2].title}</h4>
                     {contactSections[2].info.map((line, i) => (
-                      <p key={i} className={`${theme === "dark" ? "text-white" : "text-black"} text-sm`}>
+                      <p key={i} className="text-white text-sm">
                         {line}
                       </p>
                     ))}
@@ -628,7 +441,7 @@ export function Footer() {
                   <div className="mt-6 pt-4 border-t border-gray-200">
                     <h4 className="font-bold mb-2">{contactSections[0].title}</h4>
                     {contactSections[0].info.map((line, i) => (
-                      <p key={i} className={`${theme === "dark" ? "text-white" : "text-black"} text-sm`}>
+                      <p key={i} className="text-white text-sm">
                         {line}
                       </p>
                     ))}
@@ -637,7 +450,7 @@ export function Footer() {
                         <li key={i}>
                           <Link
                             href={link.href}
-                            className={`${theme === "dark" ? "text-white" : "text-black"} hover:text-[#a6e267] text-sm flex items-center gap-2`}
+                            className="text-white hover:text-[#a6e267] text-sm flex items-center gap-2"
                           >
                             {getIcon(link.icon, "w-3 h-3")}
                             {link.text}
@@ -667,14 +480,10 @@ export function Footer() {
               </div>
               {/* Social icons right-aligned with 'Volg ons' label */}
               <div className="flex justify-center items-center">
-                <span className={`${theme === "dark" ? "text-white" : "text-black"} text-sm mr-2`}>Volg ons</span>
+                <span className="text-white text-sm mr-2">Volg ons</span>
                 <div className="flex gap-2">
                   {socialLinks.map((social, idx) => (
-                    <Link
-                      key={idx}
-                      href={social.href}
-                      className={`${theme === "dark" ? "text-white" : "text-black"} hover:text-[#a6e267] transition-colors`}
-                    >
+                    <Link key={idx} href={social.href} className="text-white hover:text-[#a6e267] transition-colors">
                       {getIcon(social.icon, "w-6 h-6")}
                       <span className="sr-only">{social.text}</span>
                     </Link>
@@ -702,11 +511,7 @@ export function Footer() {
                 />
                 <div className="flex gap-4">
                   {socialLinks.map((social, idx) => (
-                    <Link
-                      key={idx}
-                      href={social.href}
-                      className={`${theme === "dark" ? "text-white" : "text-black"} hover:text-[#a6e267] transition-colors`}
-                    >
+                    <Link key={idx} href={social.href} className="text-white hover:text-[#a6e267] transition-colors">
                       {getIcon(social.icon, "w-6 h-6")}
                       <span className="sr-only">{social.text}</span>
                     </Link>
@@ -717,6 +522,18 @@ export function Footer() {
                 <span>Nederlands</span>
                 <ChevronDown className="w-4 h-4" />
               </button>
+            </div>
+          </div>
+
+          {/* New bottom section with copyright and privacy */}
+          <div className="border-t border-gray-700 mt-8 pt-8">
+            <div className="container mx-auto flex flex-col md:flex-row justify-between items-center">
+              <div className="mb-4 md:mb-0 flex items-center gap-4">
+                <p className="text-white text-sm">© Multichoiceagency</p>
+                <Link href="/privacy" className="text-white hover:text-[#a6e267] text-sm">
+                  Privacy verklaring
+                </Link>
+              </div>
             </div>
           </div>
         </div>
