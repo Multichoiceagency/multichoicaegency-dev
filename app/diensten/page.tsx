@@ -1,366 +1,272 @@
 "use client"
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons"
-import HeroNieuw from "@/components/HeroNieuw"
+import { NextSeo } from "next-seo"
+import { motion, useScroll, useTransform } from "framer-motion"
+import { useRef } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { ArrowRightIcon } from "@heroicons/react/20/solid"
+import { FaGoogle } from "react-icons/fa6";
 
 const sections = [
   {
-    title: "Onze Hoofddiensten",
+    title: "Branding",
+    description:
+      "Een sterk merk laat mensen jou herkennen, vertrouwen én onthouden. Wij helpen je merk bouwen vanaf positionering tot visuele identiteit.",
     services: [
-      {
-        id: "ui-ux-design",
-        title: "UI/UX Design",
-        description: "Creëer prototypes en wireframes voor interactieve en gebruiksvriendelijke ontwerpen.",
-        url: "/wat-is-ux-ui-design",
-      },
-      {
-        id: "responsief-webdesign",
-        title: "Responsief Webdesign",
-        description: "Zorg voor een naadloze gebruikerservaring op desktop, tablet en mobiel.",
-        url: "/responsief-webdesign",
-      },
-      {
-        id: "Website laten maken",
-        title: "Website laten maken",
-        description: "Wij ontwikkelen maatwerkoplossingen die perfect passen bij jouw huisstijl.",
-        url: "/website-laten-maken",
-      },
-      {
-        id: "Wordpress Website laten maken",
-        title: "Wordpress Website laten maken",
-        description: "Wij maken hoogwaardige WordPress-websites die volledig aansluiten bij jouw wensen.",
-        url: "/wordpress-website-laten-maken",
-      },
-      {
-        id: "NextJS Website laten maken",
-        title: "NextJS Website laten maken",
-        description: "Wij bouwen snelle en efficiënte NextJS-websites die jouw merk naar een hoger niveau tillen.",
-        url: "/nextjs-website-laten-maken",
-      },
-      {
-        id: "React Website laten maken",
-        title: "React Website laten maken",
-        description: "Wij ontwikkelen dynamische en gebruiksvriendelijke React-websites die indruk maken.",
-        url: "/react-website-laten-maken",
-      },
-      {
-        id: "Shopify Website laten maken",
-        title: "Shopify Website laten maken",
-        description: "Wij creëren prachtige en functionele Shopify-webshops die jouw online verkoop stimuleren.",
-        url: "/shopify-webshop-laten-maken",
-      },
-      {
-        id: "Website Teksten & Content",
-        title: "Website Teksten & Content",
-        description: "Wij leveren professionele website teksten en content die jouw boodschap versterken.",
-        url: "/website-teksten-en-content",
-      },
+      "Merkpositionering",
+      "Merkidentiteit",
+      "Employer branding",
+      "Campagnes en activatie",
+      "Contentmarketing",
+      "Visuele identiteit",
+      "Videomarketing",
+      "PR",
+      "Rebranding",
+      "Animatie",
     ],
+    cta: "/branding",
+    bg: {
+      light: "bg-[#f3f7f3]",
+      dark: "dark:bg-[#1d2a1d]",
+    },
   },
   {
-    title: "Development",
+    title: "Development & Technology",
+    description:
+      "Wij bouwen schaalbare platformen, webapplicaties en websites die werken op elk niveau. Van design tot integraties en configuratoren.",
     services: [
-      {
-        id: "frontend-development",
-        title: "Frontend Development",
-        description: "Wij bouwen snelle en aantrekkelijke interfaces met moderne technologieën.",
-        url: "/frontend-development",
-      },
-      {
-        id: "backend-development",
-        title: "Backend Development",
-        description: "Wij ontwikkelen robuuste en schaalbare backend-oplossingen voor elke toepassing.",
-        url: "/backend-development",
-      },
-      {
-        id: "app-development",
-        title: "App Development",
-        description: "Van website naar app development, wij kunnen uw website eenvoudig omzetten naar een app mits die gecodeerd is.",
-        url: "/app-development",
-      },
-      {
-        id: "dashboard-ontwikkeling",
-        title: "Dashboard Ontwikkeling",
-        description: "Wij Creëeren maatwerk dashboards met data-inzichten en interactieve functionaliteiten.",
-        url: "/dashboard-ontwikkeling",
-      },
-      {
-        id: "crm-systemen",
-        title: "CRM Systemen",
-        description: "Beheer klantrelaties en verkoopprocessen met efficiënte CRM-oplossingen.",
-        url: "/crm-systemen",
-      },
-      {
-        id: "lead-management-systemen",
-        title: "Lead Management Systemen",
-        description: "Automatiseer het beheer van leads en optimaliseer je verkoopprocessen.",
-        url: "/lead-management",
-      },
-      {
-        id: "marketing-automatisering",
-        title: "Marketing Automatisering",
-        description: "Implementeer software om marketingcampagnes effectiever en efficiënter te maken.",
-        url: "/marketing-automatisering",
-      },
-      {
-        id: "ai-geoptimaliseerde-systemen",
-        title: "AI Geoptimaliseerde Systemen",
-        description: "Gebruik AI om processen te optimaliseren en complexe problemen op te lossen.",
-        url: "/ai-systemen",
-      },
-      {
-        id: "webapplicaties",
-        title: "Webapplicaties",
-        description: "Wij ontwikkelen moderne, responsieve webapplicaties die overal toegankelijk zijn.",
-        url: "/webapplicaties",
-      },
-      {
-        id: "e-commerce-platformen",
-        title: "E-commerce Platformen",
-        description: "Bouw gebruiksvriendelijke en schaalbare e-commerce oplossingen.",
-        url: "/e-commerce",
-      },
-      {
-        id: "portalen-en-platformen",
-        title: "Portalen en Platformen",
-        description: "Ontwikkel portalen en platformen voor interne en externe samenwerking.",
-        url: "/portalen-platformen",
-      },
-      {
-        id: "document-management-systemen",
-        title: "Document Management Systemen",
-        description: "Beheer documenten efficiënt met versiebeheer en cloudopslag.",
-        url: "/document-management",
-      },
-      {
-        id: "data-management-oplossingen",
-        title: "Data Management Oplossingen",
-        description: "Optimaliseer en beheer grote datasets met betrouwbare datamanagementoplossingen.",
-        url: "/data-management",
-      },
-      {
-        id: "planning-en-rooster-systemen",
-        title: "Planning en Rooster Systemen",
-        description: "Implementeer tools voor efficiënte planning en tijdbeheer.",
-        url: "/planning-rooster",
-      },
+      "E-commerce webshop",
+      "Corporate website",
+      "PIM systemen",
+      "Integratieplatform",
+      "Webapplicatie",
+      "Webdesign",
+      "Configuratoren",
+      "Digital Experience Platform (DXP)",
     ],
+    cta: "/development",
+    bg: {
+      light: "bg-[#f1f8f5]",
+      dark: "dark:bg-[#162921]",
+    },
   },
   {
-    title: "Portalen",
+    title: "Online Marketing",
+    description:
+      "Wij versterken je digitale zichtbaarheid met slimme online campagnes: van SEA tot CRO en affiliate marketing.",
     services: [
-      {
-        id: "ledenportaal",
-        title: "Ledenportaal",
-        description: "Digitaliseer administratieve handelingen en verbeter efficiëntie voor verenigingen.",
-        url: "/portalen/ledenportaal",
-      },
-      {
-        id: "klantenportaal",
-        title: "Klantenportaal",
-        description: "Laat klanten bestellingen doorgeven, afspraken maken en orders volgen.",
-        url: "/portalen/klantenportaal",
-      },
-      {
-        id: "medewerkersportaal",
-        title: "Medewerkersportaal",
-        description: "Bied medewerkers toegang tot informatie zoals loonstroken en planning.",
-        url: "/portalen/medewerkersportaal",
-      },
-      {
-        id: "partnerportaal",
-        title: "Partnerportaal",
-        description: "Verbeter samenwerking met partners via gedeelde projecten en documenten.",
-        url: "/portalen/partnerportaal",
-      },
-      {
-        id: "leveranciersportaal",
-        title: "Leveranciersportaal",
-        description: "Beheer bestellingen en communicatie met leveranciers.",
-        url: "/portalen/leveranciersportaal",
-      },
-      {
-        id: "salesportaal",
-        title: "Salesportaal",
-        description: "Krijg realtime inzicht in verkoopgegevens en klantanalyses.",
-        url: "/portalen/salesportaal",
-      },
+      "SEA",
+      "Programmatic Advertising",
+      "Social Advertising",
+      "SEO",
+      "CRO",
+      "Affiliate marketing",
+      "Marketplaces",
+      "Leadgen & Gamification",
+      "E-mailmarketing",
+      "Interim online marketing",
     ],
+    cta: "/online-marketing",
+    bg: {
+      light: "bg-[#f6f9f3]",
+      dark: "dark:bg-[#1b291c]",
+    },
   },
   {
-    title: "INDUSTRIËN",
+    title: "Data & Automation",
+    description:
+      "Zet data slim in voor groei en efficiëntie. Van dashboards tot marketing automation: datagedreven succes begint hier.",
     services: [
-      {
-        id: "Website laten maken voor Softwareontwikkeling",
-        title: "Website laten maken voor Softwareontwikkeling",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Softwareontwikkeling en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-softwareontwikkeling",
-      },
-      {
-        id: "Website laten maken voor IT-dienstverlening",
-        title: "Website laten maken voor IT-dienstverlening",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector IT-dienstverlening en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-it-dienstverlening",
-      },
-      {
-        id: "Website laten maken voor E-commerce",
-        title: "Website laten maken voor E-commerce",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector E-commerce en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-e-commerce",
-      },
-      {
-        id: "Website laten maken voor Industrie & Productie",
-        title: "Website laten maken voor Industrie & Productie",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Industrie & Productie en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-industrie-productie",
-      },
-      {
-        id: "Website laten maken voor Gezondheidszorg & Farmacie",
-        title: "Website laten maken voor Gezondheidszorg & Farmacie",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Gezondheidszorg & Farmacie en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-gezondheidszorg",
-      },
-      {
-        id: "Website laten maken voor Zakelijke dienstverlening",
-        title: "Website laten maken voor Zakelijke dienstverlening",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Zakelijke dienstverlening en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-zakelijke-dienstverlening",
-      },
-      {
-        id: "Website laten maken voor Agri & Food",
-        title: "Website laten maken voor Agri & Food",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Agri & Food en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-agri-food",
-      },
-      {
-        id: "Website laten maken voor Bouw & Installatietechniek",
-        title: "Website laten maken voor Bouw & Installatietechniek",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Bouw & Installatietechniek en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-bouw",
-      },
-      {
-        id: "Website laten maken voor Groothandel",
-        title: "Website laten maken voor Groothandel",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Groothandel en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-groothandel",
-      },
-      {
-        id: "Website laten maken voor Automotive, Transport & Logistiek",
-        title: "Website laten maken voor Automotive, Transport & Logistiek",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Automotive, Transport & Logistiek en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-logistiek",
-      },
-      {
-        id: "Website laten maken voor Media, Reclame & Communicatie",
-        title: "Website laten maken voor Media, Reclame & Communicatie",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Media, Reclame & Communicatie en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-media",
-      },
-      {
-        id: "Website laten maken voor Horeca, Toerisme & Recreatie",
-        title: "Website laten maken voor Horeca, Toerisme & Recreatie",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Horeca, Toerisme & Recreatie en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-horeca",
-      },
-      {
-        id: "Website laten maken voor Detailhandel",
-        title: "Website laten maken voor Detailhandel",
-        description:
-          "Laat een professionele website ontwikkelen voor de sector Detailhandel en vergroot je online succes.",
-        url: "/website-laten-maken/website-laten-maken-voor-detailhandel",
-      },
+      "Data Insights",
+      "Data Consultancy",
+      "Data Engineering",
+      "Marketing Automation",
     ],
+    cta: "/data-automation",
+    bg: {
+      light: "bg-[#f4f9f5]",
+      dark: "dark:bg-[#182b21]",
+    },
+  },
+  {
+    title: "Strategy & Innovation",
+    description:
+      "Samen bouwen aan digitale strategieën die écht impact maken. Innovatie, marketingstrategie en digitale transformatie staan centraal.",
+    services: [
+      "Digital Transformation",
+      "Innovation Consultancy",
+      "Innovation Lab",
+      "Marketing Strategy",
+    ],
+    cta: "/strategy-innovation",
+    bg: {
+      light: "bg-[#f5f8f2]",
+      dark: "dark:bg-[#1e2d20]",
+    },
   },
 ]
 
 export default function DienstenPage() {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  })
+  const y = useTransform(scrollYProgress, [0, 1], [0, 100])
+
   return (
-    <>
-      <section className="relative bg-[#FCF4EB] dark:bg-gray-900">
-        <HeroNieuw
-          title={"Bouw Samen Met Ons Aan Jouw Digitale Toekomst"}
-          description={
-            "Bij ons staan jouw wensen en ambities centraal. Met een breed scala aan professionele diensten bieden wij maatwerkoplossingen die jouw bedrijf laten groeien, je merk versterken en je klanten tevreden stellen. Ontdek onze expertise en ervaar onze toewijding aan kwaliteit en innovatie."
-          }
-          buttonText={"Vraag een vrijblijvend offerte aan!"}
-          buttonLink={"/offerte-aanvragen"}
-          videoSrc={
-            "https://cloud.multichoiceagency.nl/wp-content/uploads/2025/01/UI-UX-Design-SHOWREEL-2023-｜-Musemind.mp4"
-          }
+    <main className="bg-white dark:bg-black">
+      <NextSeo
+        title="Onze Diensten | Jouw Digitale Partner"
+        description="Ontdek onze expertise in branding, development, online marketing, data en innovatie. Wij helpen jouw merk online winnen."
+        canonical="https://jouwdomein.nl/diensten"
+        openGraph={{
+          url: "https://jouwdomein.nl/diensten",
+          title: "Onze Diensten | Jouw Digitale Partner",
+          description:
+            "Ontdek hoe wij jouw merk digitaal laten groeien met branding, websites, marketing & technologie.",
+          images: [
+            {
+              url: "https://jouwdomein.nl/social/diensten-share.jpg",
+              width: 1200,
+              height: 630,
+              alt: "Wij laten jouw merk online winnen",
+              type: "image/jpeg",
+            },
+          ],
+          siteName: "JouwDigitalePartner",
+        }}
+        twitter={{
+          handle: "@jouwTwitterHandle",
+          site: "@jouwTwitterHandle",
+          cardType: "summary_large_image",
+        }}
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "branding, webdesign, online marketing, development, seo, digital agency, Next.js websites, digital innovation",
+          },
+        ]}
+      />
+
+      {/* HERO SECTION */}
+      <section
+        ref={ref}
+        className="relative bg-white dark:bg-[#0d0d0d] text-black dark:text-white overflow-hidden py-32"
+      >
+        <motion.div
+          style={{
+            y,
+            backgroundImage: "url(/flow-assets/headers/bg-waves.png)",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            backgroundPosition: "center",
+          }}
+          className="absolute inset-0 z-0 opacity-20"
         />
 
-        <section className="py-40">
-          <div className="container mx-auto px-4">
-            {sections.map((section) => (
-              <div key={section.title} className="mb-16">
-                <h2 className="tracking-tight text-white py-6 bg-teal-900 font-heading text-4xl md:text-5xl mb-8 text-center rounded-xl">
-                  {section.title}
-                </h2>
-                <div className="flex flex-wrap -m-4">
-                  {section.services.map((service) => (
-                    <div key={service.id} className="w-full md:w-1/2 lg:w-1/4 p-4">
-                      {/* Extra wrapper voor 3D-perspectief */}
-                      <div className="card-3d group">
-                        <div
-                          className="card-3d-inner rounded-2xl bg-gray-50 dark:bg-gray-800 p-8 relative transition-transform transform"
-                          style={{ height: "420px" }}
-                        >
-                          <p className="tracking-tight text-2xl font-medium text-black dark:text-white k group-hover:text-green-600">
-                            {service.title}
-                          </p>
-                          <p className="text-gray-600 dark:text-gray-300 mt-4 text-xl transition-opacity duration-300 group-hover:text-green-600">
-                            {service.description}
-                          </p>
-                          <div className="absolute bottom-6 right-6">
-                            <a
-                              href={service.url}
-                              className="flex items-center font-bold text-green-600 dark:text-white hover:text-black dark:hover:text-green-900 hover:underline"
-                            >
-                              Meer informatie
-                              <FontAwesomeIcon
-                                icon={faArrowRight}
-                                className="ml-2 transform transition-transform group-hover:translate-x-1"
-                              />
-                            </a>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+        <div className="relative z-10 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+          <div>
+            <span className="text-sm font-medium text-[#3A582F] uppercase border-l-4 border-[#3A582F] pl-2 mb-4 inline-block">
+              Wat we doen
+            </span>
+            <h1 className="text-4xl md:text-6xl font-semibold leading-tight mb-6">
+              Wij laten jouw merk online <br className="hidden md:block" /> winnen
+            </h1>
+            <div className="flex items-center gap-2 text-sm text-black/80 dark:text-white/80">
+              <FaGoogle className="w-5 h-5" />
+              <span>Onze klanten beoordelen ons met een 4,9</span>
+              <div className="flex text-yellow-400 ml-2">
+                {Array(5)
+                  .fill(0)
+                  .map((_, i) => (
+                    <span key={i}>★</span>
                   ))}
-                </div>
               </div>
-            ))}
+              <a href="#" className="underline ml-2 hover:text-black dark:hover:text-white">
+                150+ reviews
+              </a>
+            </div>
           </div>
-        </section>
 
-        {/* CSS voor 3D effect */}
-        <style jsx>{`
-          .card-3d {
-            perspective: 1000px;
-          }
-          .card-3d-inner {
-            transition: transform 0.5s ease, box-shadow 0.5s ease;
-            transform-style: preserve-3d;
-          }
-          .card-3d:hover .card-3d-inner {
-            transform: rotateY(10deg) rotateX(5deg) scale(1.05);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-          }
-        `}</style>
+          <div className="flex flex-col items-start md:items-end justify-center gap-6">
+            <p className="text-black/70 dark:text-white/70 text-lg md:text-right">
+              Wij realiseren groei voor jouw organisatie door <br className="hidden md:block" />
+              <strong>branding</strong>, <strong>websites</strong> en <strong>marketing</strong>.
+            </p>
+            <div className="flex gap-2">
+              <a
+                href="/contact"
+                className="bg-[#3A582F] hover:bg-black text-white font-semibold px-6 py-3 rounded-lg transition-colors"
+              >
+                Contact
+              </a>
+              <a
+                href="/contact"
+                className="bg-[#3A582F] hover:bg-black p-3 rounded-lg transition-colors text-white"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="w-5 h-5"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
       </section>
-    </>
+
+      {/* SERVICE SECTIONS */}
+      {sections.map((section, index) => (
+        <motion.section
+          key={section.title}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: index * 0.1 }}
+          viewport={{ once: true }}
+          className={`${section.bg.light} ${section.bg.dark} py-24`}
+        >
+          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-semibold mb-6 text-gray-900 dark:text-white">
+                {section.title}
+              </h2>
+              <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mb-8">
+                {section.description}
+              </p>
+              <Link
+                href={section.cta}
+                className="inline-flex items-center px-6 py-3 rounded-md bg-gray-900 text-white dark:bg-white dark:text-black font-medium hover:bg-[#3A582F] hover:text-white dark:hover:bg-[#3A582F] dark:hover:text-white transition-colors"
+              >
+                Lees meer
+                <ArrowRightIcon className="w-5 h-5 ml-2" />
+              </Link>
+            </div>
+
+            <ul className="space-y-4 text-lg text-gray-800 dark:text-gray-200">
+              {section.services.map((service, idx) => (
+                <li
+                  key={idx}
+                  className="flex items-center group hover:text-[#3A582F] transition-colors cursor-pointer"
+                >
+                  <ArrowRightIcon className="w-4 h-4 mr-3 text-[#3A582F] group-hover:translate-x-1 transition-transform" />
+                  {service}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </motion.section>
+      ))}
+    </main>
   )
 }
-
