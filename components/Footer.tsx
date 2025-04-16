@@ -249,11 +249,11 @@ export function Footer() {
               <div className="flex items-center">
                 <div className="w-8 h-8 rounded-full overflow-hidden mr-3 bg-white/20">
                   <Image
-                    src="/placeholder.svg?height=40&width=40"
-                    alt="Team member"
-                    width={40}
-                    height={40}
-                    className="w-full h-full object-cover"
+                  src="/favicon.ico"
+                  alt="Team member"
+                    width={30}
+                    height={30}
+                    className="w-full h-full bg-white object-contain"
                   />
                 </div>
                 <div>
@@ -471,7 +471,7 @@ export function Footer() {
               {/* Logo at top */}
               <div className="flex justify-center mb-4">
                 <Image
-                  src="/placeholder.svg?height=100&width=200"
+                  src="/logos/logo-wit.png"
                   alt="Multichoiceagency logo"
                   width={200}
                   height={100}
@@ -503,7 +503,7 @@ export function Footer() {
             <div className="hidden md:flex justify-between items-center">
               <div className="flex items-center gap-8">
                 <Image
-                  src="/placeholder.svg?height=100&width=200"
+                  src="/logos/logo-wit.png"
                   alt="Multichoiceagency logo"
                   width={200}
                   height={100}

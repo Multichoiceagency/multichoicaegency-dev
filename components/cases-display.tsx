@@ -4,6 +4,7 @@ import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, useScroll } from "framer-motion"
+import { ChevronLeft, ChevronRight } from "lucide-react"
 
 interface Case {
   id: number
@@ -40,31 +41,14 @@ export default function Portfolio() {
   const [cases, setCases] = useState<Case[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const sliderRef = useRef<HTMLDivElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
 
   // Scroll animation setup
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start end", "end start"],
-  })
-
-  // Create background text elements data
-  const backgroundTexts = Array.from({ length: 20 }, (_, i) => {
-    // Alternate between "Cases" and "Portfolio"
-    const text = i % 2 === 0 ? "Cases" : "Portfolio"
-    // Calculate position
-    const row = Math.floor(i / 5)
-    const col = i % 5
-    // Alternate direction for each row
-    const isEvenRow = row % 2 === 0
-
-    return {
-      text,
-      x: `${col * 25}%`,
-      y: `${row * 25}%`,
-      delay: i * 0.1,
-      direction: isEvenRow ? 1 : -1,
-    }
   })
 
   // Fetch cases from WordPress API
@@ -84,28 +68,21 @@ export default function Portfolio() {
     fetchCases()
   }, [])
 
-  // Animation variants
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        staggerChildren: 0.1,
-      },
-    },
+  // Navigation functions
+  const nextSlide = () => {
+    if (cases.length <= 2) return
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % cases.length)
   }
 
-  const itemVariants = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: { duration: 0.5 },
-    },
+  const prevSlide = () => {
+    if (cases.length <= 2) return
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + cases.length) % cases.length)
   }
 
   // Sample service tags for each case
   const serviceTags = [
+    ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
+    ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
     ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
     ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
     ["Webdesign", "Webshop & ecommerce", "Development", "Design", "Strategy"],
@@ -127,163 +104,155 @@ export default function Portfolio() {
   }
 
   return (
-    <section ref={sectionRef} className="w-full py-16 bg-[#d9f2f2] dark:bg-background relative overflow-hidden">
-      {/* Animated background text decoration */}
-      <div className="absolute inset-0 overflow-hidden">
-        {backgroundTexts.map((item, index) => (
-          <motion.div
-            key={index}
-            className="absolute text-[8rem] md:text-[12rem] font-bold text-[#c1e8e8] dark:text-green-900/30 opacity-30 select-none pointer-events-none"
-            style={{
-              left: item.x,
-              top: item.y,
-            }}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 0.3,
-              x: [0, item.direction * 50, 0],
-              y: [0, item.direction * 20, 0],
-            }}
-            transition={{
-              duration: 20,
-              repeat: Number.POSITIVE_INFINITY,
-              repeatType: "reverse",
-              delay: item.delay,
-              ease: "easeInOut",
-            }}
-          >
-            {item.text}
-          </motion.div>
-        ))}
-      </div>
-
-      {/* Main content */}
+    <section ref={sectionRef} className="w-full py-16 relative overflow-hidden">
       <div className="container mx-auto px-4 md:px-8 relative z-10">
-        {/* Full-width header with paraphrased text */}
-        <motion.div
-          className="w-full mb-16 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          <h2 className="w-full text-3xl md:text-5xl font-bold text-[#1b7935] dark:text-white mb-6 leading-tight">
-            Wij verbinden jouw merk met de digitale wereld
-          </h2>
-          <p className="w-full text-xl md:text-2xl text-gray-700 dark:text-white max-w-5xl mx-auto">
-            Samen creëren we de brug tussen jouw merk en de online omgeving. In het digitale landschap is het essentieel
-            om op een authentieke en impactvolle manier op te vallen.
-          </p>
-        </motion.div>
-
-        {/* Masonry grid layout */}
-        <motion.div
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          {cases.slice(0, 4).map((caseItem, index) => {
-            const title = decodeHtml(caseItem.title.rendered)
-            const industry = caseItem.acf?.industry || ""
-            const imageSrc = caseItem._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
-
-            // Determine card height based on position
-            const cardHeight = index === 0 || index === 3 ? "h-[500px]" : "h-[450px]"
-
-            return (
-              <motion.div
-                key={caseItem.id}
-                className={`relative overflow-hidden rounded-lg ${cardHeight}`}
-                variants={itemVariants}
-              >
-                {/* Company/Industry name */}
-                <div className="absolute top-4 left-4 z-20">
-                  <h3 className="text-white text-lg font-bold bg-black/50 px-3 py-1 rounded-md backdrop-blur-sm">
-                    {industry}
-                  </h3>
-                </div>
-
-                {/* Full-width image */}
-                <div className="relative w-full h-full">
-                  <Image
-                    src={imageSrc || "/placeholder.svg"}
-                    alt={title}
-                    fill
-                    className="object-cover"
-                    priority={index < 2}
-                  />
-
-                  {/* Gradient overlay for text readability */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
-                </div>
-
-                {/* Title and service tags */}
-                <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
-                  <h4 className="text-white text-xl font-bold mb-3">{title}</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {serviceTags[index % serviceTags.length].slice(0, 5).map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="text-white text-xs bg-black/30 backdrop-blur-sm px-2 py-1 rounded"
-                      >
-                        {tag}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </motion.div>
-            )
-          })}
-        </motion.div>
-
-        {/* Spinning icon in the exact middle */}
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20">
-          <Link href="/cases" className="block">
-            <div className="relative group">
-              <motion.div
-                className="w-24 h-24 bg-[#1b7935] rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#a6e267] transition-colors duration-300"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
-              >
-                <div className="w-20 h-20 bg-white rounded-full flex items-center justify-center text-[#1b7935] font-bold text-sm">
-                  Bekijk alle cases
-                </div>
-              </motion.div>
-              <motion.svg
-                className="absolute -inset-2 w-28 h-28 text-[#1b7935] opacity-70"
-                viewBox="0 0 100 100"
-                animate={{ rotate: 360 }}
-                transition={{ duration: 8, ease: "linear", repeat: Number.POSITIVE_INFINITY }}
-              >
-                <path
-                  d="M 50,50 m -40,0 a 40,40 0 1,0 80,0 a 40,40 0 1,0 -80,0"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeDasharray="5,5"
-                />
-              </motion.svg>
-            </div>
+        {/* Header section with title and subtitle */}
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12">
+          <div className="mb-6 md:mb-0">
+            <div className="text-[#1b7935] dark:text-[#2eac4e] font-medium mb-2">Van startbaan tot succes</div>
+            <h2 className="text-3xl md:text-5xl font-bold">Onze klantcases</h2>
+          </div>
+          <Link
+            href="/cases"
+            className="inline-flex items-center px-6 py-3 bg-black dark:bg-white text-white dark:text-black font-medium rounded-md transition-colors hover:bg-gray-800 dark:hover:bg-gray-200"
+          >
+            Alle klantcases
+            <ChevronRight className="ml-2 h-5 w-5" />
           </Link>
         </div>
 
-        {/* View all cases button (now hidden on desktop as we have the spinning button) */}
-        <div className="w-full mt-12 text-center md:hidden">
-          <Link
-            href="/cases"
-            className="inline-flex items-center px-6 py-3 bg-[#1b7935] hover:bg-[#145a28] text-white font-medium rounded-md transition-colors"
-          >
-            Bekijk alle cases
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              className="h-5 w-5 ml-2"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+        {/* Slider container */}
+        <div className="relative">
+          {/* Navigation buttons */}
+          <div className="absolute top-1/2 left-0 transform -translate-y-1/2 z-20 -ml-4 md:-ml-6">
+            <button
+              onClick={prevSlide}
+              className="bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Previous slide"
             >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </Link>
+              <ChevronLeft className="h-6 w-6 text-[#1b7935] dark:text-[#2eac4e]" />
+            </button>
+          </div>
+          <div className="absolute top-1/2 right-0 transform -translate-y-1/2 z-20 -mr-4 md:-mr-6">
+            <button
+              onClick={nextSlide}
+              className="bg-white dark:bg-gray-800 rounded-full p-2 shadow-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+              aria-label="Next slide"
+            >
+              <ChevronRight className="h-6 w-6 text-[#1b7935] dark:text-[#2eac4e]" />
+            </button>
+          </div>
+
+          {/* Slider */}
+          <div ref={sliderRef} className="overflow-hidden">
+            <motion.div
+              className="flex"
+              animate={{ x: `-${currentIndex * 100}%` }}
+              transition={{ type: "spring", stiffness: 300, damping: 30 }}
+            >
+              {cases.map((_, index) => {
+                // Get the two cases to display in this slide
+                const case1 = cases[index % cases.length]
+                const case2 = cases[(index + 1) % cases.length]
+
+                const title1 = decodeHtml(case1.title.rendered)
+                const industry1 = case1.acf?.industry || ""
+                const imageSrc1 = case1._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
+
+                const title2 = decodeHtml(case2.title.rendered)
+                const industry2 = case2.acf?.industry || ""
+                const imageSrc2 = case2._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
+
+                return (
+                  <div key={`slide-${index}`} className="min-w-full px-2">
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      {/* Left case card */}
+                      <div className="w-full sm:w-1/2 mb-4 sm:mb-0">
+                        <div className="relative overflow-hidden rounded-lg h-[350px] sm:h-[450px] group">
+                          <div className="absolute top-4 left-4 z-20">
+                            <h3 className="text-white text-lg font-bold bg-black/50 px-3 py-1 rounded-md backdrop-blur-sm">
+                              {industry1}
+                            </h3>
+                          </div>
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={imageSrc1 || "/placeholder.svg"}
+                              alt={title1}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              priority={index === currentIndex}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                            <h4 className="text-white text-xl font-bold mb-3">{title1}</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {serviceTags[index % serviceTags.length].slice(0, 3).map((tag, tagIndex) => (
+                                <span
+                                  key={tagIndex}
+                                  className="text-white text-xs bg-black/30 backdrop-blur-sm px-2 py-1 rounded"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Right case card */}
+                      <div className="w-full sm:w-1/2">
+                        <div className="relative overflow-hidden rounded-lg h-[350px] sm:h-[450px] group">
+                          <div className="absolute top-4 left-4 z-20">
+                            <h3 className="text-white text-lg font-bold bg-black/50 px-3 py-1 rounded-md backdrop-blur-sm">
+                              {industry2}
+                            </h3>
+                          </div>
+                          <div className="relative w-full h-full">
+                            <Image
+                              src={imageSrc2 || "/placeholder.svg"}
+                              alt={title2}
+                              fill
+                              className="object-cover transition-transform duration-500 group-hover:scale-105"
+                              priority={index === currentIndex}
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                          </div>
+                          <div className="absolute bottom-0 left-0 right-0 p-4 z-10">
+                            <h4 className="text-white text-xl font-bold mb-3">{title2}</h4>
+                            <div className="flex flex-wrap gap-2">
+                              {serviceTags[(index + 1) % serviceTags.length].slice(0, 3).map((tag, tagIndex) => (
+                                <span
+                                  key={tagIndex}
+                                  className="text-white text-xs bg-black/30 backdrop-blur-sm px-2 py-1 rounded"
+                                >
+                                  {tag}
+                                </span>
+                              ))}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )
+              })}
+            </motion.div>
+          </div>
+
+          {/* Pagination dots */}
+          <div className="flex justify-center mt-8 gap-2">
+            {Array.from({ length: cases.length }).map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-colors ${
+                  currentIndex === index ? "bg-[#1b7935] dark:bg-[#2eac4e]" : "bg-gray-300 dark:bg-gray-600"
+                }`}
+                aria-label={`Go to slide ${index + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </div>
     </section>

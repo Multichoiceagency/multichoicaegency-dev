@@ -6,7 +6,7 @@ import { useState, useEffect, useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { motion, AnimatePresence } from "framer-motion"
-import { Search, Grid, List, ArrowUpRight, ChevronDown, X } from "lucide-react"
+import { Search, Grid, List, ArrowUpRight, X } from "lucide-react"
 import { decodeHtml } from "@/utils/decodeHtml"
 
 interface Case {
@@ -40,7 +40,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
   const [activeFilter, setActiveFilter] = useState("All")
   const [hoveredCase, setHoveredCase] = useState<Case | null>(initialCases[0])
   const [searchQuery, setSearchQuery] = useState("")
-  const [viewMode, setViewMode] = useState<"list" | "grid">("list")
+  const [viewMode, setViewMode] = useState<"list" | "grid">("grid") // Default to grid view to match the image
   const [isFilterOpen, setIsFilterOpen] = useState(false)
   const [featuredCase] = useState<Case>(initialCases[0])
   const searchRef = useRef<HTMLInputElement>(null)
@@ -101,204 +101,98 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
   }
 
   return (
-    <div className="bg-white min-h-screen pt-36">
-      {/* Hero Section with Featured Case */}
-      <section className="relative bg-gray-50 overflow-hidden">
-        <div className="container mx-auto px-4 py-24">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div className="max-w-xl">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-6">Onze Cases</h1>
-              <p className="text-lg text-gray-600 mb-8">
-                Ontdek hoe we bedrijven helpen hun digitale aanwezigheid te versterken en hun doelen te bereiken met
-                onze op maat gemaakte oplossingen.
-              </p>
-              <div className="flex flex-wrap gap-4">
-                <Link
-                  href={`/cases/${featuredCase.slug}`}
-                  className="inline-flex items-center px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
-                >
-                  <span>Bekijk uitgelichte case</span>
-                  <ArrowUpRight className="ml-2 h-4 w-4" />
-                </Link>
-                <button
-                  onClick={() => searchRef.current?.focus()}
-                  className="inline-flex items-center px-6 py-3 bg-white border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
-                >
-                  <Search className="mr-2 h-4 w-4" />
-                  <span>Zoek cases</span>
-                </button>
-              </div>
-            </div>
-            <div className="relative h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-              {featuredCase._embedded?.["wp:featuredmedia"] && (
-                <Image
-                  src={featuredCase._embedded["wp:featuredmedia"][0].source_url || "/placeholder.svg"}
-                  alt={decodeHtml(featuredCase.title.rendered)}
-                  fill
-                  priority
-                  style={{ objectFit: "contain" }}
-                  className="transition-transform duration-700 hover:scale-105"
-                />
-              )}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
-                <div className="text-white">
-                  <div className="flex items-center mb-2">
-                    <span className="text-sm font-medium">{featuredCase.acf?.industry || "Uncategorized"}</span>
-                    <span className="mx-2">•</span>
-                    <span className="text-sm font-medium">{featuredCase.acf?.location || ""}</span>
-                  </div>
-                  <h2 className="text-2xl font-bold mb-2">{decodeHtml(featuredCase.title.rendered)}</h2>
-                  <Link
-                    href={`/cases/${featuredCase.slug}`}
-                    className="inline-flex items-center text-white hover:underline"
-                  >
-                    <span>Bekijk case</span>
-                    <ArrowUpRight className="ml-1 h-4 w-4" />
-                  </Link>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Filters and Search Section */}
-      <section className="py-12 border-b border-gray-200">
+    <div className="bg-white dark:bg-gray-950 min-h-screen pt-48">
+      {/* Header Section */}
+      <section className="pb-8">
         <div className="container mx-auto px-4">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
-            {/* Search Bar */}
-            <form onSubmit={handleSearch} className="relative w-full md:w-auto md:min-w-[300px]">
-              <input
-                ref={searchRef}
-                type="text"
-                placeholder="Zoek cases..."
-                className="w-full pl-10 pr-10 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-black/20"
-                defaultValue={searchQuery}
-              />
-              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400" />
-              {searchQuery && (
-                <button
-                  type="button"
-                  onClick={clearSearch}
-                  className="absolute right-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-gray-400 hover:text-gray-600"
-                >
-                  <X className="h-5 w-5" />
-                </button>
-              )}
-            </form>
-
-            {/* Filters */}
-            <div className="flex flex-wrap items-center gap-4 w-full md:w-auto">
-              {/* Mobile Filter Button */}
-              <div className="md:hidden w-full">
-                <button
-                  onClick={() => setIsFilterOpen(!isFilterOpen)}
-                  className="flex items-center justify-between w-full px-4 py-3 bg-gray-100 rounded-lg"
-                >
-                  <span>Filter: {activeFilter}</span>
-                  <ChevronDown className={`h-5 w-5 transition-transform ${isFilterOpen ? "rotate-180" : ""}`} />
-                </button>
-              </div>
-
-              {/* Desktop Filters */}
-              <div className="hidden md:flex flex-wrap gap-2">
-                {industries.map((industry) => (
-                  <button
-                    key={industry}
-                    onClick={() => filterCases(industry)}
-                    className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                      activeFilter === industry ? "bg-black text-white" : "bg-gray-100 text-gray-800 hover:bg-gray-200"
-                    }`}
-                  >
-                    {industry}
-                  </button>
-                ))}
-              </div>
-
-              {/* View Mode Toggle */}
-              <div className="flex items-center border border-gray-200 rounded-lg overflow-hidden">
-                <span className="px-4 hover:text-green-600">layout aanpassen</span>
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8">
+            <div>
+              <h1 className="text-3xl md:text-4xl font-bold dark:text-white">Werk waar we trots op zijn</h1>
+            </div>
+            <div className="flex items-center mt-4 md:mt-0">
+              <div className="flex items-center border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden mr-4">
                 <button
                   onClick={() => setViewMode("list")}
-                  className={`p-2 ${viewMode === "list" ? "bg-gray-100" : "bg-white"}`}
+                  className={`p-2 ${viewMode === "list" ? "bg-gray-100 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}`}
                   aria-label="List view"
                 >
-                  <List className="h-5 w-5" />
+                  <List className="h-5 w-5 dark:text-white" />
                 </button>
                 <button
                   onClick={() => setViewMode("grid")}
-                  className={`p-2 ${viewMode === "grid" ? "bg-gray-100" : "bg-white"}`}
+                  className={`p-2 ${viewMode === "grid" ? "bg-gray-100 dark:bg-gray-800" : "bg-white dark:bg-gray-900"}`}
                   aria-label="Grid view"
                 >
-                  <Grid className="h-5 w-5" />
+                  <Grid className="h-5 w-5 dark:text-white" />
                 </button>
               </div>
+              <form onSubmit={handleSearch} className="relative">
+                <input
+                  ref={searchRef}
+                  type="text"
+                  placeholder="Zoek cases..."
+                  className="w-full pl-10 pr-10 py-2 border border-gray-300 dark:border-gray-700 rounded-full focus:outline-none focus:ring-2 focus:ring-black/20 dark:bg-gray-800 dark:text-white"
+                  defaultValue={searchQuery}
+                />
+                <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
+                {searchQuery && (
+                  <button
+                    type="button"
+                    onClick={clearSearch}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400 hover:text-gray-600"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
+              </form>
             </div>
           </div>
 
-          {/* Mobile Filters Dropdown */}
-          <AnimatePresence>
-            {isFilterOpen && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: "auto", opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.3 }}
-                className="md:hidden mt-4 overflow-hidden"
+          {/* Filters */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            {industries.map((industry) => (
+              <button
+                key={industry}
+                onClick={() => filterCases(industry)}
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
+                  activeFilter === industry
+                    ? "bg-black text-white dark:bg-white dark:text-black"
+                    : "bg-gray-100 text-gray-800 hover:bg-gray-200 dark:bg-gray-800 dark:text-gray-200 dark:hover:bg-gray-700"
+                }`}
               >
-                <div className="bg-gray-50 p-4 rounded-lg">
-                  <div className="mb-4">
-                    <h3 className="font-medium mb-2">Industrie</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {industries.map((industry) => (
-                        <button
-                          key={industry}
-                          onClick={() => {
-                            filterCases(industry)
-                            setIsFilterOpen(false)
-                          }}
-                          className={`px-3 py-1.5 rounded-full text-sm transition-colors ${
-                            activeFilter === industry
-                              ? "bg-black text-white"
-                              : "bg-white text-gray-800 border border-gray-200"
-                          }`}
-                        >
-                          {industry}
-                        </button>
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
+                {industry}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Cases Section */}
-      <section className="py-16">
+      {/* Cases Grid Section */}
+      <section className="pb-16">
         <div className="container mx-auto px-4">
           {filteredCases.length === 0 ? (
             <div className="text-center py-20">
-              <h2 className="text-2xl font-bold mb-4">Geen resultaten gevonden</h2>
-              <p className="text-gray-600 mb-8">Probeer andere zoektermen of filters.</p>
+              <h2 className="text-2xl font-bold mb-4 dark:text-white">Geen resultaten gevonden</h2>
+              <p className="text-gray-600 dark:text-gray-300 mb-8">Probeer andere zoektermen of filters.</p>
               <button
                 onClick={() => {
                   setActiveFilter("All")
                   clearSearch()
                 }}
-                className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+                className="px-6 py-3 bg-black text-white dark:bg-white dark:text-black rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
               >
                 Alle cases bekijken
               </button>
             </div>
-          ) : viewMode === "grid" ? (
+          ) : viewMode === "list" ? (
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
               {/* Left Column: Case List */}
               <div>
-                <h2 className="text-2xl font-bold mb-8 flex items-center">
+                <h2 className="text-2xl font-bold mb-8 flex items-center dark:text-white">
                   <span>Alle Cases</span>
-                  <span className="ml-2 text-sm font-normal text-gray-500">({filteredCases.length})</span>
+                  <span className="ml-2 text-sm font-normal text-gray-500 dark:text-gray-400">
+                    ({filteredCases.length})
+                  </span>
                 </h2>
                 <div className="space-y-8">
                   {filteredCases.map((caseItem) => (
@@ -309,25 +203,29 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
                       onMouseEnter={() => setHoveredCase(caseItem)}
                     >
                       <div className="mb-2">
-                        <span className="text-sm font-medium text-gray-600">
+                        <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
                           {caseItem.acf?.industry || "Uncategorized"}
                         </span>
                         {caseItem.acf?.location && (
                           <>
                             <span className="inline-block mx-2">•</span>
-                            <span className="text-sm font-medium text-gray-600">{caseItem.acf.location}</span>
+                            <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                              {caseItem.acf.location}
+                            </span>
                           </>
                         )}
                       </div>
-                      <div className="flex items-center justify-between pb-4 border-b border-gray-200">
-                        <h3 className="text-xl font-semibold text-gray-900 group-hover:text-black transition-colors">
+                      <div className="flex items-center justify-between pb-4 border-b border-gray-200 dark:border-gray-700">
+                        <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-gray-200 transition-colors">
                           {decodeHtml(caseItem.title.rendered)}
                         </h3>
                         <div className="transform group-hover:rotate-45 transition-transform duration-300">
-                          <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:text-black" />
+                          <ArrowUpRight className="h-5 w-5 text-gray-400 group-hover:text-black dark:group-hover:text-white" />
                         </div>
                       </div>
-                      {caseItem.subtitle && <p className="mt-3 text-gray-600 line-clamp-2">{caseItem.subtitle}</p>}
+                      {caseItem.subtitle && (
+                        <p className="mt-3 text-gray-600 dark:text-gray-400 line-clamp-2">{caseItem.subtitle}</p>
+                      )}
                     </Link>
                   ))}
                 </div>
@@ -343,7 +241,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
                       animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
                       transition={{ duration: 0.5 }}
-                      className="relative h-full w-full rounded-2xl overflow-hidden bg-gray-100"
+                      className="relative h-full w-full rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800"
                     >
                       {hoveredCase.acf?.media_type === "video" && hoveredCase.acf.video_url ? (
                         <video
@@ -364,7 +262,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
                         />
                       ) : (
                         <div className="flex items-center justify-center h-full">
-                          <p className="text-gray-500">Geen afbeelding beschikbaar</p>
+                          <p className="text-gray-500 dark:text-gray-400">Geen afbeelding beschikbaar</p>
                         </div>
                       )}
                       <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-8">
@@ -385,16 +283,12 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
               </div>
             </div>
           ) : (
-            // Grid View
+            // Grid View - Matching the image design
             <div>
-              <h2 className="text-2xl font-bold mb-8 flex items-center">
-                <span>Alle Cases</span>
-                <span className="ml-2 text-sm font-normal text-gray-500">({filteredCases.length})</span>
-              </h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-12">
                 {filteredCases.map((caseItem) => (
                   <Link key={caseItem.id} href={`/cases/${caseItem.slug}`} className="group block">
-                    <div className="relative h-[300px] rounded-xl overflow-hidden mb-4">
+                    <div className="relative aspect-[4/3] overflow-hidden rounded-lg mb-4">
                       {caseItem.acf?.media_type === "video" && caseItem.acf.video_url ? (
                         <video
                           src={caseItem.acf.video_url}
@@ -405,35 +299,38 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
                         />
                       ) : caseItem._embedded?.["wp:featuredmedia"] ? (
                         <Image
-                          src={caseItem._embedded["wp:featuredmedia"][0].source_url || "/placeholder.svg"}
+                          src={
+                            caseItem._embedded["wp:featuredmedia"][0].source_url ||
+                            "/placeholder.svg?height=600&width=800&query=portfolio project"
+                          }
                           alt={decodeHtml(caseItem.title.rendered)}
                           fill
-                          style={{ objectFit: "cover" }}
-                          className="transition-transform duration-500 group-hover:scale-105"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                          className="object-cover transition-transform duration-500 group-hover:scale-105"
                         />
                       ) : (
-                        <div className="flex items-center justify-center h-full bg-gray-100">
-                          <p className="text-gray-500">Geen afbeelding beschikbaar</p>
+                        <div className="flex items-center justify-center h-full bg-gray-100 dark:bg-gray-800">
+                          <p className="text-gray-500 dark:text-gray-400">Geen afbeelding beschikbaar</p>
                         </div>
                       )}
-                      <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
-                      <div className="absolute top-4 right-4 bg-white rounded-full p-2 opacity-0 group-hover:opacity-100 transform translate-y-2 group-hover:translate-y-0 transition-all duration-300">
-                        <ArrowUpRight className="h-5 w-5" />
-                      </div>
                     </div>
                     <div>
-                      <div className="mb-2">
-                        <span className="text-sm font-medium text-gray-600">
-                          {caseItem.acf?.industry || "Uncategorized"}
-                        </span>
-                        {caseItem.acf?.location && (
-                          <>
-                            <span className="inline-block mx-2">•</span>
-                            <span className="text-sm font-medium text-gray-600">{caseItem.acf.location}</span>
-                          </>
-                        )}
-                      </div>
-                      <h3 className="text-xl font-semibold text-gray-900 group-hover:text-black transition-colors">
+                      {caseItem.acf?.industry && (
+                        <div className="mb-2">
+                          <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                            {caseItem.acf.industry}
+                          </span>
+                          {caseItem.acf?.location && (
+                            <>
+                              <span className="inline-block mx-2">•</span>
+                              <span className="text-sm font-medium text-gray-600 dark:text-gray-400">
+                                {caseItem.acf.location}
+                              </span>
+                            </>
+                          )}
+                        </div>
+                      )}
+                      <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-gray-200 transition-colors">
                         {decodeHtml(caseItem.title.rendered)}
                       </h3>
                     </div>
@@ -446,23 +343,23 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-gray-50 dark:bg-gray-900">
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold mb-6">Klaar om samen te werken?</h2>
-            <p className="text-lg text-gray-600 mb-8">
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 dark:text-white">Klaar om samen te werken?</h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8">
               Laat ons weten waar je mee bezig bent. We helpen je graag met het realiseren van jouw digitale ambities.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link
                 href="/contact"
-                className="px-8 py-4 bg-black text-white rounded-full hover:bg-gray-800 transition-colors"
+                className="px-8 py-4 bg-black text-white dark:bg-white dark:text-black rounded-full hover:bg-gray-800 dark:hover:bg-gray-200 transition-colors"
               >
                 Neem contact op
               </Link>
               <Link
                 href="/diensten"
-                className="px-8 py-4 bg-white border border-gray-300 rounded-full hover:bg-gray-50 transition-colors"
+                className="px-8 py-4 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-700 text-black dark:text-white rounded-full hover:bg-gray-50 dark:hover:bg-gray-700 transition-colors"
               >
                 Bekijk onze diensten
               </Link>
@@ -473,4 +370,3 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
     </div>
   )
 }
-
