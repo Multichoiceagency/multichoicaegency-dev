@@ -2,7 +2,6 @@
 
 import { useEffect, useState, useRef } from "react"
 import Image from "next/image"
-import Link from "next/link"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { ChevronLeft, ChevronRight, ExternalLink, Code, Layers, PenTool, ArrowRight } from "lucide-react"
 import type { JSX } from "react"
@@ -73,6 +72,7 @@ export default function Portfolio() {
         if (!res.ok) throw new Error(`Failed to fetch: ${res.statusText}`)
         const data = await res.json()
         setCases(data)
+        console.log("Fetched cases:", data)
       } catch (err) {
         setError(err instanceof Error ? err.message : "Error fetching cases")
       } finally {
@@ -189,14 +189,14 @@ export default function Portfolio() {
             transition={{ duration: 0.7, delay: 0.2 }}
             viewport={{ once: true }}
           >
-            <Link
+            <a
               href="/cases"
               className="inline-flex items-center px-6 py-3 bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] font-medium rounded-full transition-colors duration-300 group relative overflow-hidden"
             >
               <div className="absolute inset-0 w-full h-full bg-[#a6e267]/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
               <span className="relative z-10">Alle klantcases</span>
               <ArrowRight className="ml-2 h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
-            </Link>
+            </a>
           </motion.div>
         </div>
 
@@ -256,10 +256,12 @@ export default function Portfolio() {
                 const title1 = decodeHtml(case1.title.rendered)
                 const industry1 = case1.acf?.industry || ""
                 const imageSrc1 = case1._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
+                const slug1 = case1.slug || ""
 
                 const title2 = decodeHtml(case2.title.rendered)
                 const industry2 = case2.acf?.industry || ""
                 const imageSrc2 = case2._embedded?.["wp:featuredmedia"]?.[0]?.source_url || "/placeholder.svg"
+                const slug2 = case2.slug || ""
 
                 return (
                   <div key={`slide-${index}`} className="min-w-full px-2">
@@ -314,14 +316,17 @@ export default function Portfolio() {
 
                             <div className="mt-6 h-[1px] w-0 bg-[#a6e267] group-hover:w-full transition-all duration-1000 ease-in-out"></div>
 
-                            <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                              <Link
-                                href={`/cases/${case1.slug}`}
-                                className="inline-flex items-center text-white hover:text-[#a6e267] transition-colors duration-300"
+                            <div className="mt-4">
+                              <a
+                                href={`/cases/${slug1}`}
+                                className="inline-flex items-center text-white bg-[#2D4625] hover:bg-[#a6e267] hover:text-[#2D4625] px-4 py-2 rounded-full transition-colors duration-300"
+                                onClick={(e) => {
+                                  console.log("Case link clicked:", `/cases/${slug1}`)
+                                }}
                               >
                                 <span>Bekijk case</span>
                                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                              </Link>
+                              </a>
                             </div>
                           </div>
 
@@ -382,14 +387,17 @@ export default function Portfolio() {
 
                             <div className="mt-6 h-[1px] w-0 bg-[#a6e267] group-hover:w-full transition-all duration-1000 ease-in-out"></div>
 
-                            <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
-                              <Link
-                                href={`/cases/${case2.slug}`}
-                                className="inline-flex items-center text-white hover:text-[#a6e267] transition-colors duration-300"
+                            <div className="mt-4">
+                              <a
+                                href={`/cases/${slug2}`}
+                                className="inline-flex items-center text-white bg-[#2D4625] hover:bg-[#a6e267] hover:text-[#2D4625] px-4 py-2 rounded-full transition-colors duration-300"
+                                onClick={(e) => {
+                                  console.log("Case link clicked:", `/cases/${slug2}`)
+                                }}
                               >
                                 <span>Bekijk case</span>
                                 <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
-                              </Link>
+                              </a>
                             </div>
                           </div>
 
