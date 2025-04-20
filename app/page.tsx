@@ -1,13 +1,11 @@
-import { Testimonials } from "@/components/testimonials"
 import Portfolio from "@/components/cases-display"
 import HeroNieuw from "@/components/HeroNieuw"
-import ContactOpnemen from "@/components/ContactOpnemen"
-import TeamSection from "@/components/team-section"
-import { BentoGridDemo } from "@/components/BentoGridDemo"
-import AboutUsSection from "@/components/About-us-section"
-import HeroSection from "@/components/HeroSection"
-import { Typewriter } from "@/components/typewriter"
-import ServicesCarousel from "@/components/services-carousel"
+import ScrollTextFill from "@/components/scroll-text-fill"
+import ServicesSection from "@/components/services-section"
+import AIAutomationSection from "@/components/ai-automation-section"
+import AutomationServices from "@/components/automation-services"
+import ReviewSection from "@/components/review-section"
+import CTASection from "@/components/cta-section"
 
 
 export default function Home() {
@@ -19,14 +17,13 @@ export default function Home() {
       buttonText={"Onze expertises"} 
       buttonLink={"/diensten"} 
       videoSrc={"/partners/ui.mp4"} />
-      <Typewriter />
-      <ServicesCarousel />
-      <AboutUsSection />
-      <TeamSection />
+      <ScrollTextFill />
+      <ServicesSection />
+      <AIAutomationSection />
+      <AutomationServices />
+      <ReviewSection />
+      <CTASection />
       <Portfolio />
-      <HeroSection />
-      <Testimonials />
-      <ContactOpnemen />
     </main>
   )
 }

@@ -113,7 +113,7 @@ export function Header() {
                   alt="Logo"
                   width={200}
                   height={50}
-                  className="h-12 w-auto" // Increased height from h-10 to h-12
+                  className="h-18 w-auto" // Increased height from h-10 to h-12
                 />
               </Link>
 
@@ -346,11 +346,11 @@ export function Header() {
                 className="flex items-center justify-center mx-2 transition-transform duration-300 hover:scale-110"
               >
                 <Image
-                  src={theme === "dark" ? "/logos/logo-wit.png" : "/logos/logo.png"}
+                  src={theme === "dark" ? "/logos/logo-wit.png" : "/logos/logo-wit.png"}
                   alt="Logo"
-                  width={150}
-                  height={150}
-                  className="h-6 w-auto"
+                  width={300}
+                  height={300}
+                  className="h-12 w-auto"
                 />
               </Link>
 
