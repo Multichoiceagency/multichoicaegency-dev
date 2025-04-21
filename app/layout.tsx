@@ -6,7 +6,6 @@ import { ThemeProvider } from "@/components/theme-provider"
 import GoogleCalendarButton from "@/components/GoogleCalenderButton"
 import { Header } from "@/components/header"
 import ScrollToTop from "@/components/ScrollToTop"
-import QuoteButton from "@/components/OfferteAanvraagKnop"
 import FloatingSocialIcons from "@/components/FloatingSocialicons"
 import SmoothScroll from "@/components/Smooth-scroll"
 import FooterSection from "@/components/footer-section"
@@ -30,7 +29,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <FloatingSocialIcons />
           <ScrollToTop />
           <GoogleCalendarButton />
-          <QuoteButton />
           <Header />
           <SmoothScroll>
             <main>{children}</main>
