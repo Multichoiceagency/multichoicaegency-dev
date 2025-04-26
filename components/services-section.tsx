@@ -75,11 +75,13 @@ export default function ServicesSection() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
+                      <div className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full bg-[#2D4625] filter blur-[100px] opacity-20 animate-pulse-slow"></div>
+
               {/* Service Card */}
               <div
                 className={cn(
                   "h-full rounded-2xl p-8 transition-all duration-300 border border-gray-100 shadow-sm",
-                  hoveredIndex === index ? "bg-[#2D4625] text-white" : "bg-gradient-to-br from-white to-gray-50",
+                  hoveredIndex === index ? "bg-[#2D4625] filter animate-pulse-fast text-white" : "bg-gradient-to-br from-white to-gray-50",
                 )}
               >
                 {/* Number and Icon */}
