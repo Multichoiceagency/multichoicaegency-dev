@@ -166,7 +166,7 @@ export default function DienstenPage() {
       />
 
       {/* HERO SECTION */}
-      <section ref={ref} className="relative bg-[#2D4625] dark:bg-[#1a2a18] text-white overflow-hidden py-32">
+      <section ref={ref} className="relative bg-[#2D4625] dark:bg-[#1a2a18] text-white overflow-hidden py-48">
         {/* Futuristic background elements */}
         <div className="absolute inset-0 z-0 pointer-events-none">
           {/* Grid pattern */}
