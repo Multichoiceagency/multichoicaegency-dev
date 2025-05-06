@@ -11,11 +11,7 @@ import CTASection from "@/components/cta-section"
 export default function Home() {
   return (
     <main className="overflow-x-hidden">
-      <HeroNieuw 
-      title={"Bouw Samen Met Ons Aan Jouw Digitale Toekomst"} 
-      description={"Ontdek innovatieve oplossingen die jouw bedrijf naar nieuwe hoogten brengen. Wij creëren digitale ervaringen op maat, volledig afgestemd op jouw visie."} 
-      buttonText={"Onze expertises"} 
-      buttonLink={"/diensten"} 
+      <HeroNieuw
       videoSrc={"/partners/ui.mp4"} />
       <ScrollTextFill />
       <ServicesSection />
