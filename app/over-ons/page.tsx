@@ -1,4 +1,4 @@
-import HeroNieuw from '@/components/HeroNieuw'
+import HeroNieuw from '@/components/Hero-section'
 import OverOns from '@/components/OverOns'
 import React from 'react'
 

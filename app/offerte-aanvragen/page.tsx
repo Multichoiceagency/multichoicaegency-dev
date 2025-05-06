@@ -1,4 +1,4 @@
-import HeroNieuw from '@/components/HeroNieuw'
+import HeroNieuw from '@/components/Hero-section'
 import OfferteAanvragenPage from '@/components/offerte-aanvragen'
 import React from 'react'
 

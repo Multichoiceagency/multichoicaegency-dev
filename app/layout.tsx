@@ -7,9 +7,8 @@ import GoogleCalendarButton from "@/components/GoogleCalenderButton"
 import { Header } from "@/components/header"
 import ScrollToTop from "@/components/ScrollToTop"
 import FloatingSocialIcons from "@/components/FloatingSocialicons"
-import SmoothScroll from "@/components/Smooth-scroll"
 import FooterSection from "@/components/footer-section"
-import Script from "next/script"
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -31,10 +30,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <ScrollToTop />
           <GoogleCalendarButton />
           <Header />
-          <SmoothScroll>
             <main>{children}</main>
             <FooterSection />
-            </SmoothScroll>
         </ThemeProvider>
       </body>
     </html>

@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import HeroNieuw from "@/components/HeroNieuw"
+import HeroNieuw from "@/components/Hero-section"
 
 export default function ResponsiefWebdesign() {
   const [showContent, setShowContent] = useState(false)

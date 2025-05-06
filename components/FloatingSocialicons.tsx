@@ -154,7 +154,7 @@ const FloatingUI = () => {
             ))}
             <button
               onClick={toggleSocialIcons}
-              className="w-10 h-10 flex items-center justify-center bg-white border border-gray-300 hover:bg-gray-200 text-gray-700 relative group"
+              className="w-10 h-10 flex items-center justify-center bg-green-700/10 border border-gray-300 hover:bg-gray-200 text-gray-700 relative group"
               aria-label="Hide social icons"
             >
               <FontAwesomeIcon icon={faChevronLeft as IconProp} className="text-xl" />
