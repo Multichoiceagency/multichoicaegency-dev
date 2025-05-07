@@ -9,6 +9,7 @@ import ScrollToTop from "@/components/ScrollToTop"
 import FloatingSocialIcons from "@/components/FloatingSocialicons"
 import FooterSection from "@/components/footer-section"
 import { GoogleAnalytics } from '@next/third-parties/google'
+import ChatBot from "@/components/chatbot"
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -28,9 +29,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           {/* Fixed elements outside of smooth scroll */}
           <FloatingSocialIcons />
           <ScrollToTop />
-          <GoogleCalendarButton />
           <Header />
-            <main>{children}</main>
+            <main>{children}
+            <ChatBot />
+            </main>
             <FooterSection />
         </ThemeProvider>
       </body>

@@ -11,11 +11,6 @@ export const metadata = {
 export default function PRPage() {
   return (
     <>
-      <SEO
-        title="PR | Multichoiceagency"
-        description="Versterk uw reputatie en zichtbaarheid met strategische PR. Ontdek hoe wij uw merk positioneren in de media, relaties opbouwen met relevante stakeholders en uw verhaal vertellen aan het juiste publiek."
-        canonical="https://multichoiceagency.nl/diensten/pr"
-      />
 
       <ServiceLayout
         title="Public Relations"

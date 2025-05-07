@@ -11,11 +11,6 @@ export const metadata = {
 export default function ContentmarketingPage() {
   return (
     <>
-      <SEO
-        title="Contentmarketing | Multichoiceagency"
-        description="Versterk uw online aanwezigheid met strategische contentmarketing. Ontdek hoe wij waardevolle content creëren die uw doelgroep aanspreekt, uw expertise toont en conversies stimuleert."
-        canonical="https://multichoiceagency.nl/diensten/contentmarketing"
-      />
 
       <ServiceLayout
         title="Contentmarketing"

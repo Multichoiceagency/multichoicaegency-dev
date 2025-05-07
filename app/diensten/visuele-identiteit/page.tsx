@@ -11,11 +11,6 @@ export const metadata = {
 export default function VisueleIdentiteitPage() {
   return (
     <>
-      <SEO
-        title="Visuele Identiteit | Multichoiceagency"
-        description="Creëer een onderscheidende visuele identiteit die uw merk direct herkenbaar maakt. Ontdek hoe wij uw merkwaarden vertalen naar een krachtige visuele taal die resoneert met uw doelgroep."
-        canonical="https://multichoiceagency.nl/diensten/visuele-identiteit"
-      />
 
       <ServiceLayout
         title="Visuele Identiteit"

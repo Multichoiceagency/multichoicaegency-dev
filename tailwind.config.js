@@ -10,8 +10,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
-        "gradient-conic":
-          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+        "gradient-conic": "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -19,6 +18,10 @@ module.exports = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        brand: {
+          DEFAULT: "#5a7a4f",
+          dark: "#2D4625",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -60,29 +63,31 @@ module.exports = {
           "5": "hsl(var(--chart-5))",
         },
       },
+      blur: {
+        25: "25px",
+      },
       keyframes: {
         "accordion-down": {
-          from: {
-            height: "0",
-          },
-          to: {
-            height: "var(--radix-accordion-content-height)",
-          },
+          from: { height: "0" },
+          to: { height: "var(--radix-accordion-content-height)" },
         },
         "accordion-up": {
-          from: {
-            height: "var(--radix-accordion-content-height)",
-          },
-          to: {
-            height: "0",
-          },
+          from: { height: "var(--radix-accordion-content-height)" },
+          to: { height: "0" },
+        },
+        "pop-blob": {
+          "0%": { transform: "scale(1)" },
+          "33%": { transform: "scale(1.2)" },
+          "66%": { transform: "scale(0.8)" },
+          "100%": { transform: "scale(1)" },
         },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "pop-blob": "pop-blob 5s ease-in-out infinite",
       },
     },
   },
   plugins: [require("tailwindcss-animate")],
-};
+}

@@ -11,11 +11,6 @@ export const metadata = {
 export default function VideomarketingPage() {
   return (
     <>
-      <SEO
-        title="Videomarketing | Multichoiceagency"
-        description="Versterk uw merk met krachtige videomarketing. Ontdek hoe wij impactvolle videocontent creëren die uw doelgroep engageert, uw boodschap overbrengt en conversies stimuleert."
-        canonical="https://multichoiceagency.nl/diensten/videomarketing"
-      />
 
       <ServiceLayout
         title="Videomarketing"

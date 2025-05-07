@@ -11,11 +11,6 @@ export const metadata = {
 export default function RebrandingPage() {
   return (
     <>
-      <SEO
-        title="Rebranding | Multichoiceagency"
-        description="Transformeer uw merk met een strategische rebranding. Ontdek hoe wij uw merk kunnen vernieuwen en versterken om beter aan te sluiten bij uw doelgroep, doelen en toekomstvisie."
-        canonical="https://multichoiceagency.nl/diensten/rebranding"
-      />
 
       <ServiceLayout
         title="Rebranding"

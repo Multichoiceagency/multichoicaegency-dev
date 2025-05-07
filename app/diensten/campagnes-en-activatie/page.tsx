@@ -11,12 +11,6 @@ export const metadata = {
 export default function CampagnesEnActivatiePage() {
   return (
     <>
-      <SEO
-        title="Campagnes en Activatie | Multichoiceagency"
-        description="Creëer impactvolle marketingcampagnes die uw doelgroep activeren. Ontdek hoe wij uw merk tot leven brengen met strategische campagnes en activaties die resultaten opleveren."
-        canonical="https://multichoiceagency.nl/diensten/campagnes-en-activatie"
-      />
-
       <ServiceLayout
         title="Campagnes en Activatie"
         subtitle="Impactvolle marketingcampagnes"

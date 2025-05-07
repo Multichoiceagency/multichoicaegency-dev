@@ -11,12 +11,6 @@ export const metadata = {
 export default function AnimatiePage() {
   return (
     <>
-      <SEO
-        title="Animatie | Multichoiceagency"
-        description="Breng uw verhaal tot leven met professionele animaties. Ontdek hoe wij complexe boodschappen vereenvoudigen en uw merk op een dynamische en memorabele manier presenteren."
-        canonical="https://multichoiceagency.nl/diensten/animatie"
-      />
-
       <ServiceLayout
         title="Animatie"
         subtitle="Dynamische animaties"

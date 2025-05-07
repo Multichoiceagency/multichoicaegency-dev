@@ -131,40 +131,6 @@ export default function DienstenPage() {
 
   return (
     <main className="bg-white dark:bg-black min-h-screen">
-      <NextSeo
-        title="Onze Diensten | Multichoiceagency"
-        description="Ontdek onze expertise in branding, development, online marketing, data en innovatie. Wij helpen jouw merk online winnen."
-        canonical="https://multichoiceagency.nl/diensten"
-        openGraph={{
-          url: "https://multichoiceagency.nl/diensten",
-          title: "Onze Diensten | Multichoiceagency",
-          description:
-            "Ontdek hoe wij jouw merk digitaal laten groeien met branding, websites, marketing & technologie.",
-          images: [
-            {
-              url: "https://multichoiceagency.nl/social/diensten-share.jpg",
-              width: 1200,
-              height: 630,
-              alt: "Wij laten jouw merk online winnen",
-              type: "image/jpeg",
-            },
-          ],
-          siteName: "Multichoiceagency",
-        }}
-        twitter={{
-          handle: "@multichoiceagency",
-          site: "@multichoiceagency",
-          cardType: "summary_large_image",
-        }}
-        additionalMetaTags={[
-          {
-            name: "keywords",
-            content:
-              "branding, webdesign, online marketing, development, seo, digital agency, Next.js websites, digital innovation",
-          },
-        ]}
-      />
-
       {/* HERO SECTION */}
       <section ref={ref} className="relative bg-[#2D4625] dark:bg-[#1a2a18] text-white overflow-hidden py-48">
         {/* Futuristic background elements */}

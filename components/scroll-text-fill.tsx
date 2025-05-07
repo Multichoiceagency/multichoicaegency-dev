@@ -82,7 +82,7 @@ export default function ScrollTextFill() {
   }, [])
 
   return (
-    <section className="py-24 md:py-32 lg:py-20 dark:bg-black">
+    <section className="py-24 md:py-32 lg:py-20 dark:bg-gray-900">
       <div className="container mx-auto px-4" ref={containerRef}>
         <h2 className="text-2xl md:text-5xl lg:text-5xl xl:text-5xl font-regular leading-tight tracking-tight">
           <span

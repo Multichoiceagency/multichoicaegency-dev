@@ -1,34 +1,41 @@
-'use client';
-import { useState, useEffect, useRef } from 'react';
+'use client'
+import { useState, useEffect, useRef } from 'react'
 
 const GoogleCalendarButton = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isVisible, setIsVisible] = useState(false);
-  const lastScrollY = useRef(0);
+  const [isOpen, setIsOpen] = useState(false)
+  const [isVisible, setIsVisible] = useState(false)
+  const lastScrollY = useRef(0)
 
   const handleOpen = () => {
-    setIsOpen(true);
-  };
+    setIsOpen(true)
+  }
 
   const handleClose = () => {
-    setIsOpen(false);
-  };
+    setIsOpen(false)
+  }
 
   useEffect(() => {
     const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      // Toon de knop als je naar boven scrollt, anders verberg je hem
+      const currentScrollY = window.scrollY
       if (currentScrollY < lastScrollY.current) {
-        setIsVisible(true);
+        setIsVisible(true)
       } else {
-        setIsVisible(false);
+        setIsVisible(false)
       }
-      lastScrollY.current = currentScrollY;
-    };
+      lastScrollY.current = currentScrollY
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
+
+  // ✅ Voeg globale functie toe
+  useEffect(() => {
+    window.openGoogleCalendarModal = () => setIsOpen(true)
+    return () => {
+      delete window.openGoogleCalendarModal
+    }
+  }, [])
 
   return (
     <>
@@ -67,7 +74,7 @@ const GoogleCalendarButton = () => {
         </div>
       )}
     </>
-  );
-};
+  )
+}
 
-export default GoogleCalendarButton;
+export default GoogleCalendarButton
