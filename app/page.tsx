@@ -14,7 +14,7 @@ export default function Home() {
   return (
     <main className="overflow-x-hidden">
       <HeroSection
-        videoSrc={"/partners/ui.mp4"} title={"Multichoiceagency - jouw full service digital agency"} description={"Als full service digital agency helpen we marketeers, ontwerps en ontwikkelaars samen te werken om digitale ervaringen te bouwen, beheren en optimaliseren die resultaat opleveren."} buttonText={"Gratis Offerte"} buttonLink={"/offerte-aanvragen"} />
+        videoSrc={"/partners/ui.mp4"} title={"Multichoiceagency - jouw one stop shop full service digital agency"} description={"Als full service digital agency helpen we marketeers, ontwerps en ontwikkelaars samen te werken om digitale ervaringen te bouwen, beheren en optimaliseren die resultaat opleveren."} buttonText={"Gratis Offerte"} buttonLink={"/offerte-aanvragen"} />
       <ScrollTextFill />
       <ServicesSection />
       <WhyChooseMultichoice />

@@ -132,7 +132,7 @@ export default function TeamSection() {
                   <p className="text-gray-600 mb-8 text-lg leading-relaxed dark:text-white">{slide.description}</p>
                   <Link
                     href={slide.ctaLink}
-                    className="inline-block bg-black text-white px-6 py-3 font-medium hover:bg-gray-800 transition-colors"
+                    className="inline-block bg-primary rounded-md text-white px-6 py-3 font-medium hover:bg-gray-800 transition-colors"
                   >
                     {slide.ctaText}
                   </Link>

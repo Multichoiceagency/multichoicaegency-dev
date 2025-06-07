@@ -1,128 +1,201 @@
 "use client"
-
-import { NextSeo } from "next-seo"
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useState } from "react"
 import Link from "next/link"
-import { ArrowRight, ChevronRight, Compass, Code, BarChart, Database, Lightbulb } from "lucide-react"
+import {
+  ArrowRight,
+  ChevronRight,
+  Compass,
+  Code,
+  BarChart,
+  Database,
+  Lightbulb,
+  Sparkles,
+  Globe,
+  ShieldCheck,
+  Video,
+  Camera,
+} from "lucide-react"
 import { FaGoogle } from "react-icons/fa6"
 
 const sections = [
   {
-    title: "Branding",
+    title: "Webdevelopment & Platforms",
     description:
-      "Een sterk merk laat mensen jou herkennen, vertrouwen én onthouden. Wij helpen je merk bouwen vanaf positionering tot visuele identiteit.",
+      "High-performance websites, robuuste webshops, en maatwerk applicaties & portalen. Gebouwd met de nieuwste technologieën voor optimale gebruikerservaring en schaalbaarheid.",
     services: [
-      { name: "Merkpositionering", slug: "merkpositionering" },
-      { name: "Merkidentiteit", slug: "merkidentiteit" },
-      { name: "Employer branding", slug: "employer-branding" },
-      { name: "Campagnes en activatie", slug: "campagnes-en-activatie" },
-      { name: "Contentmarketing", slug: "contentmarketing" },
-      { name: "Visuele identiteit", slug: "visuele-identiteit" },
-      { name: "Videomarketing", slug: "videomarketing" },
-      { name: "PR", slug: "pr" },
-      { name: "Rebranding", slug: "rebranding" },
-      { name: "Animatie", slug: "animatie" },
+      { name: "Custom Webdesign", href: "/webdevelopment/custom-webdesign" },
+      { name: "Website Laten Maken", href: "/webdevelopment/website-laten-maken" },
+      { name: "Maatwerk Website", href: "/webdevelopment/maatwerk-website-laten-maken" },
+      { name: "Frontend Development", href: "/webdevelopment/frontend-development" },
+      { name: "Backend Development", href: "/webdevelopment/backend-development" },
+      { name: "App Development", href: "/webdevelopment/app-development" },
+      { name: "Webapplicaties", href: "/webdevelopment/webapplicaties" },
+      { name: "E-commerce Oplossingen", href: "/webdevelopment/e-commerce" },
+      { name: "Headless E-commerce", href: "/webdevelopment/headless-ecommerce" },
+      { name: "Shopify Webshop", href: "/webdevelopment/shopify-webshop-laten-maken" },
+      { name: "WooCommerce Webshop", href: "/webdevelopment/woocommerce-webshop-laten-maken" },
+      { name: "Portalen en Platformen", href: "/webdevelopment/portalen-en-platformen" },
+      { name: "Dashboard Ontwikkeling", href: "/webdevelopment/dashboard-ontwikkeling" },
     ],
-    cta: "/branding",
-    icon: <Compass className="w-6 h-6" />,
-    bg: {
-      light: "bg-[#f3f7f3]",
-      dark: "dark:bg-[#1d2a1d]",
-    },
-    accent: "#2D4625",
+    cta: "/webdevelopment",
+    icon: <Code className="w-6 h-6 text-white" />,
+    bg: { light: "bg-sky-50", dark: "dark:bg-sky-900/30" },
+    accent: "#0EA5E9",
   },
   {
-    title: "Development & Technology",
-    description:
-      "Wij bouwen schaalbare platformen, webapplicaties en websites die werken op elk niveau. Van design tot integraties en configuratoren.",
+    title: "Hosting & Domein Services",
+    description: "Betrouwbare hosting, domeinregistratie en technisch onderhoud voor jouw online aanwezigheid.",
     services: [
-      { name: "E-commerce webshop", slug: "e-commerce-webshop" },
-      { name: "Corporate website", slug: "corporate-website" },
-      { name: "PIM systemen", slug: "pim-systemen" },
-      { name: "Integratieplatform", slug: "integratieplatform" },
-      { name: "Webapplicatie", slug: "webapplicatie" },
-      { name: "Webdesign", slug: "webdesign" },
-      { name: "Configuratoren", slug: "configuratoren" },
-      { name: "Digital Experience Platform (DXP)", slug: "digital-experience-platform" },
+      { name: "Domeinnaam Kopen & Registratie", href: "/diensten/domeinnaam-kopen" },
+      { name: "Info Mail Adres Aanmaken", href: "/diensten/email-hosting" },
+      { name: "WordPress Webhosting", href: "/diensten/wordpress-webhosting" },
+      { name: "Performance Webhosting", href: "/diensten/performance-webhosting" },
+      { name: "WordPress Onderhoud", href: "/diensten/wordpress-onderhoud" },
     ],
-    cta: "/development",
-    icon: <Code className="w-6 h-6" />,
-    bg: {
-      light: "bg-[#f1f8f5]",
-      dark: "dark:bg-[#162921]",
-    },
-    accent: "#0F766E",
+    cta: "/hosting-domein-overzicht", // Maak deze overzichtspagina aan
+    icon: <Globe className="w-6 h-6 text-white" />,
+    bg: { light: "bg-gray-100", dark: "dark:bg-gray-800/30" },
+    accent: "#6B7280", // Grijs accent
   },
   {
-    title: "Online Marketing",
+    title: "UX/UI Design",
     description:
-      "Wij versterken je digitale zichtbaarheid met slimme online campagnes: van SEA tot CRO en affiliate marketing.",
+      "Van diepgaand gebruikersonderzoek en wireframes tot interactieve prototypes en design systems. Wij creëren intuïtieve, toegankelijke en esthetisch aantrekkelijke digitale ervaringen die converteren.",
     services: [
-      { name: "SEA", slug: "sea-uitbesteden" },
-      { name: "SEO", slug: "seo-uitbesteden" },
-      { name: "Display ADS", slug: "display-ads-uitbesteden" },
-      { name: "Facebook ADS", slug: "facebook-ads-uitbesteden" },
-      { name: "Google Shopping", slug: "google-shopping" },
-      { name: "Google Analytics", slug: "google-analytics" },
-      { name: "Google Tag Manager", slug: "google-tag-manager" },
-      { name: "Conversie optimalisatie", slug: "conversie-optimalisatie" },
-      { name: "Social Media Advertising", slug: "social-media-advertising" },
-      { name: "Social Media Marketing", slug: "social-media-marketing" },
-      { name: "Content Marketing", slug: "contentmarketing" },
-      { name: "E-mailmarketing", slug: "emailmarketing" },
-      { name: "Analytics & Data", slug: "analytics-data" },
-      { name: "Linkbuilding", slug: "linkbuilding-uitbesteden" },
-      { name: "CRO", slug: "cro" },
-      { name: "Affiliate marketing", slug: "affiliate-marketing" },
-      { name: "Marketplaces", slug: "marketplaces" },
-      { name: "Leadgen & Gamification", slug: "leadgen-gamification" },
-      { name: "E-mailmarketing", slug: "e-mailmarketing" },
-      { name: "Interim online marketing", slug: "interim-online-marketing" },
+      { name: "Wat is UX/UI Design?", href: "/wat-is-ux-ui-design" },
+      { name: "User Research & Persona's", href: "/ux-ui-design/user-research" },
+      { name: "Wireframing & Prototyping", href: "/ux-ui-design/wireframing-prototyping" },
+      { name: "Responsief Webdesign", href: "/webdevelopment/responsief-webdesign" }, // Behoud deze als relevant
+      { name: "Mobile App Design (iOS & Android)", href: "/ux-ui-design/mobile-app-design" },
+      { name: "E-commerce UX Optimalisatie", href: "/ux-ui-design/ecommerce-ux" },
+      { name: "Usability Testing & Analyse", href: "/ux-ui-design/usability-testing" },
+      { name: "Design System Ontwikkeling", href: "/ux-ui-design/design-systems" },
+      { name: "Accessibility (WCAG) Audits", href: "/ux-ui-design/accessibility-audits" },
     ],
-    cta: "https://essmarketing.nl/online-marketing",
-    icon: <BarChart className="w-6 h-6" />,
-    bg: {
-      light: "bg-[#f6f9f3]",
-      dark: "dark:bg-[#1b291c]",
-    },
-    accent: "#7E22CE",
+    cta: "/ux-ui-design-overzicht",
+    icon: <Lightbulb className="w-6 h-6 text-white" />,
+    bg: { light: "bg-amber-50", dark: "dark:bg-amber-900/30" },
+    accent: "#F59E0B",
   },
   {
-    title: "Data & Automation",
+    title: "Online Marketing & Groei (via EssMarketing)",
     description:
-      "Zet data slim in voor groei en efficiëntie. Van dashboards tot marketing automation: datagedreven succes begint hier.",
+      "Vergroot je online zichtbaarheid en conversies met datagedreven SEO, Google Ads, social media en contentmarketing, uitgevoerd door onze gespecialiseerde partner EssMarketing.",
     services: [
-      { name: "Data Insights", slug: "data-insights" },
-      { name: "Data Consultancy", slug: "data-consultancy" },
-      { name: "Data Engineering", slug: "data-engineering" },
-      { name: "Marketing Automation", slug: "marketing-automation" },
+      { name: "SEO Specialist", href: "https://www.essmarketing.nl/seo-specialist" },
+      { name: "Google Ads Uitbesteden", href: "https://www.essmarketing.nl/google-ads-uitbesteden" },
+      { name: "Content Marketing Uitbesteden", href: "https://www.essmarketing.nl/content-marketing-uitbesteden" },
+      { name: "Social Media Advertising", href: "https://www.essmarketing.nl/social-media-adverteren" },
+      { name: "E-mailmarketing & Automatisering", href: "https://www.essmarketing.nl/e-mailmarketing" },
+      { name: "Conversie Optimalisatie (CRO)", href: "https://www.essmarketing.nl/conversie-optimalisatie" },
+      { name: "Marketplace Advertising", href: "https://www.essmarketing.nl/marketplaces" },
+      { name: "Affiliate Marketing", href: "https://www.essmarketing.nl/affiliate-marketing" },
     ],
-    cta: "/data-automation",
-    icon: <Database className="w-6 h-6" />,
-    bg: {
-      light: "bg-[#f4f9f5]",
-      dark: "dark:bg-[#182b21]",
-    },
-    accent: "#0369A1",
+    cta: "https://www.essmarketing.nl/",
+    icon: <BarChart className="w-6 h-6 text-white" />,
+    bg: { light: "bg-emerald-50", dark: "dark:bg-emerald-900/30" },
+    accent: "#10B981",
   },
   {
-    title: "Strategy & Innovation",
+    title: "Strategie & Branding (deels via EssMedia)",
     description:
-      "Samen bouwen aan digitale strategieën die écht impact maken. Innovatie, marketingstrategie en digitale transformatie staan centraal.",
+      "Van merkpositionering en visuele identiteit tot campagnes en professionele content. Voor hoogwaardige foto- en videoproducties werken we samen met onze partner EssMedia.",
     services: [
-      { name: "Digital Transformation", slug: "digital-transformation" },
-      { name: "Innovation Consultancy", slug: "innovation-consultancy" },
-      { name: "Innovation Lab", slug: "innovation-lab" },
-      { name: "Marketing Strategy", slug: "marketing-strategy" },
+      { name: "Merkpositionering", href: "/diensten/merkpositionering" },
+      { name: "Merkidentiteit", href: "/diensten/merkidentiteit" },
+      { name: "Visuele Identiteit", href: "/diensten/visuele-identiteit" },
+      { name: "Rebranding", href: "/diensten/rebranding" },
+      { name: "Campagnes en Activatie", href: "/diensten/campagnes-en-activatie" },
+      { name: "Contentmarketing (Strategie)", href: "/diensten/contentmarketing" },
+      {
+        name: "Bedrijfsvideo (via EssMedia)",
+        href: "https://www.essmedia.nl/bedrijfsvideo-laten-maken",
+        icon: <Video className="w-4 h-4 inline mr-1" />,
+      },
+      {
+        name: "Productvideo (via EssMedia)",
+        href: "https://www.essmedia.nl/productvideo-laten-maken",
+        icon: <Video className="w-4 h-4 inline mr-1" />,
+      },
+      {
+        name: "Social Media Reels & Shorts (via EssMedia)",
+        href: "https://www.essmedia.nl/social-media-content",
+        icon: <Video className="w-4 h-4 inline mr-1" />,
+      },
+      {
+        name: "Bedrijfs- & Productfotografie (via EssMedia)",
+        href: "https://www.essmedia.nl/fotografie",
+        icon: <Camera className="w-4 h-4 inline mr-1" />,
+      },
+      {
+        name: "Drone Video & Foto (via EssMedia)",
+        href: "https://www.essmedia.nl/drone",
+        icon: <Camera className="w-4 h-4 inline mr-1" />,
+      },
+      {
+        name: "Animatievideo's (via EssMedia)",
+        href: "https://www.essmedia.nl/animatie",
+        icon: <Video className="w-4 h-4 inline mr-1" />,
+      },
     ],
-    cta: "/strategy-innovation",
-    icon: <Lightbulb className="w-6 h-6" />,
-    bg: {
-      light: "bg-[#f5f8f2]",
-      dark: "dark:bg-[#1e2d20]",
-    },
-    accent: "#CA8A04",
+    cta: "/diensten/strategie-en-branding-overzicht",
+    icon: <Compass className="w-6 h-6 text-white" />,
+    bg: { light: "bg-purple-50", dark: "dark:bg-purple-900/30" },
+    accent: "#8B5CF6",
+  },
+  {
+    title: "AI & Generatieve Oplossingen",
+    description:
+      "Benut de kracht van Artificial Intelligence. Van slimme chatbots en AI-gedreven klantenservice tot content generatie en voorspellende analyses.",
+    services: [
+      { name: "AI Chatbots & Conversational AI", href: "/ai-oplossingen/chatbots" },
+      { name: "AI VoIP & Klantenservice Automatisering", href: "/ai-oplossingen/voip-klantenservice" },
+      { name: "AI Content Generatie & Optimalisatie", href: "/ai-oplossingen/content-creatie" },
+      { name: "AI Gedreven Data Analyse & Inzichten", href: "/ai-oplossingen/data-analyse" },
+      { name: "Custom AI Model Ontwikkeling", href: "/ai-oplossingen/custom-ai-modellen" },
+      { name: "AI Strategie & Implementatie", href: "/ai-oplossingen/strategie" },
+    ],
+    cta: "/ai-oplossingen",
+    icon: <Sparkles className="w-6 h-6 text-white" />,
+    bg: { light: "bg-teal-50", dark: "dark:bg-teal-900/40" },
+    accent: "#14B8A6",
+  },
+  {
+    title: "Data & Procesautomatisering",
+    description:
+      "Transformeer data in waardevolle inzichten en automatiseer bedrijfsprocessen voor maximale efficiëntie en groei.",
+    services: [
+      { name: "Marketing Automatisering", href: "/marketing-automatisering" },
+      { name: "Bedrijfsproces Automatisering (RPA)", href: "/automatisering/rpa" },
+      { name: "Workflow Optimalisatie & Automatisering", href: "/automatisering/workflow" },
+      { name: "CRM Automatisering & Integratie", href: "/automatisering/crm" }, // Ook onder webdevelopment, hier specifieker voor automatisering
+      { name: "Data Pipeline Ontwikkeling & ETL", href: "/automatisering/data-pipelines" },
+      { name: "Business Intelligence & Dashboards", href: "/data-inzichten/dashboards" },
+    ],
+    cta: "/data-en-automatisering-overzicht",
+    icon: <Database className="w-6 h-6 text-white" />,
+    bg: { light: "bg-rose-50", dark: "dark:bg-rose-900/30" },
+    accent: "#F43F5E",
+  },
+  {
+    title: "ICT & Cloud Diensten (via EssICT)",
+    description:
+      "Betrouwbare en toekomstgerichte ICT-oplossingen via onze partner EssICT. Van systeembeheer tot cloud en security.",
+    services: [
+      { name: "VoIP Telefonie Oplossingen", href: "https://www.essict.nl/voip" }, // Specifieke link indien bekend, anders algemeen
+      { name: "Systeembeheer & Netwerkbeheer", href: "https://www.essict.nl/systeembeheer" },
+      { name: "Werkplekbeheer (Modern Workplace)", href: "https://www.essict.nl/werkplekbeheer" },
+      { name: "ICT Beveiliging & Cybersecurity", href: "https://www.essict.nl/ict-beveiliging" },
+      { name: "Office 365 Beheer & Support", href: "https://www.essict.nl/office-365" },
+      { name: "Security Awareness Training", href: "https://www.essict.nl/security-awareness" },
+      { name: "Hulp op Afstand & ICT Support", href: "https://www.essict.nl/support" },
+      { name: "Algemene ICT Diensten", href: "https://www.essict.nl/" },
+    ],
+    cta: "https://www.essict.nl/",
+    icon: <ShieldCheck className="w-6 h-6 text-white" />,
+    bg: { light: "bg-blue-50", dark: "dark:bg-blue-900/30" },
+    accent: "#3B82F6", // Blauw accent voor ICT
   },
 ]
 
@@ -263,7 +336,9 @@ export default function DienstenPage() {
                 >
                   {section.icon}
                 </div>
-                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white">{section.title}</h2>
+                <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white sticky top-0 pt-4">
+                  {section.title}
+                </h2>
               </div>
               <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mb-8">{section.description}</p>
               <Link
@@ -282,7 +357,7 @@ export default function DienstenPage() {
             </div>
 
             <div className="bg-white/50 dark:bg-black/20 backdrop-blur-sm rounded-xl p-6 border border-gray-200 dark:border-gray-800">
-              <ul className="space-y-4 text-lg text-gray-800 dark:text-gray-200 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4">
+              <ul className="space-y-4 text-lg text-gray-800 dark:text-gray-200 grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-4 md:items-baseline">
                 {section.services.map((service, idx) => (
                   <li
                     key={idx}
@@ -290,10 +365,7 @@ export default function DienstenPage() {
                     onMouseEnter={() => setHoveredService({ section: index, service: idx })}
                     onMouseLeave={() => setHoveredService(null)}
                   >
-                    <Link
-                      href={`/diensten/${service.slug}`}
-                      className="flex items-center hover:translate-x-1 transition-transform"
-                    >
+                    <Link href={service.href} className="flex items-center hover:translate-x-1 transition-transform">
                       <ChevronRight
                         className="w-5 h-5 mr-2 transition-colors"
                         style={{
@@ -374,19 +446,19 @@ export default function DienstenPage() {
 
       {/* Add CSS for animations */}
       <style jsx global>{`
-        @keyframes pulse-slow {
-          0%, 100% { opacity: 0.5; }
-          50% { opacity: 0.2; }
-        }
-        
-        .animate-pulse-slow {
-          animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-        
-        .animate-pulse-slower {
-          animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-        }
-      `}</style>
+      @keyframes pulse-slow {
+        0%, 100% { opacity: 0.5; }
+        50% { opacity: 0.2; }
+      }
+      
+      .animate-pulse-slow {
+        animation: pulse-slow 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+      
+      .animate-pulse-slower {
+        animation: pulse-slow 6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+      }
+    `}</style>
     </main>
   )
 }

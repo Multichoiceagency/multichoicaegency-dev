@@ -170,9 +170,11 @@ export default function Portfolio() {
             viewport={{ once: true }}
             className="mb-6 md:mb-0"
           >
-            <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2D4625]/50 text-[#a6e267] text-sm font-medium mb-4 border border-[#a6e267]/30">
+            <div className="relative text-sm font-medium mb-2">
+              <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2D4625]/50 text-[#a6e267] border border-[#a6e267]/30">
               <Layers className="h-4 w-4 mr-2" />
               <span>Portfolio</span>
+              </div>
             </div>
             <h2 className="text-3xl md:text-5xl font-medium text-white mb-4 relative inline-block">
               Onze klantcases

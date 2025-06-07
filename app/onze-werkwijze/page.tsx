@@ -1,149 +1,192 @@
-"use client"
-
-import { useState } from "react"
+import type React from "react"
+import type { Metadata } from "next"
 import Link from "next/link"
-import HeroNieuw from "@/components/Hero-section"
-import Image from "next/image"
-import { PricingTable } from "@/components/pricing-table"
+import { Button } from "@/components/ui/button"
+import { Zap, DraftingCompassIcon as Draft, Rocket, Lightbulb, Settings, TrendingUp } from "lucide-react" // Added more icons for variety
+import HeroSection from "@/components/Hero-section"
 
-export default function OnzeWerkwijze() {
-  const [openAccordion, setOpenAccordion] = useState<number | null>(null)
+export async function generateMetadata(): Promise<Metadata> {
+  const title = "Het Catalyst Framework | Onze Werkwijze voor Digitaal Succes - Multichoiceagency"
+  const description =
+    "Ontdek ons Catalyst Framework: een bewezen methodologie in 5 fasen die uw visie transformeert in een krachtig, groeiend digitaal platform. Van Vonk tot Voorsprong met Multichoiceagency."
+  const ogImageUrl = "/og-catalyst-werkwijze.png" // Specific OG image for this page
+
+  return {
+    title: title,
+    description: description,
+    openGraph: {
+      title: title,
+      description: description,
+      type: "website",
+      url: "https://www.multichoiceagency.nl/onze-werkwijze", // Replace with your actual domain
+      images: [
+        {
+          url: ogImageUrl,
+          width: 1200,
+          height: 630,
+          alt: "Het Catalyst Framework - Onze Werkwijze bij Multichoiceagency",
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: title,
+      description: description,
+      images: [ogImageUrl],
+    },
+    alternates: {
+      canonical: "https://www.multichoiceagency.nl/onze-werkwijze", // Replace with your actual domain
+    },
+  }
+}
+
+const PhaseCard = ({
+  icon,
+  phaseNumber,
+  title,
+  description,
+  className,
+}: {
+  icon: React.ReactNode
+  phaseNumber: string
+  title: string
+  description: string
+  className?: string
+}) => (
+  <div
+    className={`relative p-6 sm:p-8 bg-white dark:bg-gray-900/70 rounded-xl shadow-lg hover:shadow-xl dark:hover:shadow-lime-500/10 transition-all duration-300 border border-gray-200 dark:border-gray-800 hover:border-lime-500/50 dark:hover:border-lime-500/70 group ${className}`}
+  >
+    <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
+      <div className="flex-shrink-0 w-12 h-12 bg-lime-100 dark:bg-lime-900/50 text-lime-600 dark:text-lime-400 rounded-lg flex items-center justify-center group-hover:bg-lime-500 group-hover:text-white dark:group-hover:bg-lime-500 dark:group-hover:text-gray-900 transition-colors duration-300">
+        {icon}
+      </div>
+      <div className="flex-grow">
+        <p className="text-xs font-semibold text-lime-600 dark:text-lime-400 uppercase tracking-wider mb-1">
+          {phaseNumber}
+        </p>
+        <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white">{title}</h3>
+      </div>
+    </div>
+    <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed">{description}</p>
+  </div>
+)
+
+export default function OnzeWerkwijzePage() {
+  // Using a Dribbble video that might represent strategy or innovation
+  const heroVideoSrc = "https://cdn.dribbble.com/userupload/11186399/file/original-1a851034bed5335985141b3b74155991.mp4"
+
+  const phases = [
+    {
+      icon: <Lightbulb className="w-6 h-6" />,
+      phaseNumber: "Fase 1",
+      title: "De Vonk: Discovery & Diagnosis",
+      description:
+        "We duiken diep in uw organisatie, markt en doelstellingen. Via workshops en data-analyse smeden we een Strategische Blauwdruk – het kompas voor uw digitale succes.",
+      className: "lg:col-span-1",
+    },
+    {
+      icon: <Draft className="w-6 h-6" />,
+      phaseNumber: "Fase 2",
+      title: "De Architectuur: Design & Prototyping",
+      description:
+        "Strategie wordt tastbaar. We creëren een solide technische architectuur en een interactief prototype, zodat u de gebruikersreis ervaart en valideert vóór de bouw.",
+      className: "lg:col-span-1",
+    },
+    {
+      icon: <Settings className="w-6 h-6" />,
+      phaseNumber: "Fase 3",
+      title: "De Creatie: Agile Development & Build",
+      description:
+        "In iteratieve sprints bouwen we een robuust, schaalbaar platform. Transparantie en continue feedback zorgen voor een snelle, kwalitatieve oplevering.",
+      className: "lg:col-span-1",
+    },
+    {
+      icon: <Rocket className="w-6 h-6" />,
+      phaseNumber: "Fase 4",
+      title: "De Lancering: Launch & Acceleration",
+      description:
+        "Een vlekkeloze, strategische livegang. Gevolgd door 'Hypercare' – intensieve monitoring en directe support voor een soepele start en snelle optimalisatie.",
+      className: "lg:col-span-1 md:col-span-2 lg:col-start-1",
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      phaseNumber: "Fase 5",
+      title: "De Groei: Evolution & Partnership",
+      description:
+        "Uw platform is een levend bedrijfsmiddel. Als strategisch partner zorgen we via data, A/B-tests en een Groei Roadmap voor continue evolutie en blijvende voorsprong.",
+      className: "lg:col-span-2",
+    },
+  ]
 
   return (
-<>      <HeroNieuw 
-        title={"Onze Werkwijze - Het Slimme Stappenplan van Multichoiceagency"}
-        description={
-          "Ontdek hoe Multichoiceagency uw digitale ambities omzet in realiteit via een gestructureerd en resultaatgericht stappenplan. Wij begeleiden u van de eerste analyse tot aan een succesvolle lancering en nazorg, zodat uw project vanaf de basis solide staat."
-        }
-        buttonText={"Lees Meer"}
-        buttonLink={"/onze-werkwijze"}
-        videoSrc={"https://videos.pexels.com/video-files/123456789/example.mp4"}
+    <div className="bg-gray-50 dark:bg-black">
+      <HeroSection
+        title="Het Catalyst Framework: Van Vonk tot Voorsprong"
+        description="Een bewezen methodologie die complexe uitdagingen omzet in elegante, resultaatgerichte digitale oplossingen. Wij zijn de katalysator voor uw groei en digitale transformatie."
+        buttonText="Start Jouw Transformatie"
+        buttonLink="/offerte-aanvragen"
+        videoSrc={"/partners/ui.mp4"}
       />
 
-      {/* Inleiding */}
-      <section className="py-12 lg:py-24 bg-gray-100">
+      <section className="py-16 lg:py-24">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Inleiding: Onze Filosofie</h2>
-          <p className="mb-4">
-            Bij Multichoiceagency geloven we dat een succesvolle digitale transformatie begint met een gedegen planning en een heldere visie. Ons stappenplan is gebaseerd op transparantie, samenwerking en innovatie. Wij zorgen ervoor dat elke fase van het project zorgvuldig wordt doorlopen, zodat we uw ideeën omzetten in een robuuste en toekomstbestendige oplossing.
-          </p>
-          <p className="mb-4">
-            In deze pagina nemen we u mee door ons slimme stappenplan. Van de eerste strategische analyse tot aan de lancering en de voortdurende ondersteuning, elke stap is ontworpen om maximale waarde te creëren voor uw organisatie. Ons doel is om niet alleen een technisch perfect werkende oplossing te leveren, maar ook een platform dat uw bedrijfsprocessen optimaliseert en uw digitale toekomst waarborgt.
-          </p>
+          <div className="text-center max-w-3xl mx-auto mb-12 lg:mb-20">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+              Uw Route naar Digitaal Leiderschap
+            </h2>
+            <p className="text-lg text-gray-600 dark:text-gray-300 leading-relaxed">
+              Ons Catalyst Framework is een iteratief en collaboratief proces dat garant staat voor kwaliteit,
+              transparantie en een eindproduct dat uw verwachtingen overtreft. Elke fase bouwt voort op de vorige, wat
+              resulteert in een krachtig momentum voor uw project.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {phases.map((phase, index) => (
+              <PhaseCard
+                key={index}
+                icon={phase.icon}
+                phaseNumber={phase.phaseNumber}
+                title={phase.title}
+                description={phase.description}
+                className={phase.className}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Stap 1: Analyse en Strategie */}
-      <section className="py-12 lg:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Stap 1: Analyse en Strategie</h2>
-          <p className="mb-4">
-            Het succes van elk project begint met een grondige analyse. We starten met het in kaart brengen van uw huidige situatie, het onderzoeken van uw bedrijfsdoelstellingen en het identificeren van potentiële uitdagingen. Door middel van interviews, workshops en data-analyse verzamelen we waardevolle inzichten die de basis vormen voor een gedegen strategie.
-          </p>
-          <p className="mb-4">
-            Op basis van deze analyse ontwikkelen we een strategisch plan dat als routekaart dient voor de rest van het project. Dit plan bevat niet alleen technische specificaties, maar ook aanbevelingen voor een optimale gebruikerservaring en een efficiënte bedrijfsvoering. Door vanaf het begin een helder strategisch kader te creëren, minimaliseren we risico’s en zorgen we voor een soepele uitvoering.
-          </p>
-          <p className="mb-4">
-            Deze fase is cruciaal, want een goed begrip van uw behoeften en doelstellingen zorgt ervoor dat alle volgende stappen naadloos op elkaar aansluiten. Wij geloven dat een sterke strategie de sleutel is tot duurzame groei en succes.
-          </p>
-        </div>
-      </section>
-
-      {/* Stap 2: Concept en Ontwerp */}
-      <section className="py-12 lg:py-24 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Stap 2: Concept en Ontwerp</h2>
-          <p className="mb-4">
-            Na het vaststellen van de strategie vertalen we de inzichten naar concrete concepten. Ons creatieve team gaat aan de slag met het ontwikkelen van meerdere ontwerpvoorstellen. We experimenteren met verschillende layouts en designs die niet alleen visueel aantrekkelijk zijn, maar ook de functionaliteit en gebruiksvriendelijkheid maximaliseren.
-          </p>
-          <p className="mb-4">
-            Tijdens deze fase betrekken we u nauw bij het ontwerpproces. Uw feedback is essentieel om tot een definitief concept te komen dat volledig aansluit op uw merk en de wensen van uw doelgroep. Het resultaat is een ontwerp dat esthetisch en functioneel in balans is en de basis vormt voor een succesvolle implementatie.
-          </p>
-          <p className="mb-4">
-            Een goed ontwerp is immers meer dan alleen mooi; het moet intuïtief en effectief zijn. Daarom besteden we extra aandacht aan de gebruiksvriendelijkheid en toegankelijkheid van de interface.
-          </p>
-        </div>
-      </section>
-
-      {/* Stap 3: Ontwikkeling en Implementatie */}
-      <section className="py-12 lg:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Stap 3: Ontwikkeling en Implementatie</h2>
-          <p className="mb-4">
-            Na goedkeuring van het ontwerp gaan we over tot de ontwikkeling. Onze ervaren ontwikkelaars werken met de nieuwste technologieën om een robuust en schaalbaar systeem te bouwen. Hierbij staat kwaliteit voorop: we schrijven schone, efficiënte code en volgen de best practices binnen de industrie.
-          </p>
-          <p className="mb-4">
-            De implementatiefase omvat tevens de integratie met bestaande systemen binnen uw organisatie. Wij zorgen voor een soepele koppeling met uw ERP, CRM of andere relevante software, zodat er een uniforme gegevensstroom ontstaat. Dit maakt het mogelijk om alle bedrijfsprocessen naadloos op elkaar af te stemmen.
-          </p>
-          <p className="mb-4">
-            Door continue tests en feedbackrondes garanderen we dat de uiteindelijke oplossing voldoet aan de hoogste kwaliteitsnormen en toekomstbestendig is.
-          </p>
-        </div>
-      </section>
-
-      {/* Stap 4: Testen en Optimaliseren */}
-      <section className="py-12 lg:py-24 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Stap 4: Testen en Optimaliseren</h2>
-          <p className="mb-4">
-            Voor de lancering doorloopt uw project een intensieve testfase. We voeren uitgebreide functionele tests uit, samen met gebruikerstests en beveiligingstests. Dit om er zeker van te zijn dat alle onderdelen van de oplossing feilloos werken.
-          </p>
-          <p className="mb-4">
-            Feedback van een selecte groep gebruikers wordt nauwkeurig geanalyseerd, zodat eventuele verbeterpunten snel kunnen worden doorgevoerd. Optimalisatie is een doorlopend proces en we blijven ook na de lancering werken aan het verfijnen van de functionaliteiten.
-          </p>
-          <p className="mb-4">
-            Dit continu optimaliseren zorgt ervoor dat uw digitale oplossing niet alleen op het moment van lancering voldoet aan de hoogste standaarden, maar ook in de toekomst flexibel en effectief blijft.
-          </p>
-        </div>
-      </section>
-
-      {/* Stap 5: Lancering en Nazorg */}
-      <section className="py-12 lg:py-24">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Stap 5: Lancering en Nazorg</h2>
-          <p className="mb-4">
-            De laatste fase van ons stappenplan is de officiële lancering van uw project. Na een succesvolle testfase introduceren we uw digitale oplossing aan uw doelgroep. Een doordachte lancering zorgt voor een soepele overgang en een groot succes bij de eerste gebruikers.
-          </p>
-          <p className="mb-4">
-            Onze betrokkenheid eindigt niet bij de lancering. Wij bieden uitgebreide nazorg, inclusief continue monitoring, technische ondersteuning en regelmatige updates. Dit garandeert dat uw oplossing altijd optimaal functioneert en u zich kunt blijven richten op de groei van uw organisatie.
-          </p>
-          <p className="mb-4">
-            Dankzij deze uitgebreide ondersteuning en de flexibele architectuur van onze oplossingen bent u verzekerd van een duurzame en succesvolle digitale transformatie.
-          </p>
-        </div>
-      </section>
-
-      {/* Conclusie */}
-      <section className="py-12 lg:py-24 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold mb-6">Conclusie: Uw Digitale Toekomst Start Hier</h2>
-          <p className="mb-4">
-            Multichoiceagency combineert creativiteit, technische expertise en strategisch inzicht om uw digitale ambities te realiseren. Ons slimme stappenplan is ontworpen om elke fase van het project zorgvuldig te doorlopen en zo optimale resultaten te behalen. Van de eerste analyse tot en met de nazorg, wij staan voor u klaar om u te ondersteunen bij elke stap.
-          </p>
-          <p className="mb-4">
-            Door te investeren in een goed doordacht en op maat gemaakt digitaal project legt u de basis voor een toekomstbestendige organisatie. Onze aanpak zorgt voor een efficiënte, schaalbare en veilige oplossing die uw bedrijfsprocessen optimaliseert en uw concurrentiepositie versterkt.
-          </p>
-          <p className="mb-4">
-            Bent u klaar om de volgende stap te zetten? Neem vandaag nog contact met ons op en ontdek hoe wij uw ideeën kunnen omzetten in een robuuste digitale realiteit. Laat ons samen uw digitale toekomst vormgeven en uw organisatie naar het volgende niveau tillen.
-          </p>
-        </div>
-      </section>
-
-      {/* Call-to-Action */}
-      <section className="py-12 lg:py-24 bg-gray-900 text-white">
+      <section className="py-16 lg:py-24 bg-white dark:bg-gray-950">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-4xl font-bold mb-8">Bent u klaar om uw digitale ambities te realiseren?</h2>
-          <p className="text-xl mb-12 text-gray-300">
-            Ontdek hoe Multichoiceagency uw project kan transformeren met een op maat gemaakt en toekomstbestendig digitaal platform. Neem vandaag nog contact met ons op en start uw transformatie.
-          </p>
-          <Link
-            href="/offerte-aanvragen"
-            className="inline-flex py-4 px-8 items-center justify-center text-lg font-medium text-black hover:text-white bg-green-500 hover:bg-transparent border border-lime-500 hover:border-white rounded-full transition duration-200"
-          >
-            Vraag een demo aan
-          </Link>
+          <div className="max-w-2xl mx-auto">
+            <Zap className="w-16 h-16 text-lime-500 mx-auto mb-6" />
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-6 leading-tight">
+              Klaar om de vonk te ontsteken?
+            </h2>
+            <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 mb-10 leading-relaxed">
+              Laten we samen ontdekken hoe het Catalyst Framework uw organisatie kan transformeren. Plan een
+              vrijblijvend strategiegesprek en zet de eerste stap naar digitale excellentie.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <Button
+                asChild
+                size="lg"
+                className="bg-lime-500 hover:bg-lime-600 text-gray-900 dark:text-white dark:bg-lime-600 dark:hover:bg-lime-700 px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
+              >
+                <Link href="/contact">Plan een Strategiegesprek</Link>
+              </Button>
+              <Button
+                asChild
+                size="lg"
+                variant="outline"
+                className="border-lime-500 text-lime-500 hover:bg-lime-500/10 hover:text-lime-600 dark:border-lime-500 dark:text-lime-400 dark:hover:bg-lime-500/20 dark:hover:text-lime-300 px-8 py-3 text-base sm:text-lg w-full sm:w-auto"
+              >
+                <Link href="/cases">Bekijk Onze Cases</Link>
+              </Button>
+            </div>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }

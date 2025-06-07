@@ -40,10 +40,46 @@ const features: PricingFeature[] = [
 ]
 
 const packages = [
-  { name: "Basis Pakket", description: "Custom WordPress website met essentiële functionaliteiten voor effectieve informatievoorziening", hosting: "Basis Hosting\n met onderhoud € 45,-", support: "Basis Support (SLA) vanaf € 45,-", tech: "WordPress, Shopify, Wix en andere cms soorten" },
-  { name: "Premium Pakket", description: "Professionele website met uitgebreide content mogelijkheden en modules", hosting: "Professional Hosting\n€ 60,-", support: "Professional Support (SLA) vanaf € 60,-", tech: "Keuze uit: Next.js, Vue.js, of custom" },
-  { name: "Exclusive Pakket", description: "Complete website gericht op het omzetten van bezoekers naar klanten", hosting: "Professional Hosting +\nvanaf € 90,-", support: "Professional Support + vanaf € 90,-", tech: "Keuze uit: Next.js, React Native, of custom" },
-  { name: "Enterprise / Zakelijk", description: "Geavanceerde oplossing op maat met uitgebreide functionaliteiten en integraties", hosting: "Enterprise Hosting\nvanaf € 150,-", support: "Enterprise Support 24/7 vanaf € 250,-", tech: "Keuze uit: Next.js, React Native" },
+  {
+    name: "Starter Pakket",
+    description: "Essentiële maatwerk website voor informatievoorziening en online aanwezigheid",
+    hosting: "Basis Hosting met onderhoud € 45,-",
+    support: "Basis Support (SLA) vanaf € 45,-",
+    tech: "Volledig custom frontend & backend (bijv. Next.js, Node.js)",
+    price: "Vanaf € 5.000,-",
+    pages: "Tot 5 pagina's",
+    backends: ["Sanity", "Strapi"]
+  },
+  {
+    name: "Premium Pakket",
+    description: "Professionele maatwerk website met content modules en integraties",
+    hosting: "Professional Hosting € 60,-",
+    support: "Professional Support (SLA) vanaf € 60,-",
+    tech: "Next.js, TailwindCSS, headless CMS naar keuze",
+    price: "Vanaf € 7.500,-",
+    pages: "Tot 10 pagina's",
+    backends: ["Sanity", "Strapi", "WooCommerce"]
+  },
+  {
+    name: "Exclusive Pakket",
+    description: "Conversiegerichte maatwerk website met dynamische content en optimalisaties",
+    hosting: "Professional Hosting + vanaf € 90,-",
+    support: "Professional Support + vanaf € 90,-",
+    tech: "Next.js + API-integraties, custom component libraries",
+    price: "Vanaf € 10.000,-",
+    pages: "Tot 25 pagina's",
+    backends: ["Sanity", "Strapi", "WooCommerce", "Shopify"]
+  },
+  {
+    name: "Enterprise / Zakelijk",
+    description: "Volledig schaalbare enterprise oplossing met integraties, beveiliging en SLA's",
+    hosting: "Enterprise Hosting vanaf € 150,-",
+    support: "Enterprise Support 24/7 vanaf € 250,-",
+    tech: "Next.js + microservices + custom backend + DevOps integratie",
+    price: "Vanaf € 15.000,-",
+    pages: "Onbeperkt",
+    backends: ["Sanity", "Strapi", "WooCommerce", "Shopify"]
+  },
 ]
 
 export function PricingTable() {
@@ -61,7 +97,7 @@ export function PricingTable() {
   }
 
   return (
-    <section className="py-20 bg-background text-foreground dark:bg-gray-800 overflow-x-hidden">
+    <section className="py-20 bg-background text-foreground antialiased overflow-x-hidden">
       <div className="container mx-auto px-4">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
@@ -69,7 +105,7 @@ export function PricingTable() {
           transition={{ duration: 0.5 }}
           className="text-center mb-12"
         >
-          <h2 className="text-3xl font-bold mb-4">Effectieve website oplossingen</h2>
+          <h2 className="text-4xl font-bold mb-4 text-primary dark:text-secondary">Effectieve website oplossingen</h2>
           <p className="text-muted-foreground max-w-3xl mx-auto">
             Elke organisatie heeft unieke doelen voor haar website. Of het nu gaat om een basis WordPress site, een geavanceerde webapplicatie, of een volledig op maat gemaakte enterprise oplossing, 
             wij ontwikkelen elke website met één doel: maximaal resultaat voor uw organisatie.
@@ -99,13 +135,8 @@ export function PricingTable() {
                 {pkg.name}
               </motion.h3>
               <p className={`text-sm ${expandedPackage === pkg.name ? 'text-primary-foreground' : 'text-muted-foreground'} h-16 mb-4`}>{pkg.description}</p>
+              <p className="text-lg font-bold mb-2">{pkg.price}</p>
               <div className="mt-auto">
-                <motion.p 
-                  className="text-lg font-semibold mb-2"
-                  animate={{ scale: hoveredPackage === pkg.name ? 1.05 : 1 }}
-                  transition={{ type: "spring", stiffness: 300 }}
-                >
-                </motion.p>
                 <Button 
                   variant={expandedPackage === pkg.name ? "secondary" : "outline"}
                   className={`w-full rounded-full mb-4 overflow-hidden ${expandedPackage === pkg.name ? 'bg-primary-foreground text-primary' : ''}`}
@@ -161,14 +192,28 @@ export function PricingTable() {
           <h3 className="text-xl font-semibold mb-4">Vergelijk functies</h3>
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead>
-                <tr>
-                  <th className="text-left py-2">Functie</th>
-                  {packages.map(pkg => (
-                    <th key={pkg.name} className="text-center py-2">{pkg.name}</th>
-                  ))}
-                </tr>
-              </thead>
+            <thead>
+              <tr>
+                <th className="text-left py-2">Functie</th>
+                {packages.map(pkg => (
+                  <th key={pkg.name} className="text-center py-2">{pkg.name}</th>
+                ))}
+              </tr>
+              <tr>
+                <td className="py-2 font-medium">Aantal pagina's</td>
+                {packages.map(pkg => (
+                  <td key={pkg.name} className="text-center py-2">{pkg.pages}</td>
+                ))}
+              </tr>
+              <tr>
+                <td className="py-2 font-medium">Ondersteunde backends</td>
+                {packages.map(pkg => (
+                  <td key={pkg.name} className="text-center py-2 text-xs leading-5">
+                    {pkg.backends.join(", ")}
+                  </td>
+                ))}
+              </tr>
+            </thead>
               <tbody>
                 {features.map((feature, index) => (
                   <motion.tr 
@@ -209,6 +254,6 @@ export function PricingTable() {
         </motion.div>
       </div>
     </section>
+    
   )
 }
-

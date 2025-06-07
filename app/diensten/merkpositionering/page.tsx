@@ -321,64 +321,67 @@ const industryApplications = [
 const showcases = [
   {
     title: "Merkidentiteit Transformatie",
-    client: "EcoStyle",
+    client: "ATA Home & Design",
     description:
-      "Een complete transformatie van een traditioneel modebedrijf naar een duurzaam lifestyle merk met een sterke online aanwezigheid.",
+      "Strategische transformatie van een traditionele tegels en sanitair showroom naar een premium lifestyle merk. Door innovatieve merkpositionering en doelgerichte communicatie hebben we ATA Home & Design gevestigd als marktleider in duurzaam interieurdesign.",
     before: {
-      image: "/showcase-before-1.png",
-      description: "Traditioneel, onopvallend merk zonder duidelijke positionering in een verzadigde markt.",
+      image: "/atahome-oud.png",
+      description: "Conventionele merkidentiteit zonder onderscheidend vermogen in een competitieve markt. Gefragmenteerde online presence en inconsistente communicatie naar potentiële klanten.",
     },
     after: {
-      image: "/showcase-after-1.png",
+      image: "/atahome-nextjs.png",
       description:
-        "Modern, duurzaam lifestyle merk met een sterke visuele identiteit en duidelijke positionering gericht op milieubewuste consumenten.",
+        "Premium lifestyle merk met krachtige visuele identiteit en heldere positionering in duurzaam design. Naadloze integratie van digitale en fysieke merkbeleving met focus op expertise en klanttevredenheid.",
     },
     results: [
-      "78% stijging in online verkoop binnen 6 maanden",
-      "42% toename in merkherkenning onder primaire doelgroep",
-      "Succesvolle lancering van 3 nieuwe productlijnen",
+      "85% stijging in online conversies binnen 6 maanden na implementatie",
+      "45% toename in merkherkenning onder architecten en interieurontwerpers",
+      "Lancering van 4 exclusieve duurzame collecties met 70% hogere winstmarges",
+      "125% stijging in gemiddelde orderwaarde door verbeterde merkperceptie"
     ],
   },
   {
-    title: "Digitale Merkstrategie",
-    client: "FinTech Solutions",
+    title: "Digitale Transformatie",
+    client: "XL Dranken",
     description:
-      "Ontwikkeling van een digitale merkstrategie voor een fintech startup om vertrouwen op te bouwen in een traditionele markt.",
+      "Complete digitale transformatie voor Nederlandse drankengroothandel met geavanceerde ERP-integratie. Focus op gebruiksgemak en efficiënte orderverwerking voor B2B-klanten.",
     before: {
       image: "/showcase-before-2.png",
-      description: "Technisch sterke oplossing maar gebrek aan vertrouwen en merkherkenning in de financiële sector.",
+      description: "Verouderd bestelsysteem met beperkte functionaliteit en gebruikersonvriendelijke interface. Inefficiënte orderverwerking en beperkte analysemogelijkheden.",
     },
     after: {
       image: "/showcase-after-2.png",
       description:
-        "Betrouwbaar, innovatief fintech merk dat de perfecte balans vindt tussen vernieuwing en betrouwbaarheid.",
+        "Geavanceerd digital-first platform met realtime voorraadbeheer en gepersonaliseerde B2B-ervaring. Naadloze integratie met bestaande systemen en gebruiksvriendelijke interface.",
     },
     results: [
-      "156% groei in gebruikersacquisitie",
-      "Succesvolle Series A financieringsronde van €5M",
-      "Strategische partnerschappen met 3 grote financiële instellingen",
+      "200% toename in online B2B-bestellingen binnen eerste kwartaal",
+      "65% reductie in verwerkingstijd van orders door automatisering",
+      "90% klanttevredenheid met nieuwe digitale platform",
+      "45% groei in terugkerende klanten door verbeterde gebruikerservaring"
     ],
   },
   {
-    title: "Internationale Merkuitbreiding",
-    client: "HealthTech",
+    title: "Internationale Merkstrategie",
+    client: "HealthTech Solutions",
     description:
-      "Begeleiding van een Nederlandse healthtech onderneming bij hun internationale expansie met een consistente maar lokaal relevante merkstrategie.",
+      "Ontwikkeling van een schaalbare internationale merkstrategie voor een innovatief healthtech bedrijf. Focus op lokale relevantie met behoud van globale merkwaarden en compliance-eisen.",
     before: {
       image: "/showcase-before-3.png",
-      description: "Succesvol in Nederland maar zonder duidelijke strategie voor internationale markten.",
+      description: "Sterke nationale positie maar beperkte internationale merkstrategie. Uitdagingen met lokale marktbenadering en regelgeving in verschillende regio's.",
     },
     after: {
       image: "/showcase-after-3.png",
       description:
-        "Globaal consistent maar lokaal relevant merk met een duidelijke positionering in elke nieuwe markt.",
+        "Geoptimaliseerde internationale merkarchitectuur met lokale relevantie en globale consistentie. Effectieve multichannel strategie aangepast aan regionale behoeften.",
     },
     results: [
-      "Succesvolle lancering in 5 Europese markten binnen 12 maanden",
-      "Behoud van 92% merkherkenning bij internationale expansie",
-      "35% snellere marktpenetratie dan oorspronkelijk gepland",
+      "Succesvolle expansie naar 7 Europese markten binnen 12 maanden",
+      "95% merkherkenning behouden tijdens internationale uitbreiding",
+      "40% snellere markttoetreding dan industriegemiddelde",
+      "250% ROI op internationale merkstrategie binnen eerste jaar"
     ],
-  },
+  }
 ]
 
 const brandPositioningBenefits = [

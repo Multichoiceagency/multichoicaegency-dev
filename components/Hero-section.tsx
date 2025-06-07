@@ -185,7 +185,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
           }`}
           style={{ transitionDelay: "300ms" }}
         >
-          <h1 className="text-5xl md:text-6xl lg:text-7xl text-white font-bold leading-[1.1] tracking-tight drop-shadow-md">
+          <h1 className="text-4xl sm:text-xl md:text-6xl lg:text-7xl text-white font-bold leading-[1.1] tracking-tight drop-shadow-md">
             {title}
           </h1>
         </div>
