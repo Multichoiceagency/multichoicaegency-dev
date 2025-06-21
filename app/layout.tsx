@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     siteName: "Multichoiceagency",
     images: [
       {
-        url: "/og-image.jpg", // <-- Zorg dat deze image bestaat in je /public map
-        width: 1200,
-        height: 630,
+        url: "/apple-icon.png", // <-- Zorg dat deze image bestaat in je /public map
+        width: 1080,
+        height: 1080,
         alt: "Multichoiceagency preview",
       },
     ],
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Multichoiceagency",
     description: "Maatwerk websites en digitale oplossingen, gebouwd met moderne technologie voor maximale impact.",
-    images: ["/og-image.jpg"],
+    images: ["/logos/logo.png"],
   },
   robots: {
     index: true,
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   icons: {
     icon: "/favicon.ico",
     shortcut: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
+    apple: "/apple-icon.png",
   },
   manifest: "/site.webmanifest",
 }
@@ -82,13 +82,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <main>
               {children}
               <ChatBot />
+              <GoogleCalendarButton />
             </main>
             <FooterSection />
           </SmoothScrollProvider>
         </ThemeProvider>
 
         {/* Optional: Google Analytics ID, bijv. G-XXXXXXXX */}
-        <GoogleAnalytics gaId="G-XXXXXXXX" />
+        <GoogleAnalytics gaId="G-34BJRLK21H" />
       </body>
     </html>
   )

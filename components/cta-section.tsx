@@ -17,12 +17,15 @@ import {
   Layers,
   ChevronDown,
   AlertCircle,
+  Euro,
+  ChevronLeft,
 } from "lucide-react"
 import { submitQuoteRequest } from "@/app/actions/submit-quote"
 
 export default function CTASection() {
   const sectionRef = useRef<HTMLElement>(null)
   const [isVisible, setIsVisible] = useState(false)
+  const [currentStep, setCurrentStep] = useState(1)
   const [formState, setFormState] = useState({
     name: "",
     company: "",
@@ -30,11 +33,16 @@ export default function CTASection() {
     email: "",
     phone: "",
     message: "",
+    budget: "",
+    timeline: "",
+    goals: "",
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({})
+
+  const totalSteps = 4
 
   // Handle visibility detection for animations
   useEffect(() => {
@@ -72,14 +80,88 @@ export default function CTASection() {
     }
   }
 
+  const handleSelectChange = (name: string, value: string) => {
+    setFormState((prev) => ({ ...prev, [name]: value }))
+
+    // Clear validation error for this field
+    if (validationErrors[name]) {
+      setValidationErrors((prev) => {
+        const newErrors = { ...prev }
+        delete newErrors[name]
+        return newErrors
+      })
+    }
+  }
+
+  const validateStep = (step: number): boolean => {
+    const errors: Record<string, string> = {}
+
+    switch (step) {
+      case 1:
+        if (!formState.name.trim()) errors.name = "Naam is verplicht"
+        if (!formState.email.trim()) errors.email = "E-mailadres is verplicht"
+        if (formState.email && !/\S+@\S+\.\S+/.test(formState.email)) {
+          errors.email = "Voer een geldig e-mailadres in"
+        }
+        break
+      case 2:
+        if (!formState.service) errors.service = "Selecteer een dienst"
+        break
+      case 3:
+        if (!formState.message.trim() || formState.message.length < 10) {
+          errors.message = "Beschrijf uw project (minimaal 10 tekens)"
+        }
+        break
+      case 4:
+        if (!formState.budget) errors.budget = "Selecteer een budget"
+        if (!formState.timeline) errors.timeline = "Selecteer een timeline"
+        break
+    }
+
+    setValidationErrors(errors)
+    return Object.keys(errors).length === 0
+  }
+
+  const nextStep = () => {
+    if (validateStep(currentStep)) {
+      setCurrentStep((prev) => Math.min(prev + 1, totalSteps))
+    }
+  }
+
+  const prevStep = () => {
+    setCurrentStep((prev) => Math.max(prev - 1, 1))
+  }
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+
+    if (!validateStep(currentStep)) {
+      return
+    }
+
     setIsSubmitting(true)
     setFormError(null)
     setValidationErrors({})
 
     try {
-      const result = await submitQuoteRequest(formState)
+      // Combine all form data into the message field for the existing submitQuoteRequest function
+      const combinedMessage = `
+Project Details: ${formState.message}
+Budget: ${formState.budget}
+Timeline: ${formState.timeline}
+Goals: ${formState.goals || "Niet opgegeven"}
+      `.trim()
+
+      const submissionData = {
+        name: formState.name,
+        company: formState.company,
+        service: formState.service,
+        email: formState.email,
+        phone: formState.phone,
+        message: combinedMessage,
+      }
+
+      const result = await submitQuoteRequest(submissionData)
 
       if (result.success) {
         setIsSubmitted(true)
@@ -90,7 +172,11 @@ export default function CTASection() {
           email: "",
           phone: "",
           message: "",
+          budget: "",
+          timeline: "",
+          goals: "",
         })
+        setCurrentStep(1)
 
         // Reset success message after 5 seconds
         setTimeout(() => {
@@ -116,6 +202,235 @@ export default function CTASection() {
       console.error("Form submission error:", error)
     } finally {
       setIsSubmitting(false)
+    }
+  }
+
+  const renderStepContent = () => {
+    switch (currentStep) {
+      case 1:
+        return (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="relative">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <User className="h-5 w-5" />
+                </div>
+                <input
+                  type="text"
+                  name="name"
+                  value={formState.name}
+                  onChange={handleInputChange}
+                  placeholder="Uw naam"
+                  required
+                  className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
+                    validationErrors.name ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
+                />
+                {validationErrors.name && <p className="text-red-600 text-sm mt-1">{validationErrors.name}</p>}
+              </div>
+              <div className="relative">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <Building className="h-5 w-5" />
+                </div>
+                <input
+                  type="text"
+                  name="company"
+                  value={formState.company}
+                  onChange={handleInputChange}
+                  placeholder="Bedrijfsnaam"
+                  className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
+                    validationErrors.company ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
+                />
+                {validationErrors.company && <p className="text-red-600 text-sm mt-1">{validationErrors.company}</p>}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div className="relative">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <Mail className="h-5 w-5" />
+                </div>
+                <input
+                  type="email"
+                  name="email"
+                  value={formState.email}
+                  onChange={handleInputChange}
+                  placeholder="E-mailadres"
+                  required
+                  className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
+                    validationErrors.email ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
+                />
+                {validationErrors.email && <p className="text-red-600 text-sm mt-1">{validationErrors.email}</p>}
+              </div>
+              <div className="relative">
+                <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                  <Phone className="h-5 w-5" />
+                </div>
+                <input
+                  type="tel"
+                  name="phone"
+                  value={formState.phone}
+                  onChange={handleInputChange}
+                  placeholder="Telefoonnummer"
+                  className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
+                    validationErrors.phone ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+                  } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
+                />
+                {validationErrors.phone && <p className="text-red-600 text-sm mt-1">{validationErrors.phone}</p>}
+              </div>
+            </div>
+          </>
+        )
+
+      case 2:
+        return (
+          <div className="relative">
+            <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+              <Layers className="h-5 w-5" />
+            </div>
+            <select
+              name="service"
+              required
+              value={formState.service}
+              onChange={handleInputChange}
+              className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
+                validationErrors.service ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+              } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all appearance-none`}
+            >
+              <option value="" disabled>
+                Selecteer een dienst
+              </option>
+              <optgroup label="Web Development">
+                <option value="websites">Websites</option>
+                <option value="webshops">Webshops</option>
+                <option value="portalen">Portalen</option>
+                <option value="maatwerk-websites">Maatwerk Websites</option>
+                <option value="shopify-webshop">Shopify Webshop</option>
+                <option value="woocommerce-webshop">WooCommerce Webshop</option>
+                <option value="wordpress-website">WordPress Website</option>
+              </optgroup>
+              <optgroup label="Online Marketing">
+                <option value="seo">SEO</option>
+                <option value="google-ads">Google Ads</option>
+                <option value="social-media">Social Media</option>
+                <option value="content-marketing">Content Marketing</option>
+                <option value="bedrijfsvideo">Bedrijfsvideo</option>
+                <option value="productvideo">Productvideo</option>
+              </optgroup>
+              <optgroup label="Software & Integratie">
+                <option value="software-ontwikkeling">Software Ontwikkeling</option>
+                <option value="app-ontwikkeling">App Ontwikkeling</option>
+                <option value="digitale-transformatie">Digitale Transformatie</option>
+                <option value="systeem-integratie">Systeem Integratie</option>
+                <option value="data-integratie">Data Integratie</option>
+              </optgroup>
+              <optgroup label="Overige Diensten">
+                <option value="business-intelligence">Business Intelligence</option>
+                <option value="veiligheid-compliance">Veiligheid & Compliance</option>
+                <option value="ai-automatisering">AI Automatisering</option>
+              </optgroup>
+            </select>
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+              <ChevronDown className="h-5 w-5" />
+            </div>
+            {validationErrors.service && <p className="text-red-600 text-sm mt-1">{validationErrors.service}</p>}
+          </div>
+        )
+
+      case 3:
+        return (
+          <div className="relative">
+            <textarea
+              name="message"
+              value={formState.message}
+              onChange={handleInputChange}
+              placeholder="Beschrijf kort uw project of vraag"
+              rows={4}
+              required
+              className={`w-full p-4 bg-gray-50 border ${
+                validationErrors.message ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+              } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
+            ></textarea>
+            {validationErrors.message && <p className="text-red-600 text-sm mt-1">{validationErrors.message}</p>}
+
+            <div className="mt-5">
+              <textarea
+                name="goals"
+                value={formState.goals}
+                onChange={handleInputChange}
+                placeholder="Wat zijn uw doelen voor dit project? (optioneel)"
+                rows={3}
+                className="w-full p-4 bg-gray-50 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all"
+              ></textarea>
+            </div>
+          </div>
+        )
+
+      case 4:
+        return (
+          <div className="space-y-5">
+            <div className="relative">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <Euro className="h-5 w-5" />
+              </div>
+              <select
+                name="budget"
+                required
+                value={formState.budget}
+                onChange={handleInputChange}
+                className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
+                  validationErrors.budget ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+                } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all appearance-none`}
+              >
+                <option value="" disabled>
+                  Selecteer uw budget
+                </option>
+                <option value="€2.000 - €5.000">€2.000 - €5.000</option>
+                <option value="€5.000 - €10.000">€5.000 - €10.000</option>
+                <option value="€10.000 - €25.000">€10.000 - €25.000</option>
+                <option value="€25.000 - €50.000">€25.000 - €50.000</option>
+                <option value="€50.000+">€50.000+</option>
+              </select>
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                <ChevronDown className="h-5 w-5" />
+              </div>
+              {validationErrors.budget && <p className="text-red-600 text-sm mt-1">{validationErrors.budget}</p>}
+            </div>
+
+            <div className="relative">
+              <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
+                <Clock className="h-5 w-5" />
+              </div>
+              <select
+                name="timeline"
+                required
+                value={formState.timeline}
+                onChange={handleInputChange}
+                className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
+                  validationErrors.timeline ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
+                } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all appearance-none`}
+              >
+                <option value="" disabled>
+                  Wanneer wilt u starten?
+                </option>
+                <option value="Zo snel mogelijk">Zo snel mogelijk</option>
+                <option value="Binnen 1 maand">Binnen 1 maand</option>
+                <option value="Binnen 2-3 maanden">Binnen 2-3 maanden</option>
+                <option value="Binnen 3-6 maanden">Binnen 3-6 maanden</option>
+                <option value="Nog niet zeker">Nog niet zeker</option>
+              </select>
+              <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
+                <ChevronDown className="h-5 w-5" />
+              </div>
+              {validationErrors.timeline && <p className="text-red-600 text-sm mt-1">{validationErrors.timeline}</p>}
+            </div>
+          </div>
+        )
+
+      default:
+        return null
     }
   }
 
@@ -200,6 +515,22 @@ export default function CTASection() {
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5">
+                  {/* Progress indicator */}
+                  <div className="mb-6">
+                    <div className="flex items-center justify-between mb-2">
+                      <span className="text-sm font-medium text-[#2D4625]">
+                        Stap {currentStep} van {totalSteps}
+                      </span>
+                      <span className="text-sm text-gray-500">{Math.round((currentStep / totalSteps) * 100)}%</span>
+                    </div>
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <div
+                        className="bg-gradient-to-r from-[#2D4625] to-[#a6e267] h-2 rounded-full transition-all duration-300"
+                        style={{ width: `${(currentStep / totalSteps) * 100}%` }}
+                      ></div>
+                    </div>
+                  </div>
+
                   {/* General form error message */}
                   {formError && (
                     <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-start">
@@ -208,161 +539,41 @@ export default function CTASection() {
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="relative">
-                      <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <User className="h-5 w-5" />
-                      </div>
-                      <input
-                        type="text"
-                        name="name"
-                        value={formState.name}
-                        onChange={handleInputChange}
-                        placeholder="Uw naam"
-                        required
-                        className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
-                          validationErrors.name ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
-                        } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
-                      />
-                      {validationErrors.name && <p className="text-red-600 text-sm mt-1">{validationErrors.name}</p>}
-                    </div>
-                    <div className="relative">
-                      <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <Building className="h-5 w-5" />
-                      </div>
-                      <input
-                        type="text"
-                        name="company"
-                        value={formState.company}
-                        onChange={handleInputChange}
-                        placeholder="Bedrijfsnaam"
-                        className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
-                          validationErrors.company ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
-                        } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
-                      />
-                      {validationErrors.company && (
-                        <p className="text-red-600 text-sm mt-1">{validationErrors.company}</p>
-                      )}
-                    </div>
-                  </div>
+                  {renderStepContent()}
 
-                  <div className="relative">
-                    <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                      <Layers className="h-5 w-5" />
-                    </div>
-                    <select
-                      name="service"
-                      required
-                      value={formState.service}
-                      onChange={handleInputChange}
-                      className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
-                        validationErrors.service ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
-                      } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all appearance-none`}
-                    >
-                      <option value="" disabled>
-                        Selecteer een dienst
-                      </option>
-                      <optgroup label="Web Development">
-                        <option value="websites">Websites</option>
-                        <option value="webshops">Webshops</option>
-                        <option value="portalen">Portalen</option>
-                        <option value="maatwerk-websites">Maatwerk Websites</option>
-                        <option value="shopify-webshop">Shopify Webshop</option>
-                        <option value="woocommerce-webshop">WooCommerce Webshop</option>
-                        <option value="wordpress-website">WordPress Website</option>
-                      </optgroup>
-                      <optgroup label="Online Marketing">
-                        <option value="seo">SEO</option>
-                        <option value="google-ads">Google Ads</option>
-                        <option value="social-media">Social Media</option>
-                        <option value="content-marketing">Content Marketing</option>
-                        <option value="bedrijfsvideo">Bedrijfsvideo</option>
-                        <option value="productvideo">Productvideo</option>
-                      </optgroup>
-                      <optgroup label="Software & Integratie">
-                        <option value="software-ontwikkeling">Software Ontwikkeling</option>
-                        <option value="app-ontwikkeling">App Ontwikkeling</option>
-                        <option value="digitale-transformatie">Digitale Transformatie</option>
-                        <option value="systeem-integratie">Systeem Integratie</option>
-                        <option value="data-integratie">Data Integratie</option>
-                      </optgroup>
-                      <optgroup label="Overige Diensten">
-                        <option value="business-intelligence">Business Intelligence</option>
-                        <option value="veiligheid-compliance">Veiligheid & Compliance</option>
-                        <option value="ai-automatisering">AI Automatisering</option>
-                      </optgroup>
-                    </select>
-                    <div className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 pointer-events-none">
-                      <ChevronDown className="h-5 w-5" />
-                    </div>
-                    {validationErrors.service && (
-                      <p className="text-red-600 text-sm mt-1">{validationErrors.service}</p>
+                  <div className="flex justify-between pt-2">
+                    {currentStep > 1 && (
+                      <button
+                        type="button"
+                        onClick={prevStep}
+                        className="py-3 px-6 bg-gray-100 hover:bg-gray-200 text-gray-700 font-medium rounded-lg transition-colors duration-300 flex items-center group"
+                      >
+                        <ChevronLeft className="mr-2 h-5 w-5 group-hover:-translate-x-1 transition-transform duration-300" />
+                        <span>Vorige</span>
+                      </button>
                     )}
-                  </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="relative">
-                      <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <Mail className="h-5 w-5" />
-                      </div>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formState.email}
-                        onChange={handleInputChange}
-                        placeholder="E-mailadres"
-                        required
-                        className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
-                          validationErrors.email ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
-                        } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
-                      />
-                      {validationErrors.email && <p className="text-red-600 text-sm mt-1">{validationErrors.email}</p>}
-                    </div>
-                    <div className="relative">
-                      <div className="absolute left-3 top-1/2 -translate-y-1/2 text-gray-400">
-                        <Phone className="h-5 w-5" />
-                      </div>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formState.phone}
-                        onChange={handleInputChange}
-                        placeholder="Telefoonnummer"
-                        className={`w-full pl-10 pr-4 py-3 bg-gray-50 border ${
-                          validationErrors.phone ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
-                        } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
-                      />
-                      {validationErrors.phone && <p className="text-red-600 text-sm mt-1">{validationErrors.phone}</p>}
-                    </div>
-                  </div>
-
-                  <div className="relative">
-                    <textarea
-                      name="message"
-                      value={formState.message}
-                      onChange={handleInputChange}
-                      placeholder="Beschrijf kort uw project of vraag"
-                      rows={4}
-                      required
-                      className={`w-full p-4 bg-gray-50 border ${
-                        validationErrors.message ? "border-red-300 ring-1 ring-red-300" : "border-gray-200"
-                      } rounded-lg focus:outline-none focus:ring-2 focus:ring-[#2D4625]/50 focus:border-transparent transition-all`}
-                    ></textarea>
-                    {validationErrors.message && (
-                      <p className="text-red-600 text-sm mt-1">{validationErrors.message}</p>
+                    {currentStep < totalSteps ? (
+                      <button
+                        type="button"
+                        onClick={nextStep}
+                        className="ml-auto py-3 px-6 bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] font-medium rounded-lg transition-colors duration-300 flex items-center group relative overflow-hidden"
+                      >
+                        <div className="absolute inset-0 w-full h-full bg-[#a6e267]/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <span className="relative z-10">Volgende</span>
+                        <ArrowRight className="ml-2 h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
+                    ) : (
+                      <button
+                        type="submit"
+                        disabled={isSubmitting}
+                        className="ml-auto py-3 px-6 bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] font-medium rounded-lg transition-colors duration-300 flex items-center group relative overflow-hidden disabled:opacity-50"
+                      >
+                        <div className="absolute inset-0 w-full h-full bg-[#a6e267]/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
+                        <span className="relative z-10">{isSubmitting ? "Versturen..." : "Offerte aanvragen"}</span>
+                        <ArrowRight className="ml-2 h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
+                      </button>
                     )}
-                  </div>
-
-                  <div className="pt-2">
-                    <button
-                      type="submit"
-                      disabled={isSubmitting}
-                      className="w-full py-3 px-6 bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] font-medium rounded-lg transition-colors duration-300 flex items-center justify-center group relative overflow-hidden"
-                    >
-                      <div className="absolute inset-0 w-full h-full bg-[#a6e267]/20 -translate-x-full group-hover:translate-x-0 transition-transform duration-300"></div>
-                      <span className="relative z-10">{isSubmitting ? "Versturen..." : "Offerte aanvragen"}</span>
-                      <ArrowRight className="ml-2 h-5 w-5 relative z-10 group-hover:translate-x-1 transition-transform duration-300" />
-                    </button>
                   </div>
                 </form>
               )}

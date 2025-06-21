@@ -350,8 +350,9 @@ export default function ContactPage() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="bg-white rounded-2xl shadow-xl overflow-hidden text-dark"
+              className="bg-primary rounded-2xl shadow-xl overflow-hidden text-dark"
             >
+             <h2 className="text-2xl text-white py-6 text-center font-bold">Contactformulier</h2>
               <div className="w-full h-[600px]">
                 <iframe
                   src="https://projecten.mlt.multichoiceagency.nl/forms/wtl/ec8311d43001d7a98bd1127884843c9c"

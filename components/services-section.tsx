@@ -14,7 +14,7 @@ const services = [
       "Een heldere en effectieve strategie is het fundament voor succes. We helpen je bedrijf duidelijk te krijgen wat nu eigenlijk je kernvraag is en wat je werkelijke doelen zijn.",
     icon: "📊",
     tags: ["Marktonderzoek", "Doelgroepanalyse", "Concurrentieanalyse"],
-    link: "/strategie",
+    link: "/diensten",
   },
   {
     number: "2",
@@ -23,7 +23,7 @@ const services = [
       "Onze expertise in branding helpt je visuele identiteit aan te scherpen voor een digital-first (r)evolutie, zodat je merk weer up-to-date is en iedereen weer weet waar je merk voor staat.",
     icon: "✒️",
     tags: ["Logo Design", "Brand Identity", "Style Guides"],
-    link: "/branding",
+    link: "/diensten",
   },
   {
     number: "3",
@@ -32,7 +32,7 @@ const services = [
       "De kracht van (web)design is niet te onderschatten. Als je je strategie op een rake manier visualiseert, zorg je voor effectieve communicatie en vergroot je daarmee gebruikersinteractie.",
     icon: "🎨",
     tags: ["UX/UI Design", "Wireframing", "Prototyping"],
-    link: "/design",
+    link: "/diensten",
   },
 ]
 

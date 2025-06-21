@@ -2068,7 +2068,7 @@ export default function MerkpositioneringSection() {
               <Link
                 href="/contact"
                 className={cn(
-                  "inline-flex items-center px-6 py-3 font-medium rounded-full transition-colors duration-300 group-hover:translate-y-[-2px] transition-transform",
+                  "inline-flex items-center px-6 py-3 font-medium rounded-full duration-300 group-hover:translate-y-[-2px] transition-transform",
                   isDark
                     ? "bg-[#2C4725] hover:bg-[#a6e267] text-white hover:text-[#2C4725]"
                     : "bg-[#a6e267] hover:bg-[#2C4725] text-[#2C4725] hover:text-white",

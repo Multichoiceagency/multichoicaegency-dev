@@ -4,15 +4,16 @@ import { notFound } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { getVacatureBySlug, vacaturesData, formatSalaryIndication } from "@/lib/vacatures" // Importeer formatSalaryIndication en Vacature type
-import { Briefcase, MapPin, Clock, CalendarDays, Award, CheckCircle, ArrowLeft, Mail, CreditCard } from "lucide-react" // CreditCard icoon voor salaris
+import { Briefcase, MapPin, Clock, CalendarDays, Award, CheckCircle, ArrowLeft, Mail, CreditCard } from 'lucide-react' // CreditCard icoon voor salaris
 import VacancyDetailHero from "@/components/vacancy-detail-hero"
 
 interface VacatureDetailPageProps {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }
 
 export async function generateMetadata({ params }: VacatureDetailPageProps): Promise<Metadata> {
-  const vacature = getVacatureBySlug(params.slug)
+  const { slug } = await params
+  const vacature = getVacatureBySlug(slug)
 
   if (!vacature) {
     return {
@@ -59,8 +60,9 @@ const ListItem = ({ children }: { children: React.ReactNode }) => (
   </li>
 )
 
-export default function VacatureDetailPage({ params }: VacatureDetailPageProps) {
-  const vacature = getVacatureBySlug(params.slug)
+export default async function VacatureDetailPage({ params }: VacatureDetailPageProps) {
+  const { slug } = await params
+  const vacature = getVacatureBySlug(slug)
 
   if (!vacature) {
     notFound()

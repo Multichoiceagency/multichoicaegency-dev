@@ -1,6 +1,6 @@
 "use client"
 import { motion, useScroll, useTransform } from "framer-motion"
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
 import {
   ArrowRight,
@@ -53,10 +53,10 @@ const sections = [
       { name: "Performance Webhosting", href: "/diensten/performance-webhosting" },
       { name: "WordPress Onderhoud", href: "/diensten/wordpress-onderhoud" },
     ],
-    cta: "/hosting-domein-overzicht", // Maak deze overzichtspagina aan
+    cta: "/hosting-domein-overzicht",
     icon: <Globe className="w-6 h-6 text-white" />,
     bg: { light: "bg-gray-100", dark: "dark:bg-gray-800/30" },
-    accent: "#6B7280", // Grijs accent
+    accent: "#6B7280",
   },
   {
     title: "UX/UI Design",
@@ -66,7 +66,7 @@ const sections = [
       { name: "Wat is UX/UI Design?", href: "/wat-is-ux-ui-design" },
       { name: "User Research & Persona's", href: "/ux-ui-design/user-research" },
       { name: "Wireframing & Prototyping", href: "/ux-ui-design/wireframing-prototyping" },
-      { name: "Responsief Webdesign", href: "/webdevelopment/responsief-webdesign" }, // Behoud deze als relevant
+      { name: "Responsief Webdesign", href: "/webdevelopment/responsief-webdesign" },
       { name: "Mobile App Design (iOS & Android)", href: "/ux-ui-design/mobile-app-design" },
       { name: "E-commerce UX Optimalisatie", href: "/ux-ui-design/ecommerce-ux" },
       { name: "Usability Testing & Analyse", href: "/ux-ui-design/usability-testing" },
@@ -169,7 +169,7 @@ const sections = [
       { name: "Marketing Automatisering", href: "/marketing-automatisering" },
       { name: "Bedrijfsproces Automatisering (RPA)", href: "/automatisering/rpa" },
       { name: "Workflow Optimalisatie & Automatisering", href: "/automatisering/workflow" },
-      { name: "CRM Automatisering & Integratie", href: "/automatisering/crm" }, // Ook onder webdevelopment, hier specifieker voor automatisering
+      { name: "CRM Automatisering & Integratie", href: "/automatisering/crm" },
       { name: "Data Pipeline Ontwikkeling & ETL", href: "/automatisering/data-pipelines" },
       { name: "Business Intelligence & Dashboards", href: "/data-inzichten/dashboards" },
     ],
@@ -183,7 +183,7 @@ const sections = [
     description:
       "Betrouwbare en toekomstgerichte ICT-oplossingen via onze partner EssICT. Van systeembeheer tot cloud en security.",
     services: [
-      { name: "VoIP Telefonie Oplossingen", href: "https://www.essict.nl/voip" }, // Specifieke link indien bekend, anders algemeen
+      { name: "VoIP Telefonie Oplossingen", href: "https://www.essict.nl/voip" },
       { name: "Systeembeheer & Netwerkbeheer", href: "https://www.essict.nl/systeembeheer" },
       { name: "Werkplekbeheer (Modern Workplace)", href: "https://www.essict.nl/werkplekbeheer" },
       { name: "ICT Beveiliging & Cybersecurity", href: "https://www.essict.nl/ict-beveiliging" },
@@ -195,22 +195,47 @@ const sections = [
     cta: "https://www.essict.nl/",
     icon: <ShieldCheck className="w-6 h-6 text-white" />,
     bg: { light: "bg-blue-50", dark: "dark:bg-blue-900/30" },
-    accent: "#3B82F6", // Blauw accent voor ICT
+    accent: "#3B82F6",
   },
 ]
 
 export default function DienstenPage() {
   const ref = useRef(null)
-  const { scrollYProgress } = useScroll({
+  const [isLoaded, setIsLoaded] = useState(false)
+  const [hoveredSection, setHoveredSection] = useState<number | null>(null)
+  const [hoveredService, setHoveredService] = useState<{ section: number; service: number } | null>(null)
+
+  // Safe scroll transforms with error handling
+  const scrollData = useScroll({
     target: ref,
     offset: ["start start", "end start"],
   })
+  const scrollYProgress = scrollData.scrollYProgress
   const y = useTransform(scrollYProgress, [0, 1], [0, 100])
   const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0])
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.95])
 
-  const [hoveredSection, setHoveredSection] = useState<number | null>(null)
-  const [hoveredService, setHoveredService] = useState<{ section: number; service: number } | null>(null)
+  // Initialize loading state
+  useEffect(() => {
+    setIsLoaded(true)
+  }, [])
+
+  // Show loading state initially
+  if (!isLoaded) {
+    return (
+      <main className="bg-white dark:bg-black min-h-screen">
+        <section className="relative bg-[#2D4625] dark:bg-[#1a2a18] text-white overflow-hidden py-48">
+          <div className="container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            <div className="animate-pulse">
+              <div className="h-4 bg-white/20 rounded w-32 mb-4"></div>
+              <div className="h-16 bg-white/20 rounded w-96 mb-6"></div>
+              <div className="h-6 bg-white/20 rounded w-64"></div>
+            </div>
+          </div>
+        </section>
+      </main>
+    )
+  }
 
   return (
     <main className="bg-white dark:bg-black min-h-screen">
@@ -229,11 +254,11 @@ export default function DienstenPage() {
 
           {/* Glowing orbs */}
           <motion.div
-            style={{ y }}
+            style={{ y: y || 0 }}
             className="absolute top-1/4 left-1/4 w-64 h-64 rounded-full bg-[#a6e267] filter blur-[100px] opacity-20 animate-pulse-slow"
           ></motion.div>
           <motion.div
-            style={{ y: y.get() * -0.5 }}
+            style={{ y: typeof y?.get === "function" ? y.get() * -0.5 : 0 }}
             className="absolute bottom-1/4 right-1/4 w-96 h-96 rounded-full bg-[#2D4625] filter blur-[120px] opacity-10 animate-pulse-slower"
           ></motion.div>
 
@@ -243,8 +268,11 @@ export default function DienstenPage() {
         </div>
 
         <motion.div
-          style={{ opacity, scale }}
+          style={{ opacity: opacity || 1, scale: scale || 1 }}
           className="relative z-10 container mx-auto px-4 grid md:grid-cols-2 gap-12 items-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
         >
           <div>
             <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#a6e267]/20 text-[#a6e267] text-sm font-medium mb-4 border border-[#a6e267]/30">

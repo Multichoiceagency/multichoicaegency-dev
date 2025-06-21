@@ -48,7 +48,6 @@ const VacatureCard = ({ vacature }: { vacature: Vacature }) => (
 )
 
 export default function VacaturesPage() {
-  const heroVideoSrc = "https://cdn.dribbble.com/userupload/5894803/file/original-d9a0d59ac66e6ab93007492a80371ad0.mp4" // Example video for careers
 
   return (
     <div className="bg-gray-50 dark:bg-black">
@@ -57,7 +56,7 @@ export default function VacaturesPage() {
         description="Wij zijn altijd op zoek naar getalenteerde en gepassioneerde individuen om ons team te versterken. Ontdek onze cultuur, de uitdagingen die we bieden en hoe jij kunt bijdragen aan het succes van onze klanten."
         buttonText="Ontmoet het Team"
         buttonLink="/over-ons" // Link to about us or team page
-        videoSrc={heroVideoSrc}
+        videoSrc="https://cdn.dribbble.com/userupload/5894803/file/original-d9a0d59ac66e6ab93007492a80371ad0.mp4"
       />
 
       <section className="py-16 lg:py-24">
@@ -89,7 +88,7 @@ export default function VacaturesPage() {
           )}
 
           <div className="mt-16 lg:mt-20 text-center">
-            <h3 className="text-2xl font-semibold text-gray-800 dark:text-gray-100 mb-4">
+            <h3 className="text-2xl font-semibold text-gray-800 hover:bg-secondary hover:text-white dark:text-gray-100 mb-4">
               Staat jouw droombaan er niet tussen?
             </h3>
             <p className="text-gray-600 dark:text-gray-300 mb-6 max-w-xl mx-auto">
@@ -98,9 +97,9 @@ export default function VacaturesPage() {
             </p>
             <Button
               size="lg"
-              className="bg-lime-500 hover:bg-lime-600 text-gray-900 dark:text-white dark:bg-lime-600 dark:hover:bg-lime-700"
+              className="bg-lime-500 hover:bg-lime-600 text-gray-900 dark:text-white hover:text-white hover:bg-secondary-foreground dark:bg-lime-600 dark:hover:bg-lime-700"
             >
-              <Link href="mailto:careers@multichoice.nl?subject=Open Sollicitatie">Stuur een open sollicitatie</Link>
+              <Link href="mailto:info@multichoiceagency.nl?subject=Open Sollicitatie">Stuur een open sollicitatie</Link>
             </Button>
           </div>
         </div>

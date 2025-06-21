@@ -5,7 +5,7 @@ interface SitemapUrl {
   priority?: number
 }
 
-// Voeg de cases URL toe aan de mainPages array
+// Main pages
 const mainPages: SitemapUrl[] = [
   {
     url: "https://www.multichoiceagency.nl/",
@@ -16,253 +16,282 @@ const mainPages: SitemapUrl[] = [
   {
     url: "https://www.multichoiceagency.nl/contact",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "monthly",
     priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/portalen",
+    url: "https://www.multichoiceagency.nl/gratis-adviesgesprek",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.8,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/over-ons",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.8,
+    changeFrequency: "weekly",
+    priority: 0.9,
   },
   {
     url: "https://www.multichoiceagency.nl/offerte-aanvragen",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.9,
   },
   {
-    url: "https://www.multichoiceagency.nl/cases",
+    url: "https://www.multichoiceagency.nl/diensten",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.9,
-  },
-]
-
-// Website services
-const websiteServices: SitemapUrl[] = [
-  {
-    url: "https://www.multichoiceagency.nl/website-laten-maken",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.9,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/maatwerk-website-laten-maken",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/wordpress-website-laten-maken",
+    url: "https://www.multichoiceagency.nl/stel-een-vraag",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.8,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/wat-is-ux-ui-design",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "monthly",
     priority: 0.7,
   },
 ]
 
-// Webshop services
-const webshopServices: SitemapUrl[] = [
+// Website Development Services
+const websiteServices: SitemapUrl[] = [
   {
-    url: "https://www.multichoiceagency.nl/webshop-laten-maken",
+    url: "https://www.multichoiceagency.nl/websites",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.9,
   },
   {
-    url: "https://www.multichoiceagency.nl/shopify-webshop-laten-maken",
+    url: "https://www.multichoiceagency.nl/custom-webdesign",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/woocommerce-webshop-laten-maken",
+    url: "https://www.multichoiceagency.nl/responsief-webdesign",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/e-commerce",
+    url: "https://www.multichoiceagency.nl/ui-ux-design",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/wordpress-ontwikkeling",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
     priority: 0.8,
   },
 ]
 
-// Development services
+// E-commerce Services
+const ecommerceServices: SitemapUrl[] = [
+  {
+    url: "https://www.multichoiceagency.nl/e-commerce",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/webshop-ontwikkeling",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.9,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/e-commerce-platformontwikkeling",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/headless-e-commerce",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/shopify-ontwikkeling",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/magento-ontwikkeling",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+]
+
+// Development Services
 const developmentServices: SitemapUrl[] = [
   {
-    url: "https://www.multichoiceagency.nl/frontend-development",
+    url: "https://www.multichoiceagency.nl/development",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.8,
+    changeFrequency: "weekly",
+    priority: 0.9,
   },
   {
     url: "https://www.multichoiceagency.nl/backend-development",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/webapplicaties",
+    url: "https://www.multichoiceagency.nl/webapplicatie-ontwikkeling",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/dashboard-ontwikkeling",
+    url: "https://www.multichoiceagency.nl/mobiele-app-ontwikkeling",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-]
-
-// Business systems
-const businessSystems: SitemapUrl[] = [
-  {
-    url: "https://www.multichoiceagency.nl/crm-systemen",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/lead-management",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/marketing-automatisering",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/document-management",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/planning-rooster",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/data-management",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/ai-systemen",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   },
 ]
 
-// Portals
-const portals: SitemapUrl[] = [
+// Marketing & SEO Services
+const marketingServices: SitemapUrl[] = [
   {
-    url: "https://www.multichoiceagency.nl/portalen-platformen",
+    url: "https://www.multichoiceagency.nl/online-marketing",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/portalen/ledenportaal",
+    url: "https://www.multichoiceagency.nl/seo-zoekmachine-optimalisatie",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
+    changeFrequency: "weekly",
+    priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/portalen/klantenportaal",
+    url: "https://www.multichoiceagency.nl/conversie-optimalisatie",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
+    changeFrequency: "weekly",
+    priority: 0.8,
   },
   {
-    url: "https://www.multichoiceagency.nl/portalen/medewerkersportaal",
+    url: "https://www.multichoiceagency.nl/contentcreatie",
     lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/portalen/partnerportaal",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/portalen/leveranciersportaal",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/portalen/salesportaal",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.7,
   },
 ]
 
-// Industry specific
+// Design & Branding Services
+const designServices: SitemapUrl[] = [
+  {
+    url: "https://www.multichoiceagency.nl/branding-design",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/logo-ontwerp-visuele-identiteit",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.8,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/fotografie",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/videoproductie",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/animatie-motion-graphics",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+]
+
+// Hosting & Technical Services
+const technicalServices: SitemapUrl[] = [
+  {
+    url: "https://www.multichoiceagency.nl/hosting-domeinregistratie",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "monthly",
+    priority: 0.7,
+  },
+]
+
+// Service category pages (if they exist)
+const serviceCategories: SitemapUrl[] = [
+  {
+    url: "https://www.multichoiceagency.nl/diensten/webdesign",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/diensten/webdevelopment",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/diensten/e-commerce",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/diensten/online-marketing",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/diensten/branding-design",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+  {
+    url: "https://www.multichoiceagency.nl/diensten/content-creatie",
+    lastModified: new Date().toISOString(),
+    changeFrequency: "weekly",
+    priority: 0.7,
+  },
+]
+
+// Industry specific pages (if you want to add these later)
 const industrySpecific: SitemapUrl[] = [
-  {
-    url: "https://www.multichoiceagency.nl/website-laten-maken/website-laten-maken-voor-gezondheidszorg",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/website-laten-maken/website-laten-maken-voor-bouw",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/website-laten-maken/website-laten-maken-voor-onderwijs",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/website-laten-maken/website-laten-maken-voor-duurzaamheid",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
-  {
-    url: "https://www.multichoiceagency.nl/website-laten-maken/website-laten-maken-voor-horeca",
-    lastModified: new Date().toISOString(),
-    changeFrequency: "daily",
-    priority: 0.7,
-  },
+  // These can be added when you create industry-specific landing pages
+  // {
+  //   url: "https://www.multichoiceagency.nl/branches/gezondheidszorg",
+  //   lastModified: new Date().toISOString(),
+  //   changeFrequency: "monthly",
+  //   priority: 0.6,
+  // },
+  // {
+  //   url: "https://www.multichoiceagency.nl/branches/bouw",
+  //   lastModified: new Date().toISOString(),
+  //   changeFrequency: "monthly",
+  //   priority: 0.6,
+  // },
+  // {
+  //   url: "https://www.multichoiceagency.nl/branches/horeca",
+  //   lastModified: new Date().toISOString(),
+  //   changeFrequency: "monthly",
+  //   priority: 0.6,
+  // },
 ]
 
 // Combine all URLs
 export const sitemapUrls: SitemapUrl[] = [
   ...mainPages,
   ...websiteServices,
-  ...webshopServices,
+  ...ecommerceServices,
   ...developmentServices,
-  ...businessSystems,
-  ...portals,
+  ...marketingServices,
+  ...designServices,
+  ...technicalServices,
+  ...serviceCategories,
   ...industrySpecific,
 ]
 
@@ -293,4 +322,3 @@ export const generateSitemapXml = (): string => {
 }
 
 export default sitemapUrls
-

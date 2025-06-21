@@ -334,7 +334,7 @@ export default function Portfolio() {
 
                           {/* Animated corner accent */}
                           <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                            <div className="absolute top-0 right-0 w-8 h-8 bg-[#a6e267]/0 group-hover:bg-[#a6e267]/20 transition-colors duration-500 transform rotate-45 translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+                            <div className="absolute top-0 right-0 w-8 h-8 bg-[#a6e267]/0 group-hover:bg-[#a6e267]/20 transform rotate-45 translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
                           </div>
                         </div>
                       </div>
@@ -405,7 +405,7 @@ export default function Portfolio() {
 
                           {/* Animated corner accent */}
                           <div className="absolute top-0 right-0 w-16 h-16 overflow-hidden">
-                            <div className="absolute top-0 right-0 w-8 h-8 bg-[#a6e267]/0 group-hover:bg-[#a6e267]/20 transition-colors duration-500 transform rotate-45 translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
+                            <div className="absolute top-0 right-0 w-8 h-8 bg-[#a6e267]/0 group-hover:bg-[#a6e267]/20 transform rotate-45 translate-x-4 -translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition-transform duration-500"></div>
                           </div>
                         </div>
                       </div>

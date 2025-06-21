@@ -162,7 +162,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
   ]
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen bg-black overflow-hidden z-10">
+    <section ref={sectionRef} className="relative w-full min-h-screen bg-[#3F5F33] overflow-hidden z-10">
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
         <div className={`transition-opacity duration-1000 ${bgVideoLoaded ? "opacity-100" : "opacity-0"}`}>
           <video
