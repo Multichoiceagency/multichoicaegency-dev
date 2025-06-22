@@ -1,11 +1,7 @@
 const path = require("path")
-const { nextjsRedirects } = require("./lib/redirects-config.ts")
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  async redirects() {
-    return nextjsRedirects
-  },
   eslint: {
     ignoreDuringBuilds: true,
   },

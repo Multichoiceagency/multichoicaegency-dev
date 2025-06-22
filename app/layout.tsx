@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     default: "Multichoiceagency",
     template: "%s | Multichoiceagency",
   },
+  // <meta name="google-site-verification" content="6jc9l_KAuOW7oqBYo2vMNHPwpaDZFDtS-5YSZ5ZotWU" />, // Moved to <head>
   description: "Maatwerk websites en digitale oplossingen, gebouwd met moderne technologie voor maximale impact.",
   keywords: ["maatwerk websites", "Next.js", "digital agency", "headless cms", "webdesign", "webdevelopment"],
   openGraph: {
@@ -72,6 +73,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nl" suppressHydrationWarning>
       <head>
         {/* Eventueel extra meta's hier */}
+        <meta name="google-site-verification" content="6jc9l_KAuOW7oqBYo2vMNHPwpaDZFDtS-5YSZ5ZotWU" />
       </head>
       <body className={`${manrope.className} smooth-scroll`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
