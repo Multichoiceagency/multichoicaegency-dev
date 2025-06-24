@@ -22,16 +22,22 @@ const nextConfig = {
     deviceSizes: [320, 420, 768, 1024, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
-  turbopack: {
-    resolveAlias: {
-      underscore: "lodash",
+  // Turbopack configuratie alleen voor development
+  ...(process.env.NODE_ENV === 'development' && {
+    turbopack: {
+      resolveAlias: {
+        underscore: "lodash",
+      },
+      resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".json"],
     },
-    resolveExtensions: [".mdx", ".tsx", ".ts", ".jsx", ".js", ".json"],
-  },
-  webpack: (config) => {
-    config.resolve.alias = {
-      ...config.resolve.alias,
-      "@": path.resolve(process.cwd()),
+  }),
+  webpack: (config, { isServer }) => {
+    // Alleen client-side alias toevoegen
+    if (!isServer) {
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        "@": path.resolve(process.cwd()),
+      }
     }
     return config
   },

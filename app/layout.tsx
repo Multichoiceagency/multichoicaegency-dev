@@ -7,10 +7,10 @@ import GoogleCalendarButton from "@/components/GoogleCalenderButton"
 import ScrollToTop from "@/components/ScrollToTop"
 import FloatingSocialIcons from "@/components/FloatingSocialicons"
 import FooterSection from "@/components/footer-section"
-import { GoogleAnalytics } from '@next/third-parties/google'
 import ChatBot from "@/components/chatbot"
 import SmoothScrollProvider from "@/components/smooth-scroll-provider"
 import { Header } from "@/components/header"
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const manrope = Manrope({
   subsets: ["latin"],
