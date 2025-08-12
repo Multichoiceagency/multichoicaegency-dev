@@ -28,6 +28,7 @@ export interface CaseStudy {
     description?: string
     quote?: string
     quote_author?: string
+    client_name?: string
     client_logo?: string
     project_images?: Array<{
       url: string
@@ -110,89 +111,99 @@ export default function CaseStudyContent({ content, allCaseStudies }: CaseStudyC
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Main Content - 2/3 width on large screens */}
           <div className="lg:col-span-2">
-            <div
-              className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} rounded-lg overflow-hidden p-6 md:p-8 mb-8 transition-colors duration-200`}
-            >
-              <div
-                className={`prose max-w-none ${theme === "dark" ? "prose-invert" : ""}`}
-                dangerouslySetInnerHTML={{ __html: content.content.rendered }}
-              />
+        <div
+          className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} rounded-lg overflow-hidden p-6 md:p-8 mb-8 transition-colors duration-200`}
+        >
+          <div
+            className={`prose max-w-none ${theme === "dark" ? "prose-invert" : ""}`}
+            dangerouslySetInnerHTML={{ __html: content.content.rendered }}
+          />
 
-              {content.acf?.quote && (
-                <div
-                  className={`mt-8 p-6 ${theme === "dark" ? "bg-gray-700" : "bg-gray-50"} rounded-lg transition-colors duration-200`}
-                >
-                  <blockquote
-                    className={`text-lg font-medium italic ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}
-                  >
-                    "{content.acf.quote}"
-                  </blockquote>
-                  {content.acf?.quote_author && (
-                    <p className={`text-sm ${theme === "dark" ? "text-gray-400" : "text-gray-500"} mt-2`}>
-                      - {content.acf.quote_author}
-                    </p>
-                  )}
-                </div>
-              )}
+          {content.acf?.quote && (
+            <div
+          className={`mt-8 p-6 ${theme === "dark" ? "bg-gray-700" : "bg-gray-50"} rounded-lg transition-colors duration-200`}
+            >
+          <blockquote
+            className={`text-lg font-medium italic ${theme === "dark" ? "text-gray-200" : "text-gray-700"}`}
+          >
+            "{content.acf.quote}"
+          </blockquote>
+          {content.acf?.quote_author && (
+            <p className={`text-sm ${theme === "dark" ? "text-gray-400" : "text-gray-500"} mt-2`}>
+              - {content.acf.quote_author}
+            </p>
+          )}
             </div>
+          )}
+        </div>
           </div>
 
           {/* Sidebar - 1/3 width on large screens */}
           <div className="lg:col-span-1">
-            {/* Client Info */}
-            <ClientInfo
-              clientName={content.acf?.quote_author || "Client Name"}
-              industry={content.acf?.industry || "Uncategorized"}
-              projectDate={content.date}
-              logonew={content.acf?.client_logo || ""}
-              featuredImage={featuredImageUrl}
-            />
+        {/* Client Info */}
+        <ClientInfo
+          clientName={content.acf?.client_name || "Client Name"}
+          industry={content.acf?.industry || "Uncategorized"}
+          projectDate={content.date}
+          logonew={content.acf?.client_logo || ""}
+          featuredImage={featuredImageUrl}
+        />
 
-            {/* Tags */}
-            <div
-              className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} p-6 rounded-lg shadow-md mt-6 transition-colors duration-200`}
+        {/* Tags */}
+        <div
+          className={`${theme === "dark" ? "bg-gray-800" : "bg-white"} p-6 rounded-lg shadow-md mt-6 transition-colors duration-200`}
+        >
+          <h3 className={`text-xl font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
+            Tags
+          </h3>
+          <div className="flex flex-wrap gap-2">
+            {content.acf?.industry && (
+          <span
+            className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
+          >
+            {content.acf.industry}
+          </span>
+            )}
+            {content.acf?.location && (
+          <span
+            className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
+          >
+            {content.acf.location}
+          </span>
+            )}
+            {content.acf?.tags &&
+          content.acf.tags.split(",").map((tag, index) => (
+            <span
+              key={index}
+              className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
             >
-              <h3 className={`text-xl font-semibold mb-4 ${theme === "dark" ? "text-white" : "text-gray-900"}`}>
-                Tags
-              </h3>
-              <div className="flex flex-wrap gap-2">
-                {content.acf?.industry && (
-                  <span
-                    className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
-                  >
-                    {content.acf.industry}
-                  </span>
-                )}
-                {content.acf?.location && (
-                  <span
-                    className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
-                  >
-                    {content.acf.location}
-                  </span>
-                )}
-                {content.acf?.tags &&
-                  content.acf.tags.split(",").map((tag, index) => (
-                    <span
-                      key={index}
-                      className={`inline-block ${theme === "dark" ? "bg-gray-700 text-gray-200" : "bg-gray-100 text-gray-700"} rounded-full px-3 py-1 text-xs transition-colors duration-200`}
-                    >
-                      {tag.trim()}
-                    </span>
-                  ))}
-              </div>
-            </div>
+              {tag.trim()}
+            </span>
+          ))}
+          </div>
+        </div>
 
-            {/* CTA */}
-            <div className="bg-[#1e3a29] text-white p-6 rounded-lg mt-6">
-              <p className="text-[#4cd964] mb-2">Geïnteresseerd?</p>
-              <h2 className="text-xl font-bold mb-4">Bekijk onze diensten</h2>
-              <Link
-                href="/diensten"
-                className="bg-[#4cd964] text-white py-2 px-6 rounded-full inline-block w-max hover:bg-[#3cb953] transition-colors"
-              >
-                Bekijk diensten
-              </Link>
-            </div>
+        {/* CTA */}
+        <div className="bg-[#1e3a29] text-white p-6 rounded-lg mt-6 relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-green-400 via-green-500 to-green-600 animate-pulse opacity-20"></div>
+          <div className="relative z-10">
+            <p className="text-[#4cd964] mb-2">Geïnteresseerd?</p>
+            <h2 className="text-xl font-bold mb-4">Bekijk onze diensten</h2>
+            <Link
+          href="/diensten"
+          className="bg-[#4cd964] text-white py-2 px-6 rounded-full inline-block w-max hover:bg-[#3cb953] transition-colors"
+            >
+          Bekijk diensten
+            </Link>
+            <h2 className="text-xl font-bold mt-6 mb-4">Of vraag direct een offerte aan</h2>
+            <Link
+          href="/offerte-aanvragen"
+          className="bg-green-950 font-bold text-white py-2 px-6 rounded-full inline-block w-max hover:bg-[#e65c50] transition-colors"
+            >
+          Offerte aanvragen
+            </Link>
+          </div>
+        </div>
           </div>
         </div>
       </div>

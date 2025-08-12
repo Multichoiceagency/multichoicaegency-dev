@@ -45,7 +45,7 @@ export default function Hero({ title, industry, imageUrl }: HeroProps) {
             <div
               className={`flex flex-wrap text-sm ${theme === "dark" ? "text-gray-300" : "text-gray-500"} mb-2 transition-colors duration-200`}
             >
-              <span>MultiChoice Agency Cases</span>
+              <span>Multichoiceagency Cases</span>
               {industry && (
                 <>
                   <span className="mx-2">•</span>

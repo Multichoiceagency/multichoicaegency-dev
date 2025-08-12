@@ -187,7 +187,7 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
             transition={{ duration: 0.8 }}
             className="max-w-4xl"
           >
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl sm:py-32 md:py-32 font-bold text-white mb-18 mt-96 sm:mt-64">
               Creatieve oplossingen voor ambitieuze merken
             </h1>
             <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl">
@@ -202,10 +202,10 @@ export default function CasesPageClient({ initialCases }: CasesPageClientProps) 
                 <ChevronDown className="ml-2 h-5 w-5" />
               </button>
               <Link
-                href="/contact"
+                href="/offerte-aanvragen"
                 className="px-8 py-4 bg-transparent border-2 border-white text-white rounded-full hover:bg-white/10 transition-colors"
               >
-                Neem contact op
+                Gratis offerte aanvragen
               </Link>
             </div>
           </motion.div>
