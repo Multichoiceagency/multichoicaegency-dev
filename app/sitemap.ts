@@ -1,3 +1,4 @@
+// app/sitemap.ts
 import type { MetadataRoute } from "next"
 import { sitemapUrls } from "@/utils/sitemap"
 import { getCases } from "@/lib/wp"
@@ -5,10 +6,8 @@ import { getCases } from "@/lib/wp"
 const SITE_URL = (process.env.SITE_URL || "https://www.multichoiceagency.nl").replace(/\/+$/, "")
 const CASES_BASE_PATH = "/cases"
 
-// ⚠️ Voorkom prerender tijdens build:
 export const dynamic = "force-dynamic"
-// en gebruik ISR (hier 1 uur):
-export const revalidate = 60 * 60
+export const revalidate = 3600 // <-- literal, geen expressie
 
 function canonicalize(url: string) {
   let u = url.replace(/([^:]\/)\/+/g, "$1")
@@ -23,7 +22,6 @@ function canonicalize(url: string) {
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date()
 
-  // 1) Statisch
   const staticEntries: MetadataRoute.Sitemap = sitemapUrls.map((item) => ({
     url: canonicalize(item.url),
     lastModified: item.lastModified ? new Date(item.lastModified) : now,
@@ -31,7 +29,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: item.priority,
   }))
 
-  // 2) Dynamisch (met fallback bij 403/timeout/etc.)
   let caseEntries: MetadataRoute.Sitemap = []
   try {
     const cases = await getCases()
@@ -41,19 +38,15 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       changeFrequency: "weekly",
       priority: 0.7,
     }))
-  } catch (err) {
-    console.warn("Sitemap: WP cases konden niet worden opgehaald:", err)
-    // Geen throw → build/request faalt niet, je krijgt tenminste je statische sitemap
+  } catch (e) {
+    console.warn("Sitemap: WP fetch faalde, alleen statische URLs gebruikt.", e)
   }
 
-  // 3) Merge + dedupe
+  // dedupe
   const seen = new Set<string>()
-  const merged = [...staticEntries, ...caseEntries].filter((it) => {
-    const key = it.url
-    if (seen.has(key)) return false
-    seen.add(key)
+  return [...staticEntries, ...caseEntries].filter((it) => {
+    if (seen.has(it.url)) return false
+    seen.add(it.url)
     return true
   })
-
-  return merged
 }
