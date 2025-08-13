@@ -4,7 +4,6 @@ export interface WPCaseItem {
     modified_gmt?: string
   }
   
-  /** Hoe je CPT heet in WP (slug). Ik ga uit van 'cases'. Pas aan indien anders. */
   const CASES_CPT = "cases"
   const WP_PER_PAGE = 100
   
@@ -17,10 +16,9 @@ export interface WPCaseItem {
   
     const first = await fetch(
       `${base}${endpoint}${endpoint.includes("?") ? "&" : "?"}per_page=${WP_PER_PAGE}&page=${page}`,
-      { next: { revalidate: 60 * 60 } } // 1 uur cache/ISR
+      { next: { revalidate: 60 * 60 } } // 1 uur revalidate
     )
     if (!first.ok) throw new Error(`WP fetch failed: ${first.status} ${first.statusText}`)
-  
     const totalPages = Number(first.headers.get("X-WP-TotalPages") || "1")
     all.push(...(await first.json()))
   
@@ -37,7 +35,6 @@ export interface WPCaseItem {
   }
   
   export async function getCases(): Promise<WPCaseItem[]> {
-    // Endpoint voorbeeld: https://cloud.multichoiceagency.nl/wp-json/wp/v2/cases
     return fetchAllFromWP<WPCaseItem>(
       `/wp-json/wp/v2/${CASES_CPT}?status=publish&_fields=slug,modified_gmt`
     )
