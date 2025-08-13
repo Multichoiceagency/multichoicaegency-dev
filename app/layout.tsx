@@ -91,7 +91,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ThemeProvider>
 
         {/* Optional: Google Analytics ID, bijv. G-XXXXXXXX */}
-        <GoogleAnalytics gaId="G-34BJRLK21H" />
+        <GoogleAnalytics gaId="G-FJVX8934WM" />
       </body>
     </html>
   )
