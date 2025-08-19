@@ -14,7 +14,7 @@ const features = [
       "Onze AI analyseert uw bedrijfsgegevens, identificeert trends en geeft u waardevolle inzichten om betere beslissingen te nemen.",
     icon: <BarChart3 className="h-5 w-5" />,
     color: "bg-emerald-500",
-    tryLink: "/demo/data-analysis",
+    tryLink: "/diensten",
   },
   {
     id: "content-creation",
@@ -23,7 +23,7 @@ const features = [
       "Genereer professionele content voor uw website, social media of e-mails die perfect aansluit bij uw doelgroep en merkidentiteit.",
     icon: <MessageSquare className="h-5 w-5" />,
     color: "bg-blue-500",
-    tryLink: "/demo/content-creation",
+    tryLink: "/diensten",
   },
   {
     id: "customer-service",
@@ -32,7 +32,7 @@ const features = [
       "Onze AI-chatbots beantwoorden vragen van klanten op elk moment van de dag, zorgen voor snelle oplossingen en verhogen de klanttevredenheid.",
     icon: <Clock className="h-5 w-5" />,
     color: "bg-purple-500",
-    tryLink: "/demo/customer-service",
+    tryLink: "/diensten",
   },
 ]
 

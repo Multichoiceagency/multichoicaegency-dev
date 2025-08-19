@@ -11,20 +11,19 @@ import ChatBot from "@/components/chatbot"
 import SmoothScrollProvider from "@/components/smooth-scroll-provider"
 import { Header } from "@/components/header"
 import { GoogleAnalytics } from '@next/third-parties/google'
+import Script from "next/script"
 
 const manrope = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 })
 
-// ✅ VERPLICHT voor correcte Open Graph en Twitter image URLs
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.multichoiceagency.nl'), // <-- verander naar je productie-URL
+  metadataBase: new URL('https://www.multichoiceagency.nl'),
   title: {
     default: "Multichoiceagency",
     template: "%s | Multichoiceagency",
   },
-  // <meta name="google-site-verification" content="6jc9l_KAuOW7oqBYo2vMNHPwpaDZFDtS-5YSZ5ZotWU" />, // Moved to <head>
   description: "Maatwerk websites en digitale oplossingen, gebouwd met moderne technologie voor maximale impact.",
   keywords: ["maatwerk websites", "Next.js", "digital agency", "headless cms", "webdesign", "webdevelopment"],
   openGraph: {
@@ -34,7 +33,7 @@ export const metadata: Metadata = {
     siteName: "Multichoiceagency",
     images: [
       {
-        url: "/apple-icon.png", // <-- Zorg dat deze image bestaat in je /public map
+        url: "/apple-icon.png",
         width: 1080,
         height: 1080,
         alt: "Multichoiceagency preview",
@@ -72,8 +71,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="nl" suppressHydrationWarning>
       <head>
-        {/* Eventueel extra meta's hier */}
         <meta name="google-site-verification" content="6jc9l_KAuOW7oqBYo2vMNHPwpaDZFDtS-5YSZ5ZotWU" />
+
+        {/* ✅ Google Ads Conversion Tracking */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=AW-10834373104"
+        />
+        <Script id="google-ads-gtag" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-10834373104');
+          `}
+        </Script>
       </head>
       <body className={`${manrope.className} smooth-scroll`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
@@ -90,7 +102,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           </SmoothScrollProvider>
         </ThemeProvider>
 
-        {/* Optional: Google Analytics ID, bijv. G-XXXXXXXX */}
+        {/* ✅ Google Analytics Tracking (GA4) */}
         <GoogleAnalytics gaId="G-FJVX8934WM" />
       </body>
     </html>

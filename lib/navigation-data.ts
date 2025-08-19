@@ -186,7 +186,7 @@ const dienstenSectionsData = [
     title: "AI & Generatieve Oplossingen",
     href: "/ai-oplossingen",
     icon: Sparkles,
-    accentColor: "#14B8A6",
+    accentColor: "bg-green-500",
     services: [
       { name: "AI Chatbots & Conversational AI", href: "/ai-oplossingen/chatbots" },
       { name: "AI VoIP & Klantenservice Automatisering", href: "/ai-oplossingen/voip-klantenservice" },

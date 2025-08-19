@@ -22,41 +22,58 @@ export default function FooterSection() {
   const [isVisible, setIsVisible] = useState(false)
   const [showModal, setShowModal] = useState(false)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting) {
-          setIsVisible(true)
-        }
-      },
-      { threshold: 0.1 },
-    )
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current)
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current)
+useEffect(() => {
+  const observer = new IntersectionObserver(
+    (entries) => {
+      if (entries[0].isIntersecting) {
+        setIsVisible(true)
       }
+    },
+    { threshold: 0.1 }
+  )
+
+  if (sectionRef.current) {
+    observer.observe(sectionRef.current)
+  }
+
+  function handleClickOutside(event: MouseEvent) {
+    if (
+      showModal &&
+      modalRef.current &&
+      !modalRef.current.contains(event.target as Node)
+    ) {
+      setShowModal(false)
     }
-  }, [])
+  }
+
+  if (showModal) {
+    document.addEventListener("mousedown", handleClickOutside)
+  }
+
+  return () => {
+    if (sectionRef.current) {
+      observer.unobserve(sectionRef.current)
+    }
+    document.removeEventListener("mousedown", handleClickOutside)
+  }
+}, [showModal])
+
 
   const navSections = [
     {
       title: "Web Development",
       icon: <Code className="h-5 w-5 text-[#a6e267]" />,
       links: [
-        { name: "Websites", href: "/website-laten-maken" },
-        { name: "Webshops", href: "/webshop-laten-maken" },
-        { name: "Portalen", href: "/portalen" },
-        { name: "Development", href: "/development" },
-        { name: "UI/UX Design", href: "/wat-is-ui-ux-design" },
-        { name: "Maatwerk Websites", href: "/maatwerk-website-laten-maken" },
-        { name: "Shopify webshop", href: "/shopify-webshop-laten-maken" },
-        { name: "Woocommerce webshop", href: "/woocommerce-webshop-laten-maken" },
-        { name: "Wordpress website", href: "/wordpress-website-laten-maken" },
+        { name: "Websites", href: "/webdevelopment/website-laten-maken" },
+        { name: "Webshops", href: "/webdevelopment/webshop-laten-maken" },
+        { name: "Portalen", href: "/webdevelopment/portalen" },
+        { name: "Backend Development", href: "/webdevelopment/backend-development" },
+        { name: "Frontend Development", href: "/webdevelopment/frontend-development" },
+        { name: "UI/UX Design", href: "/wat-is-ux-ui-design" },
+        { name: "Maatwerk Websites", href: "/webdevelopment/maatwerk-website-laten-maken" },
+        { name: "Shopify webshop", href: "/webdevelopment/shopify-webshop-laten-maken" },
+        { name: "Woocommerce webshop", href: "/webdevelopment/woocommerce-webshop-laten-maken" },
+        { name: "Wordpress website", href: "/webdevelopment/wordpress-website-laten-maken" },
       ],
     },
     {
@@ -87,10 +104,7 @@ export default function FooterSection() {
       icon: <Info className="h-5 w-5 text-[#a6e267]" />,
       links: [
         { name: "Inloggen bestaande klant", href: "https://projecten.mlt.multichoiceagency.nl" },
-        { name: "Helpdesk", href: "/helpdesk" },
-        { name: "Veelgestelde Vragen", href: "/veelgestelde-vragen" },
-        { name: "Kennisbank", href: "/kennisbank" },
-        { name: "Downloads", href: "/downloads" },
+        { name: "Ticket indienen", href: "https://projecten.mlt.multichoiceagency.nl/forms/ticket?col=col-md-5" },
       ],
     },
   ]
@@ -178,7 +192,7 @@ export default function FooterSection() {
             </p>
             <button
               onClick={() => setShowModal(true)}
-              className="mt-2 underline text-sm text-[#a6e267] hover:text-white"
+              className="mt-2 underline z-9999 text-sm text-[#a6e267] hover:text-white"
             >
               Bekijk onze werkgebieden
             </button>
@@ -196,17 +210,18 @@ export default function FooterSection() {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Clock className="h-5 w-5 text-[#a6e267]" />
-              <h3 className="text-lg font-medium">Service & Support</h3>
+              <h3 className="text-lg font-medium">Service & Facturen</h3>
             </div>
             <div className="text-white/70">
-              <p>Ma - Do: 09:00 - 17:00</p>
-              <p>Vrij: 09:00 - 13:00</p>
+              <p>Maandag t/m Zaterdag: 09:00 - 17:00</p>
               <a href="mailto:service@multichoiceagency.nl" className="flex items-center mt-2 hover:text-[#a6e267]">
-                <Mail className="h-4 w-4 mr-2 text-[#a6e267]" /> service@multichoiceagency.nl
+                <Mail className="h-4 w-4 mr-2 text-[#a6e267]" />Voor support: support@multichoiceagency.nl
+              </a>
+                            <a href="mailto:facturen@multichoiceagency.nl" className="flex items-center mt-2 hover:text-[#a6e267]">
+                <Mail className="h-4 w-4 mr-2 text-[#a6e267]" /> Voor facturen: facturen@multichoiceagency.nl
               </a>
               <a href="tel:0103220410" className="flex items-center hover:text-[#a6e267]">
-                <Phone className="h-4 w-4 mr-2 text-[#a6e267]" /> 0103220410
-              </a>
+                <Phone className="h-4 w-4 mr-2 text-[#a6e267]" />Bel ons direct: 010 322 0410              </a>
             </div>
           </div>
 
@@ -224,13 +239,21 @@ export default function FooterSection() {
       </div>
 
       {/* Popup Modal */}
-      {showModal && (
-          <div className="fixed inset-0 bg-black/70 z-50 flex items-center justify-center px-4">
-            <div ref={modalRef} className="bg-white text-black max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-6 relative">
-              <button onClick={() => setShowModal(false)} className="absolute top-4 right-4 text-gray-700 hover:text-black">
+        {showModal && (
+          <div className="fixed inset-0 z-[9999] bg-black/70 flex items-center justify-center px-4">
+            <div
+              ref={modalRef}
+              className="relative z-[99999] bg-white text-black max-w-4xl w-full max-h-[90vh] overflow-y-auto rounded-xl p-6 shadow-2xl"
+            >
+              <button
+                onClick={() => setShowModal(false)}
+                className="absolute top-4 right-4 text-gray-700 hover:text-black z-[999999]"
+              >
                 <X className="w-5 h-5" />
               </button>
+
               <h2 className="text-xl font-semibold mb-4">Onze Locaties</h2>
+
               <div className="space-y-6">
                 {locaties.map((locatie, idx) => (
                   <div key={idx} className="space-y-2">
@@ -257,6 +280,7 @@ export default function FooterSection() {
             </div>
           </div>
         )}
+
                     {/* Copyright */}
                     <div className="pt-8 mt-8 container mx-auto px-4 border-t border-white/10 flex flex-col md:flex-row justify-between items-center">
           <div className="text-white/50 text-sm mb-4 md:mb-0">
@@ -266,7 +290,7 @@ export default function FooterSection() {
             <Link href="/privacy" className="text-white/50 hover:text-[#a6e267] text-sm transition-colors duration-300">
               Privacy Policy
             </Link>
-            <Link href="/terms" className="text-white/50 hover:text-[#a6e267] text-sm transition-colors duration-300">
+            <Link href="/algemene-voorwaarden" className="text-white/50 hover:text-[#a6e267] text-sm transition-colors duration-300">
               Algemene Voorwaarden
             </Link>
             <Link href="/cookies" className="text-white/50 hover:text-[#a6e267] text-sm transition-colors duration-300">

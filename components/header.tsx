@@ -48,8 +48,6 @@ import type { LucideIcon } from "lucide-react"
 
 const languages = [
   { code: "nl", label: "Nederlands" },
-  { code: "en", label: "English" },
-  { code: "de", label: "Deutsch" },
 ]
 
 export interface NavItem {

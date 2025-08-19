@@ -1,4 +1,5 @@
 "use client"
+
 import { motion, useScroll, useTransform } from "framer-motion"
 import { useRef, useState, useEffect } from "react"
 import Link from "next/link"
@@ -18,6 +19,7 @@ import {
 } from "lucide-react"
 import { FaGoogle } from "react-icons/fa6"
 
+
 const sections = [
   {
     title: "Webdevelopment & Platforms",
@@ -25,7 +27,7 @@ const sections = [
       "High-performance websites, robuuste webshops, en maatwerk applicaties & portalen. Gebouwd met de nieuwste technologieën voor optimale gebruikerservaring en schaalbaarheid.",
     services: [
       { name: "Custom Webdesign", href: "/webdevelopment/custom-webdesign" },
-      { name: "Website Laten Maken", href: "/webdevelopment/website-laten-maken" },
+      { name: "Wordpress Website", href: "/webdevelopment/wordpress-website-laten-maken" },
       { name: "Maatwerk Website", href: "/webdevelopment/maatwerk-website-laten-maken" },
       { name: "Frontend Development", href: "/webdevelopment/frontend-development" },
       { name: "Backend Development", href: "/webdevelopment/backend-development" },
@@ -45,7 +47,7 @@ const sections = [
   },
   {
     title: "Hosting & Domein Services",
-    description: "Betrouwbare hosting, domeinregistratie en technisch onderhoud voor jouw online aanwezigheid.",
+    description: "Betrouwbare hosting, domeinregistratie en technisch onderhoud voor jouw online aanwezigheid. Pagina's zijn binnenkort beschikbaar",
     services: [
       { name: "Domeinnaam Kopen & Registratie", href: "/diensten/domeinnaam-kopen" },
       { name: "Info Mail Adres Aanmaken", href: "/diensten/email-hosting" },
@@ -73,7 +75,7 @@ const sections = [
       { name: "Design System Ontwikkeling", href: "/ux-ui-design/design-systems" },
       { name: "Accessibility (WCAG) Audits", href: "/ux-ui-design/accessibility-audits" },
     ],
-    cta: "/ux-ui-design-overzicht",
+    cta: "/wat-is-ux-ui-design",
     icon: <Lightbulb className="w-6 h-6 text-white" />,
     bg: { light: "bg-amber-50", dark: "dark:bg-amber-900/30" },
     accent: "#F59E0B",
@@ -160,7 +162,7 @@ const sections = [
     cta: "/ai-oplossingen",
     icon: <Sparkles className="w-6 h-6 text-white" />,
     bg: { light: "bg-teal-50", dark: "dark:bg-teal-900/40" },
-    accent: "#14B8A6",
+    accent: "bg-green-500",
   },
   {
     title: "Data & Procesautomatisering",
