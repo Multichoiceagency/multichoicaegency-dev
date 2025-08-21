@@ -75,7 +75,7 @@ export default function Home() {
               "Multichoiceagency bouwt professionele maatwerk websites vanaf €799. Binnen 5 werkdagen live, volledig responsive, SEO geoptimaliseerd en voorzien van onderhoud en support.",
             offers: {
               "@type": "Offer",
-              price: "799.00",
+              price: "1995.00",
               priceCurrency: "EUR",
               availability: "https://schema.org/InStock"
             }

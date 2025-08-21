@@ -12,6 +12,7 @@ import SmoothScrollProvider from "@/components/smooth-scroll-provider"
 import { Header } from "@/components/header"
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from "next/script"
+import AuditPopup from "@/components/AuditPopup"
 
 const manrope = Manrope({
   subsets: ["latin"],
@@ -91,6 +92,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <SmoothScrollProvider>
             <FloatingSocialIcons />
+            <AuditPopup />
             <ScrollToTop />
             <Header />
             <main>
