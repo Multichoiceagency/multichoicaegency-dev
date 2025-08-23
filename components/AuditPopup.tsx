@@ -103,7 +103,7 @@ export default function AuditPopup() {
         {!submitted ? (
           <>
             {/* Afbeelding */}
-            <div className="w-full h-46 overflow-hidden rounded-t-2xl">
+            <div className="w-full h-46 md:h-22 sm:h-18 overflow-hidden rounded-t-2xl">
               <img
                 src="/website-laten-maken.png"
                 alt="Website laten maken"
