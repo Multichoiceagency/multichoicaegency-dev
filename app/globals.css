@@ -132,12 +132,22 @@ spline-viewer::part(spinner) {
   }
 }
 
-html,
-body {
-  max-width: 100%;
-  overflow-x: hidden;
+html, body {
   margin: 0;
   padding: 0;
+  max-width: 100%;
+  overflow-x: hidden;
+  overscroll-behavior: none;
+}
+
+body {
+  position: relative;
+}
+
+.crisp-client .cc-cs {
+  bottom: 1rem !important;
+  left: 1rem !important;
+  right: auto !important;
 }
 
 .writing-mode-vertical-rl {

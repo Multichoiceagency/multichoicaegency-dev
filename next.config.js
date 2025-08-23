@@ -1,4 +1,9 @@
 const path = require("path")
+const withPWA = require("next-pwa")({
+  dest: "public",
+  register: true,
+  skipWaiting: true,
+})
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -22,8 +27,7 @@ const nextConfig = {
     deviceSizes: [320, 420, 768, 1024, 1200],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
   },
-  // Turbopack configuratie alleen voor development
-  ...(process.env.NODE_ENV === 'development' && {
+  ...(process.env.NODE_ENV === "development" && {
     turbopack: {
       resolveAlias: {
         underscore: "lodash",
@@ -32,7 +36,6 @@ const nextConfig = {
     },
   }),
   webpack: (config, { isServer }) => {
-    // Alleen client-side alias toevoegen
     if (!isServer) {
       config.resolve.alias = {
         ...config.resolve.alias,
@@ -43,4 +46,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+module.exports = withPWA(nextConfig)

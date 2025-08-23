@@ -1,7 +1,7 @@
 "use client"
 
 import type React from "react"
-import { useState } from "react"
+import { useState, useEffect, useRef } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import {
   ArrowRight,
@@ -76,6 +76,36 @@ export default function MultiLevelQuoteForm() {
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [formError, setFormError] = useState<string | null>(null)
   const [validationErrors, setValidationErrors] = useState<Record<string, string>>({})
+
+  // 👇 Nieuw: hide-on-scroll state
+  const [fabVisible, setFabVisible] = useState(true)
+  const lastScrollYRef = useRef(0)
+
+  useEffect(() => {
+    const THRESHOLD = 150
+    let ticking = false
+
+    const onScroll = () => {
+      const y = window.scrollY || window.pageYOffset
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const last = lastScrollYRef.current
+          // omlaag + voorbij drempel -> verbergen; anders tonen
+          if (y > last && y > THRESHOLD) {
+            setFabVisible(false)
+          } else {
+            setFabVisible(true)
+          }
+          lastScrollYRef.current = y
+          ticking = false
+        })
+        ticking = true
+      }
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true })
+    return () => window.removeEventListener("scroll", onScroll)
+  }, [])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value } = e.target
@@ -439,17 +469,24 @@ export default function MultiLevelQuoteForm() {
 
   return (
     <>
-      {/* Floating Action Button */}
-      <div className="fixed bottom-6 right-6 z-[9999]">
+      {/* Floating Action Button (hide-on-scroll + hide-when-open) */}
+      <div
+        className="fixed bottom-6 left-6 pb-12 z-[9999] transition-all duration-300"
+        style={{
+          transform: (!fabVisible || isOpen) ? "translateY(12px)" : "translateY(0)",
+          opacity:   (!fabVisible || isOpen) ? 0 : 1,
+          pointerEvents: (!fabVisible || isOpen) ? "none" : "auto",
+        }}
+      >
         <motion.button
           onClick={() => setIsOpen(true)}
-          className="bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] p-4 rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 group"
+          className="bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] p-2 rounded-full shadow-xl transition-all duration-300 flex items-center gap-3 group"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           aria-label="Offerte aanvragen"
         >
           <FileText className="h-6 w-6" />
-          <span className="hidden sm:inline text-sm font-medium pr-1">Offerte aanvragen</span>
+          <span className="sm:inline text-sm font-medium pr-1">Gratis offerte</span>
         </motion.button>
       </div>
 

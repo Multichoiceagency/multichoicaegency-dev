@@ -86,8 +86,8 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <HeroSection
           videoSrc="/partners/ui.mp4"
-          title="Multichoiceagency - jouw one stop shop full service digital agency"
-          description="Als full service digital agency helpen we marketeers, ontwerpers en ontwikkelaars samen te werken om digitale ervaringen te bouwen, beheren en optimaliseren die resultaat opleveren."
+          title="Jouw digitale verhaal, krachtig verteld."
+          description="Full-service digitale expertise in design, ontwikkeling & marketing – volledig afgestemd op jouw merkverhaal."
           buttonText="Gratis Offerte"
           buttonLink="/offerte-aanvragen"
         />

@@ -394,7 +394,7 @@ export default function AIAutomationSection() {
             </p>
             <Link
               href="/contact"
-              className="inline-flex items-center px-6 py-3 bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] font-medium rounded-full transition-colors duration-300 group-hover:translate-y-[-2px] transition-transform"
+              className="inline-flex items-center px-6 py-3 bg-[#2D4625] hover:bg-[#a6e267] text-white hover:text-[#2D4625] font-medium rounded-full transition-colors duration-300 group-hover:translate-y-[-2px]"
             >
               Plan een gesprek
               <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform duration-300" />

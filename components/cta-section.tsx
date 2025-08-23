@@ -21,6 +21,7 @@ import {
   ChevronLeft,
 } from "lucide-react"
 import { submitQuoteRequest } from "@/app/actions/submit-quote"
+import Image from "next/image"
 
 export default function CTASection() {
   const sectionRef = useRef<HTMLElement>(null)
@@ -495,11 +496,11 @@ Goals: ${formState.goals || "Niet opgegeven"}
               <div className="mb-8">
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2D4625]/10 text-[#2D4625] text-sm font-medium mb-4">
                   <Send className="h-4 w-4 mr-2" />
-                  <span>Vrijblijvende offerte</span>
+                  <span>Gratis 1 uur adviesgesprek</span>
                 </div>
-                <h2 className="text-3xl md:text-4xl font-medium text-[#0f2b3d] mb-4">Vraag direct een offerte aan</h2>
+                <h2 className="text-3xl md:text-4xl font-medium text-[#0f2b3d] mb-4">Vraag een Gratis Adviesgesprek aan</h2>
                 <p className="text-gray-600">
-                  Vul het formulier in en ontvang binnen 24 uur een persoonlijke offerte voor uw project.
+                  Vul het formulier in en ontvang een gratis adviesgesprek voor uw project.
                 </p>
               </div>
 
@@ -510,7 +511,7 @@ Goals: ${formState.goals || "Niet opgegeven"}
                   </div>
                   <h3 className="text-xl font-medium text-[#2D4625] mb-2">Bedankt voor uw aanvraag!</h3>
                   <p className="text-gray-600">
-                    We hebben uw offerte aanvraag ontvangen en nemen binnen 24 uur contact met u op.
+                        We hebben uw aanvraag voor een gratis adviesgesprek ontvangen en nemen binnen 24 uur contact met u op.
                   </p>
                 </div>
               ) : (

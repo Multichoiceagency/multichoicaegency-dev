@@ -485,12 +485,12 @@ export function Header() {
               <div className="w-screen mx-auto px-4 sm:px-6 lg:px-8 py-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <span className="text-sm font-medium">Ontdek onze nieuwe diensten en mogelijkheden</span>
+                    <span className="text-sm font-medium">Nu 1 maand Gratis SEO en 10% korting op aanschaf willekeurige dienst</span>
                     <Link
                       href="/diensten"
                       className="ml-3 inline-flex items-end text-sm font-medium text-white hover:text-white/90"
                     >
-                      <span>Meer informatie</span>
+                      <span className="font-bold">Meer informatie</span>
                       <ChevronRight className="ml-1 h-4 w-4" />
                     </Link>
                   </div>

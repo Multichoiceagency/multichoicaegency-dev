@@ -7,16 +7,49 @@ import { Shield, Gauge, Users } from "lucide-react"
 
 export default function HeroSection() {
   const partners = [
+    // witte logos
+    "/partners/witte-logos/Adeaconstruct.png",
+    "/partners/witte-logos/adeainfra.png",
+    "/partners/witte-logos/Alkanaany.png",
+    "/partners/witte-logos/Autoservice-Maestropoort.png",
+    "/partners/witte-logos/Autotraderovorschooten.png",
+    "/partners/witte-logos/BGR-TaxiAmsterdam.png",
+    "/partners/witte-logos/Binvino.png",
+    "/partners/witte-logos/BK-Bewindvoering.png",
+    "/partners/witte-logos/Bluelinenetwork.png",
+    "/partners/witte-logos/CKN-infratechniek.png",
+    "/partners/witte-logos/Cleopatra-beauty.png",
+    "/partners/witte-logos/Dutchtransportgroup.png",
+    "/partners/witte-logos/E&H-Bouwbv.png",
+    "/partners/witte-logos/Ergon-bouw-aannemersbedrijf.png",
+    "/partners/witte-logos/handtekening-wit.png",
+    "/partners/witte-logos/Hengelvissportschiedam.png",
+    "/partners/witte-logos/HUB-Makelaardij.png",
+    "/partners/witte-logos/Kozan-klusbedrijf.png",
+    "/partners/witte-logos/Lionzone.png",
+    "/partners/witte-logos/logo-bouhs-steigerwerken-1.png",
+    "/partners/witte-logos/Lovka.png",
+    "/partners/witte-logos/Maazcleanrevolution.png",
+    "/partners/witte-logos/Menstale.png",
+    "/partners/witte-logos/Moleculeperfumes.png",
+    "/partners/witte-logos/notenleverancier.png",
+    "/partners/witte-logos/Orangereclame.png",
+    "/partners/witte-logos/Powerforce-uitzendgroep.png",
+    "/partners/witte-logos/Sunsen-Zonnestudio.png",
+    "/partners/witte-logos/sydneydranken.png",
+    "/partners/witte-logos/Tovla-elektrotechniek.png",
+    "/partners/witte-logos/YZ-Content.png",
+
+    // zwarte logos (voorbeeld uit jouw snippet)
     "/partners/zwarte-logos/sydneydranken.png",
     "/partners/zwarte-logos/lovka.png",
     "/partners/zwarte-logos/dutchtransportgroup.png",
     "/partners/zwarte-logos/alkanaany.png",
     "/partners/zwarte-logos/binvino.png",
-    "/partners/zwarte-logos/powerforce uitzendgroep.png",
+    "/partners/zwarte-logos/powerforce-uitzendgroep.png",
     "/partners/zwarte-logos/sunsen-zonnestudio.png",
     "/partners/zwarte-logos/bouhs-steigerwerken.png",
     "/partners/zwarte-logos/gardenlux.png",
-    "/partners/zwarte-logos/binvino.png",
     "/partners/zwarte-logos/hengelvissportschiedam.png",
   ]
 
@@ -44,25 +77,30 @@ export default function HeroSection() {
     },
   ]
 
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.2,
-      },
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.05,   // was 0.3
+      staggerChildren: 0.05, // was 0.2
     },
-  }
+  },
+}
 
-  const itemVariants = {
-    hidden: { y: 20, opacity: 0 },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: { duration: 0.5 },
+const itemVariants = {
+  hidden: { y: 16, opacity: 0 },
+  visible: {
+    y: 0,
+    opacity: 1,
+    transition: {
+      type: "spring",   // snappier dan tween
+      stiffness: 520,   // hoger = sneller
+      damping: 26,      // lager = minder traag
+      mass: 0.6,
     },
-  }
+  },
+}
 
   return (
     <section className="w-full py-16 md:py-24 bg-green-50">

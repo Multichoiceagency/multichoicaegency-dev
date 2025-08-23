@@ -1,7 +1,7 @@
 import type React from "react"
 import "./globals.css"
 import type { Metadata } from "next"
-import { Manrope } from "next/font/google"
+import { Host_Grotesk as hostGroteskFont } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
 import GoogleCalendarButton from "@/components/GoogleCalenderButton"
 import ScrollToTop from "@/components/ScrollToTop"
@@ -13,8 +13,9 @@ import { Header } from "@/components/header"
 import { GoogleAnalytics } from '@next/third-parties/google'
 import Script from "next/script"
 import AuditPopup from "@/components/AuditPopup"
+import CrispChat from "@/components/CrispChat"
 
-const manrope = Manrope({
+const hostGrotesk = hostGroteskFont({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 })
@@ -73,12 +74,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="nl" suppressHydrationWarning>
       <head>
         <meta name="google-site-verification" content="6jc9l_KAuOW7oqBYo2vMNHPwpaDZFDtS-5YSZ5ZotWU" />
-
+        <meta name="apple-mobile-web-app-title" content="Multichoiceagency.nl" />
+        <meta name="theme-color" content="#406034" />
         {/* ✅ Google Ads Conversion Tracking */}
-        <Script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=AW-10834373104"
-        />
+        <Script async src="https://www.googletagmanager.com/gtag/js?id=AW-10834373104" />
         <Script id="google-ads-gtag" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
@@ -87,22 +86,21 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             gtag('config', 'AW-10834373104');
           `}
         </Script>
-
         {/* ✅ Hotjar Tracking Code */}
         <Script id="hotjar-init" strategy="afterInteractive">
           {`
             (function(h,o,t,j,a,r){
-                h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-                h._hjSettings={hjid:6501390,hjsv:6};
-                a=o.getElementsByTagName('head')[0];
-                r=o.createElement('script');r.async=1;
-                r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-                a.appendChild(r);
+              h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+              h._hjSettings={hjid:6501390,hjsv:6};
+              a=o.getElementsByTagName('head')[0];
+              r=o.createElement('script');r.async=1;
+              r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+              a.appendChild(r);
             })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
           `}
         </Script>
       </head>
-      <body className={`${manrope.className} smooth-scroll`} suppressHydrationWarning>
+      <body className={`${hostGrotesk.className} smooth-scroll`} suppressHydrationWarning>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem={false}>
           <SmoothScrollProvider>
             <FloatingSocialIcons />
@@ -114,11 +112,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <ChatBot />
               <GoogleCalendarButton />
             </main>
+            <CrispChat />
             <FooterSection />
           </SmoothScrollProvider>
         </ThemeProvider>
-
-        {/* ✅ Google Analytics Tracking (GA4) */}
         <GoogleAnalytics gaId="G-FJVX8934WM" />
       </body>
     </html>

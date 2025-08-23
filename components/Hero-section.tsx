@@ -26,20 +26,19 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
   const videoRef = useRef<HTMLVideoElement>(null)
   const bgVideoRef = useRef<HTMLVideoElement>(null)
   const sectionRef = useRef<HTMLElement>(null)
+  const marqueeRef = useRef<HTMLDivElement>(null)
+  const trackRef = useRef<HTMLDivElement>(null)
+
   const [isVisible, setIsVisible] = useState(false)
   const [bgVideoLoaded, setBgVideoLoaded] = useState(false)
 
-  // Handle main content video
+  /** -------------------- MAIN VIDEO (15s→100s loop) -------------------- */
   useEffect(() => {
     const video = videoRef.current
     if (!video) return
 
     const startTime = 15
     const endTime = 100
-
-    try {
-      video.currentTime = startTime
-    } catch {}
 
     const handleMetadata = () => {
       try {
@@ -54,44 +53,38 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
       }
     }
 
+    try {
+      video.currentTime = startTime
+    } catch {}
     video.addEventListener("loadedmetadata", handleMetadata)
     video.addEventListener("timeupdate", handleTimeUpdate)
-
     return () => {
       video.removeEventListener("loadedmetadata", handleMetadata)
       video.removeEventListener("timeupdate", handleTimeUpdate)
     }
   }, [])
 
-  // Handle background video with smooth looping
+  /** -------------------- BACKGROUND VIDEO -------------------- */
   useEffect(() => {
     const bgVideo = bgVideoRef.current
     if (!bgVideo) return
 
-    // Set playback rate slightly slower for smoother motion
     bgVideo.playbackRate = 0.9
 
     const handleBgMetadata = () => {
       bgVideo.play().catch(() => {})
     }
-
     const handleBgCanPlay = () => {
       setBgVideoLoaded(true)
       bgVideo.play().catch(() => {})
     }
-
-    // Create a smooth loop by detecting when the video is about to end
     const handleTimeUpdate = () => {
-      // If video is within 0.5 seconds of ending, prepare for smooth loop
       if (bgVideo.duration - bgVideo.currentTime < 0.5) {
-        // Apply a slight fade effect
         bgVideo.style.opacity = "0.8"
       } else {
         bgVideo.style.opacity = "1"
       }
     }
-
-    // When the video loops, reset opacity
     const handleLoop = () => {
       bgVideo.style.opacity = "1"
     }
@@ -109,9 +102,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
     }
   }, [])
 
+  /** -------------------- INTERSECTION OBSERVER -------------------- */
   useEffect(() => {
     if (!sectionRef.current) return
-
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -123,13 +116,17 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
       },
       { threshold: 0.1 },
     )
-
     observer.observe(sectionRef.current)
     return () => observer.disconnect()
   }, [])
 
-  const logos = [
+  /** ---------------- LOGO-LIJSTEN (wit + zwart) ---------------- */
+  const whiteLogoFiles = [
+    "handtekening-wit.png",
+    "logo-xlgroothandelbv.png",
     "Adeaconstruct.png",
+    "Lionzone.png",
+    "orangereclame.png",
     "adeainfra.png",
     "Alkanaany.png",
     "Autoservice-Maestropoort.png",
@@ -141,18 +138,13 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
     "CKN-infratechniek.png",
     "Cleopatra-beauty.png",
     "Dutchtransportgroup.png",
-    "E&h-Bouwbv.png",
-    "Ergon bouw aannemersbedrijf.png",
-    "Hengelsportschiedam.png",
+    "E&H-Bouwbv.png",
+    "Ergonbouwaannemersbedrijf.png",
+    "Hengelvissportschiedam.png",
     "HUB-Makelaardij.png",
-    "Kozan-klussenbedrijf.png",
-    "Lionzone.png",
-    "logo-bouhs-steigerwerken.png",
+    "logo-bouhs-steigerwerken 1.png",
     "Lovka.png",
     "Maazcleanrevolution.png",
-    "Menstale.png",
-    "Moleculeperfumes.png",
-    "notenleverancier.png",
     "Orangereclame.png",
     "Powerforce uitzendgroep.png",
     "Sunsen-Zonnestudio.png",
@@ -161,76 +153,100 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
     "YZ-Content.png",
   ]
 
+  // Veilig paden bouwen (spaties/tekens encoden)
+  const logos = [
+    ...whiteLogoFiles.map((f) => `/partners/witte-logos/${encodeURIComponent(f)}`),
+  ]
+
+  /** -------------------- MARQUEE DUUR DYNAMISCH -------------------- */
+  useEffect(() => {
+    const track = trackRef.current
+    const wrap = marqueeRef.current
+    if (!track || !wrap) return
+
+    // breedte van één set (we renderen 2 sets)
+    const halfWidth = track.scrollWidth / 2
+    const viewportWidth = wrap.clientWidth || 1
+
+    // ~20s per viewport-breedte; schaal met content; min 18s voor “rust”
+    const seconds = Math.max(18, (halfWidth / viewportWidth) * 20)
+    track.style.setProperty("--marquee-duration", `${seconds.toFixed(2)}s`)
+  }, [logos.length])
+
   return (
     <section ref={sectionRef} className="relative w-full min-h-screen bg-[#3F5F33] overflow-hidden z-10">
+      {/* Achtergrond video */}
       <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-        <div className={`transition-opacity duration-1000 ${bgVideoLoaded ? "opacity-100" : "opacity-0"}`}>
+        <div className={`transition-opacity duration-700 ${bgVideoLoaded ? "opacity-100" : "opacity-0"}`}>
           <video
             ref={bgVideoRef}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500"
+            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
             src="/video/bg-web.mp4"
             autoPlay
             loop
             muted
             playsInline
             preload="auto"
-          ></video>
+          />
         </div>
       </div>
 
       <div className="max-w-[1200px] mx-auto px-4 py-48 md:pl-[5%] relative z-20">
-        <div
-          className={`max-w-3xl mb-6 transform transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
-          }`}
-          style={{ transitionDelay: "300ms" }}
-        >
-          <h1 className="text-4xl sm:text-xl md:text-6xl lg:text-7xl text-white font-bold leading-[1.1] tracking-tight drop-shadow-md">
-            {title}
-          </h1>
-        </div>
+      {/* Titel */}
+      <div
+        className={`max-w-3xl mb-6 transform transition-all duration-500 ${
+          isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
+        }`}
+        style={{ transitionDelay: "80ms" }}
+      >
+<h1
+  className="outline-reveal text-white text-5xl sm:text-xl md:text-5xl lg:text-7xl leading-[1.0] tracking-tight drop-shadow-md"
+  data-text={title}
+>
+          {title}
+        </h1>
+      </div>
 
+        {/* Beschrijving + CTA's */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-8 mb-16">
           <div
-            className={`max-w-2xl transform transition-all duration-700 ${
+            className={`max-w-2xl transform transition-all duration-500 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
             }`}
-            style={{ transitionDelay: "400ms" }}
+            style={{ transitionDelay: "120ms" }}
           >
             <p className="text-gray-300 text-lg drop-shadow-sm">{description}</p>
           </div>
 
           <div
-            className={`flex flex-row gap-4 transform transition-all duration-700 ${
+            className={`flex flex-row gap-4 transform transition-all duration-500 ${
               isVisible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-10"
             }`}
-            style={{ transitionDelay: "500ms" }}
+            style={{ transitionDelay: "160ms" }}
           >
             <Link href={buttonLink}>
-              <Button className="bg-[#5a7a4f] hover:bg-[#3a582f] text-white rounded-md px-6 py-6 text-base font-medium whitespace-nowrap">
+              <Button className="bg-green-700 hover:bg-[#3a582f] text-white rounded-md px-6 py-6 text-base font-medium whitespace-nowrap">
                 {buttonText}
               </Button>
             </Link>
 
-            <Button
-              onClick={() => {
-                if (typeof window !== "undefined" && typeof window.openGoogleCalendarModal === "function") {
-                  window.openGoogleCalendarModal()
-                }
-              }}
-              className="bg-white/20 backdrop-blur-sm hover:bg-white/30 text-white border-0 rounded-md px-6 py-6 text-base font-medium flex items-center whitespace-nowrap"
-            >
-              <span>Gratis adviesgesprek</span>
+            <Link href="/diensten" passHref>
+              <Button
+              className="bg-green-600 backdrop-blur-sm hover:bg-white/30 text-white border-0 rounded-md px-6 py-6 text-base font-medium flex items-center whitespace-nowrap"
+              >
+              <span>Onze diensten</span>
               <ArrowRight className="ml-2 h-5 w-5" />
-            </Button>
+              </Button>
+            </Link>
           </div>
         </div>
 
+        {/* Showcase video */}
         <div
-          className={`relative w-full max-w-full transform transition-all duration-700 ${
+          className={`relative w-full max-w-full transform transition-all duration-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
-          style={{ transitionDelay: "600ms" }}
+          style={{ transitionDelay: "100ms" }}
         >
           <div className="rounded-lg overflow-hidden shadow-2xl relative">
             <video
@@ -241,41 +257,55 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
               loop
               muted
               playsInline
-            ></video>
-            <div className="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-black to-transparent"></div>
+            />
+            <div className="absolute bottom-0 left-0 right-0 h-[100px] bg-gradient-to-t from-black to-transparent" />
           </div>
         </div>
 
-        <div className="mt-16 mb-4 text-center" style={{ transitionDelay: "650ms" }}>
-          <h3 className="text-white/90 text-lg font-light drop-shadow-sm">Onze tevreden partners</h3>
+        {/* Partner logos */}
+        <div className="mt-16 mb-4 text-center">
+          <h3 className="text-white/90 text-lg font-bold uppercase drop-shadow-sm">onze tevreden partners</h3>
         </div>
 
-        <div className="relative overflow-hidden w-full py-6">
-          <div className="animate-scroll flex items-center gap-16 whitespace-nowrap will-change-transform">
-            {[...Array(2)].flatMap((_, loopIndex) =>
-              logos.map((fileName, i) => (
-                <div
-                  key={`${loopIndex}-${fileName}`}
-                  className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center"
-                >
-                  <Image
-                    src={`/partners/witte-logos/${fileName}`}
-                    width={100}
-                    height={48}
-                    alt={`Partner logo ${i + 1}`}
-                    className="h-full w-auto object-contain opacity-80 hover:opacity-100 transition-opacity"
-                  />
-                </div>
-              )),
-            )}
+        {/* Naadloze marquee */}
+        <div ref={marqueeRef} className="marquee-wrap relative overflow-hidden w-full py-6">
+          <div
+            ref={trackRef}
+            className="marquee-track flex items-center w-max will-change-transform whitespace-nowrap gap-16"
+          >
+            {/* Set A */}
+            {logos.map((src, i) => (
+              <div key={`a-${i}`} className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center">
+                <Image
+                  src={src}
+                  width={200}
+                  height={8}
+                  alt={`Partner logo ${i + 1}`}
+                  className="h-auto w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            ))}
+            {/* Set B (identiek) */}
+            {logos.map((src, i) => (
+              <div key={`b-${i}`} className="flex-shrink-0 h-12 md:h-16 flex items-center justify-center" aria-hidden="true">
+                <Image
+                  src={src}
+                  width={200}
+                  height={64}
+                  alt=""
+                  className="h-8 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-200"
+                />
+              </div>
+            ))}
           </div>
         </div>
 
+        {/* Features grid */}
         <div
-          className={`mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transform transition-all duration-700 ${
+          className={`mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transform transition-all duration-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
-          style={{ transitionDelay: "800ms" }}
+          style={{ transitionDelay: "260ms" }}
         >
           {[
             {
@@ -318,26 +348,37 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
         </div>
       </div>
 
-      <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0%);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-
-        .animate-scroll {
-          animation: scroll 60s linear infinite;
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-          .animate-scroll {
-            animation: none;
-          }
-        }
-      `}</style>
+{/* Styles: naadloze marquee + edge-fade + title-outline */}
+<style jsx>{`
+  .marquee-wrap {
+    --edge: 7%;
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black var(--edge),
+      black calc(100% - var(--edge)),
+      transparent 100%
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent 0,
+      black var(--edge),
+      black calc(100% - var(--edge)),
+      transparent 100%
+    );
+  }
+  .marquee-track {
+    --marquee-duration: 28s; /* default, wordt overschreven door JS */
+    animation: marquee var(--marquee-duration) linear infinite;
+  }
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to   { transform: translateX(-50%); } /* 2 identieke sets → halve breedte */
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-track { animation: none; }
+  }
+`}</style>
     </section>
   )
 }
