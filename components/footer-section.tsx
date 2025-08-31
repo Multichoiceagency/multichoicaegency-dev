@@ -109,18 +109,18 @@ useEffect(() => {
     },
   ]
 
-  const locaties = [
-    "Boerhaavelaan 40, 2713 HX Zoetermeer",
-    "Burgemeester Stramanweg 102, 1101 AA Amsterdam",
-    "La Guardiaweg, 1043 DJ Amsterdam",
-    "Kalkovenweg 28, 2401 LK Alphen aan den Rijn",
-    "Westblaak 180, 3012 KN Rotterdam",
-    "Burgemeester de Raadtsingel 93C, 3311 JG Dordrecht",
-    "Arthur van Schendelstraat 650, 3511 MJ Utrecht",
-    "Boogschutterstraat 1, 7324 AE Apeldoorn",
-    "Bennekomseweg 41, 6717 LL Ede",
-    "Europalaan 28, 5232 BC 's-Hertogenbosch",
-  ]
+const locaties = [
+  "Otto Reuchlin 1008 / 1146, 3072 MD Rotterdam",
+  "Elektronicaweg 2, 2628 XG Delft",
+  "Euclideslaan 151, 3584 BS Utrecht",
+  "Herikerbergweg 32, 1101 CM Amsterdam",
+  "Jansbuitensingel 6-3, 6811 AA Arnhem",
+  "Nassaulaan 43A, 1404 CM Bussum",
+  "Schipholweg 55, 2316 ZL Leiden",
+  "Leeuwenveldseweg 14A, 1382 LX Weesp",
+  "Wiltonstraat 1, 3905 KW Veenendaal",
+]
+
 
   const getEmbedSrc = (address: string) =>
     `https://www.google.com/maps?q=${encodeURIComponent(address)}&output=embed`
@@ -214,6 +214,15 @@ useEffect(() => {
             </div>
             <div className="text-white/70">
               <p>Maandag t/m Zaterdag: 09:00 - 17:00</p>
+                <a href="https://maps.app.goo.gl/Rco8pjSQXkysri8B7" className="flex items-center mt-2 hover:text-[#a6e267]">
+                <Mail className="h-4 w-4 mr-2 text-[#a6e267]" />Locatie Rotterdam: Otto Reuchlin 1008 / 1146, 3072 MD Rotterdam
+              </a>
+                <a href="https://maps.app.goo.gl/FtTLvm2pWXQHxMtv5" className="flex items-center mt-2 hover:text-[#a6e267]">
+                <Mail className="h-4 w-4 mr-2 text-[#a6e267]" />Locatie Delft: Elektronicaweg 2, 2628 XG Delft
+              </a>
+                            <a href="mailto:info@multichoiceagency.nl" className="flex items-center mt-2 hover:text-[#a6e267]">
+                <Mail className="h-4 w-4 mr-2 text-[#a6e267]" />Voor algemene vragen: info@multichoiceagency.nl
+              </a>
               <a href="mailto:service@multichoiceagency.nl" className="flex items-center mt-2 hover:text-[#a6e267]">
                 <Mail className="h-4 w-4 mr-2 text-[#a6e267]" />Voor support: support@multichoiceagency.nl
               </a>
