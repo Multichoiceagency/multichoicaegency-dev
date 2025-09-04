@@ -40,7 +40,6 @@ import ServicesSection from "@/components/services-section"
 import AIAutomationSection from "@/components/ai-automation-section"
 import AutomationServices from "@/components/automation-services"
 import ReviewSection from "@/components/review-section"
-import CTASection from "@/components/cta-section"
 import HeroSection from "@/components/Hero-section"
 import WhyChooseMultichoice from "@/components/over-multichoiceagency"
 import TeamSection from "@/components/team-section"
@@ -86,10 +85,10 @@ export default function Home() {
       <main className="overflow-x-hidden">
         <HeroSection
           videoSrc="/partners/ui.mp4"
-          title="Jouw digitale verhaal, krachtig verteld."
+          title="Vraag vandaag nog een gratis strategiegesprek aan en ontdek hoe wij jouw site kunnen optimaliseren voor resultaat.”"
           description="Full-service digitale expertise in design, ontwikkeling & marketing – volledig afgestemd op jouw merkverhaal."
-          buttonText="Gratis Offerte"
-          buttonLink="/offerte-aanvragen"
+          buttonText="Plan gratis gesprek"
+          buttonLink="/gratis-adviesgesprek"
         />
         <ScrollTextFill />
         <ServicesSection />
@@ -98,7 +97,6 @@ export default function Home() {
         <TeamSection />
         <AIAutomationSection />
         <ReviewSection />
-        <CTASection />
         <Portfolio />
       </main>
     </>

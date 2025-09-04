@@ -454,7 +454,7 @@ Goals: ${formState.goals || "Niet opgegeven"}
   ]
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 bg-[#f5f9f5] relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 md:py-32 relative overflow-hidden">
       {/* Futuristic background elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Grid pattern */}
@@ -496,7 +496,7 @@ Goals: ${formState.goals || "Niet opgegeven"}
               <div className="mb-8">
                 <div className="inline-flex items-center px-3 py-1 rounded-full bg-[#2D4625]/10 text-[#2D4625] text-sm font-medium mb-4">
                   <Send className="h-4 w-4 mr-2" />
-                  <span>Gratis 1 uur adviesgesprek</span>
+                  <span>100% gratis en vrijblijvend</span>
                 </div>
                 <h2 className="text-3xl md:text-4xl font-medium text-[#0f2b3d] mb-4">Vraag een Gratis Adviesgesprek aan</h2>
                 <p className="text-gray-600">
@@ -587,8 +587,8 @@ Goals: ${formState.goals || "Niet opgegeven"}
               transition={{ duration: 0.7, delay: 0.2 }}
             >
               <div className="mb-8">
-                <h3 className="text-3xl font-medium text-[#0f2b3d] mb-6">Waarom kiezen voor Multichoiceagency?</h3>
-                <p className="text-gray-600 mb-8">
+                <h3 className="text-3xl font-medium text-white mb-6">Waarom kiezen voor Multichoiceagency?</h3>
+                <p className="text-white mb-8">
                   Als full-service digitaal bureau bieden wij complete oplossingen voor uw online aanwezigheid. Van
                   website ontwikkeling tot digitale marketing, wij zorgen voor resultaten die uw verwachtingen
                   overtreffen.
@@ -634,7 +634,7 @@ Goals: ${formState.goals || "Niet opgegeven"}
                     initial={{ opacity: 0, y: 20 }}
                     animate={isVisible ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.5, delay: 0.8 + index * 0.1 }}
-                    className="bg-[#2D4625]/5 rounded-xl p-4 text-center hover:bg-[#2D4625]/10 transition-colors duration-300"
+                    className="bg-white rounded-xl p-4 text-center hover:bg-[#2D4625]/10 transition-colors duration-300"
                   >
                     <div className="text-2xl md:text-3xl font-bold text-[#2D4625]">{stat.number}</div>
                     <div className="text-sm text-gray-600">{stat.label}</div>

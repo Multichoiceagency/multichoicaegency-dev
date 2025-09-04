@@ -6,6 +6,7 @@ import { ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
+import CTASection from "./cta-section"
 
 // Extend the Window interface to include openGoogleCalendarModal
 declare global {
@@ -230,11 +231,11 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
               </Button>
             </Link>
 
-            <Link href="/diensten" passHref>
+            <Link href="/cases" passHref>
               <Button
               className="bg-green-600 backdrop-blur-sm hover:bg-white/30 text-white border-0 rounded-md px-6 py-6 text-base font-medium flex items-center whitespace-nowrap"
               >
-              <span>Onze diensten</span>
+              <span>Bekijk projecten</span>
               <ArrowRight className="ml-2 h-5 w-5" />
               </Button>
             </Link>
@@ -242,6 +243,9 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
         </div>
 
         {/* Showcase video */}
+        <CTASection /> 
+        <h3 className="text-white/90 text-lg font-bold uppercase text-center drop-shadow-sm">Bekijk wat we hebben gebouwd</h3>
+        <p className="text-gray-300 text-sm text-center pb-8">Bekijk hoe wij andere ondernemers al hebben geholpen met websites die converteren</p>
         <div
           className={`relative w-full max-w-full transform transition-all duration-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
@@ -264,7 +268,8 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
 
         {/* Partner logos */}
         <div className="mt-16 mb-4 text-center">
-          <h3 className="text-white/90 text-lg font-bold uppercase drop-shadow-sm">onze tevreden partners</h3>
+          <h3 className="text-white/90 text-lg font-bold uppercase drop-shadow-sm">Onze partners</h3>
+          <p className="text-gray-300 text-sm">Bedrijven die ons vertrouwen voor hun digitale groei</p>
         </div>
 
         {/* Naadloze marquee */}
