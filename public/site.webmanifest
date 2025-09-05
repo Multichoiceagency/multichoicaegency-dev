@@ -1,0 +1,24 @@
+{
+  "name": "Multichoiceagency",
+  "short_name": "MCA",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#416235",
+  "description": "Multichoiceagency ontwikkelt custom frontend- en backend-systemen die perfect aansluiten op uw bedrijfsprocessen. Van geavanceerde WordPress-websites tot volledig op maat gemaakte applicaties — wij combineren technologie met doordacht design voor maximale impact.",
+  "icons": [
+    {
+      "src": "/web-app-manifest-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/web-app-manifest-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

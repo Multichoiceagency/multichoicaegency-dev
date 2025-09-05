@@ -43,6 +43,7 @@ import ReviewSection from "@/components/review-section"
 import HeroSection from "@/components/Hero-section"
 import WhyChooseMultichoice from "@/components/over-multichoiceagency"
 import TeamSection from "@/components/team-section"
+import ReelSection from "@/components/ReelSection"
 
 export default function Home() {
   return (
@@ -90,14 +91,15 @@ export default function Home() {
           buttonText="Plan gratis gesprek"
           buttonLink="/gratis-adviesgesprek"
         />
+        <ReelSection />
         <ScrollTextFill />
         <ServicesSection />
         <WhyChooseMultichoice />
         <AutomationServices />
         <TeamSection />
+        <Portfolio />
         <AIAutomationSection />
         <ReviewSection />
-        <Portfolio />
       </main>
     </>
   )

@@ -175,22 +175,26 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
   }, [logos.length])
 
   return (
-    <section ref={sectionRef} className="relative w-full min-h-screen bg-[#3F5F33] overflow-hidden z-10">
-      {/* Achtergrond video */}
-      <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
-        <div className={`transition-opacity duration-700 ${bgVideoLoaded ? "opacity-100" : "opacity-0"}`}>
-          <video
-            ref={bgVideoRef}
-            className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-            src="/video/bg-web.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            preload="auto"
-          />
-        </div>
-      </div>
+<section ref={sectionRef} className="relative w-full min-h-screen bg-[#3F5F33] overflow-hidden z-10">
+  {/* Achtergrond video */}
+  <div className="absolute inset-0 w-full h-full z-0 pointer-events-none">
+    {/* Donkere overlay */}
+    <div className="absolute inset-0 bg-green/30 z-10" />
+
+    {/* Video container */}
+    <div className={`transition-opacity duration-700 ${bgVideoLoaded ? "opacity-100" : "opacity-0"} z-0`}>
+      <video
+        ref={bgVideoRef}
+        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
+        src="/video/bg-web.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        preload="auto"
+      />
+    </div>
+  </div>
 
       <div className="max-w-[1200px] mx-auto px-4 py-48 md:pl-[5%] relative z-20">
       {/* Titel */}
@@ -255,7 +259,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
           <div className="rounded-lg overflow-hidden shadow-2xl relative">
             <video
               ref={videoRef}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-contain"
               src={videoSrc}
               autoPlay
               loop
@@ -273,7 +277,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
         </div>
 
         {/* Naadloze marquee */}
-        <div ref={marqueeRef} className="marquee-wrap relative overflow-hidden w-full py-6">
+        <div ref={marqueeRef} className="marquee-wrap bg-black/60 rounded-md relative overflow-hidden w-full py-6">
           <div
             ref={trackRef}
             className="marquee-track flex items-center w-max will-change-transform whitespace-nowrap gap-16"
@@ -307,7 +311,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
 
         {/* Features grid */}
         <div
-          className={`mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transform transition-all duration-500 ${
+          className={`mt-20 grid bg-green-700/50 px-7 py-4 rounded-xl grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 transform transition-all duration-500 ${
             isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
           }`}
           style={{ transitionDelay: "260ms" }}
@@ -347,7 +351,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
                 </div>
                 <h3 className="text-white font-bold drop-shadow-sm">{title}</h3>
               </div>
-              <p className="text-gray-400 text-sm">{desc}</p>
+              <p className="text-white text-sm">{desc}</p>
             </div>
           ))}
         </div>

@@ -454,7 +454,7 @@ Goals: ${formState.goals || "Niet opgegeven"}
   ]
 
   return (
-    <section ref={sectionRef} className="py-24 md:py-32 relative overflow-hidden">
+    <section ref={sectionRef} className="py-24 bg-white/40 rounded-xl md:py-32 relative overflow-hidden">
       {/* Futuristic background elements */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         {/* Grid pattern */}

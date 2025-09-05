@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { useState, useEffect, useRef } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { useTheme } from "next-themes"
-import { AnimatePresence, motion } from "framer-motion"
+import { useState, useEffect, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { useTheme } from "next-themes";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Briefcase,
   FolderOpen,
@@ -43,24 +43,23 @@ import {
   Lock,
   Headphones,
   HardDrive,
-} from "lucide-react"
-import type { LucideIcon } from "lucide-react"
+} from "lucide-react";
+import type { LucideIcon } from "lucide-react";
+import LanguageSwitcher from "./LanguageSwitcher";
 
-const languages = [
-  { code: "nl", label: "Nederlands" },
-]
+const languages = [{ code: "nl", label: "Nederlands" }];
 
 export interface NavItem {
-  href?: string
-  icon: LucideIcon
-  label: string
-  description?: string
-  subItems?: NavItem[]
-  ctaLabel?: string
-  ctaLink?: string
-  accentColor?: string
-  iconBgColor?: string
-  isExternal?: boolean
+  href?: string;
+  icon: LucideIcon;
+  label: string;
+  description?: string;
+  subItems?: NavItem[];
+  ctaLabel?: string;
+  ctaLink?: string;
+  accentColor?: string;
+  iconBgColor?: string;
+  isExternal?: boolean;
 }
 
 // Complete services structure based on diensten page
@@ -68,74 +67,191 @@ const dienstenSubItems: NavItem[] = [
   {
     label: "Webdevelopment & Platforms",
     icon: Code,
-    description: "High-performance websites, robuuste webshops, en maatwerk applicaties & portalen.",
+    description:
+      "High-performance websites, robuuste webshops, en maatwerk applicaties & portalen.",
     ctaLabel: "Alle Webdevelopment Diensten",
     ctaLink: "/webdevelopment",
     accentColor: "text-sky-600",
     iconBgColor: "bg-sky-100 dark:bg-sky-900",
     subItems: [
-      { label: "Custom Webdesign", href: "/webdevelopment/custom-webdesign", icon: Palette },
-      { label: "Website Laten Maken", href: "/webdevelopment/website-laten-maken", icon: Code },
-      { label: "Maatwerk Website", href: "/webdevelopment/maatwerk-website-laten-maken", icon: Settings },
-      { label: "Frontend Development", href: "/webdevelopment/frontend-development", icon: Code },
-      { label: "Backend Development", href: "/webdevelopment/backend-development", icon: Server },
-      { label: "App Development", href: "/webdevelopment/app-development", icon: Smartphone },
-      { label: "Webapplicaties", href: "/webdevelopment/webapplicaties", icon: Code },
-      { label: "E-commerce Oplossingen", href: "/webdevelopment/e-commerce", icon: ShoppingCart },
-      { label: "Headless E-commerce", href: "/webdevelopment/headless-ecommerce", icon: Database },
-      { label: "Shopify Webshop", href: "/webdevelopment/shopify-webshop-laten-maken", icon: ShoppingCart },
-      { label: "WooCommerce Webshop", href: "/webdevelopment/woocommerce-webshop-laten-maken", icon: ShoppingCart },
-      { label: "Portalen en Platformen", href: "/webdevelopment/portalen-en-platformen", icon: Building2 },
-      { label: "Dashboard Ontwikkeling", href: "/webdevelopment/dashboard-ontwikkeling", icon: BarChart },
+      {
+        label: "Custom Webdesign",
+        href: "/webdevelopment/custom-webdesign",
+        icon: Palette,
+      },
+      {
+        label: "Website Laten Maken",
+        href: "/webdevelopment/website-laten-maken",
+        icon: Code,
+      },
+      {
+        label: "Maatwerk Website",
+        href: "/webdevelopment/maatwerk-website-laten-maken",
+        icon: Settings,
+      },
+      {
+        label: "Frontend Development",
+        href: "/webdevelopment/frontend-development",
+        icon: Code,
+      },
+      {
+        label: "Backend Development",
+        href: "/webdevelopment/backend-development",
+        icon: Server,
+      },
+      {
+        label: "App Development",
+        href: "/webdevelopment/app-development",
+        icon: Smartphone,
+      },
+      {
+        label: "Webapplicaties",
+        href: "/webdevelopment/webapplicaties",
+        icon: Code,
+      },
+      {
+        label: "E-commerce Oplossingen",
+        href: "/webdevelopment/e-commerce",
+        icon: ShoppingCart,
+      },
+      {
+        label: "Headless E-commerce",
+        href: "/webdevelopment/headless-ecommerce",
+        icon: Database,
+      },
+      {
+        label: "Shopify Webshop",
+        href: "/webdevelopment/shopify-webshop-laten-maken",
+        icon: ShoppingCart,
+      },
+      {
+        label: "WooCommerce Webshop",
+        href: "/webdevelopment/woocommerce-webshop-laten-maken",
+        icon: ShoppingCart,
+      },
+      {
+        label: "Portalen en Platformen",
+        href: "/webdevelopment/portalen-en-platformen",
+        icon: Building2,
+      },
+      {
+        label: "Dashboard Ontwikkeling",
+        href: "/webdevelopment/dashboard-ontwikkeling",
+        icon: BarChart,
+      },
     ],
   },
   {
     label: "Hosting & Domein Services",
     icon: Globe,
-    description: "Betrouwbare hosting, domeinregistratie en technisch onderhoud voor jouw online aanwezigheid.",
+    description:
+      "Betrouwbare hosting, domeinregistratie en technisch onderhoud voor jouw online aanwezigheid.",
     ctaLabel: "Alle Hosting Diensten",
     ctaLink: "/hosting-domein-overzicht",
     accentColor: "text-gray-600",
     iconBgColor: "bg-gray-100 dark:bg-gray-800",
     subItems: [
-      { label: "Domeinnaam Kopen & Registratie", href: "/diensten/domeinnaam-kopen", icon: Globe },
-      { label: "Info Mail Adres Aanmaken", href: "/diensten/email-hosting", icon: MessageCircle },
-      { label: "WordPress Webhosting", href: "/diensten/wordpress-webhosting", icon: Server },
-      { label: "Performance Webhosting", href: "/diensten/performance-webhosting", icon: Zap },
-      { label: "WordPress Onderhoud", href: "/diensten/wordpress-onderhoud", icon: Settings },
+      {
+        label: "Domeinnaam Kopen & Registratie",
+        href: "/diensten/domeinnaam-kopen",
+        icon: Globe,
+      },
+      {
+        label: "Info Mail Adres Aanmaken",
+        href: "/diensten/email-hosting",
+        icon: MessageCircle,
+      },
+      {
+        label: "WordPress Webhosting",
+        href: "/diensten/wordpress-webhosting",
+        icon: Server,
+      },
+      {
+        label: "Performance Webhosting",
+        href: "/diensten/performance-webhosting",
+        icon: Zap,
+      },
+      {
+        label: "WordPress Onderhoud",
+        href: "/diensten/wordpress-onderhoud",
+        icon: Settings,
+      },
     ],
   },
   {
     label: "UX/UI Design",
     icon: Lightbulb,
-    description: "Van diepgaand gebruikersonderzoek tot interactieve prototypes en design systems.",
+    description:
+      "Van diepgaand gebruikersonderzoek tot interactieve prototypes en design systems.",
     ctaLabel: "Alle UX/UI Diensten",
     ctaLink: "/ux-ui-design-overzicht",
     accentColor: "text-amber-600",
     iconBgColor: "bg-amber-100 dark:bg-amber-900",
     subItems: [
-      { label: "Wat is UX/UI Design?", href: "/wat-is-ux-ui-design", icon: Lightbulb },
-      { label: "User Research & Persona's", href: "/ux-ui-design/user-research", icon: Users },
-      { label: "Wireframing & Prototyping", href: "/ux-ui-design/wireframing-prototyping", icon: FileText },
-      { label: "Responsief Webdesign", href: "/webdevelopment/responsief-webdesign", icon: Smartphone },
-      { label: "Mobile App Design", href: "/ux-ui-design/mobile-app-design", icon: Smartphone },
-      { label: "E-commerce UX Optimalisatie", href: "/ux-ui-design/ecommerce-ux", icon: ShoppingCart },
-      { label: "Usability Testing", href: "/ux-ui-design/usability-testing", icon: UserCheck },
-      { label: "Design System Ontwikkeling", href: "/ux-ui-design/design-systems", icon: Building2 },
-      { label: "Accessibility Audits", href: "/ux-ui-design/accessibility-audits", icon: Users },
+      {
+        label: "Wat is UX/UI Design?",
+        href: "/wat-is-ux-ui-design",
+        icon: Lightbulb,
+      },
+      {
+        label: "User Research & Persona's",
+        href: "/ux-ui-design/user-research",
+        icon: Users,
+      },
+      {
+        label: "Wireframing & Prototyping",
+        href: "/ux-ui-design/wireframing-prototyping",
+        icon: FileText,
+      },
+      {
+        label: "Responsief Webdesign",
+        href: "/webdevelopment/responsief-webdesign",
+        icon: Smartphone,
+      },
+      {
+        label: "Mobile App Design",
+        href: "/ux-ui-design/mobile-app-design",
+        icon: Smartphone,
+      },
+      {
+        label: "E-commerce UX Optimalisatie",
+        href: "/ux-ui-design/ecommerce-ux",
+        icon: ShoppingCart,
+      },
+      {
+        label: "Usability Testing",
+        href: "/ux-ui-design/usability-testing",
+        icon: UserCheck,
+      },
+      {
+        label: "Design System Ontwikkeling",
+        href: "/ux-ui-design/design-systems",
+        icon: Building2,
+      },
+      {
+        label: "Accessibility Audits",
+        href: "/ux-ui-design/accessibility-audits",
+        icon: Users,
+      },
     ],
   },
   {
     label: "Online Marketing & Groei",
     icon: BarChart,
-    description: "Vergroot je online zichtbaarheid en conversies met datagedreven marketing via EssMarketing.",
+    description:
+      "Vergroot je online zichtbaarheid en conversies met datagedreven marketing via EssMarketing.",
     ctaLabel: "Naar EssMarketing.nl",
     ctaLink: "https://www.essmarketing.nl/",
     accentColor: "text-emerald-600",
     iconBgColor: "bg-emerald-100 dark:bg-emerald-900",
     isExternal: true,
     subItems: [
-      { label: "SEO Specialist", href: "https://www.essmarketing.nl/seo-specialist", icon: Search, isExternal: true },
+      {
+        label: "SEO Specialist",
+        href: "https://www.essmarketing.nl/seo-specialist",
+        icon: Search,
+        isExternal: true,
+      },
       {
         label: "Google Ads Uitbesteden",
         href: "https://www.essmarketing.nl/google-ads-uitbesteden",
@@ -183,18 +299,39 @@ const dienstenSubItems: NavItem[] = [
   {
     label: "Strategie & Branding",
     icon: Compass,
-    description: "Van merkpositionering tot professionele content. Voor foto/video werken we samen met EssMedia.",
+    description:
+      "Van merkpositionering tot professionele content. Voor foto/video werken we samen met EssMedia.",
     ctaLabel: "Alle Strategie Diensten",
     ctaLink: "/diensten/strategie-en-branding-overzicht",
     accentColor: "text-purple-600",
     iconBgColor: "bg-purple-100 dark:bg-purple-900",
     subItems: [
-      { label: "Merkpositionering", href: "/diensten/merkpositionering", icon: Compass },
-      { label: "Merkidentiteit", href: "/diensten/merkidentiteit", icon: Palette },
-      { label: "Visuele Identiteit", href: "/diensten/visuele-identiteit", icon: Palette },
+      {
+        label: "Merkpositionering",
+        href: "/diensten/merkpositionering",
+        icon: Compass,
+      },
+      {
+        label: "Merkidentiteit",
+        href: "/diensten/merkidentiteit",
+        icon: Palette,
+      },
+      {
+        label: "Visuele Identiteit",
+        href: "/diensten/visuele-identiteit",
+        icon: Palette,
+      },
       { label: "Rebranding", href: "/diensten/rebranding", icon: ArrowRight },
-      { label: "Campagnes en Activatie", href: "/diensten/campagnes-en-activatie", icon: Zap },
-      { label: "Contentmarketing", href: "/diensten/contentmarketing", icon: FileText },
+      {
+        label: "Campagnes en Activatie",
+        href: "/diensten/campagnes-en-activatie",
+        icon: Zap,
+      },
+      {
+        label: "Contentmarketing",
+        href: "/diensten/contentmarketing",
+        icon: FileText,
+      },
       {
         label: "Bedrijfsvideo (EssMedia)",
         href: "https://www.essmedia.nl/bedrijfsvideo-laten-maken",
@@ -219,70 +356,162 @@ const dienstenSubItems: NavItem[] = [
         icon: Camera,
         isExternal: true,
       },
-      { label: "Drone Video & Foto (EssMedia)", href: "https://www.essmedia.nl/drone", icon: Camera, isExternal: true },
-      { label: "Animatievideo's (EssMedia)", href: "https://www.essmedia.nl/animatie", icon: Video, isExternal: true },
+      {
+        label: "Drone Video & Foto (EssMedia)",
+        href: "https://www.essmedia.nl/drone",
+        icon: Camera,
+        isExternal: true,
+      },
+      {
+        label: "Animatievideo's (EssMedia)",
+        href: "https://www.essmedia.nl/animatie",
+        icon: Video,
+        isExternal: true,
+      },
     ],
   },
   {
     label: "AI & Generatieve Oplossingen",
     icon: Sparkles,
-    description: "Benut de kracht van AI. Van slimme chatbots tot content generatie en voorspellende analyses.",
+    description:
+      "Benut de kracht van AI. Van slimme chatbots tot content generatie en voorspellende analyses.",
     ctaLabel: "Alle AI Oplossingen",
     ctaLink: "/ai-oplossingen",
     accentColor: "text-teal-600",
     iconBgColor: "bg-teal-100 dark:bg-teal-900",
     subItems: [
-      { label: "AI Chatbots & Conversational AI", href: "/ai-oplossingen/chatbots", icon: MessageCircle },
-      { label: "AI VoIP & Klantenservice", href: "/ai-oplossingen/voip-klantenservice", icon: Headphones },
-      { label: "AI Content Generatie", href: "/ai-oplossingen/content-creatie", icon: Sparkles },
-      { label: "AI Data Analyse", href: "/ai-oplossingen/data-analyse", icon: BarChart },
-      { label: "Custom AI Modellen", href: "/ai-oplossingen/custom-ai-modellen", icon: Settings },
-      { label: "AI Strategie", href: "/ai-oplossingen/strategie", icon: Compass },
+      {
+        label: "AI Chatbots & Conversational AI",
+        href: "/ai-oplossingen/chatbots",
+        icon: MessageCircle,
+      },
+      {
+        label: "AI VoIP & Klantenservice",
+        href: "/ai-oplossingen/voip-klantenservice",
+        icon: Headphones,
+      },
+      {
+        label: "AI Content Generatie",
+        href: "/ai-oplossingen/content-creatie",
+        icon: Sparkles,
+      },
+      {
+        label: "AI Data Analyse",
+        href: "/ai-oplossingen/data-analyse",
+        icon: BarChart,
+      },
+      {
+        label: "Custom AI Modellen",
+        href: "/ai-oplossingen/custom-ai-modellen",
+        icon: Settings,
+      },
+      {
+        label: "AI Strategie",
+        href: "/ai-oplossingen/strategie",
+        icon: Compass,
+      },
     ],
   },
   {
     label: "Data & Procesautomatisering",
     icon: Database,
-    description: "Transformeer data in waardevolle inzichten en automatiseer bedrijfsprocessen.",
+    description:
+      "Transformeer data in waardevolle inzichten en automatiseer bedrijfsprocessen.",
     ctaLabel: "Alle Data & Automatisering",
     ctaLink: "/data-en-automatisering-overzicht",
     accentColor: "text-rose-600",
     iconBgColor: "bg-rose-100 dark:bg-rose-900",
     subItems: [
-      { label: "Marketing Automatisering", href: "/marketing-automatisering", icon: BarChart },
-      { label: "Bedrijfsproces Automatisering", href: "/automatisering/rpa", icon: Settings },
-      { label: "Workflow Optimalisatie", href: "/automatisering/workflow", icon: ArrowRight },
+      {
+        label: "Marketing Automatisering",
+        href: "/marketing-automatisering",
+        icon: BarChart,
+      },
+      {
+        label: "Bedrijfsproces Automatisering",
+        href: "/automatisering/rpa",
+        icon: Settings,
+      },
+      {
+        label: "Workflow Optimalisatie",
+        href: "/automatisering/workflow",
+        icon: ArrowRight,
+      },
       { label: "CRM Automatisering", href: "/automatisering/crm", icon: Users },
-      { label: "Data Pipeline Ontwikkeling", href: "/automatisering/data-pipelines", icon: Database },
-      { label: "Business Intelligence", href: "/data-inzichten/dashboards", icon: BarChart },
+      {
+        label: "Data Pipeline Ontwikkeling",
+        href: "/automatisering/data-pipelines",
+        icon: Database,
+      },
+      {
+        label: "Business Intelligence",
+        href: "/data-inzichten/dashboards",
+        icon: BarChart,
+      },
     ],
   },
   {
     label: "ICT & Cloud Diensten",
     icon: ShieldCheck,
-    description: "Betrouwbare ICT-oplossingen via onze partner EssICT. Van systeembeheer tot cloud en security.",
+    description:
+      "Betrouwbare ICT-oplossingen via onze partner EssICT. Van systeembeheer tot cloud en security.",
     ctaLabel: "Naar EssICT.nl",
     ctaLink: "https://www.essict.nl/",
     accentColor: "text-blue-600",
     iconBgColor: "bg-blue-100 dark:bg-blue-900",
     isExternal: true,
     subItems: [
-      { label: "VoIP Telefonie", href: "https://www.essict.nl/voip", icon: Headphones, isExternal: true },
-      { label: "Systeembeheer", href: "https://www.essict.nl/systeembeheer", icon: Server, isExternal: true },
-      { label: "Werkplekbeheer", href: "https://www.essict.nl/werkplekbeheer", icon: Users, isExternal: true },
-      { label: "ICT Beveiliging", href: "https://www.essict.nl/ict-beveiliging", icon: Lock, isExternal: true },
-      { label: "Office 365 Beheer", href: "https://www.essict.nl/office-365", icon: Cloud, isExternal: true },
+      {
+        label: "VoIP Telefonie",
+        href: "https://www.essict.nl/voip",
+        icon: Headphones,
+        isExternal: true,
+      },
+      {
+        label: "Systeembeheer",
+        href: "https://www.essict.nl/systeembeheer",
+        icon: Server,
+        isExternal: true,
+      },
+      {
+        label: "Werkplekbeheer",
+        href: "https://www.essict.nl/werkplekbeheer",
+        icon: Users,
+        isExternal: true,
+      },
+      {
+        label: "ICT Beveiliging",
+        href: "https://www.essict.nl/ict-beveiliging",
+        icon: Lock,
+        isExternal: true,
+      },
+      {
+        label: "Office 365 Beheer",
+        href: "https://www.essict.nl/office-365",
+        icon: Cloud,
+        isExternal: true,
+      },
       {
         label: "Security Awareness",
         href: "https://www.essict.nl/security-awareness",
         icon: ShieldCheck,
         isExternal: true,
       },
-      { label: "ICT Support", href: "https://www.essict.nl/support", icon: Headphones, isExternal: true },
-      { label: "Algemene ICT Diensten", href: "https://www.essict.nl/", icon: HardDrive, isExternal: true },
+      {
+        label: "ICT Support",
+        href: "https://www.essict.nl/support",
+        icon: Headphones,
+        isExternal: true,
+      },
+      {
+        label: "Algemene ICT Diensten",
+        href: "https://www.essict.nl/",
+        icon: HardDrive,
+        isExternal: true,
+      },
     ],
   },
-]
+];
 
 const baseNavItems: NavItem[] = [
   {
@@ -290,185 +519,210 @@ const baseNavItems: NavItem[] = [
     icon: Briefcase,
     subItems: dienstenSubItems,
   },
-    { href: "/over-ons", icon: Users, label: "Over Ons" },
+  { href: "/over-ons", icon: Users, label: "Over Ons" },
   { href: "/cases", icon: FolderOpen, label: "Cases" },
-    { href: "/webdevelopment/e-commerce", icon: Lightbulb, label: "Ecommerce" },
-  { href: "/webdevelopment/website-laten-maken", icon: Users, label: "Websites" },
-      { href: "/diensten", icon: Lightbulb, label: "AI" },
-      { href: "https://www.essict.nl", icon: Lightbulb, label: "ICT" },
-      { href: "https://www.essmarketing.nl/", icon: Lightbulb, label: "Marketing" },
-      { href: "https://www.essmedia.nl", icon: Lightbulb, label: "Content" },
+  { href: "/webdevelopment/e-commerce", icon: Lightbulb, label: "Ecommerce" },
+  {
+    href: "/webdevelopment/website-laten-maken",
+    icon: Users,
+    label: "Websites",
+  },
+  { href: "/diensten", icon: Lightbulb, label: "AI" },
+  { href: "https://www.essict.nl", icon: Lightbulb, label: "ICT" },
+  { href: "https://www.essmarketing.nl/", icon: Lightbulb, label: "Marketing" },
+  { href: "https://www.essmedia.nl", icon: Lightbulb, label: "Content" },
   { href: "/vacatures", icon: Building2, label: "Werken Bij" },
-]
+];
 
 export function Header() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
-  const [isLanguageOpen, setIsLanguageOpen] = useState(false)
-  const [language, setLanguage] = useState("nl")
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  const [showBanner, setShowBanner] = useState(true)
-  const [bannerHeight, setBannerHeight] = useState(0)
-  const bannerRef = useRef<HTMLDivElement>(null)
-  const headerRef = useRef<HTMLDivElement>(null)
-  const languageMenuRef = useRef<HTMLDivElement>(null)
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+  const [language, setLanguage] = useState("nl");
+  const { theme, setTheme } = useTheme();
+  const [mounted, setMounted] = useState(false);
+  const [showBanner, setShowBanner] = useState(true);
+  const [bannerHeight, setBannerHeight] = useState(0);
+  const bannerRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const languageMenuRef = useRef<HTMLDivElement>(null);
 
-  const [mobileMenuStack, setMobileMenuStack] = useState<NavItem[][]>([baseNavItems])
-  const [menuTitlesStack, setMenuTitlesStack] = useState<string[]>(["Menu"])
-  const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(false)
-  const [sidebarMenuStack, setSidebarMenuStack] = useState<NavItem[][]>([dienstenSubItems])
-  const [sidebarTitlesStack, setSidebarTitlesStack] = useState<string[]>(["Diensten"])
-  const [headerVisible, setHeaderVisible] = useState(true)
-  const [headerBgVisible, setHeaderBgVisible] = useState(false)
-  const [lastScrollY, setLastScrollY] = useState(0)
+  const [mobileMenuStack, setMobileMenuStack] = useState<NavItem[][]>([
+    baseNavItems,
+  ]);
+  const [menuTitlesStack, setMenuTitlesStack] = useState<string[]>(["Menu"]);
+  const [isSidebarMenuOpen, setIsSidebarMenuOpen] = useState(false);
+  const [sidebarMenuStack, setSidebarMenuStack] = useState<NavItem[][]>([
+    dienstenSubItems,
+  ]);
+  const [sidebarTitlesStack, setSidebarTitlesStack] = useState<string[]>([
+    "Diensten",
+  ]);
+  const [headerVisible, setHeaderVisible] = useState(true);
+  const [headerBgVisible, setHeaderBgVisible] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
 
-  const currentMobileMenuItems = mobileMenuStack[mobileMenuStack.length - 1]
-  const currentMenuTitle = menuTitlesStack[menuTitlesStack.length - 1]
-  const currentSidebarMenuItems = sidebarMenuStack[sidebarMenuStack.length - 1]
-  const currentSidebarTitle = sidebarTitlesStack[sidebarTitlesStack.length - 1]
+  const currentMobileMenuItems = mobileMenuStack[mobileMenuStack.length - 1];
+  const currentMenuTitle = menuTitlesStack[menuTitlesStack.length - 1];
+  const currentSidebarMenuItems = sidebarMenuStack[sidebarMenuStack.length - 1];
+  const currentSidebarTitle = sidebarTitlesStack[sidebarTitlesStack.length - 1];
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
-      if (isMobileMenuOpen || isSidebarMenuOpen) return
+      if (isMobileMenuOpen || isSidebarMenuOpen) return;
 
-      const currentScrollY = window.scrollY
-      const localBannerHeight = bannerRef.current ? bannerRef.current.offsetHeight : 0
-      const scrollThreshold = localBannerHeight > 0 ? localBannerHeight + 10 : 10
-      const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 80
+      const currentScrollY = window.scrollY;
+      const localBannerHeight = bannerRef.current
+        ? bannerRef.current.offsetHeight
+        : 0;
+      const scrollThreshold =
+        localBannerHeight > 0 ? localBannerHeight + 10 : 10;
+      const headerHeight = headerRef.current
+        ? headerRef.current.offsetHeight
+        : 80;
 
       if (currentScrollY <= scrollThreshold) {
-        setHeaderVisible(true)
-        setHeaderBgVisible(false)
+        setHeaderVisible(true);
+        setHeaderBgVisible(false);
       } else if (currentScrollY > lastScrollY) {
-        setHeaderVisible(false)
-        setIsSidebarMenuOpen(false)
-        setHeaderBgVisible(true)
+        setHeaderVisible(false);
+        setIsSidebarMenuOpen(false);
+        setHeaderBgVisible(true);
       } else {
-        setHeaderVisible(true)
-        setHeaderBgVisible(true)
+        setHeaderVisible(true);
+        setHeaderBgVisible(true);
       }
 
       if (currentScrollY > headerHeight + localBannerHeight) {
-        if (headerVisible) setHeaderBgVisible(true)
+        if (headerVisible) setHeaderBgVisible(true);
       } else if (currentScrollY <= scrollThreshold) {
-        setHeaderBgVisible(false)
+        setHeaderBgVisible(false);
       }
 
-      setLastScrollY(currentScrollY < 0 ? 0 : currentScrollY)
-    }
+      setLastScrollY(currentScrollY < 0 ? 0 : currentScrollY);
+    };
 
-    window.addEventListener("scroll", handleScroll, { passive: true })
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [lastScrollY, isMobileMenuOpen, isSidebarMenuOpen, bannerHeight, headerVisible, headerBgVisible])
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [
+    lastScrollY,
+    isMobileMenuOpen,
+    isSidebarMenuOpen,
+    bannerHeight,
+    headerVisible,
+    headerBgVisible,
+  ]);
 
   useEffect(() => {
     if (bannerRef.current && showBanner) {
       const resizeObserver = new ResizeObserver((entries) => {
         for (const entry of entries) {
-          setBannerHeight(entry.contentRect.height)
+          setBannerHeight(entry.contentRect.height);
         }
-      })
-      resizeObserver.observe(bannerRef.current)
+      });
+      resizeObserver.observe(bannerRef.current);
       return () => {
-        resizeObserver.disconnect()
-      }
+        resizeObserver.disconnect();
+      };
     } else if (!showBanner) {
-      setBannerHeight(0)
+      setBannerHeight(0);
     }
-  }, [showBanner])
+  }, [showBanner]);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (languageMenuRef.current && !languageMenuRef.current.contains(event.target as Node)) {
-        setIsLanguageOpen(false)
+      if (
+        languageMenuRef.current &&
+        !languageMenuRef.current.contains(event.target as Node)
+      ) {
+        setIsLanguageOpen(false);
       }
-    }
-    document.addEventListener("mousedown", handleClickOutside)
+    };
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener("mousedown", handleClickOutside)
-    }
-  }, [])
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   useEffect(() => {
     if (isMobileMenuOpen || isSidebarMenuOpen) {
-      document.body.style.overflow = "hidden"
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""
+      document.body.style.overflow = "";
     }
     return () => {
-      document.body.style.overflow = ""
-    }
-  }, [isMobileMenuOpen, isSidebarMenuOpen])
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen, isSidebarMenuOpen]);
 
   useEffect(() => {
     if (!isMobileMenuOpen) {
       const timer = setTimeout(() => {
-        setMobileMenuStack([baseNavItems])
-        setMenuTitlesStack(["Menu"])
-      }, 300)
-      return () => clearTimeout(timer)
+        setMobileMenuStack([baseNavItems]);
+        setMenuTitlesStack(["Menu"]);
+      }, 300);
+      return () => clearTimeout(timer);
     }
-  }, [isMobileMenuOpen])
+  }, [isMobileMenuOpen]);
 
   useEffect(() => {
     if (!isSidebarMenuOpen) {
       const timer = setTimeout(() => {
-        setSidebarMenuStack([dienstenSubItems])
-        setSidebarTitlesStack(["Diensten"])
-      }, 300)
-      return () => clearTimeout(timer)
+        setSidebarMenuStack([dienstenSubItems]);
+        setSidebarTitlesStack(["Diensten"]);
+      }, 300);
+      return () => clearTimeout(timer);
     }
-  }, [isSidebarMenuOpen])
+  }, [isSidebarMenuOpen]);
 
   const toggleTheme = () => {
-    setTheme(theme === "dark" ? "light" : "dark")
-  }
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   const changeLanguage = (code: string) => {
-    setLanguage(code)
-    setIsLanguageOpen(false)
-  }
+    setLanguage(code);
+    setIsLanguageOpen(false);
+  };
 
   const handleMobileNavItemClick = (item: NavItem) => {
     if (item.subItems && item.subItems.length > 0) {
-      setMobileMenuStack([...mobileMenuStack, item.subItems])
-      setMenuTitlesStack([...menuTitlesStack, item.label])
+      setMobileMenuStack([...mobileMenuStack, item.subItems]);
+      setMenuTitlesStack([...menuTitlesStack, item.label]);
     }
-  }
+  };
 
   const handleMobileMenuBack = () => {
     if (mobileMenuStack.length > 1) {
-      setMobileMenuStack((prev) => prev.slice(0, -1))
-      setMenuTitlesStack((prev) => prev.slice(0, -1))
+      setMobileMenuStack((prev) => prev.slice(0, -1));
+      setMenuTitlesStack((prev) => prev.slice(0, -1));
     }
-  }
+  };
 
   const handleSidebarNavItemClick = (item: NavItem) => {
     if (item.subItems && item.subItems.length > 0) {
-      setSidebarMenuStack([...sidebarMenuStack, item.subItems])
-      setSidebarTitlesStack([...sidebarTitlesStack, item.label])
+      setSidebarMenuStack([...sidebarMenuStack, item.subItems]);
+      setSidebarTitlesStack([...sidebarTitlesStack, item.label]);
     } else if (item.href) {
-      window.open(item.href, item.isExternal ? "_blank" : "_self")
-      setIsSidebarMenuOpen(false)
+      window.open(item.href, item.isExternal ? "_blank" : "_self");
+      setIsSidebarMenuOpen(false);
     }
-  }
+  };
 
   const handleSidebarMenuBack = () => {
     if (sidebarMenuStack.length > 1) {
-      setSidebarMenuStack((prev) => prev.slice(0, -1))
-      setSidebarTitlesStack((prev) => prev.slice(0, -1))
+      setSidebarMenuStack((prev) => prev.slice(0, -1));
+      setSidebarTitlesStack((prev) => prev.slice(0, -1));
     }
-  }
+  };
 
-  if (!mounted) return null
+  if (!mounted) return null;
 
-  const headerBaseColor = "bg-black"
-  const headerTextColor = "text-white"
-  const headerHoverColor = "hover:text-gray-300"
+  const headerBaseColor = "bg-black";
+  const headerTextColor = "text-white";
+  const headerHoverColor = "hover:text-gray-300";
 
   return (
     <>
@@ -485,7 +739,10 @@ export function Header() {
               <div className="w-screen mx-auto px-4 sm:px-6 lg:px-8 py-2">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <span className="text-sm font-medium">Nu 1 maand Gratis SEO en 10% korting op aanschaf willekeurige dienst</span>
+                    <span className="text-sm font-medium">
+                      Plan direct jouw gratis strategiegesprek en ontdek hoe wij
+                      meer bezoekers én klanten voor je realiseren.
+                    </span>
                     <Link
                       href="/diensten"
                       className="ml-3 inline-flex items-end text-sm font-medium text-white hover:text-white/90"
@@ -510,7 +767,9 @@ export function Header() {
 
         <motion.div
           ref={headerRef}
-          className={`w-full transition-colors duration-300 ${headerBgVisible ? headerBaseColor + " shadow-lg" : "bg-transparent"}`}
+          className={`w-full transition-colors duration-300 ${
+            headerBgVisible ? headerBaseColor + " shadow-lg" : "bg-transparent"
+          }`}
           initial={{ y: 0, opacity: 1 }}
           animate={{
             y: headerVisible ? 0 : "-100%",
@@ -558,41 +817,7 @@ export function Header() {
 
               <div className="hidden md:flex items-center space-x-6">
                 <div className="relative" ref={languageMenuRef}>
-                  <button
-                    onClick={() => setIsLanguageOpen(!isLanguageOpen)}
-                    className={`flex items-center ${headerTextColor} ${headerHoverColor} transition-colors`}
-                  >
-                    <Globe className="w-5 h-5" />
-                    <span className="ml-1 text-sm">{language.toUpperCase()}</span>
-                  </button>
-                  <AnimatePresence>
-                    {isLanguageOpen && (
-                      <motion.div
-                        initial={{ opacity: 0, y: 10, scale: 0.95 }}
-                        animate={{ opacity: 1, y: 0, scale: 1 }}
-                        exit={{ opacity: 0, y: 10, scale: 0.95 }}
-                        transition={{ duration: 0.2 }}
-                        className="absolute right-0 mt-2 w-40 bg-white dark:bg-gray-800 rounded-md shadow-lg py-1 z-[60] border border-gray-200 dark:border-gray-700"
-                      >
-                        {languages.map((lang) => (
-                          <motion.button
-                            key={lang.code}
-                            onClick={() => changeLanguage(lang.code)}
-                            whileHover={{
-                              backgroundColor: theme === "dark" ? "rgba(75, 85, 99, 0.3)" : "rgba(243, 244, 246, 0.7)",
-                            }}
-                            className={`block w-full text-left px-4 py-2 text-sm ${
-                              language === lang.code
-                                ? "text-[#3a582f] dark:text-[#4a6e3d] font-medium"
-                                : "text-gray-700 dark:text-gray-300"
-                            }`}
-                          >
-                            {lang.label}
-                          </motion.button>
-                        ))}
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
+                  <LanguageSwitcher/>
                 </div>
 
                 <motion.button
@@ -602,10 +827,17 @@ export function Header() {
                   whileHover={{ scale: 1.1, rotate: 15 }}
                   whileTap={{ scale: 0.9 }}
                 >
-                  {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                  {theme === "dark" ? (
+                    <Sun className="w-5 h-5" />
+                  ) : (
+                    <Moon className="w-5 h-5" />
+                  )}
                 </motion.button>
 
-                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
                   <Link
                     href="/contact"
                     className="bg-[#3a582f] hover:bg-[#2d4625] text-white px-5 py-2.5 rounded-md text-sm font-medium transition-colors shadow-md hover:shadow-lg"
@@ -621,7 +853,11 @@ export function Header() {
                   className={`${headerTextColor} ${headerHoverColor} mr-4 transition-colors`}
                   aria-label="Thema wisselen"
                 >
-                  {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+                  {theme === "dark" ? (
+                    <Sun className="w-5 h-5" />
+                  ) : (
+                    <Moon className="w-5 h-5" />
+                  )}
                 </motion.button>
                 <motion.button
                   onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -629,7 +865,11 @@ export function Header() {
                   aria-expanded={isMobileMenuOpen}
                 >
                   <span className="sr-only">Hoofdmenu openen</span>
-                  {isMobileMenuOpen ? <X className="block h-6 w-6" /> : <Menu className="block h-6 w-6" />}
+                  {isMobileMenuOpen ? (
+                    <X className="block h-6 w-6" />
+                  ) : (
+                    <Menu className="block h-6 w-6" />
+                  )}
                 </motion.button>
               </div>
             </div>
@@ -708,8 +948,17 @@ export function Header() {
                           exit="staggerExit"
                           variants={{
                             staggerHidden: { opacity: 0 },
-                            staggerVisible: { opacity: 1, transition: { staggerChildren: 0.07 } },
-                            staggerExit: { opacity: 0, transition: { staggerChildren: 0.05, staggerDirection: -1 } },
+                            staggerVisible: {
+                              opacity: 1,
+                              transition: { staggerChildren: 0.07 },
+                            },
+                            staggerExit: {
+                              opacity: 0,
+                              transition: {
+                                staggerChildren: 0.05,
+                                staggerDirection: -1,
+                              },
+                            },
                           }}
                         >
                           {currentMobileMenuItems.map((item, index) => (
@@ -718,7 +967,11 @@ export function Header() {
                               variants={{
                                 staggerHidden: { opacity: 0, y: 20 },
                                 staggerVisible: { opacity: 1, y: 0 },
-                                staggerExit: { opacity: 0, y: -10, transition: { duration: 0.15 } },
+                                staggerExit: {
+                                  opacity: 0,
+                                  y: -10,
+                                  transition: { duration: 0.15 },
+                                },
                               }}
                               className="w-full"
                             >
@@ -729,7 +982,9 @@ export function Header() {
                                 >
                                   <span className="flex items-center min-w-0 flex-1">
                                     <item.icon className="w-5 h-5 mr-3 flex-shrink-0" />
-                                    <span className="truncate">{item.label}</span>
+                                    <span className="truncate">
+                                      {item.label}
+                                    </span>
                                   </span>
                                   <ChevronRight className="w-5 h-5 ml-2 flex-shrink-0" />
                                 </button>
@@ -739,15 +994,25 @@ export function Header() {
                                   className="flex items-center text-white text-lg font-medium py-3 px-4 hover:bg-white/10 rounded-lg transition-colors w-full min-h-[60px]"
                                   onClick={() => {
                                     if (item.href) {
-                                      setIsMobileMenuOpen(false)
+                                      setIsMobileMenuOpen(false);
                                     }
                                   }}
-                                  target={item.isExternal ? "_blank" : undefined}
-                                  rel={item.isExternal ? "noopener noreferrer" : undefined}
+                                  target={
+                                    item.isExternal ? "_blank" : undefined
+                                  }
+                                  rel={
+                                    item.isExternal
+                                      ? "noopener noreferrer"
+                                      : undefined
+                                  }
                                 >
                                   <item.icon className="w-5 h-5 mr-3 flex-shrink-0" />
-                                  <span className="truncate flex-1">{item.label}</span>
-                                  {item.isExternal && <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />}
+                                  <span className="truncate flex-1">
+                                    {item.label}
+                                  </span>
+                                  {item.isExternal && (
+                                    <ArrowRight className="w-4 h-4 ml-2 flex-shrink-0" />
+                                  )}
                                 </Link>
                               )}
                             </motion.div>
@@ -767,7 +1032,11 @@ export function Header() {
                         <button
                           key={lang.code}
                           onClick={() => changeLanguage(lang.code)}
-                          className={`px-4 py-2 text-sm rounded-full border ${language === lang.code ? "bg-white text-[#3a582f] border-white" : "text-white border-white/30 hover:border-white hover:bg-white/10"} transition-colors`}
+                          className={`px-4 py-2 text-sm rounded-full border ${
+                            language === lang.code
+                              ? "bg-white text-[#3a582f] border-white"
+                              : "text-white border-white/30 hover:border-white hover:bg-white/10"
+                          } transition-colors`}
                         >
                           {lang.label}
                         </button>
@@ -882,11 +1151,12 @@ export function Header() {
                                   <span className="font-medium text-gray-900 dark:text-white group-hover:text-primary transition-colors duration-200 block truncate">
                                     {item.label}
                                   </span>
-                                  {item.description && sidebarMenuStack.length === 1 && (
-                                    <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
-                                      {item.description}
-                                    </p>
-                                  )}
+                                  {item.description &&
+                                    sidebarMenuStack.length === 1 && (
+                                      <p className="text-xs text-gray-500 dark:text-gray-400 mt-1 line-clamp-2">
+                                        {item.description}
+                                      </p>
+                                    )}
                                 </div>
                               </div>
                               <div className="flex-shrink-0 ml-2">
@@ -942,13 +1212,13 @@ export function Header() {
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
         }
-        
+
         /* Custom scrollbar for sidebar and mobile menu */
         .scrollbar-custom {
           scrollbar-width: thin;
           scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
         }
-        
+
         .scrollbar-custom::-webkit-scrollbar {
           width: 6px;
         }
@@ -962,7 +1232,7 @@ export function Header() {
         .scrollbar-custom::-webkit-scrollbar-thumb:hover {
           background: rgba(0, 0, 0, 0.3);
         }
-        
+
         /* Dark mode scrollbar */
         .dark .scrollbar-custom::-webkit-scrollbar-thumb {
           background: rgba(255, 255, 255, 0.2);
@@ -970,12 +1240,12 @@ export function Header() {
         .dark .scrollbar-custom::-webkit-scrollbar-thumb:hover {
           background: rgba(255, 255, 255, 0.3);
         }
-        
+
         /* Ensure smooth scrolling */
         .scrollbar-custom {
           scroll-behavior: smooth;
         }
-        
+
         /* Line clamp utility */
         .line-clamp-2 {
           display: -webkit-box;
@@ -983,7 +1253,7 @@ export function Header() {
           -webkit-box-orient: vertical;
           overflow: hidden;
         }
-        
+
         /* Prevent text overflow in navigation items */
         .nav-item-text {
           word-break: break-word;
@@ -991,5 +1261,5 @@ export function Header() {
         }
       `}</style>
     </>
-  )
+  );
 }
