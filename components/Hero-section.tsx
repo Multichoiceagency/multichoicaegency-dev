@@ -186,7 +186,7 @@ const HeroSection: React.FC<HeroSectionProps> = ({ videoSrc, title, description,
       <video
         ref={bgVideoRef}
         className="absolute inset-0 w-full h-full object-cover transition-opacity duration-300"
-        src="/video/bg-web.mp4"
+        src="/video/f6726cb6-39f43234.mp4"
         autoPlay
         loop
         muted
