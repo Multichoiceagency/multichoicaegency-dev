@@ -78,21 +78,69 @@ export default function InstallPrompt() {
   if (!visible) return null;
 
   return (
-    <div className="fixed inset-x-0 bottom-3 z-[1000] flex justify-center px-2 pointer-events-none">
-      <div className="pointer-events-auto max-w-[560px] w-full mx-auto rounded-2xl shadow-lg border border-black/10 bg-white/90 backdrop-blur px-4 py-3 flex items-center gap-3 dark:bg-zinc-900/90 dark:border-white/10">
+    // Mobiel: top zoals iPhone notificatie. >=md: onderaan zoals voorheen.
+    <div
+      className="
+        fixed inset-x-0 z-[1000] flex justify-center px-2 pointer-events-none
+        top-[calc(env(safe-area-inset-top,0px)+8px)] md:top-auto
+        md:bottom-3
+        transition-transform duration-300 ease-out
+      "
+      role="status"
+      aria-live="polite"
+    >
+      <div
+        className="
+          pointer-events-auto max-w-[560px] w-full mx-auto
+          rounded-2xl shadow-lg border border-black/10
+          bg-white/90 backdrop-blur px-4 py-3 flex items-center gap-3
+          dark:bg-zinc-900/90 dark:border-white/10
+          translate-y-0 md:translate-y-0
+        "
+        style={{
+          // kleine slide-in vanaf de top op mobiel zonder Tailwind keyframes
+          transform: 'translateY(0)',
+        }}
+      >
         <div className="shrink-0 h-8 w-8 rounded-lg overflow-hidden border border-black/10 dark:border-white/10">
-          <img src="/web-app-manifest-192x192.png" alt="" className="h-full w-full object-cover" loading="lazy" decoding="async" />
+          <img
+            src="/web-app-manifest-192x192.png"
+            alt=""
+            className="h-full w-full object-cover"
+            loading="lazy"
+            decoding="async"
+          />
         </div>
+
         <div className="min-w-0 flex-1">
           <p className="text-sm font-medium truncate">App installeren?</p>
-          <p className="text-xs text-zinc-600 dark:text-zinc-400 truncate">Snel opstarten en fullscreen ervaring.</p>
+          <p className="text-xs text-zinc-600 dark:text-zinc-400 truncate">
+            Snel opstarten en fullscreen ervaring.
+          </p>
         </div>
+
         {isIOS ? (
-          <button onClick={dismiss} className="text-xs text-zinc-700 dark:text-zinc-200 underline underline-offset-2">Oké</button>
+          // iOS: toon alleen "Oké" (instructies voor Add to Home gebeurt door browser)
+          <button
+            onClick={dismiss}
+            className="text-xs text-zinc-700 dark:text-zinc-200 underline underline-offset-2"
+          >
+            Oké
+          </button>
         ) : (
           <>
-            <button onClick={dismiss} className="text-xs px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700">Later</button>
-            <button onClick={install} className="text-xs px-3 py-1.5 rounded-lg bg-black text-white dark:bg-white dark:text-black">Installeren</button>
+            <button
+              onClick={dismiss}
+              className="text-xs px-3 py-1.5 rounded-lg border border-zinc-300 dark:border-zinc-700"
+            >
+              Later
+            </button>
+            <button
+              onClick={install}
+              className="text-xs px-3 py-1.5 rounded-lg bg-black text-white dark:bg-white dark:text-black"
+            >
+              Installeren
+            </button>
           </>
         )}
       </div>
