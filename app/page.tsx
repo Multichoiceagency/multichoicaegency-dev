@@ -44,6 +44,7 @@ import HeroSection from "@/components/Hero-section"
 import WhyChooseMultichoice from "@/components/over-multichoiceagency"
 import TeamSection from "@/components/team-section"
 import ReelSection from "@/components/ReelSection"
+import VideoReelsPackages from "@/components/VideoReels"
 
 export default function Home() {
   return (
@@ -92,6 +93,7 @@ export default function Home() {
           buttonLink="/gratis-adviesgesprek"
         />
         <ReelSection />
+        <VideoReelsPackages />
         <ScrollTextFill />
         <ServicesSection />
         <WhyChooseMultichoice />
